@@ -1,6 +1,5 @@
 @font-face {
-  font-family: "iconfont";
-  /* Project id  */
+  font-family: "iconfont"; /* Project id  */
   src: url('iconfont.ttf?t=1690010949622') format('truetype');
 }
 
@@ -31,3 +30,4 @@
 .icon-qq1:before {
   content: "\e60d";
 }
+
