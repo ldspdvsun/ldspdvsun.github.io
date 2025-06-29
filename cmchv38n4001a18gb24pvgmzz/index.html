@@ -1,0 +1,1330 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="keywords" content="Hexo Theme Redefine">
+    
+    <meta name="author" content="Sunmy">
+    <!-- preconnect -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    
+    <!--- Seo Part-->
+    
+    <link rel="canonical" href="https://ldspdvsun.github.io/cmchv38n4001a18gb24pvgmzz/"/>
+    <meta name="robots" content="index,follow">
+    <meta name="googlebot" content="index,follow">
+    <meta name="revisit-after" content="1 days">
+    
+    
+    
+        
+        <meta name="description" content="Sunmy&#96;s Blogs">
+<meta property="og:type" content="article">
+<meta property="og:title" content="MySql">
+<meta property="og:url" content="https://ldspdvsun.github.io/cmchv38n4001a18gb24pvgmzz/index.html">
+<meta property="og:site_name" content="Sunmy&#96;s Blogs">
+<meta property="og:description" content="Sunmy&#96;s Blogs">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://i.postimg.cc/MZ0wLRpF/wallhaven-exl88k.png">
+<meta property="article:published_time" content="2023-06-30T08:56:57.000Z">
+<meta property="article:modified_time" content="2025-06-29T13:05:24.277Z">
+<meta property="article:author" content="Sunmy">
+<meta property="article:tag" content="MySql">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://i.postimg.cc/MZ0wLRpF/wallhaven-exl88k.png">
+    
+    
+    <!--- Icon Part-->
+    <link rel="icon" type="image/png" href="https://avatars.githubusercontent.com/u/86214331?s=96&amp;v=4" sizes="192x192">
+    <link rel="apple-touch-icon" sizes="180x180" href="https://avatars.githubusercontent.com/u/86214331?s=96&amp;v=4">
+    <meta name="theme-color" content="#A31F34">
+    <link rel="shortcut icon" href="https://avatars.githubusercontent.com/u/86214331?s=96&v=4">
+    <!--- Page Info-->
+    
+    <title>
+        
+            MySql | Sunmy`s Blogs
+        
+    </title>
+
+    
+<link rel="stylesheet" href="/fonts/Chillax/chillax.css">
+
+
+    <!--- Inject Part-->
+    
+
+    
+<link rel="stylesheet" href="/css/style.css">
+
+
+    
+        
+<link rel="stylesheet" href="/css/build/tailwind.css">
+
+    
+
+    
+<link rel="stylesheet" href="/fonts/GeistMono/geist-mono.css">
+
+    
+<link rel="stylesheet" href="/fonts/Geist/geist.css">
+
+    <!--- Font Part-->
+    
+    
+    
+    
+    
+    
+        
+<script src="/js/build/libs/anime.min.js"></script>
+
+    
+
+    <script id="hexo-configurations">
+    window.config = {"hostname":"ldspdvsun.github.io","root":"/","language":"zh-CN","path":"search.json"};
+    window.theme = {"articles":{"style":{"font_size":"16px","line_height":1.5,"image_border_radius":"14px","image_alignment":"center","image_caption":false,"link_icon":true,"delete_mask":false,"title_alignment":"left","headings_top_spacing":{"h1":"5rem","h2":"4rem","h3":"2.8rem","h4":"2.5rem","h5":"2.2rem","h6":"2rem"}},"word_count":{"enable":true,"count":true,"min2read":true},"author_label":{"enable":true,"auto":false,"list":[]},"code_block":{"copy":true,"style":"mac","highlight_theme":{"light":"github","dark":"vs2015"},"font":{"enable":false,"family":null,"url":null}},"toc":{"enable":true,"max_depth":5,"number":false,"expand":true,"init_open":true},"copyright":{"enable":true,"default":"all_rights_reserved"},"lazyload":true,"pangu_js":false,"recommendation":{"enable":true,"title":"推荐阅读","limit":3,"mobile_limit":2,"placeholder":"https://i.postimg.cc/52qB9kNm/10.png","skip_dirs":[]}},"colors":{"primary":"#A31F34","secondary":null,"default_mode":"light"},"global":{"fonts":{"chinese":{"enable":false,"family":null,"url":null},"english":{"enable":false,"family":null,"url":null},"title":{"enable":false,"family":null,"url":null}},"content_max_width":"1000px","sidebar_width":"210px","hover":{"shadow":true,"scale":false},"scroll_progress":{"bar":false,"percentage":true},"website_counter":{"url":"https://cn.vercount.one/js","enable":true,"site_pv":true,"site_uv":true,"post_pv":true},"single_page":true,"preloader":{"enable":true,"custom_message":null},"open_graph":{"enable":true,"image":"https://i.postimg.cc/MZ0wLRpF/wallhaven-exl88k.png","description":"Sunmy`s Blogs"},"google_analytics":{"enable":false,"id":null}},"home_banner":{"enable":true,"style":"fixed","image":{"light":"https://i.postimg.cc/bJMg5v9g/0-8.png","dark":"https://i.postimg.cc/MZ0wLRpF/wallhaven-exl88k.png"},"title":"Sunmy`s Blogs","subtitle":{"text":["随心所欲地享受每一天\\(￣︶￣*\\))","随时随地，浏览记录O(∩_∩)O","如果喜欢，建议给个支持( •̀ ω •́ )✧","喜欢的话，留个言好嘛(oﾟvﾟ)ノ","欢迎来到我的博客(｡･∀･)ﾉﾞ","正在努力更新博客(ง •_•)ง","正在不断努力改善博客中ε=( o｀ω′)ノ","文字正在不断轮换(*￣3￣)╭","你有建议？反馈作者(●^◡^●)"],"hitokoto":{"enable":false,"show_author":false,"api":"https://v1.hitokoto.cn"},"typing_speed":100,"backing_speed":30,"starting_delay":500,"backing_delay":1500,"loop":true,"smart_backspace":true},"text_color":{"light":"#9f5221","dark":"#d1d1b6"},"text_style":{"title_size":"2.8rem","subtitle_size":"1.5rem","line_height":1.2},"custom_font":{"enable":false,"family":null,"url":null},"social_links":{"enable":true,"style":"default","links":{"github":"https://github.com/ldspdvsun","instagram":null,"zhihu":null,"twitter":null,"email":"skywalker0@qq.com"},"qrs":{"weixin":null}}},"plugins":{"feed":{"enable":false},"aplayer":{"enable":false,"type":"fixed","audios":[{"name":null,"artist":null,"url":null,"cover":null,"lrc":null}]},"mermaid":{"enable":false,"version":"11.4.1"}},"version":"2.8.2","navbar":{"auto_hide":false,"color":{"left":"#f78736","right":"#367df7","transparency":35},"width":{"home":"1600px","pages":"1000px"},"links":{"Home":{"path":"/","icon":"fa-regular fa-house"},"Archives":{"path":"/archives","icon":"fa-regular fa-archive"},"Tags":{"path":"/tags","icon":"fa-regular fa-tags"},"Categories":{"path":"/categories","icon":"fa-regular fa-list"},"ShuoShuo":{"icon":"fa-solid fa-comment-dots","path":"/shuoshuo"},"Links":{"icon":"fa-regular fa-link","submenus":{"Github":"https://github.com/ldspdvsun","Zhihu":"https://www.zhihu.com/people/ldspdvs"}}},"search":{"enable":true,"preload":true}},"page_templates":{"friends_column":2,"tags_style":"blur"},"home":{"sidebar":{"enable":true,"position":"left","first_item":"menu","announcement":"Be all you can be!","show_on_mobile":true,"links":{"Archives":{"path":"/archives","icon":"fa-regular fa-archive"},"Tags":{"path":"/tags","icon":"fa-regular fa-tags"},"Categories":{"path":"/categories","icon":"fa-regular fa-folder"}}},"article_date_format":"auto","excerpt_length":200,"categories":{"enable":true,"limit":3},"tags":{"enable":true,"limit":3}},"footerStart":"2023/6/1 00:00:00"};
+    window.lang_ago = {"second":"%s 秒前","minute":"%s 分钟前","hour":"%s 小时前","day":"%s 天前","week":"%s 周前","month":"%s 个月前","year":"%s 年前"};
+    window.data = {"masonry":false};
+  </script>
+    
+    <!--- Fontawesome Part-->
+    
+<link rel="stylesheet" href="/fontawesome/fontawesome.min.css">
+
+    
+<link rel="stylesheet" href="/fontawesome/brands.min.css">
+
+    
+<link rel="stylesheet" href="/fontawesome/solid.min.css">
+
+    
+<link rel="stylesheet" href="/fontawesome/regular.min.css">
+
+    
+    
+    
+    
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+
+
+<body>
+	<div class="progress-bar-container">
+	
+
+	
+	<span class="pjax-progress-bar"></span>
+	<!--        <span class="swup-progress-icon">-->
+	<!--            <i class="fa-solid fa-circle-notch fa-spin"></i>-->
+	<!--        </span>-->
+	
+</div>
+
+<style>
+    :root {
+        --preloader-background-color: #fff;
+        --preloader-text-color: #000;
+    }
+
+    @media (prefers-color-scheme: dark) {
+        :root {
+            --preloader-background-color: #202124;
+            --preloader-text-color: #fff;
+        }
+    }
+
+    @media (prefers-color-scheme: light) {
+        :root {
+            --preloader-background-color: #fff;
+            --preloader-text-color: #000;
+        }
+    }
+
+    @media (max-width: 600px) {
+        .ml13 {
+            font-size: 2.6rem !important; /* Adjust this value as needed */
+        }
+    }
+
+    .preloader {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem; /* Tailwind 'gap-4' is 1rem */
+        align-items: center;
+        justify-content: center;
+        position: fixed;
+        padding: 12px;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh; /* 'h-screen' is 100% of the viewport height */
+        background-color: var(--preloader-background-color);
+        z-index: 1100; /* 'z-[1100]' sets the z-index */
+        transition: opacity 0.2s ease-in-out;
+    }
+
+    .ml13 {
+        font-size: 3.2rem;
+        /* text-transform: uppercase; */
+        color: var(--preloader-text-color);
+        letter-spacing: -1px;
+        font-weight: 500;
+        font-family: 'Chillax-Variable', sans-serif;
+        text-align: center;
+    }
+
+    .ml13 .word {
+        display: inline-flex;
+        flex-wrap: wrap;
+        white-space: nowrap;
+    }
+
+    .ml13 .letter {
+        display: inline-block;
+        line-height: 1em;
+    }
+</style>
+
+<div class="preloader">
+    <h2 class="ml13">
+        Sunmy`s Blogs
+    </h2>
+    <script>
+        var textWrapper = document.querySelector('.ml13');
+        // Split text into words
+        var words = textWrapper.textContent.trim().split(' ');
+
+        // Clear the existing content
+        textWrapper.innerHTML = '';
+
+        // Wrap each word and its letters in spans
+        words.forEach(function(word) {
+            var wordSpan = document.createElement('span');
+            wordSpan.classList.add('word');
+            wordSpan.innerHTML = word.replace(/\S/g, "<span class='letter'>$&</span>");
+            textWrapper.appendChild(wordSpan);
+            textWrapper.appendChild(document.createTextNode(' ')); // Add space between words
+        });
+
+        var animation = anime.timeline({ loop: true })
+            .add({
+                targets: '.ml13 .letter',
+                translateY: [20, 0],
+                translateZ: 0,
+                opacity: [0, 1],
+                filter: ['blur(5px)', 'blur(0px)'],
+                easing: "easeOutExpo",
+                duration: 1200,
+                delay: (el, i) => 300 + 20 * i,
+            })
+            .add({
+                targets: '.ml13 .letter',
+                translateY: [0, -20],
+                opacity: [1, 0],
+                filter: ['blur(0px)', 'blur(5px)'],
+                easing: "easeInExpo",
+                duration: 1000,
+                delay: (el, i) => 15 * i,
+                complete: function() {
+                    hidePreloader();
+                }
+            }, '-=700');
+
+
+        let themeStatus = JSON.parse(localStorage.getItem('REDEFINE-THEME-STATUS'))?.isDark;
+
+        // If the theme status is not found in local storage, check the preferred color scheme
+        if (themeStatus === undefined || themeStatus === null) {
+            if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+                themeStatus = 'dark';
+            } else {
+                themeStatus = 'light';
+            }
+        }
+
+        // Now you can use the themeStatus variable in your code
+        if (themeStatus) {
+            document.documentElement.style.setProperty('--preloader-background-color', '#202124');
+            document.documentElement.style.setProperty('--preloader-text-color', '#fff');
+        } else {
+            document.documentElement.style.setProperty('--preloader-background-color', '#fff');
+            document.documentElement.style.setProperty('--preloader-text-color', '#000');
+        }
+
+        window.addEventListener('load', function () {
+            setTimeout(hidePreloader, 5000); // Call hidePreloader after 5000 milliseconds if not already called by animation
+        });
+
+        function hidePreloader() {
+            var preloader = document.querySelector('.preloader');
+            preloader.style.opacity = '0';
+            setTimeout(function () {
+                preloader.style.display = 'none';
+            }, 200);
+        }
+    </script>
+</div>
+
+<main class="page-container" id="swup">
+
+	
+
+	<div class="main-content-container flex flex-col justify-between min-h-dvh">
+		<div class="main-content-header">
+			<header class="navbar-container px-6 md:px-12">
+    <div class="navbar-content transition-navbar ">
+        <div class="left">
+            
+            <a class="logo-title" href="/">
+                
+                Sunmy`s Blogs
+                
+            </a>
+        </div>
+
+        <div class="right">
+            <!-- PC -->
+            <div class="desktop">
+                <ul class="navbar-list">
+                    
+                        
+                            
+
+                            <li class="navbar-item">
+                                <!-- Menu -->
+                                <a class=""
+                                   href="/"
+                                        >
+                                    <i class="fa-regular fa-house fa-fw"></i>
+                                    首页
+                                    
+                                </a>
+
+                                <!-- Submenu -->
+                                
+                            </li>
+                    
+                        
+                            
+
+                            <li class="navbar-item">
+                                <!-- Menu -->
+                                <a class=""
+                                   href="/archives"
+                                        >
+                                    <i class="fa-regular fa-archive fa-fw"></i>
+                                    归档
+                                    
+                                </a>
+
+                                <!-- Submenu -->
+                                
+                            </li>
+                    
+                        
+                            
+
+                            <li class="navbar-item">
+                                <!-- Menu -->
+                                <a class=""
+                                   href="/tags"
+                                        >
+                                    <i class="fa-regular fa-tags fa-fw"></i>
+                                    标签
+                                    
+                                </a>
+
+                                <!-- Submenu -->
+                                
+                            </li>
+                    
+                        
+                            
+
+                            <li class="navbar-item">
+                                <!-- Menu -->
+                                <a class=""
+                                   href="/categories"
+                                        >
+                                    <i class="fa-regular fa-list fa-fw"></i>
+                                    分类
+                                    
+                                </a>
+
+                                <!-- Submenu -->
+                                
+                            </li>
+                    
+                        
+                            
+
+                            <li class="navbar-item">
+                                <!-- Menu -->
+                                <a class=""
+                                   href="/shuoshuo"
+                                        >
+                                    <i class="fa-solid fa-comment-dots fa-fw"></i>
+                                    说说
+                                    
+                                </a>
+
+                                <!-- Submenu -->
+                                
+                            </li>
+                    
+                        
+                            
+
+                            <li class="navbar-item">
+                                <!-- Menu -->
+                                <a class="has-dropdown"
+                                   href="#"
+                                        onClick=&#34;return false;&#34;>
+                                    <i class="fa-regular fa-link fa-fw"></i>
+                                    链接
+                                    <i class="fa-solid fa-chevron-down fa-fw"></i>
+                                </a>
+
+                                <!-- Submenu -->
+                                
+                                    <ul class="sub-menu">
+                                        
+                                            <li>
+                                                <a target="_blank" rel="noopener" href="https://github.com/ldspdvsun">
+                                                    GITHUB
+                                                </a>
+                                            </li>
+                                        
+                                            <li>
+                                                <a target="_blank" rel="noopener" href="https://www.zhihu.com/people/ldspdvs">
+                                                    ZHIHU
+                                                </a>
+                                            </li>
+                                        
+                                    </ul>
+                                
+                            </li>
+                    
+                    
+                        <li class="navbar-item search search-popup-trigger">
+                            <i class="fa-solid fa-magnifying-glass"></i>
+                        </li>
+                    
+                </ul>
+            </div>
+            <!-- Mobile -->
+            <div class="mobile">
+                
+                    <div class="icon-item search search-popup-trigger"><i class="fa-solid fa-magnifying-glass"></i>
+                    </div>
+                
+                <div class="icon-item navbar-bar">
+                    <div class="navbar-bar-middle"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Mobile sheet -->
+    <div class="navbar-drawer h-dvh w-full absolute top-0 left-0 bg-background-color flex flex-col justify-between">
+        <ul class="drawer-navbar-list flex flex-col px-4 justify-center items-start">
+            
+                
+                    
+
+                    <li class="drawer-navbar-item text-base my-1.5 flex flex-col w-full">
+                        
+                        <a class="py-1.5 px-2 flex flex-row items-center justify-between gap-1 hover:!text-primary active:!text-primary text-2xl font-semibold group border-b border-border-color hover:border-primary w-full "
+                           href="/"
+                        >
+                            <span>
+                                首页
+                            </span>
+                            
+                                <i class="fa-regular fa-house fa-sm fa-fw"></i>
+                            
+                        </a>
+                        
+
+                        
+                    </li>
+            
+                
+                    
+
+                    <li class="drawer-navbar-item text-base my-1.5 flex flex-col w-full">
+                        
+                        <a class="py-1.5 px-2 flex flex-row items-center justify-between gap-1 hover:!text-primary active:!text-primary text-2xl font-semibold group border-b border-border-color hover:border-primary w-full "
+                           href="/archives"
+                        >
+                            <span>
+                                归档
+                            </span>
+                            
+                                <i class="fa-regular fa-archive fa-sm fa-fw"></i>
+                            
+                        </a>
+                        
+
+                        
+                    </li>
+            
+                
+                    
+
+                    <li class="drawer-navbar-item text-base my-1.5 flex flex-col w-full">
+                        
+                        <a class="py-1.5 px-2 flex flex-row items-center justify-between gap-1 hover:!text-primary active:!text-primary text-2xl font-semibold group border-b border-border-color hover:border-primary w-full "
+                           href="/tags"
+                        >
+                            <span>
+                                标签
+                            </span>
+                            
+                                <i class="fa-regular fa-tags fa-sm fa-fw"></i>
+                            
+                        </a>
+                        
+
+                        
+                    </li>
+            
+                
+                    
+
+                    <li class="drawer-navbar-item text-base my-1.5 flex flex-col w-full">
+                        
+                        <a class="py-1.5 px-2 flex flex-row items-center justify-between gap-1 hover:!text-primary active:!text-primary text-2xl font-semibold group border-b border-border-color hover:border-primary w-full "
+                           href="/categories"
+                        >
+                            <span>
+                                分类
+                            </span>
+                            
+                                <i class="fa-regular fa-list fa-sm fa-fw"></i>
+                            
+                        </a>
+                        
+
+                        
+                    </li>
+            
+                
+                    
+
+                    <li class="drawer-navbar-item text-base my-1.5 flex flex-col w-full">
+                        
+                        <a class="py-1.5 px-2 flex flex-row items-center justify-between gap-1 hover:!text-primary active:!text-primary text-2xl font-semibold group border-b border-border-color hover:border-primary w-full "
+                           href="/shuoshuo"
+                        >
+                            <span>
+                                说说
+                            </span>
+                            
+                                <i class="fa-solid fa-comment-dots fa-sm fa-fw"></i>
+                            
+                        </a>
+                        
+
+                        
+                    </li>
+            
+                
+                    
+
+                    <li class="drawer-navbar-item-sub text-base my-1.5 flex flex-col w-full">
+                        
+                        <div class="py-1.5 px-2 flex flex-row items-center justify-between gap-1 hover:!text-primary active:!text-primary cursor-pointer text-2xl font-semibold group border-b border-border-color hover:border-primary w-full "
+                             navbar-data-toggle="submenu-Links"
+                        >
+                            <span>
+                                链接
+                            </span>
+                            
+                                <i class="fa-solid fa-chevron-right fa-sm fa-fw transition-all"></i>
+                            
+                        </div>
+                        
+
+                        
+                            <div class="flex-col items-start px-2 py-2 hidden" data-target="submenu-Links">
+                                
+                                    <div class="drawer-navbar-item text-base flex flex-col justify-center items-start hover:underline active:underline hover:underline-offset-1 rounded-3xl">
+                                        <a class=" text-third-text-color text-xl"
+                                           target="_blank" rel="noopener" href="https://github.com/ldspdvsun">GITHUB</a>
+                                    </div>
+                                
+                                    <div class="drawer-navbar-item text-base flex flex-col justify-center items-start hover:underline active:underline hover:underline-offset-1 rounded-3xl">
+                                        <a class=" text-third-text-color text-xl"
+                                           target="_blank" rel="noopener" href="https://www.zhihu.com/people/ldspdvs">ZHIHU</a>
+                                    </div>
+                                
+                            </div>
+                        
+                    </li>
+            
+
+            
+            
+                
+                    
+                    
+                    
+            
+        </ul>
+
+        <div class="statistics flex justify-around my-2.5">
+    <a class="item tag-count-item flex flex-col justify-center items-center w-20" href="/tags">
+        <div class="number text-2xl sm:text-xl text-second-text-color font-semibold">65</div>
+        <div class="label text-third-text-color text-sm">标签</div>
+    </a>
+    <a class="item tag-count-item flex flex-col justify-center items-center w-20" href="/categories">
+        <div class="number text-2xl sm:text-xl text-second-text-color font-semibold">20</div>
+        <div class="label text-third-text-color text-sm">分类</div>
+    </a>
+    <a class="item tag-count-item flex flex-col justify-center items-center w-20" href="/archives">
+        <div class="number text-2xl sm:text-xl text-second-text-color font-semibold">70</div>
+        <div class="label text-third-text-color text-sm">文章</div>
+    </a>
+</div>
+    </div>
+
+    <div class="window-mask"></div>
+
+</header>
+
+
+		</div>
+
+		<div class="main-content-body transition-fade-up">
+			
+
+			<div class="main-content">
+				<div class="post-page-container flex relative justify-between box-border w-full h-full">
+	<div class="article-content-container">
+
+		<div class="article-title relative w-full">
+			
+			<div class="w-full flex items-center pt-6 justify-start">
+				<h1 class="article-title-regular text-second-text-color tracking-tight text-4xl md:text-6xl font-semibold px-2 sm:px-6 md:px-8 py-3">MySql</h1>
+			</div>
+			
+		</div>
+
+		
+		<div class="article-header flex flex-row gap-2 items-center px-2 sm:px-6 md:px-8">
+			<div class="avatar w-[46px] h-[46px] flex-shrink-0 rounded-medium border border-border-color p-[1px]">
+				<img src="https://avatars.githubusercontent.com/u/86214331?s=96&v=4">
+			</div>
+			<div class="info flex flex-col justify-between">
+				<div class="author flex items-center">
+					<span class="name text-default-text-color text-lg font-semibold">Sunmy</span>
+					
+					<span class="author-label ml-1.5 text-xs px-2 py-0.5 rounded-small text-third-text-color border border-shadow-color-1">Lv5</span>
+					
+				</div>
+				<div class="meta-info">
+					<div class="article-meta-info">
+    <span class="article-date article-meta-item">
+        <i class="fa-regular fa-pen-fancy"></i>&nbsp;
+        <span class="desktop">2023-06-30 16:56:57</span>
+        <span class="mobile">2023-06-30 16:56:57</span>
+        <span class="hover-info">创建</span>
+    </span>
+    
+        <span class="article-date article-meta-item">
+            <i class="fa-regular fa-wrench"></i>&nbsp;
+            <span class="desktop">2025-06-29 21:05:24</span>
+            <span class="mobile">2025-06-29 21:05:24</span>
+            <span class="hover-info">更新</span>
+        </span>
+    
+
+    
+        <span class="article-categories article-meta-item">
+            <i class="fa-regular fa-folders"></i>&nbsp;
+            <ul>
+                
+                
+                    
+                        
+                        <li>
+                            <a href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/">数据库</a>&nbsp;
+                        </li>
+                    
+                    
+                
+            </ul>
+        </span>
+    
+    
+        <span class="article-tags article-meta-item">
+            <i class="fa-regular fa-tags"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/tags/MySql/">MySql</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
+    
+
+    
+    
+        <span class="article-wordcount article-meta-item">
+            <i class="fa-regular fa-typewriter"></i>&nbsp;<span>4k 字</span>
+        </span>
+    
+    
+        <span class="article-min2read article-meta-item">
+            <i class="fa-regular fa-clock"></i>&nbsp;<span>21 分钟</span>
+        </span>
+    
+    
+        <span class="article-pv article-meta-item">
+            <i class="fa-regular fa-eye"></i>&nbsp;<span id="busuanzi_value_page_pv"></span>
+        </span>
+    
+</div>
+
+				</div>
+			</div>
+		</div>
+		
+
+		
+
+
+		<div class="article-content markdown-body px-2 sm:px-6 md:px-8 pb-8">
+			<h2 id="Centos8"><a href="#Centos8" class="headerlink" title="Centos8"></a>Centos8</h2><h3 id="以-root-用户通过-CentOS-软件包管理器来安装"><a href="#以-root-用户通过-CentOS-软件包管理器来安装" class="headerlink" title="以 root 用户通过 CentOS 软件包管理器来安装"></a>以 root 用户通过 CentOS 软件包管理器来安装</h3><div class="code-container" data-rel="Sh"><figure class="iseeu highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> dnf install @mysql</span><br></pre></td></tr></table></figure></div>
+
+<h3 id="在键盘上敲一个：y"><a href="#在键盘上敲一个：y" class="headerlink" title="在键盘上敲一个：y"></a>在键盘上敲一个：y</h3><h3 id="启动-MySQL"><a href="#启动-MySQL" class="headerlink" title="启动 MySQL"></a>启动 MySQL</h3><div class="code-container" data-rel="Sh"><figure class="iseeu highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> systemctl start mysqld.service</span><br></pre></td></tr></table></figure></div>
+
+<h3 id="登入-MySQL"><a href="#登入-MySQL" class="headerlink" title="登入 MySQL"></a>登入 MySQL</h3><div class="code-container" data-rel="Sh"><figure class="iseeu highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql -u root -p</span><br></pre></td></tr></table></figure></div>
+
+<h3 id="设密码、授权、开启远程访问"><a href="#设密码、授权、开启远程访问" class="headerlink" title="设密码、授权、开启远程访问"></a>设密码、授权、开启远程访问</h3><div class="code-container" data-rel="Sh"><figure class="iseeu highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">CREATE USER <span class="string">&#x27;root&#x27;</span>@<span class="string">&#x27;%&#x27;</span> IDENTIFIED BY <span class="string">&#x27;root&#x27;</span>;</span><br><span class="line">GRANT ALL ON *.* TO <span class="string">&#x27;root&#x27;</span>@<span class="string">&#x27;%&#x27;</span>;</span><br><span class="line">ALTER USER <span class="string">&#x27;root&#x27;</span>@<span class="string">&#x27;%&#x27;</span> IDENTIFIED WITH mysql_native_password BY <span class="string">&#x27;root&#x27;</span>;</span><br></pre></td></tr></table></figure></div>
+
+<h3 id="更改端口"><a href="#更改端口" class="headerlink" title="更改端口"></a>更改端口</h3><h4 id="编辑-my-cnf"><a href="#编辑-my-cnf" class="headerlink" title="编辑 my.cnf"></a>编辑 my.cnf</h4><div class="code-container" data-rel="Sh"><figure class="iseeu highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> vim /etc/my.cnf</span><br></pre></td></tr></table></figure></div>
+
+<h4 id="增加配置"><a href="#增加配置" class="headerlink" title="增加配置"></a>增加配置</h4><div class="code-container" data-rel="Sh"><figure class="iseeu highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[mysqld]</span><br><span class="line">port=6666</span><br></pre></td></tr></table></figure></div>
+
+<h4 id="重启-MySQL"><a href="#重启-MySQL" class="headerlink" title="重启 MySQL"></a>重启 MySQL</h4><div class="code-container" data-rel="Sh"><figure class="iseeu highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> systemctl restart mysqld.service</span><br></pre></td></tr></table></figure></div>
+
+<h2 id="Centos7"><a href="#Centos7" class="headerlink" title="Centos7"></a>Centos7</h2><blockquote>
+<p><a class="link"   target="_blank" rel="noopener" href="https://www.jb51.net/article/251117.htm" >https://www.jb51.net/article/251117.htm<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a></p>
+</blockquote>
+<p>环境介绍 :</p>
+<ul>
+<li>服务器： 阿里云轻量应用服务器</li>
+<li>系统版本： CentOS 7.9</li>
+<li>MySQL版本： 8.0.23<br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="attachment:image-6.png"
+                      alt="image-6.png"
+                ></li>
+</ul>
+<h3 id="卸载MariaDB"><a href="#卸载MariaDB" class="headerlink" title="卸载MariaDB"></a>卸载MariaDB</h3><blockquote>
+<p>在CentOS中默认安装有MariaDB，是MySQL的一个分支，主要由开源社区维护。<br>CentOS 7及以上版本已经不再使用MySQL数据库，而是使用MariaDB数据库。<br>如果直接安装MySQL，会和MariaDB的文件冲突。<br>因此，需要先卸载自带的MariaDB，再安装MySQL。</p>
+</blockquote>
+<h4 id="查看版本："><a href="#查看版本：" class="headerlink" title="查看版本："></a>查看版本：</h4><div class="code-container" data-rel="Sh"><figure class="iseeu highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rpm -qa|grep mariadb</span><br></pre></td></tr></table></figure></div>
+
+<h4 id="卸载"><a href="#卸载" class="headerlink" title="卸载"></a>卸载</h4><div class="code-container" data-rel="Sh"><figure class="iseeu highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rpm -e --nodeps 文件名</span><br></pre></td></tr></table></figure></div>
+
+<h4 id="检查是否卸载干净："><a href="#检查是否卸载干净：" class="headerlink" title="检查是否卸载干净："></a>检查是否卸载干净：</h4><div class="code-container" data-rel="Sh"><figure class="iseeu highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rpm -qa|grep mariadb</span><br></pre></td></tr></table></figure></div>
+
+<h3 id="安装MySQL"><a href="#安装MySQL" class="headerlink" title="安装MySQL"></a>安装MySQL</h3><h4 id="下载资源包"><a href="#下载资源包" class="headerlink" title="下载资源包"></a>下载资源包</h4><ol>
+<li>官网下载</li>
+</ol>
+<p>MySQL官网下载地址: <a class="link"   target="_blank" rel="noopener" href="https://dev.mysql.com/downloads/mysql/" >https://dev.mysql.com/downloads/mysql/<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a></p>
+<ol start="2">
+<li>wget下载</li>
+</ol>
+<div class="code-container" data-rel="Sh"><figure class="iseeu highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget https://dev.mysql.com/get/Downloads/MySQL-8.0/mysql-8.0.20-linux-glibc2.12-x86_64.tar.xz</span><br></pre></td></tr></table></figure></div>
+
+<h4 id="解压"><a href="#解压" class="headerlink" title="解压"></a>解压</h4><p>.tar.gz后缀：tar -zxvf 文件名</p>
+<p>.tar.xz后缀：tar -Jxvf 文件名</p>
+<div class="code-container" data-rel="Sh"><figure class="iseeu highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tar -Jxvf mysql-8.0.20-linux-glibc2.12-x86_64.tar.xz</span><br></pre></td></tr></table></figure></div>
+
+<h4 id="重命名"><a href="#重命名" class="headerlink" title="重命名"></a>重命名</h4><p>将解压后的文件夹重命名（或者为文件夹创建软链接）</p>
+<div class="code-container" data-rel="Sh"><figure class="iseeu highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 重命名</span></span><br><span class="line"><span class="built_in">mv</span> 原文件夹名 mysql8</span><br><span class="line"><span class="comment"># 软链接</span></span><br><span class="line"><span class="built_in">ln</span> -s 文件夹名 mysql8</span><br></pre></td></tr></table></figure></div>
+
+<h4 id="添加PATH变量"><a href="#添加PATH变量" class="headerlink" title="添加PATH变量"></a>添加PATH变量</h4><p>添加PATH变量后，可在全局使用MySQL。</p>
+<p>有两种添加方式：export命令临时生效、修改配置文件用久生效；</p>
+<div class="code-container" data-rel="Sh"><figure class="iseeu highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 临时环境变量，关闭shell后失效，通常用于测试环境</span></span><br><span class="line">vim /etc/profile</span><br><span class="line">追加下行内容到文件中</span><br><span class="line"><span class="built_in">export</span> PATH=<span class="variable">$PATH</span>:/data/software/mysql8/bin</span><br><span class="line"><span class="built_in">source</span> /etc/profile</span><br><span class="line"></span><br></pre></td></tr></table></figure></div>
+
+<h4 id="用户和用户组"><a href="#用户和用户组" class="headerlink" title="用户和用户组"></a>用户和用户组</h4><ol>
+<li>创建用户组和用户</li>
+</ol>
+<div class="code-container" data-rel="Sh"><figure class="iseeu highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 创建一个用户组：mysql</span></span><br><span class="line">groupadd mysql</span><br><span class="line"><span class="comment"># 创建一个系统用户：mysql，指定用户组为mysql</span></span><br><span class="line">useradd -r -g mysql mysql</span><br></pre></td></tr></table></figure></div>
+
+<p>创建用户组：groupadd</p>
+<p>创建用户：useradd</p>
+<p>-r：创建系统用户<br>-g：指定用户组</p>
+<h4 id="数据目录"><a href="#数据目录" class="headerlink" title="数据目录"></a>数据目录</h4><ol>
+<li>创建目录</li>
+</ol>
+<div class="code-container" data-rel="Sh"><figure class="iseeu highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">mkdir</span> -p /data/software/mysql8/datas</span><br></pre></td></tr></table></figure></div>
+
+<ol start="2">
+<li>赋予权限</li>
+</ol>
+<div class="code-container" data-rel="Sh"><figure class="iseeu highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 更改属主和数组</span></span><br><span class="line"><span class="built_in">chown</span> -R mysql:mysql /data/software/mysql8/datas</span><br><span class="line"><span class="comment"># 更改模式</span></span><br><span class="line"><span class="built_in">chmod</span> -R 750 /data/software/mysql8/datas</span><br></pre></td></tr></table></figure></div>
+
+<h4 id="初始化MySQL"><a href="#初始化MySQL" class="headerlink" title="初始化MySQL"></a>初始化MySQL</h4><h5 id="配置参数"><a href="#配置参数" class="headerlink" title="配置参数"></a>配置参数</h5><p>在&#x2F;data&#x2F;software&#x2F;mysql8&#x2F;下，创建my.cnf配置文件，用于初始化MySQL数据库</p>
+<div class="code-container" data-rel="Sh"><figure class="iseeu highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br></pre></td><td class="code"><pre><span class="line">[mysql]</span><br><span class="line"><span class="comment"># 默认字符集</span></span><br><span class="line">default-character-set=utf8mb4</span><br><span class="line">[client]</span><br><span class="line">port       = 3306</span><br><span class="line">socket     = /tmp/mysql.sock</span><br><span class="line"></span><br><span class="line">[mysqld]</span><br><span class="line">port       = 3306</span><br><span class="line">server-id  = 3306</span><br><span class="line">user       = mysql</span><br><span class="line">socket     = /tmp/mysql.sock</span><br><span class="line"><span class="comment"># 安装目录</span></span><br><span class="line">basedir    = /data/software/mysql8</span><br><span class="line"><span class="comment"># 数据存放目录</span></span><br><span class="line">datadir    = /data/software/mysql8/datas/mysql</span><br><span class="line">log-bin    = /data/software/mysql8/datas/mysql/mysql-bin</span><br><span class="line">innodb_data_home_dir      =/data/software/mysql8/datas/mysql</span><br><span class="line">innodb_log_group_home_dir =/data/software/mysql8/datas/mysql</span><br><span class="line"><span class="comment">#日志及进程数据的存放目录</span></span><br><span class="line">log-error =/data/software/mysql8/datas/mysql/mysql.log</span><br><span class="line">pid-file  =/data/software/mysql8/datas/mysql/mysql.pid</span><br><span class="line"><span class="comment"># 服务端使用的字符集默认为8比特编码</span></span><br><span class="line">character-set-server=utf8mb4</span><br><span class="line">lower_case_table_names=1</span><br><span class="line">autocommit =1</span><br><span class="line"> </span><br><span class="line"> <span class="comment">##################以上要修改的########################</span></span><br><span class="line">skip-external-locking</span><br><span class="line">key_buffer_size = 256M</span><br><span class="line">max_allowed_packet = 1M</span><br><span class="line">table_open_cache = 1024</span><br><span class="line">sort_buffer_size = 4M</span><br><span class="line">net_buffer_length = 8K</span><br><span class="line">read_buffer_size = 4M</span><br><span class="line">read_rnd_buffer_size = 512K</span><br><span class="line">myisam_sort_buffer_size = 64M</span><br><span class="line">thread_cache_size = 128</span><br><span class="line">  </span><br><span class="line"><span class="comment">#query_cache_size = 128M</span></span><br><span class="line">tmp_table_size = 128M</span><br><span class="line">explicit_defaults_for_timestamp = <span class="literal">true</span></span><br><span class="line">max_connections = 500</span><br><span class="line">max_connect_errors = 100</span><br><span class="line">open_files_limit = 65535</span><br><span class="line">   </span><br><span class="line">binlog_format=mixed</span><br><span class="line">  </span><br><span class="line">binlog_expire_logs_seconds =864000</span><br><span class="line">  </span><br><span class="line"><span class="comment"># 创建新表时将使用的默认存储引擎</span></span><br><span class="line">default_storage_engine = InnoDB</span><br><span class="line">innodb_data_file_path = ibdata1:10M:autoextend</span><br><span class="line">innodb_buffer_pool_size = 1024M</span><br><span class="line">innodb_log_file_size = 256M</span><br><span class="line">innodb_log_buffer_size = 8M</span><br><span class="line">innodb_flush_log_at_trx_commit = 1</span><br><span class="line">innodb_lock_wait_timeout = 50</span><br><span class="line">transaction-isolation=READ-COMMITTED</span><br><span class="line">  </span><br><span class="line">[mysqldump]</span><br><span class="line">quick</span><br><span class="line">max_allowed_packet = 16M</span><br><span class="line">   </span><br><span class="line">[myisamchk]</span><br><span class="line">key_buffer_size = 256M</span><br><span class="line">sort_buffer_size = 4M</span><br><span class="line">read_buffer = 2M</span><br><span class="line">write_buffer = 2M</span><br><span class="line">    </span><br><span class="line">[mysqlhotcopy]</span><br><span class="line">interactive-timeout</span><br></pre></td></tr></table></figure></div>
+
+<h5 id="初始化"><a href="#初始化" class="headerlink" title="初始化"></a>初始化</h5><div class="code-container" data-rel="Sh"><figure class="iseeu highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysqld --defaults-file=/data/software/mysql8/my.cnf --basedir=/data/software/mysql8/ --datadir=/data/software/mysql8/datas/mysql --user=mysql --initialize-insecure</span><br></pre></td></tr></table></figure></div>
+
+<p>defaults-file：指定配置文件（要放在–initialize 前面）</p>
+<p>user： 指定用户</p>
+<p>basedir：指定安装目录</p>
+<p>datadir：指定初始化数据目录</p>
+<p>intialize-insecure：初始化无密码</p>
+<h3 id="启动MySQL"><a href="#启动MySQL" class="headerlink" title="启动MySQL"></a>启动MySQL</h3><p>查看 MySQL的 bin路径下，是否包含mysqld_safe，用于后台安全启动MySQL。<br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="attachment:image-5.png"
+                      alt="image-5.png"
+                ></p>
+<h4 id="启动服务"><a href="#启动服务" class="headerlink" title="启动服务"></a>启动服务</h4><div class="code-container" data-rel="Sh"><figure class="iseeu highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 完整命令</span></span><br><span class="line">/data/software/mysql8/bin/mysqld_safe --defaults-file=/data/software/mysql8/my.cnf &amp;</span><br><span class="line"><span class="comment"># 添加PATH变量后的命令（省略bin目录的路径）</span></span><br><span class="line">mysqld_safe --defaults-file=/data/software/mysql/my.cnf &amp;</span><br><span class="line"><span class="comment"># 查看是否启动</span></span><br><span class="line">ps -ef|grep mysql</span><br></pre></td></tr></table></figure></div>
+
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="attachment:image-4.png"
+                      alt="image-4.png"
+                ></p>
+<h4 id="登录"><a href="#登录" class="headerlink" title="登录"></a>登录</h4><div class="code-container" data-rel="Sh"><figure class="iseeu highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 无密码登录方式</span></span><br><span class="line">/data/software/mysql8/bin/mysql -u root --skip-password</span><br><span class="line"><span class="comment"># 有密码登录方式（初始的随机密码在/data/mysql8_data/mysql/mysql.log下）</span></span><br><span class="line">mysql -u root -p</span><br><span class="line">password:随机密码</span><br></pre></td></tr></table></figure></div>
+
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="attachment:image-3.png"
+                      alt="image-3.png"
+                ></p>
+<h4 id="修改密码"><a href="#修改密码" class="headerlink" title="修改密码"></a>修改密码</h4><div class="code-container" data-rel="Sh"><figure class="iseeu highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 修改密码</span></span><br><span class="line">ALTER USER <span class="string">&#x27;root&#x27;</span>@<span class="string">&#x27;localhost&#x27;</span> IDENTIFIED WITH mysql_native_password BY <span class="string">&#x27;123456&#x27;</span>;</span><br><span class="line"><span class="comment"># 刷新权限</span></span><br><span class="line">FLUSH PRIVILEGES;</span><br></pre></td></tr></table></figure></div>
+
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="attachment:image-2.png"
+                      alt="image-2.png"
+                ></p>
+<h4 id="设置允许远程登录"><a href="#设置允许远程登录" class="headerlink" title="设置允许远程登录"></a>设置允许远程登录</h4><p>登录到mysql里执行</p>
+<div class="code-container" data-rel="Sh"><figure class="iseeu highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; use mysql</span><br><span class="line">mysql&gt; update user <span class="built_in">set</span> user.Host=<span class="string">&#x27;%&#x27;</span><span class="built_in">where</span> user.User=<span class="string">&#x27;root&#x27;</span>;</span><br><span class="line">mysql&gt; flush privileges;</span><br><span class="line">mysql&gt; quit</span><br></pre></td></tr></table></figure></div>
+
+<h4 id="在Navicat上测试连接"><a href="#在Navicat上测试连接" class="headerlink" title="在Navicat上测试连接"></a>在Navicat上测试连接</h4><p>连接成功<br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="attachment:image.png"
+                      alt="image.png"
+                ></p>
+<h2 id="Centos7使用yum安装MySQL8"><a href="#Centos7使用yum安装MySQL8" class="headerlink" title="Centos7使用yum安装MySQL8"></a>Centos7使用yum安装MySQL8</h2><blockquote>
+<p><a class="link"   target="_blank" rel="noopener" href="https://blog.csdn.net/redrose2100/article/details/117938139" >https://blog.csdn.net/redrose2100/article/details/117938139<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a></p>
+</blockquote>
+<h3 id="下载"><a href="#下载" class="headerlink" title="下载"></a>下载</h3><div class="code-container" data-rel="Sh"><figure class="iseeu highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br><span class="line">190</span><br><span class="line">191</span><br><span class="line">192</span><br><span class="line">193</span><br><span class="line">194</span><br><span class="line">195</span><br><span class="line">196</span><br><span class="line">197</span><br><span class="line">198</span><br><span class="line">199</span><br><span class="line">200</span><br><span class="line">201</span><br><span class="line">202</span><br><span class="line">203</span><br><span class="line">204</span><br><span class="line">205</span><br><span class="line">206</span><br><span class="line">207</span><br><span class="line">208</span><br><span class="line">209</span><br><span class="line">210</span><br><span class="line">211</span><br><span class="line">212</span><br><span class="line">213</span><br><span class="line">214</span><br><span class="line">215</span><br><span class="line">216</span><br><span class="line">217</span><br><span class="line">218</span><br><span class="line">219</span><br><span class="line">220</span><br><span class="line">221</span><br><span class="line">222</span><br><span class="line">223</span><br><span class="line">224</span><br><span class="line">225</span><br><span class="line">226</span><br><span class="line">227</span><br><span class="line">228</span><br><span class="line">229</span><br><span class="line">230</span><br><span class="line">231</span><br><span class="line">232</span><br><span class="line">233</span><br><span class="line">234</span><br><span class="line">235</span><br><span class="line">236</span><br><span class="line">237</span><br><span class="line">238</span><br><span class="line">239</span><br><span class="line">240</span><br><span class="line">241</span><br><span class="line">242</span><br><span class="line">243</span><br><span class="line">244</span><br><span class="line">245</span><br><span class="line">246</span><br><span class="line">247</span><br><span class="line">248</span><br><span class="line">249</span><br><span class="line">250</span><br><span class="line">251</span><br><span class="line">252</span><br><span class="line">253</span><br><span class="line">254</span><br><span class="line">255</span><br><span class="line">256</span><br><span class="line">257</span><br><span class="line">258</span><br><span class="line">259</span><br><span class="line">260</span><br><span class="line">261</span><br><span class="line">262</span><br><span class="line">263</span><br><span class="line">264</span><br><span class="line">265</span><br><span class="line">266</span><br><span class="line">267</span><br><span class="line">268</span><br><span class="line">269</span><br><span class="line">270</span><br><span class="line">271</span><br><span class="line">272</span><br><span class="line">273</span><br><span class="line">274</span><br><span class="line">275</span><br><span class="line">276</span><br><span class="line">277</span><br><span class="line">278</span><br><span class="line">279</span><br><span class="line">280</span><br></pre></td><td class="code"><pre><span class="line">[root@SqaServer Sysbench]# wget https://dev.mysql.com/get/mysql80-community-release-el7-7.noarch.rpm</span><br><span class="line">--2022-11-06 13:17:56--  https://dev.mysql.com/get/mysql80-community-release-el7-7.noarch.rpm</span><br><span class="line">正在解析主机 dev.mysql.com (dev.mysql.com)... 223.119.203.77, 2600:1417:e800:18a::2e31, 2600:1417:e800:189::2e31</span><br><span class="line">正在连接 dev.mysql.com (dev.mysql.com)|223.119.203.77|:443... 已连接。</span><br><span class="line">已发出 HTTP 请求，正在等待回应... 302 Moved Temporarily</span><br><span class="line">位置：https://repo.mysql.com//mysql80-community-release-el7-7.noarch.rpm [跟随至新的 URL]</span><br><span class="line">--2022-11-06 13:17:57--  https://repo.mysql.com//mysql80-community-release-el7-7.noarch.rpm</span><br><span class="line">正在解析主机 repo.mysql.com (repo.mysql.com)... 23.36.48.238</span><br><span class="line">正在连接 repo.mysql.com (repo.mysql.com)|23.36.48.238|:443... 已连接。</span><br><span class="line">已发出 HTTP 请求，正在等待回应... 200 OK</span><br><span class="line">长度：11196 (11K) [application/x-redhat-package-manager]</span><br><span class="line">正在保存至: “mysql80-community-release-el7-7.noarch.rpm”</span><br><span class="line"></span><br><span class="line">100%[====================================================================================&gt;] 11,196      --.-K/s 用时 0s</span><br><span class="line"></span><br><span class="line">2022-11-06 13:17:57 (106 MB/s) - 已保存 “mysql80-community-release-el7-7.noarch.rpm” [11196/11196])</span><br><span class="line"></span><br><span class="line">[root@SqaServer Sysbench]# ll</span><br><span class="line">总用量 592172</span><br><span class="line">-rwxrwxrwx  1 root root 604856088 11月  5 10:27 mysql-8.0.31-linux-glibc2.12-x86_64.tar.xz</span><br><span class="line">-rw-r--r--  1 root root     11196 8月  27 02:56 mysql80-community-release-el7-7.noarch.rpm</span><br><span class="line">drwxrwxr-x 13 root root      4096 11月  5 17:33 sysbench-1.0.20</span><br><span class="line">-rwxrwxrwx  1 root root   1509630 11月  5 10:27 sysbench-1.0.20.tar.gz</span><br><span class="line">[root@SqaServer Sysbench]# <span class="built_in">mv</span> mysql80-community-release-el7-7.noarch.rpm /opt/</span><br><span class="line">[root@SqaServer Sysbench]# <span class="built_in">cd</span> /opt/</span><br><span class="line">[root@SqaServer opt]# ll</span><br><span class="line">总用量 12</span><br><span class="line">drwxr-xr-x  3 root root    17 11月  1 15:53 cni</span><br><span class="line">drwx--x--x  4 root root    28 11月  1 15:46 containerd</span><br><span class="line">-rw-r--r--  1 root root 11196 8月  27 02:56 mysql80-community-release-el7-7.noarch.rpm</span><br><span class="line">drwxr-xr-x. 2 root root     6 10月 31 2018 rh</span><br><span class="line">[root@SqaServer opt]# yum localinstall mysql80-community-release-el7-7.noarch.rpm</span><br><span class="line">已加载插件：fastestmirror, langpacks</span><br><span class="line">正在检查 mysql80-community-release-el7-7.noarch.rpm: mysql80-community-release-el7-7.noarch</span><br><span class="line">mysql80-community-release-el7-7.noarch.rpm 将被安装</span><br><span class="line">正在解决依赖关系</span><br><span class="line">--&gt; 正在检查事务</span><br><span class="line">---&gt; 软件包 mysql80-community-release.noarch.0.el7-7 将被 安装</span><br><span class="line">--&gt; 解决依赖关系完成</span><br><span class="line">base/7/x86_64                                                                                          | 3.6 kB  00:00:00</span><br><span class="line">docker-ce-stable/7/x86_64                                                                              | 3.5 kB  00:00:00</span><br><span class="line">extras/7/x86_64                                                                                        | 2.9 kB  00:00:00</span><br><span class="line">kubernetes                                                                                             | 1.4 kB  00:00:00</span><br><span class="line">updates/7/x86_64                                                                                       | 2.9 kB  00:00:00</span><br><span class="line"></span><br><span class="line">依赖关系解决</span><br><span class="line"></span><br><span class="line">==============================================================================================================================</span><br><span class="line"> Package                             架构             版本            源                                                 大小</span><br><span class="line">==============================================================================================================================</span><br><span class="line">正在安装:</span><br><span class="line"> mysql80-community-release           noarch           el7-7           /mysql80-community-release-el7-7.noarch            10 k</span><br><span class="line"></span><br><span class="line">事务概要</span><br><span class="line">==============================================================================================================================</span><br><span class="line">安装  1 软件包</span><br><span class="line"></span><br><span class="line">总计：10 k</span><br><span class="line">安装大小：10 k</span><br><span class="line">Is this ok [y/d/N]: y</span><br><span class="line">Downloading packages:</span><br><span class="line">Running transaction check</span><br><span class="line">Running transaction <span class="built_in">test</span></span><br><span class="line">Transaction <span class="built_in">test</span> succeeded</span><br><span class="line">Running transaction</span><br><span class="line">  正在安装    : mysql80-community-release-el7-7.noarch                                                                    1/1</span><br><span class="line">  验证中      : mysql80-community-release-el7-7.noarch                                                                    1/1</span><br><span class="line"></span><br><span class="line">已安装:</span><br><span class="line">  mysql80-community-release.noarch 0:el7-7</span><br><span class="line"></span><br><span class="line">完毕！</span><br><span class="line">[root@SqaServer opt]# yum -y install mysql-community-server</span><br><span class="line">已加载插件：fastestmirror, langpacks</span><br><span class="line">Loading mirror speeds from cached hostfile</span><br><span class="line"> * base: mirrors.bupt.edu.cn</span><br><span class="line"> * extras: mirrors.bupt.edu.cn</span><br><span class="line"> * updates: mirrors.bupt.edu.cn</span><br><span class="line">mysql-connectors-community                                                                             | 2.6 kB  00:00:00</span><br><span class="line">mysql-tools-community                                                                                  | 2.6 kB  00:00:00</span><br><span class="line">mysql80-community                                                                                      | 2.6 kB  00:00:00</span><br><span class="line">(1/3): mysql80-community/x86_64/primary_db                                                             | 222 kB  00:00:00</span><br><span class="line">(2/3): mysql-connectors-community/x86_64/primary_db                                                    |  93 kB  00:00:00</span><br><span class="line">(3/3): mysql-tools-community/x86_64/primary_db                                                         |  89 kB  00:00:00</span><br><span class="line">正在解决依赖关系</span><br><span class="line">--&gt; 正在检查事务</span><br><span class="line">---&gt; 软件包 mysql-community-server.x86_64.0.8.0.31-1.el7 将被 安装</span><br><span class="line">--&gt; 正在处理依赖关系 mysql-community-common(x86-64) = 8.0.31-1.el7，它被软件包 mysql-community-server-8.0.31-1.el7.x86_64 需要</span><br><span class="line">--&gt; 正在处理依赖关系 mysql-community-icu-data-files = 8.0.31-1.el7，它被软件包 mysql-community-server-8.0.31-1.el7.x86_64 需要</span><br><span class="line">--&gt; 正在处理依赖关系 mysql-community-client(x86-64) &gt;= 8.0.11，它被软件包 mysql-community-server-8.0.31-1.el7.x86_64 需要</span><br><span class="line">--&gt; 正在检查事务</span><br><span class="line">---&gt; 软件包 mysql-community-client.x86_64.0.8.0.31-1.el7 将被 安装</span><br><span class="line">--&gt; 正在处理依赖关系 mysql-community-client-plugins = 8.0.31-1.el7，它被软件包 mysql-community-client-8.0.31-1.el7.x86_64 需要</span><br><span class="line">--&gt; 正在处理依赖关系 mysql-community-libs(x86-64) &gt;= 8.0.11，它被软件包 mysql-community-client-8.0.31-1.el7.x86_64 需要</span><br><span class="line">---&gt; 软件包 mysql-community-common.x86_64.0.8.0.31-1.el7 将被 安装</span><br><span class="line">---&gt; 软件包 mysql-community-icu-data-files.x86_64.0.8.0.31-1.el7 将被 安装</span><br><span class="line">--&gt; 正在检查事务</span><br><span class="line">---&gt; 软件包 mariadb-libs.x86_64.1.5.5.68-1.el7 将被 取代</span><br><span class="line">--&gt; 正在处理依赖关系 libmysqlclient.so.18()(64bit)，它被软件包 1:mariadb-devel-5.5.68-1.el7.x86_64 需要</span><br><span class="line">--&gt; 正在处理依赖关系 libmysqlclient.so.18()(64bit)，它被软件包 2:postfix-2.10.1-9.el7.x86_64 需要</span><br><span class="line">--&gt; 正在处理依赖关系 libmysqlclient.so.18(libmysqlclient_18)(64bit)，它被软件包 2:postfix-2.10.1-9.el7.x86_64 需要</span><br><span class="line">--&gt; 正在处理依赖关系 mariadb-libs(x86-64) = 1:5.5.68-1.el7，它被软件包 1:mariadb-devel-5.5.68-1.el7.x86_64 需要</span><br><span class="line">---&gt; 软件包 mysql-community-client-plugins.x86_64.0.8.0.31-1.el7 将被 安装</span><br><span class="line">---&gt; 软件包 mysql-community-libs.x86_64.0.8.0.31-1.el7 将被 舍弃</span><br><span class="line">--&gt; 正在检查事务</span><br><span class="line">---&gt; 软件包 mariadb-devel.x86_64.1.5.5.68-1.el7 将被 取代</span><br><span class="line">---&gt; 软件包 mysql-community-devel.x86_64.0.8.0.31-1.el7 将被 舍弃</span><br><span class="line">---&gt; 软件包 mysql-community-libs-compat.x86_64.0.8.0.31-1.el7 将被 舍弃</span><br><span class="line">--&gt; 解决依赖关系完成</span><br><span class="line"></span><br><span class="line">依赖关系解决</span><br><span class="line"></span><br><span class="line">==============================================================================================================================</span><br><span class="line"> Package                                    架构               版本                       源                             大小</span><br><span class="line">==============================================================================================================================</span><br><span class="line">正在安装:</span><br><span class="line"> mysql-community-devel                      x86_64             8.0.31-1.el7               mysql80-community             1.9 M</span><br><span class="line">      替换  mariadb-devel.x86_64 1:5.5.68-1.el7</span><br><span class="line"> mysql-community-libs                       x86_64             8.0.31-1.el7               mysql80-community             1.5 M</span><br><span class="line">      替换  mariadb-libs.x86_64 1:5.5.68-1.el7</span><br><span class="line"> mysql-community-libs-compat                x86_64             8.0.31-1.el7               mysql80-community             670 k</span><br><span class="line">      替换  mariadb-libs.x86_64 1:5.5.68-1.el7</span><br><span class="line"> mysql-community-server                     x86_64             8.0.31-1.el7               mysql80-community              64 M</span><br><span class="line">为依赖而安装:</span><br><span class="line"> mysql-community-client                     x86_64             8.0.31-1.el7               mysql80-community              16 M</span><br><span class="line"> mysql-community-client-plugins             x86_64             8.0.31-1.el7               mysql80-community             2.5 M</span><br><span class="line"> mysql-community-common                     x86_64             8.0.31-1.el7               mysql80-community             647 k</span><br><span class="line"> mysql-community-icu-data-files             x86_64             8.0.31-1.el7               mysql80-community             2.1 M</span><br><span class="line"></span><br><span class="line">事务概要</span><br><span class="line">==============================================================================================================================</span><br><span class="line">安装  4 软件包 (+4 依赖软件包)</span><br><span class="line"></span><br><span class="line">总下载量：89 M</span><br><span class="line">Downloading packages:</span><br><span class="line">警告：/var/cache/yum/x86_64/7/mysql80-community/packages/mysql-community-client-plugins-8.0.31-1.el7.x86_64.rpm: 头V4 RSA/SHA256 Signature, 密钥 ID 3a79bd29: NOKEY</span><br><span class="line">mysql-community-client-plugins-8.0.31-1.el7.x86_64.rpm 的公钥尚未安装</span><br><span class="line">(1/8): mysql-community-client-plugins-8.0.31-1.el7.x86_64.rpm                                          | 2.5 MB  00:00:01</span><br><span class="line">(2/8): mysql-community-common-8.0.31-1.el7.x86_64.rpm                                                  | 647 kB  00:00:00</span><br><span class="line">(3/8): mysql-community-devel-8.0.31-1.el7.x86_64.rpm                                                   | 1.9 MB  00:00:00</span><br><span class="line">(4/8): mysql-community-icu-data-files-8.0.31-1.el7.x86_64.rpm                                          | 2.1 MB  00:00:01</span><br><span class="line">(5/8): mysql-community-libs-8.0.31-1.el7.x86_64.rpm                                                    | 1.5 MB  00:00:00</span><br><span class="line">(6/8): mysql-community-libs-compat-8.0.31-1.el7.x86_64.rpm                                             | 670 kB  00:00:00</span><br><span class="line">(7/8): mysql-community-client-8.0.31-1.el7.x86_64.rpm                                                  |  16 MB  00:00:05</span><br><span class="line">(8/8): mysql-community-server-8.0.31-1.el7.x86_64.rpm                                                  |  64 MB  00:00:12</span><br><span class="line">------------------------------------------------------------------------------------------------------------------------------</span><br><span class="line">总计                                                                                          4.9 MB/s |  89 MB  00:00:18</span><br><span class="line">从 file:///etc/pki/rpm-gpg/RPM-GPG-KEY-mysql-2022 检索密钥</span><br><span class="line">导入 GPG key 0x3A79BD29:</span><br><span class="line"> 用户ID     : <span class="string">&quot;MySQL Release Engineering &lt;mysql-build@oss.oracle.com&gt;&quot;</span></span><br><span class="line"> 指纹       : 859b e8d7 c586 f538 430b 19c2 467b 942d 3a79 bd29</span><br><span class="line"> 软件包     : mysql80-community-release-el7-7.noarch (@/mysql80-community-release-el7-7.noarch)</span><br><span class="line"> 来自       : /etc/pki/rpm-gpg/RPM-GPG-KEY-mysql-2022</span><br><span class="line">从 file:///etc/pki/rpm-gpg/RPM-GPG-KEY-mysql 检索密钥</span><br><span class="line">导入 GPG key 0x5072E1F5:</span><br><span class="line"> 用户ID     : <span class="string">&quot;MySQL Release Engineering &lt;mysql-build@oss.oracle.com&gt;&quot;</span></span><br><span class="line"> 指纹       : a4a9 4068 76fc bd3c 4567 70c8 8c71 8d3b 5072 e1f5</span><br><span class="line"> 软件包     : mysql80-community-release-el7-7.noarch (@/mysql80-community-release-el7-7.noarch)</span><br><span class="line"> 来自       : /etc/pki/rpm-gpg/RPM-GPG-KEY-mysql</span><br><span class="line">Running transaction check</span><br><span class="line">Running transaction <span class="built_in">test</span></span><br><span class="line">Transaction <span class="built_in">test</span> succeeded</span><br><span class="line">Running transaction</span><br><span class="line">  正在安装    : mysql-community-client-plugins-8.0.31-1.el7.x86_64                                                       1/10</span><br><span class="line">  正在安装    : mysql-community-common-8.0.31-1.el7.x86_64                                                               2/10</span><br><span class="line">  正在安装    : mysql-community-libs-8.0.31-1.el7.x86_64                                                                 3/10</span><br><span class="line">  正在安装    : mysql-community-client-8.0.31-1.el7.x86_64                                                               4/10</span><br><span class="line">  正在安装    : mysql-community-icu-data-files-8.0.31-1.el7.x86_64                                                       5/10</span><br><span class="line">  正在安装    : mysql-community-server-8.0.31-1.el7.x86_64                                                               6/10</span><br><span class="line">  正在安装    : mysql-community-libs-compat-8.0.31-1.el7.x86_64                                                          7/10</span><br><span class="line">  正在安装    : mysql-community-devel-8.0.31-1.el7.x86_64                                                                8/10</span><br><span class="line">  正在删除    : 1:mariadb-devel-5.5.68-1.el7.x86_64                                                                      9/10</span><br><span class="line">  正在删除    : 1:mariadb-libs-5.5.68-1.el7.x86_64                                                                      10/10</span><br><span class="line">  验证中      : mysql-community-server-8.0.31-1.el7.x86_64                                                               1/10</span><br><span class="line">  验证中      : mysql-community-common-8.0.31-1.el7.x86_64                                                               2/10</span><br><span class="line">  验证中      : mysql-community-libs-compat-8.0.31-1.el7.x86_64                                                          3/10</span><br><span class="line">  验证中      : mysql-community-client-plugins-8.0.31-1.el7.x86_64                                                       4/10</span><br><span class="line">  验证中      : mysql-community-icu-data-files-8.0.31-1.el7.x86_64                                                       5/10</span><br><span class="line">  验证中      : mysql-community-client-8.0.31-1.el7.x86_64                                                               6/10</span><br><span class="line">  验证中      : mysql-community-libs-8.0.31-1.el7.x86_64                                                                 7/10</span><br><span class="line">  验证中      : mysql-community-devel-8.0.31-1.el7.x86_64                                                                8/10</span><br><span class="line">  验证中      : 1:mariadb-devel-5.5.68-1.el7.x86_64                                                                      9/10</span><br><span class="line">  验证中      : 1:mariadb-libs-5.5.68-1.el7.x86_64                                                                      10/10</span><br><span class="line"></span><br><span class="line">已安装:</span><br><span class="line">  mysql-community-devel.x86_64 0:8.0.31-1.el7                      mysql-community-libs.x86_64 0:8.0.31-1.el7</span><br><span class="line">  mysql-community-libs-compat.x86_64 0:8.0.31-1.el7                mysql-community-server.x86_64 0:8.0.31-1.el7</span><br><span class="line"></span><br><span class="line">作为依赖被安装:</span><br><span class="line">  mysql-community-client.x86_64 0:8.0.31-1.el7              mysql-community-client-plugins.x86_64 0:8.0.31-1.el7</span><br><span class="line">  mysql-community-common.x86_64 0:8.0.31-1.el7              mysql-community-icu-data-files.x86_64 0:8.0.31-1.el7</span><br><span class="line"></span><br><span class="line">替代:</span><br><span class="line">  mariadb-devel.x86_64 1:5.5.68-1.el7                            mariadb-libs.x86_64 1:5.5.68-1.el7</span><br><span class="line"></span><br><span class="line">完毕！</span><br><span class="line">[root@SqaServer opt]# systemctl start mysqld</span><br><span class="line">[root@SqaServer opt]# systemctl status  mysqld</span><br><span class="line">● mysqld.service - MySQL Server</span><br><span class="line">   Loaded: loaded (/usr/lib/systemd/system/mysqld.service; enabled; vendor preset: disabled)</span><br><span class="line">   Active: active (running) since 日 2022-11-06 13:20:53 CST; 1s ago</span><br><span class="line">     Docs: man:mysqld(8)</span><br><span class="line">           http://dev.mysql.com/doc/refman/en/using-systemd.html</span><br><span class="line">  Process: 4104 ExecStartPre=/usr/bin/mysqld_pre_systemd (code=exited, status=0/SUCCESS)</span><br><span class="line"> Main PID: 4189 (mysqld)</span><br><span class="line">   Status: <span class="string">&quot;Server is operational&quot;</span></span><br><span class="line">    Tasks: 39</span><br><span class="line">   CGroup: /system.slice/mysqld.service</span><br><span class="line">           └─4189 /usr/sbin/mysqld</span><br><span class="line"></span><br><span class="line">11月 06 13:20:48 SqaServer systemd[1]: Starting MySQL Server...</span><br><span class="line">11月 06 13:20:53 SqaServer systemd[1]: Started MySQL Server.</span><br><span class="line">[root@SqaServer opt]# systemctl <span class="built_in">enable</span> mysqld</span><br><span class="line">[root@SqaServer opt]# grep <span class="string">&#x27;temporary password&#x27;</span> /var/log/mysqld.log</span><br><span class="line">2022-11-06T05:20:50.998266Z 6 [Note] [MY-010454] [Server] A temporary password is generated <span class="keyword">for</span> root@localhost: qr.:wRI#_7Nu</span><br><span class="line">[root@SqaServer opt]# mysql -uroot -p</span><br><span class="line">Enter password:</span><br><span class="line">ERROR 1045 (28000): Access denied <span class="keyword">for</span> user <span class="string">&#x27;root&#x27;</span>@<span class="string">&#x27;localhost&#x27;</span> (using password: YES)</span><br><span class="line">[root@SqaServer opt]# mysql -uroot -p</span><br><span class="line">Enter password:</span><br><span class="line">Welcome to the MySQL monitor.  Commands end with ; or \g.</span><br><span class="line">Your MySQL connection <span class="built_in">id</span> is 9</span><br><span class="line">Server version: 8.0.31</span><br><span class="line"></span><br><span class="line">Copyright (c) 2000, 2022, Oracle and/or its affiliates.</span><br><span class="line"></span><br><span class="line">Oracle is a registered trademark of Oracle Corporation and/or its</span><br><span class="line">affiliates. Other names may be trademarks of their respective</span><br><span class="line">owners.</span><br><span class="line"></span><br><span class="line">Type <span class="string">&#x27;help;&#x27;</span> or <span class="string">&#x27;\h&#x27;</span> <span class="keyword">for</span> <span class="built_in">help</span>. Type <span class="string">&#x27;\c&#x27;</span> to clear the current input statement.</span><br><span class="line"></span><br><span class="line">mysql&gt; ALTER USER <span class="string">&#x27;root&#x27;</span>@<span class="string">&#x27;localhost&#x27;</span> IDENTIFIED BY <span class="string">&#x27;root&#x27;</span>;</span><br><span class="line">ERROR 1819 (HY000): Your password does not satisfy the current policy requirements</span><br><span class="line">mysql&gt; <span class="built_in">exit</span></span><br><span class="line">Bye</span><br><span class="line">[root@SqaServer opt]# mysql -uroot -p</span><br><span class="line">Enter password:</span><br><span class="line">Welcome to the MySQL monitor.  Commands end with ; or \g.</span><br><span class="line">Your MySQL connection <span class="built_in">id</span> is 10</span><br><span class="line">Server version: 8.0.31</span><br><span class="line"></span><br><span class="line">Copyright (c) 2000, 2022, Oracle and/or its affiliates.</span><br><span class="line"></span><br><span class="line">Oracle is a registered trademark of Oracle Corporation and/or its</span><br><span class="line">affiliates. Other names may be trademarks of their respective</span><br><span class="line">owners.</span><br><span class="line"></span><br><span class="line">Type <span class="string">&#x27;help;&#x27;</span> or <span class="string">&#x27;\h&#x27;</span> <span class="keyword">for</span> <span class="built_in">help</span>. Type <span class="string">&#x27;\c&#x27;</span> to clear the current input statement.</span><br><span class="line"></span><br><span class="line">mysql&gt; ALTER USER <span class="string">&#x27;root&#x27;</span>@<span class="string">&#x27;localhost&#x27;</span> IDENTIFIED BY <span class="string">&#x27;123ABCdef*&#x27;</span>;</span><br><span class="line">Query OK, 0 rows affected (0.01 sec)</span><br><span class="line"></span><br><span class="line">mysql&gt; FLUSH PRIVILEGES;</span><br><span class="line">Query OK, 0 rows affected (0.00 sec)</span><br><span class="line"></span><br><span class="line">mysql&gt; use mysql;</span><br><span class="line">Reading table information <span class="keyword">for</span> completion of table and column names</span><br><span class="line">You can turn off this feature to get a quicker startup with -A</span><br><span class="line"></span><br><span class="line">Database changed</span><br><span class="line">mysql&gt; update user <span class="built_in">set</span> user.Host=<span class="string">&#x27;%&#x27;</span><span class="built_in">where</span> user.User=<span class="string">&#x27;root&#x27;</span>;</span><br><span class="line">Query OK, 1 row affected (0.00 sec)</span><br><span class="line">Rows matched: 1  Changed: 1  Warnings: 0</span><br><span class="line"></span><br><span class="line">mysql&gt; flush privileges;</span><br><span class="line">Query OK, 0 rows affected (0.01 sec)</span><br><span class="line"></span><br><span class="line">mysql&gt; show databases;</span><br><span class="line">+--------------------+</span><br><span class="line">| Database           |</span><br><span class="line">+--------------------+</span><br><span class="line">| information_schema |</span><br><span class="line">| mysql              |</span><br><span class="line">| performance_schema |</span><br><span class="line">| sys                |</span><br><span class="line">+--------------------+</span><br><span class="line">4 rows <span class="keyword">in</span> <span class="built_in">set</span> (0.00 sec)</span><br><span class="line"></span><br><span class="line">mysql&gt;</span><br></pre></td></tr></table></figure></div>
+
+<h2 id="docker-compose部署mysql"><a href="#docker-compose部署mysql" class="headerlink" title="docker compose部署mysql"></a>docker compose部署mysql</h2><ol>
+<li>创建mysql文件夹，编写配置文件保存至mysql文件夹内</li>
+</ol>
+<p>docker-compose.yml</p>
+<div class="code-container" data-rel="Sh"><figure class="iseeu highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">version: <span class="string">&#x27;3&#x27;</span></span><br><span class="line">services:</span><br><span class="line">  db:</span><br><span class="line">    image: docker.1ms.run/mysql:latest</span><br><span class="line">    environment:</span><br><span class="line">      MYSQL_ROOT_PASSWORD: 123ABCdef*</span><br><span class="line">      MYSQL_DATABASE: <span class="built_in">test</span></span><br><span class="line">      MYSQL_USER: admin</span><br><span class="line">      MYSQL_PASSWORD: 123ABCdef*</span><br><span class="line">    ports:</span><br><span class="line">      - <span class="string">&quot;19994:3306&quot;</span></span><br><span class="line">      - <span class="string">&quot;19993:8080&quot;</span></span><br><span class="line">    volumes:</span><br><span class="line">      - ./mysql-data:/var/lib/mysql</span><br><span class="line">  phpmyadmin:</span><br><span class="line">    image: docker.1ms.run/phpmyadmin:latest</span><br><span class="line">    environment:</span><br><span class="line">      PMA_HOST: db</span><br><span class="line">      PMA_USER: root</span><br><span class="line">      PMA_PASSWORD: 123ABCdef*</span><br><span class="line">    ports:</span><br><span class="line">      - <span class="string">&quot;19992:80&quot;</span></span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure></div>
+
+<ol start="2">
+<li>启动</li>
+</ol>
+<div class="code-container" data-rel="Sh"><figure class="iseeu highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">root@VM-24-11-ubuntu:/data/docker/mysql# docker-compose up -d</span><br><span class="line">Creating network <span class="string">&quot;mysql_default&quot;</span> with the default driver</span><br><span class="line">Creating mysql_phpmyadmin_1 ... <span class="keyword">done</span></span><br><span class="line">Creating mysql_db_1         ... <span class="keyword">done</span></span><br><span class="line">root@VM-24-11-ubuntu:/data/docker/mysql# </span><br></pre></td></tr></table></figure></div>
+
+<ol start="3">
+<li>销毁</li>
+</ol>
+<div class="code-container" data-rel="Sh"><figure class="iseeu highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">root@VM-24-11-ubuntu:/data/docker/mysql# docker-compose down</span><br><span class="line">Stopping mysql_db_1         ... <span class="keyword">done</span></span><br><span class="line">Stopping mysql_phpmyadmin_1 ... <span class="keyword">done</span></span><br><span class="line">Removing mysql_db_1         ... <span class="keyword">done</span></span><br><span class="line">Removing mysql_phpmyadmin_1 ... <span class="keyword">done</span></span><br><span class="line">Removing network mysql_bridge</span><br><span class="line">root@VM-24-11-ubuntu:/data/docker/mysql# </span><br></pre></td></tr></table></figure></div>
+
+<h2 id="docker-cli-部署-mysql"><a href="#docker-cli-部署-mysql" class="headerlink" title="docker cli 部署 mysql"></a>docker cli 部署 mysql</h2><h3 id="创建容器"><a href="#创建容器" class="headerlink" title="创建容器"></a>创建容器</h3><div class="code-container" data-rel="Sh"><figure class="iseeu highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run -itd --name mysql -p 3306:3306 -e MYSQL_ROOT_PASSWORD=123456 mysql</span><br></pre></td></tr></table></figure></div>
+
+<h3 id="常见问题处理"><a href="#常见问题处理" class="headerlink" title="常见问题处理"></a>常见问题处理</h3><ol>
+<li>修改密码</li>
+</ol>
+<div class="code-container" data-rel="Sh"><figure class="iseeu highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">docker <span class="built_in">exec</span> -it mysql /bin/bash</span><br><span class="line">alter user <span class="string">&#x27;root&#x27;</span>@<span class="string">&#x27;localhost&#x27;</span> identified by <span class="string">&#x27;new_password&#x27;</span>;</span><br><span class="line">alter user <span class="string">&#x27;root&#x27;</span>@<span class="string">&#x27;%&#x27;</span> identified by <span class="string">&#x27;new_password&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment"># 刷新权限</span></span><br><span class="line">flush privileges;</span><br></pre></td></tr></table></figure></div>
+
+<ol start="2">
+<li>忘记密码</li>
+</ol>
+<div class="code-container" data-rel="Sh"><figure class="iseeu highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">docker <span class="built_in">exec</span> -it mysql /bin/bash</span><br><span class="line"></span><br><span class="line">vim /etc/mysql/mysql.conf.d/mysqld.cnf</span><br><span class="line"></span><br><span class="line">需要加入“skip-grant-tables”  按i     cv加入<span class="string">&quot;skip-grant-tables&quot;</span>     按esc   然后:wq!</span><br><span class="line"></span><br><span class="line"><span class="built_in">exit</span></span><br><span class="line"></span><br><span class="line">docker restart mysql </span><br></pre></td></tr></table></figure></div>
+
+<h2 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h2><blockquote>
+<p><a class="link"   target="_blank" rel="noopener" href="https://www.jb51.net/article/251117.htm" >https://www.jb51.net/article/251117.htm<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a></p>
+</blockquote>
+<blockquote>
+<p><a class="link"   target="_blank" rel="noopener" href="http://www.manongjc.com/detail/51-xnvorytnwrkdfgd.html" >http://www.manongjc.com/detail/51-xnvorytnwrkdfgd.html<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a></p>
+</blockquote>
+
+		</div>
+
+		
+		<div class="post-copyright-info w-full my-8 px-2 sm:px-6 md:px-8">
+			<div class="article-copyright-info-container">
+    <ul>
+        <li><strong>标题:</strong> MySql</li>
+        <li><strong>作者:</strong> Sunmy</li>
+        <li><strong>创建于
+                :</strong> 2023-06-30 16:56:57</li>
+        
+            <li>
+                <strong>更新于
+                    :</strong> 2025-06-29 21:05:24
+            </li>
+        
+        <li>
+            <strong>链接:</strong> https://ldspdvsun.github.io/cmchv38n4001a18gb24pvgmzz/
+        </li>
+        <li>
+            <strong>
+                版权声明:
+            </strong>
+            
+
+            
+                版权所有 &#169 Sunmy，禁止转载。
+            
+        </li>
+    </ul>
+</div>
+
+		</div>
+		
+
+		
+		<ul class="post-tags-box text-lg mt-1.5 flex-wrap justify-center flex md:hidden">
+			
+			<li class="tag-item mx-0.5">
+				<a href="/tags/MySql/">#MySql</a>&nbsp;
+			</li>
+			
+		</ul>
+		
+
+		
+  <div class="recommended-article px-2 sm:px-6 md:px-8">
+   <div class="recommended-desktop">
+    <div class="recommended-article-header text-xl md:text-3xl font-bold mt-10">
+     <i aria-hidden="true"></i><span>推荐阅读</span>
+    </div>
+    <div class="recommended-article-group"><a class="recommended-article-item" href="/cmchv38nb002r18gb03akckz9/" title="Sysbench" rel="bookmark">
+  <img src="https://i.postimg.cc/52qB9kNm/10.png" alt="Sysbench" class="!max-w-none">
+  <span class="title">Sysbench</span>
+</a><a class="recommended-article-item" href="/cmchv38n3001218gb5d2l2n38/" title="Docker问题记录" rel="bookmark">
+  <img src="https://i.postimg.cc/52qB9kNm/10.png" alt="Docker问题记录" class="!max-w-none">
+  <span class="title">Docker问题记录</span>
+</a><a class="recommended-article-item" href="/cmchv38n5001l18gbccxm46zq/" title="Docker学习笔记" rel="bookmark">
+  <img src="https://i.postimg.cc/52qB9kNm/10.png" alt="Docker学习笔记" class="!max-w-none">
+  <span class="title">Docker学习笔记</span>
+</a></div>
+   </div>
+   <div class="recommended-mobile">
+   <div class="recommended-article-header text-xl md:text-3xl font-bold mt-10">
+     <i aria-hidden="true"></i><span>推荐阅读</span>
+   </div>
+   <div class="recommended-article-group"><a class="recommended-article-item" href="/cmchv38nb002r18gb03akckz9/" title="Sysbench" rel="bookmark">
+  <img src="https://i.postimg.cc/52qB9kNm/10.png" alt="Sysbench" class="!max-w-none">
+  <span class="title">Sysbench</span>
+</a><a class="recommended-article-item" href="/cmchv38n3001218gb5d2l2n38/" title="Docker问题记录" rel="bookmark">
+  <img src="https://i.postimg.cc/52qB9kNm/10.png" alt="Docker问题记录" class="!max-w-none">
+  <span class="title">Docker问题记录</span>
+</a></div>
+   </div>
+  </div>
+
+		
+		<div class="article-nav my-8 flex justify-between items-center px-2 sm:px-6 md:px-8">
+			
+			<div class="article-prev border-border-color shadow-redefine-flat shadow-shadow-color-2 rounded-medium px-4 py-2 hover:shadow-redefine-flat-hover hover:shadow-shadow-color-2">
+				<a class="prev" rel="prev" href="/cmchv38n3001718gbgyr34xva/">
+					<span class="left arrow-icon flex justify-center items-center">
+						<i class="fa-solid fa-chevron-left"></i>
+					</span>
+					<span class="title flex justify-center items-center">
+						<span class="post-nav-title-item">K3s学习笔记</span>
+						<span class="post-nav-item">上一篇</span>
+					</span>
+				</a>
+			</div>
+			
+			
+			<div class="article-next border-border-color shadow-redefine-flat shadow-shadow-color-2 rounded-medium px-4 py-2 hover:shadow-redefine-flat-hover hover:shadow-shadow-color-2">
+				<a class="next" rel="next" href="/cmchv38n5001l18gbccxm46zq/">
+					<span class="title flex justify-center items-center">
+						<span class="post-nav-title-item">Docker学习笔记</span>
+						<span class="post-nav-item">下一篇</span>
+					</span>
+					<span class="right arrow-icon flex justify-center items-center">
+						<i class="fa-solid fa-chevron-right"></i>
+					</span>
+				</a>
+			</div>
+			
+		</div>
+		
+
+
+		
+		<div class="comment-container px-2 sm:px-6 md:px-8 pb-8">
+			<div class="comments-container mt-10 w-full ">
+    <div id="comment-anchor" class="w-full h-2.5"></div>
+    <div class="comment-area-title w-full my-1.5 md:my-2.5 text-xl md:text-3xl font-bold">
+        评论
+    </div>
+    
+
+        
+            
+    <div class="twikoo-container">
+        <script data-swup-reload-script
+                src='https://cdnjs.cloudflare.com/ajax/libs/twikoo/1.6.36/twikoo.all.min.js'
+        ></script>
+        <div id="twikoo-comment"></div>
+        <script data-swup-reload-script>
+            function loadTwikoo() {
+                twikoo.init({
+                    el: '#twikoo-comment',
+                    envId: 'https://twikoo-henna-six.vercel.app/',
+                });
+            }
+
+            if ('true') {
+                const loadTwikooTimeout = setTimeout(() => {
+                    loadTwikoo();
+                    clearTimeout(loadTwikooTimeout);
+                }, 1000);
+            } else {
+                window.addEventListener('DOMContentLoaded', loadTwikoo);
+            }
+        </script>
+    </div>
+
+
+        
+        
+    
+</div>
+
+		</div>
+		
+	</div>
+
+	
+	<div class="toc-content-container">
+		<div class="post-toc-wrap">
+	<div class="post-toc">
+		<div class="toc-title">目录</div>
+		<div class="page-title">MySql</div>
+		<ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Centos8"><span class="nav-text">Centos8</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BB%A5-root-%E7%94%A8%E6%88%B7%E9%80%9A%E8%BF%87-CentOS-%E8%BD%AF%E4%BB%B6%E5%8C%85%E7%AE%A1%E7%90%86%E5%99%A8%E6%9D%A5%E5%AE%89%E8%A3%85"><span class="nav-text">以 root 用户通过 CentOS 软件包管理器来安装</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9C%A8%E9%94%AE%E7%9B%98%E4%B8%8A%E6%95%B2%E4%B8%80%E4%B8%AA%EF%BC%9Ay"><span class="nav-text">在键盘上敲一个：y</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%90%AF%E5%8A%A8-MySQL"><span class="nav-text">启动 MySQL</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%99%BB%E5%85%A5-MySQL"><span class="nav-text">登入 MySQL</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%AE%BE%E5%AF%86%E7%A0%81%E3%80%81%E6%8E%88%E6%9D%83%E3%80%81%E5%BC%80%E5%90%AF%E8%BF%9C%E7%A8%8B%E8%AE%BF%E9%97%AE"><span class="nav-text">设密码、授权、开启远程访问</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9B%B4%E6%94%B9%E7%AB%AF%E5%8F%A3"><span class="nav-text">更改端口</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%BC%96%E8%BE%91-my-cnf"><span class="nav-text">编辑 my.cnf</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%A2%9E%E5%8A%A0%E9%85%8D%E7%BD%AE"><span class="nav-text">增加配置</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%87%8D%E5%90%AF-MySQL"><span class="nav-text">重启 MySQL</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Centos7"><span class="nav-text">Centos7</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8D%B8%E8%BD%BDMariaDB"><span class="nav-text">卸载MariaDB</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%9F%A5%E7%9C%8B%E7%89%88%E6%9C%AC%EF%BC%9A"><span class="nav-text">查看版本：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%8D%B8%E8%BD%BD"><span class="nav-text">卸载</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%A3%80%E6%9F%A5%E6%98%AF%E5%90%A6%E5%8D%B8%E8%BD%BD%E5%B9%B2%E5%87%80%EF%BC%9A"><span class="nav-text">检查是否卸载干净：</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%89%E8%A3%85MySQL"><span class="nav-text">安装MySQL</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%B8%8B%E8%BD%BD%E8%B5%84%E6%BA%90%E5%8C%85"><span class="nav-text">下载资源包</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%A7%A3%E5%8E%8B"><span class="nav-text">解压</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%87%8D%E5%91%BD%E5%90%8D"><span class="nav-text">重命名</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%B7%BB%E5%8A%A0PATH%E5%8F%98%E9%87%8F"><span class="nav-text">添加PATH变量</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%94%A8%E6%88%B7%E5%92%8C%E7%94%A8%E6%88%B7%E7%BB%84"><span class="nav-text">用户和用户组</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E7%9B%AE%E5%BD%95"><span class="nav-text">数据目录</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%88%9D%E5%A7%8B%E5%8C%96MySQL"><span class="nav-text">初始化MySQL</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E9%85%8D%E7%BD%AE%E5%8F%82%E6%95%B0"><span class="nav-text">配置参数</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%88%9D%E5%A7%8B%E5%8C%96"><span class="nav-text">初始化</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%90%AF%E5%8A%A8MySQL"><span class="nav-text">启动MySQL</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%90%AF%E5%8A%A8%E6%9C%8D%E5%8A%A1"><span class="nav-text">启动服务</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%99%BB%E5%BD%95"><span class="nav-text">登录</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BF%AE%E6%94%B9%E5%AF%86%E7%A0%81"><span class="nav-text">修改密码</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%AE%BE%E7%BD%AE%E5%85%81%E8%AE%B8%E8%BF%9C%E7%A8%8B%E7%99%BB%E5%BD%95"><span class="nav-text">设置允许远程登录</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%9C%A8Navicat%E4%B8%8A%E6%B5%8B%E8%AF%95%E8%BF%9E%E6%8E%A5"><span class="nav-text">在Navicat上测试连接</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Centos7%E4%BD%BF%E7%94%A8yum%E5%AE%89%E8%A3%85MySQL8"><span class="nav-text">Centos7使用yum安装MySQL8</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%8B%E8%BD%BD"><span class="nav-text">下载</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#docker-compose%E9%83%A8%E7%BD%B2mysql"><span class="nav-text">docker compose部署mysql</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#docker-cli-%E9%83%A8%E7%BD%B2-mysql"><span class="nav-text">docker cli 部署 mysql</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%9B%E5%BB%BA%E5%AE%B9%E5%99%A8"><span class="nav-text">创建容器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98%E5%A4%84%E7%90%86"><span class="nav-text">常见问题处理</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8F%82%E8%80%83%E9%93%BE%E6%8E%A5"><span class="nav-text">参考链接</span></a></li></ol>
+
+	</div>
+</div>
+	</div>
+	
+</div>
+			</div>
+
+			
+		</div>
+
+		<div class="main-content-footer">
+			<footer class="footer mt-5 py-5 h-auto text-base text-third-text-color relative border-t-2 border-t-border-color">
+    <div class="info-container py-3 text-center">
+        
+        <div class="text-center">
+            &copy;
+            
+              <span>2023</span>
+              -
+            
+            2025&nbsp;&nbsp;<i class="fa-solid fa-heart fa-beat" style="--fa-animation-duration: 0.5s; color: #f54545"></i>&nbsp;&nbsp;<a href="/">Sunmy</a>
+            
+                
+                <p class="post-count space-x-0.5">
+                    <span>
+                        共撰写了 70 篇文章
+                    </span>
+                    
+                        <span>
+                            共 216.7k 字
+                        </span>
+                    
+                </p>
+            
+        </div>
+        
+            <script data-swup-reload-script src="https://cn.vercount.one/js"></script>
+            <div class="relative text-center lg:absolute lg:right-[20px] lg:top-1/2 lg:-translate-y-1/2 lg:text-right">
+                
+                    <span id="busuanzi_container_site_uv" class="lg:!block">
+                        <span class="text-sm">访问人数</span>
+                        <span id="busuanzi_value_site_uv"></span>
+                    </span>
+                
+                
+                    <span id="busuanzi_container_site_pv" class="lg:!block">
+                        <span class="text-sm">总访问量</span>
+                        <span id="busuanzi_value_site_pv"></span>
+                    </span>
+                
+            </div>
+        
+        <div class="relative text-center lg:absolute lg:left-[20px] lg:top-1/2 lg:-translate-y-1/2 lg:text-left">
+            <span class="lg:block text-sm">由 <?xml version="1.0" encoding="utf-8"?><!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd"><svg class="relative top-[2px] inline-block align-baseline" version="1.1" id="圖層_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="1rem" height="1rem" viewBox="0 0 512 512" enable-background="new 0 0 512 512" xml:space="preserve"><path fill="#0E83CD" d="M256.4,25.8l-200,115.5L56,371.5l199.6,114.7l200-115.5l0.4-230.2L256.4,25.8z M349,354.6l-18.4,10.7l-18.6-11V275H200v79.6l-18.4,10.7l-18.6-11v-197l18.5-10.6l18.5,10.8V237h112v-79.6l18.5-10.6l18.5,10.8V354.6z"/></svg><a target="_blank" class="text-base" href="https://hexo.io">Hexo</a> 驱动</span>
+            <span class="text-sm lg:block">主题&nbsp;<a class="text-base" target="_blank" href="https://github.com/EvanNotFound/hexo-theme-redefine">Redefine v2.8.2</a></span>
+        </div>
+        
+        
+            <div>
+                博客已运行 <span class="odometer" id="runtime_days" ></span> 天 <span class="odometer" id="runtime_hours"></span> 小时 <span class="odometer" id="runtime_minutes"></span> 分钟 <span class="odometer" id="runtime_seconds"></span> 秒
+            </div>
+        
+        
+            <script data-swup-reload-script>
+                try {
+                    function odometer_init() {
+                    const elements = document.querySelectorAll('.odometer');
+                    elements.forEach(el => {
+                        new Odometer({
+                            el,
+                            format: '( ddd).dd',
+                            duration: 200
+                        });
+                    });
+                    }
+                    odometer_init();
+                } catch (error) {}
+            </script>
+        
+        
+        
+    </div>  
+</footer>
+		</div>
+	</div>
+
+	
+	<div class="post-tools">
+		<div class="post-tools-container">
+	<ul class="article-tools-list">
+		<!-- TOC aside toggle -->
+		
+		<li class="right-bottom-tools page-aside-toggle">
+			<i class="fa-regular fa-outdent"></i>
+		</li>
+		
+
+		<!-- go comment -->
+		
+		<li class="go-comment">
+			<i class="fa-regular fa-comments"></i>
+		</li>
+		
+	</ul>
+</div>
+	</div>
+	
+
+	<div class="right-side-tools-container">
+		<div class="side-tools-container">
+	<ul class="hidden-tools-list">
+		<li class="right-bottom-tools tool-font-adjust-plus flex justify-center items-center">
+			<i class="fa-regular fa-magnifying-glass-plus"></i>
+		</li>
+
+		<li class="right-bottom-tools tool-font-adjust-minus flex justify-center items-center">
+			<i class="fa-regular fa-magnifying-glass-minus"></i>
+		</li>
+
+		<li class="right-bottom-tools tool-dark-light-toggle flex justify-center items-center">
+			<i class="fa-regular fa-moon"></i>
+		</li>
+
+		<!-- rss -->
+		
+
+		
+
+		<li class="right-bottom-tools tool-scroll-to-bottom flex justify-center items-center">
+			<i class="fa-regular fa-arrow-down"></i>
+		</li>
+	</ul>
+
+	<ul class="visible-tools-list">
+		<li class="right-bottom-tools toggle-tools-list flex justify-center items-center">
+			<i class="fa-regular fa-cog fa-spin"></i>
+		</li>
+		
+		<li class="right-bottom-tools tool-scroll-to-top flex justify-center items-center">
+			<i class="arrow-up fas fa-arrow-up"></i>
+			<span class="percent"></span>
+		</li>
+		
+		
+	</ul>
+</div>
+	</div>
+
+	<div class="image-viewer-container">
+	<img src="">
+</div>
+
+	
+	<div class="search-pop-overlay">
+	<div class="popup search-popup">
+		<div class="search-header">
+			<span class="search-input-field-pre">
+				<i class="fa-solid fa-keyboard"></i>
+			</span>
+			<div class="search-input-container">
+				<input autocomplete="off" autocorrect="off" autocapitalize="off" placeholder="站内搜索您需要的内容..." spellcheck="false" type="search" class="search-input">
+			</div>
+			<span class="popup-btn-close">
+				<i class="fa-solid fa-times"></i>
+			</span>
+		</div>
+		<div id="search-result">
+			<div id="no-result">
+				<i class="fa-solid fa-spinner fa-spin-pulse fa-5x fa-fw"></i>
+			</div>
+		</div>
+	</div>
+</div>
+	
+
+</main>
+
+
+
+<script src="/js/build/libs/Swup.min.js"></script>
+
+<script src="/js/build/libs/SwupSlideTheme.min.js"></script>
+
+<script src="/js/build/libs/SwupScriptsPlugin.min.js"></script>
+
+<script src="/js/build/libs/SwupProgressPlugin.min.js"></script>
+
+<script src="/js/build/libs/SwupScrollPlugin.min.js"></script>
+
+<script src="/js/build/libs/SwupPreloadPlugin.min.js"></script>
+
+<script>
+    const swup = new Swup({
+        plugins: [
+            new SwupScriptsPlugin({
+                optin: true,
+            }),
+            new SwupProgressPlugin(),
+            new SwupScrollPlugin({
+                offset: 80,
+            }),
+            new SwupSlideTheme({
+                mainElement: ".main-content-body",
+            }),
+            new SwupPreloadPlugin(),
+        ],
+        containers: ["#swup"],
+    });
+</script>
+
+
+
+
+	
+<script src="/js/build/tools/imageViewer.js" type="module"></script>
+
+<script src="/js/build/utils.js" type="module"></script>
+
+<script src="/js/build/main.js" type="module"></script>
+
+<script src="/js/build/layouts/navbarShrink.js" type="module"></script>
+
+<script src="/js/build/tools/scrollTopBottom.js" type="module"></script>
+
+<script src="/js/build/tools/lightDarkSwitch.js" type="module"></script>
+
+<script src="/js/build/layouts/categoryList.js" type="module"></script>
+
+
+
+    
+<script src="/js/build/tools/localSearch.js" type="module"></script>
+
+
+
+
+    
+<script src="/js/build/tools/codeBlock.js" type="module"></script>
+
+
+
+
+    
+<script src="/js/build/layouts/lazyload.js" type="module"></script>
+
+
+
+
+    
+<script src="/js/build/tools/runtime.js"></script>
+
+    
+<script src="/js/build/libs/odometer.min.js"></script>
+
+    
+<link rel="stylesheet" href="/assets/odometer-theme-minimal.css">
+
+
+
+
+  
+<script src="/js/build/libs/Typed.min.js"></script>
+
+  
+<script src="/js/build/plugins/typed.js" type="module"></script>
+
+
+
+
+
+
+
+
+
+
+
+    
+<script src="/js/build/tools/tocToggle.js" type="module" data-swup-reload-script=""></script>
+
+<script src="/js/build/layouts/toc.js" type="module" data-swup-reload-script=""></script>
+
+<script src="/js/build/plugins/tabs.js" type="module" data-swup-reload-script=""></script>
+
+
+
+
+<script src="/js/build/libs/moment-with-locales.min.js" data-swup-reload-script=""></script>
+
+
+<script src="/js/build/layouts/essays.js" type="module" data-swup-reload-script=""></script>
+
+
+
+
+
+	
+</body>
+
+</html>
