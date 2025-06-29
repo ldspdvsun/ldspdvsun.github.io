@@ -1,0 +1,1596 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="keywords" content="Hexo Theme Redefine">
+    
+    <meta name="author" content="Sunmy">
+    <!-- preconnect -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    
+    <!--- Seo Part-->
+    
+    <link rel="canonical" href="https://ldspdvsun.github.io/cmchvj9ik0006kagb4v3yaupj/"/>
+    <meta name="robots" content="index,follow">
+    <meta name="googlebot" content="index,follow">
+    <meta name="revisit-after" content="1 days">
+    
+    
+    
+        
+        <meta name="description" content="Sunmy&#96;s Blogs">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Qemu模拟ARM">
+<meta property="og:url" content="https://ldspdvsun.github.io/cmchvj9ik0006kagb4v3yaupj/index.html">
+<meta property="og:site_name" content="Sunmy&#96;s Blogs">
+<meta property="og:description" content="Sunmy&#96;s Blogs">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://i.postimg.cc/MZ0wLRpF/wallhaven-exl88k.png">
+<meta property="article:published_time" content="2024-01-22T13:25:23.000Z">
+<meta property="article:modified_time" content="2025-06-29T13:05:24.285Z">
+<meta property="article:author" content="Sunmy">
+<meta property="article:tag" content="Qemu">
+<meta property="article:tag" content="ARM">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://i.postimg.cc/MZ0wLRpF/wallhaven-exl88k.png">
+    
+    
+    <!--- Icon Part-->
+    <link rel="icon" type="image/png" href="https://avatars.githubusercontent.com/u/86214331?s=96&amp;v=4" sizes="192x192">
+    <link rel="apple-touch-icon" sizes="180x180" href="https://avatars.githubusercontent.com/u/86214331?s=96&amp;v=4">
+    <meta name="theme-color" content="#A31F34">
+    <link rel="shortcut icon" href="https://avatars.githubusercontent.com/u/86214331?s=96&v=4">
+    <!--- Page Info-->
+    
+    <title>
+        
+            Qemu模拟ARM | Sunmy`s Blogs
+        
+    </title>
+
+    
+<link rel="stylesheet" href="/fonts/Chillax/chillax.css">
+
+
+    <!--- Inject Part-->
+    
+
+    
+<link rel="stylesheet" href="/css/style.css">
+
+
+    
+        
+<link rel="stylesheet" href="/css/build/tailwind.css">
+
+    
+
+    
+<link rel="stylesheet" href="/fonts/GeistMono/geist-mono.css">
+
+    
+<link rel="stylesheet" href="/fonts/Geist/geist.css">
+
+    <!--- Font Part-->
+    
+    
+    
+    
+    
+    
+        
+<script src="/js/build/libs/anime.min.js"></script>
+
+    
+
+    <script id="hexo-configurations">
+    window.config = {"hostname":"ldspdvsun.github.io","root":"/","language":"zh-CN","path":"search.json"};
+    window.theme = {"articles":{"style":{"font_size":"16px","line_height":1.5,"image_border_radius":"14px","image_alignment":"center","image_caption":false,"link_icon":true,"delete_mask":false,"title_alignment":"left","headings_top_spacing":{"h1":"5rem","h2":"4rem","h3":"2.8rem","h4":"2.5rem","h5":"2.2rem","h6":"2rem"}},"word_count":{"enable":true,"count":true,"min2read":true},"author_label":{"enable":true,"auto":false,"list":[]},"code_block":{"copy":true,"style":"mac","highlight_theme":{"light":"github","dark":"vs2015"},"font":{"enable":false,"family":null,"url":null}},"toc":{"enable":true,"max_depth":5,"number":false,"expand":true,"init_open":true},"copyright":{"enable":true,"default":"all_rights_reserved"},"lazyload":true,"pangu_js":false,"recommendation":{"enable":true,"title":"推荐阅读","limit":3,"mobile_limit":2,"placeholder":"https://i.postimg.cc/52qB9kNm/10.png","skip_dirs":[]}},"colors":{"primary":"#A31F34","secondary":null,"default_mode":"light"},"global":{"fonts":{"chinese":{"enable":false,"family":null,"url":null},"english":{"enable":false,"family":null,"url":null},"title":{"enable":false,"family":null,"url":null}},"content_max_width":"1000px","sidebar_width":"210px","hover":{"shadow":true,"scale":false},"scroll_progress":{"bar":false,"percentage":true},"website_counter":{"url":"https://cn.vercount.one/js","enable":true,"site_pv":true,"site_uv":true,"post_pv":true},"single_page":true,"preloader":{"enable":true,"custom_message":null},"open_graph":{"enable":true,"image":"https://i.postimg.cc/MZ0wLRpF/wallhaven-exl88k.png","description":"Sunmy`s Blogs"},"google_analytics":{"enable":false,"id":null}},"home_banner":{"enable":true,"style":"fixed","image":{"light":"https://i.postimg.cc/bJMg5v9g/0-8.png","dark":"https://i.postimg.cc/MZ0wLRpF/wallhaven-exl88k.png"},"title":"Sunmy`s Blogs","subtitle":{"text":["随心所欲地享受每一天\\(￣︶￣*\\))","随时随地，浏览记录O(∩_∩)O","如果喜欢，建议给个支持( •̀ ω •́ )✧","喜欢的话，留个言好嘛(oﾟvﾟ)ノ","欢迎来到我的博客(｡･∀･)ﾉﾞ","正在努力更新博客(ง •_•)ง","正在不断努力改善博客中ε=( o｀ω′)ノ","文字正在不断轮换(*￣3￣)╭","你有建议？反馈作者(●^◡^●)"],"hitokoto":{"enable":false,"show_author":false,"api":"https://v1.hitokoto.cn"},"typing_speed":100,"backing_speed":30,"starting_delay":500,"backing_delay":1500,"loop":true,"smart_backspace":true},"text_color":{"light":"#9f5221","dark":"#d1d1b6"},"text_style":{"title_size":"2.8rem","subtitle_size":"1.5rem","line_height":1.2},"custom_font":{"enable":false,"family":null,"url":null},"social_links":{"enable":true,"style":"default","links":{"github":"https://github.com/ldspdvsun","instagram":null,"zhihu":null,"twitter":null,"email":"skywalker0@qq.com"},"qrs":{"weixin":null}}},"plugins":{"feed":{"enable":false},"aplayer":{"enable":false,"type":"fixed","audios":[{"name":null,"artist":null,"url":null,"cover":null,"lrc":null}]},"mermaid":{"enable":false,"version":"11.4.1"}},"version":"2.8.2","navbar":{"auto_hide":false,"color":{"left":"#f78736","right":"#367df7","transparency":35},"width":{"home":"1600px","pages":"1000px"},"links":{"Home":{"path":"/","icon":"fa-regular fa-house"},"Archives":{"path":"/archives","icon":"fa-regular fa-archive"},"Tags":{"path":"/tags","icon":"fa-regular fa-tags"},"Categories":{"path":"/categories","icon":"fa-regular fa-list"},"ShuoShuo":{"icon":"fa-solid fa-comment-dots","path":"/shuoshuo"},"Links":{"icon":"fa-regular fa-link","submenus":{"Github":"https://github.com/ldspdvsun","Zhihu":"https://www.zhihu.com/people/ldspdvs"}}},"search":{"enable":true,"preload":true}},"page_templates":{"friends_column":2,"tags_style":"blur"},"home":{"sidebar":{"enable":true,"position":"left","first_item":"menu","announcement":"Be all you can be!","show_on_mobile":true,"links":{"Archives":{"path":"/archives","icon":"fa-regular fa-archive"},"Tags":{"path":"/tags","icon":"fa-regular fa-tags"},"Categories":{"path":"/categories","icon":"fa-regular fa-folder"}}},"article_date_format":"auto","excerpt_length":200,"categories":{"enable":true,"limit":3},"tags":{"enable":true,"limit":3}},"footerStart":"2023/6/1 00:00:00"};
+    window.lang_ago = {"second":"%s 秒前","minute":"%s 分钟前","hour":"%s 小时前","day":"%s 天前","week":"%s 周前","month":"%s 个月前","year":"%s 年前"};
+    window.data = {"masonry":false};
+  </script>
+    
+    <!--- Fontawesome Part-->
+    
+<link rel="stylesheet" href="/fontawesome/fontawesome.min.css">
+
+    
+<link rel="stylesheet" href="/fontawesome/brands.min.css">
+
+    
+<link rel="stylesheet" href="/fontawesome/solid.min.css">
+
+    
+<link rel="stylesheet" href="/fontawesome/regular.min.css">
+
+    
+    
+    
+    
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+
+
+<body>
+	<div class="progress-bar-container">
+	
+
+	
+	<span class="pjax-progress-bar"></span>
+	<!--        <span class="swup-progress-icon">-->
+	<!--            <i class="fa-solid fa-circle-notch fa-spin"></i>-->
+	<!--        </span>-->
+	
+</div>
+
+<style>
+    :root {
+        --preloader-background-color: #fff;
+        --preloader-text-color: #000;
+    }
+
+    @media (prefers-color-scheme: dark) {
+        :root {
+            --preloader-background-color: #202124;
+            --preloader-text-color: #fff;
+        }
+    }
+
+    @media (prefers-color-scheme: light) {
+        :root {
+            --preloader-background-color: #fff;
+            --preloader-text-color: #000;
+        }
+    }
+
+    @media (max-width: 600px) {
+        .ml13 {
+            font-size: 2.6rem !important; /* Adjust this value as needed */
+        }
+    }
+
+    .preloader {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem; /* Tailwind 'gap-4' is 1rem */
+        align-items: center;
+        justify-content: center;
+        position: fixed;
+        padding: 12px;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh; /* 'h-screen' is 100% of the viewport height */
+        background-color: var(--preloader-background-color);
+        z-index: 1100; /* 'z-[1100]' sets the z-index */
+        transition: opacity 0.2s ease-in-out;
+    }
+
+    .ml13 {
+        font-size: 3.2rem;
+        /* text-transform: uppercase; */
+        color: var(--preloader-text-color);
+        letter-spacing: -1px;
+        font-weight: 500;
+        font-family: 'Chillax-Variable', sans-serif;
+        text-align: center;
+    }
+
+    .ml13 .word {
+        display: inline-flex;
+        flex-wrap: wrap;
+        white-space: nowrap;
+    }
+
+    .ml13 .letter {
+        display: inline-block;
+        line-height: 1em;
+    }
+</style>
+
+<div class="preloader">
+    <h2 class="ml13">
+        Sunmy`s Blogs
+    </h2>
+    <script>
+        var textWrapper = document.querySelector('.ml13');
+        // Split text into words
+        var words = textWrapper.textContent.trim().split(' ');
+
+        // Clear the existing content
+        textWrapper.innerHTML = '';
+
+        // Wrap each word and its letters in spans
+        words.forEach(function(word) {
+            var wordSpan = document.createElement('span');
+            wordSpan.classList.add('word');
+            wordSpan.innerHTML = word.replace(/\S/g, "<span class='letter'>$&</span>");
+            textWrapper.appendChild(wordSpan);
+            textWrapper.appendChild(document.createTextNode(' ')); // Add space between words
+        });
+
+        var animation = anime.timeline({ loop: true })
+            .add({
+                targets: '.ml13 .letter',
+                translateY: [20, 0],
+                translateZ: 0,
+                opacity: [0, 1],
+                filter: ['blur(5px)', 'blur(0px)'],
+                easing: "easeOutExpo",
+                duration: 1200,
+                delay: (el, i) => 300 + 20 * i,
+            })
+            .add({
+                targets: '.ml13 .letter',
+                translateY: [0, -20],
+                opacity: [1, 0],
+                filter: ['blur(0px)', 'blur(5px)'],
+                easing: "easeInExpo",
+                duration: 1000,
+                delay: (el, i) => 15 * i,
+                complete: function() {
+                    hidePreloader();
+                }
+            }, '-=700');
+
+
+        let themeStatus = JSON.parse(localStorage.getItem('REDEFINE-THEME-STATUS'))?.isDark;
+
+        // If the theme status is not found in local storage, check the preferred color scheme
+        if (themeStatus === undefined || themeStatus === null) {
+            if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+                themeStatus = 'dark';
+            } else {
+                themeStatus = 'light';
+            }
+        }
+
+        // Now you can use the themeStatus variable in your code
+        if (themeStatus) {
+            document.documentElement.style.setProperty('--preloader-background-color', '#202124');
+            document.documentElement.style.setProperty('--preloader-text-color', '#fff');
+        } else {
+            document.documentElement.style.setProperty('--preloader-background-color', '#fff');
+            document.documentElement.style.setProperty('--preloader-text-color', '#000');
+        }
+
+        window.addEventListener('load', function () {
+            setTimeout(hidePreloader, 5000); // Call hidePreloader after 5000 milliseconds if not already called by animation
+        });
+
+        function hidePreloader() {
+            var preloader = document.querySelector('.preloader');
+            preloader.style.opacity = '0';
+            setTimeout(function () {
+                preloader.style.display = 'none';
+            }, 200);
+        }
+    </script>
+</div>
+
+<main class="page-container" id="swup">
+
+	
+
+	<div class="main-content-container flex flex-col justify-between min-h-dvh">
+		<div class="main-content-header">
+			<header class="navbar-container px-6 md:px-12">
+    <div class="navbar-content transition-navbar ">
+        <div class="left">
+            
+            <a class="logo-title" href="/">
+                
+                Sunmy`s Blogs
+                
+            </a>
+        </div>
+
+        <div class="right">
+            <!-- PC -->
+            <div class="desktop">
+                <ul class="navbar-list">
+                    
+                        
+                            
+
+                            <li class="navbar-item">
+                                <!-- Menu -->
+                                <a class=""
+                                   href="/"
+                                        >
+                                    <i class="fa-regular fa-house fa-fw"></i>
+                                    首页
+                                    
+                                </a>
+
+                                <!-- Submenu -->
+                                
+                            </li>
+                    
+                        
+                            
+
+                            <li class="navbar-item">
+                                <!-- Menu -->
+                                <a class=""
+                                   href="/archives"
+                                        >
+                                    <i class="fa-regular fa-archive fa-fw"></i>
+                                    归档
+                                    
+                                </a>
+
+                                <!-- Submenu -->
+                                
+                            </li>
+                    
+                        
+                            
+
+                            <li class="navbar-item">
+                                <!-- Menu -->
+                                <a class=""
+                                   href="/tags"
+                                        >
+                                    <i class="fa-regular fa-tags fa-fw"></i>
+                                    标签
+                                    
+                                </a>
+
+                                <!-- Submenu -->
+                                
+                            </li>
+                    
+                        
+                            
+
+                            <li class="navbar-item">
+                                <!-- Menu -->
+                                <a class=""
+                                   href="/categories"
+                                        >
+                                    <i class="fa-regular fa-list fa-fw"></i>
+                                    分类
+                                    
+                                </a>
+
+                                <!-- Submenu -->
+                                
+                            </li>
+                    
+                        
+                            
+
+                            <li class="navbar-item">
+                                <!-- Menu -->
+                                <a class=""
+                                   href="/shuoshuo"
+                                        >
+                                    <i class="fa-solid fa-comment-dots fa-fw"></i>
+                                    说说
+                                    
+                                </a>
+
+                                <!-- Submenu -->
+                                
+                            </li>
+                    
+                        
+                            
+
+                            <li class="navbar-item">
+                                <!-- Menu -->
+                                <a class="has-dropdown"
+                                   href="#"
+                                        onClick=&#34;return false;&#34;>
+                                    <i class="fa-regular fa-link fa-fw"></i>
+                                    链接
+                                    <i class="fa-solid fa-chevron-down fa-fw"></i>
+                                </a>
+
+                                <!-- Submenu -->
+                                
+                                    <ul class="sub-menu">
+                                        
+                                            <li>
+                                                <a target="_blank" rel="noopener" href="https://github.com/ldspdvsun">
+                                                    GITHUB
+                                                </a>
+                                            </li>
+                                        
+                                            <li>
+                                                <a target="_blank" rel="noopener" href="https://www.zhihu.com/people/ldspdvs">
+                                                    ZHIHU
+                                                </a>
+                                            </li>
+                                        
+                                    </ul>
+                                
+                            </li>
+                    
+                    
+                        <li class="navbar-item search search-popup-trigger">
+                            <i class="fa-solid fa-magnifying-glass"></i>
+                        </li>
+                    
+                </ul>
+            </div>
+            <!-- Mobile -->
+            <div class="mobile">
+                
+                    <div class="icon-item search search-popup-trigger"><i class="fa-solid fa-magnifying-glass"></i>
+                    </div>
+                
+                <div class="icon-item navbar-bar">
+                    <div class="navbar-bar-middle"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Mobile sheet -->
+    <div class="navbar-drawer h-dvh w-full absolute top-0 left-0 bg-background-color flex flex-col justify-between">
+        <ul class="drawer-navbar-list flex flex-col px-4 justify-center items-start">
+            
+                
+                    
+
+                    <li class="drawer-navbar-item text-base my-1.5 flex flex-col w-full">
+                        
+                        <a class="py-1.5 px-2 flex flex-row items-center justify-between gap-1 hover:!text-primary active:!text-primary text-2xl font-semibold group border-b border-border-color hover:border-primary w-full "
+                           href="/"
+                        >
+                            <span>
+                                首页
+                            </span>
+                            
+                                <i class="fa-regular fa-house fa-sm fa-fw"></i>
+                            
+                        </a>
+                        
+
+                        
+                    </li>
+            
+                
+                    
+
+                    <li class="drawer-navbar-item text-base my-1.5 flex flex-col w-full">
+                        
+                        <a class="py-1.5 px-2 flex flex-row items-center justify-between gap-1 hover:!text-primary active:!text-primary text-2xl font-semibold group border-b border-border-color hover:border-primary w-full "
+                           href="/archives"
+                        >
+                            <span>
+                                归档
+                            </span>
+                            
+                                <i class="fa-regular fa-archive fa-sm fa-fw"></i>
+                            
+                        </a>
+                        
+
+                        
+                    </li>
+            
+                
+                    
+
+                    <li class="drawer-navbar-item text-base my-1.5 flex flex-col w-full">
+                        
+                        <a class="py-1.5 px-2 flex flex-row items-center justify-between gap-1 hover:!text-primary active:!text-primary text-2xl font-semibold group border-b border-border-color hover:border-primary w-full "
+                           href="/tags"
+                        >
+                            <span>
+                                标签
+                            </span>
+                            
+                                <i class="fa-regular fa-tags fa-sm fa-fw"></i>
+                            
+                        </a>
+                        
+
+                        
+                    </li>
+            
+                
+                    
+
+                    <li class="drawer-navbar-item text-base my-1.5 flex flex-col w-full">
+                        
+                        <a class="py-1.5 px-2 flex flex-row items-center justify-between gap-1 hover:!text-primary active:!text-primary text-2xl font-semibold group border-b border-border-color hover:border-primary w-full "
+                           href="/categories"
+                        >
+                            <span>
+                                分类
+                            </span>
+                            
+                                <i class="fa-regular fa-list fa-sm fa-fw"></i>
+                            
+                        </a>
+                        
+
+                        
+                    </li>
+            
+                
+                    
+
+                    <li class="drawer-navbar-item text-base my-1.5 flex flex-col w-full">
+                        
+                        <a class="py-1.5 px-2 flex flex-row items-center justify-between gap-1 hover:!text-primary active:!text-primary text-2xl font-semibold group border-b border-border-color hover:border-primary w-full "
+                           href="/shuoshuo"
+                        >
+                            <span>
+                                说说
+                            </span>
+                            
+                                <i class="fa-solid fa-comment-dots fa-sm fa-fw"></i>
+                            
+                        </a>
+                        
+
+                        
+                    </li>
+            
+                
+                    
+
+                    <li class="drawer-navbar-item-sub text-base my-1.5 flex flex-col w-full">
+                        
+                        <div class="py-1.5 px-2 flex flex-row items-center justify-between gap-1 hover:!text-primary active:!text-primary cursor-pointer text-2xl font-semibold group border-b border-border-color hover:border-primary w-full "
+                             navbar-data-toggle="submenu-Links"
+                        >
+                            <span>
+                                链接
+                            </span>
+                            
+                                <i class="fa-solid fa-chevron-right fa-sm fa-fw transition-all"></i>
+                            
+                        </div>
+                        
+
+                        
+                            <div class="flex-col items-start px-2 py-2 hidden" data-target="submenu-Links">
+                                
+                                    <div class="drawer-navbar-item text-base flex flex-col justify-center items-start hover:underline active:underline hover:underline-offset-1 rounded-3xl">
+                                        <a class=" text-third-text-color text-xl"
+                                           target="_blank" rel="noopener" href="https://github.com/ldspdvsun">GITHUB</a>
+                                    </div>
+                                
+                                    <div class="drawer-navbar-item text-base flex flex-col justify-center items-start hover:underline active:underline hover:underline-offset-1 rounded-3xl">
+                                        <a class=" text-third-text-color text-xl"
+                                           target="_blank" rel="noopener" href="https://www.zhihu.com/people/ldspdvs">ZHIHU</a>
+                                    </div>
+                                
+                            </div>
+                        
+                    </li>
+            
+
+            
+            
+                
+                    
+                    
+                    
+            
+        </ul>
+
+        <div class="statistics flex justify-around my-2.5">
+    <a class="item tag-count-item flex flex-col justify-center items-center w-20" href="/tags">
+        <div class="number text-2xl sm:text-xl text-second-text-color font-semibold">65</div>
+        <div class="label text-third-text-color text-sm">标签</div>
+    </a>
+    <a class="item tag-count-item flex flex-col justify-center items-center w-20" href="/categories">
+        <div class="number text-2xl sm:text-xl text-second-text-color font-semibold">20</div>
+        <div class="label text-third-text-color text-sm">分类</div>
+    </a>
+    <a class="item tag-count-item flex flex-col justify-center items-center w-20" href="/archives">
+        <div class="number text-2xl sm:text-xl text-second-text-color font-semibold">70</div>
+        <div class="label text-third-text-color text-sm">文章</div>
+    </a>
+</div>
+    </div>
+
+    <div class="window-mask"></div>
+
+</header>
+
+
+		</div>
+
+		<div class="main-content-body transition-fade-up">
+			
+
+			<div class="main-content">
+				<div class="post-page-container flex relative justify-between box-border w-full h-full">
+	<div class="article-content-container">
+
+		<div class="article-title relative w-full">
+			
+			<div class="w-full flex items-center pt-6 justify-start">
+				<h1 class="article-title-regular text-second-text-color tracking-tight text-4xl md:text-6xl font-semibold px-2 sm:px-6 md:px-8 py-3">Qemu模拟ARM</h1>
+			</div>
+			
+		</div>
+
+		
+		<div class="article-header flex flex-row gap-2 items-center px-2 sm:px-6 md:px-8">
+			<div class="avatar w-[46px] h-[46px] flex-shrink-0 rounded-medium border border-border-color p-[1px]">
+				<img src="https://avatars.githubusercontent.com/u/86214331?s=96&v=4">
+			</div>
+			<div class="info flex flex-col justify-between">
+				<div class="author flex items-center">
+					<span class="name text-default-text-color text-lg font-semibold">Sunmy</span>
+					
+					<span class="author-label ml-1.5 text-xs px-2 py-0.5 rounded-small text-third-text-color border border-shadow-color-1">Lv5</span>
+					
+				</div>
+				<div class="meta-info">
+					<div class="article-meta-info">
+    <span class="article-date article-meta-item">
+        <i class="fa-regular fa-pen-fancy"></i>&nbsp;
+        <span class="desktop">2024-01-22 21:25:23</span>
+        <span class="mobile">2024-01-22 21:25:23</span>
+        <span class="hover-info">创建</span>
+    </span>
+    
+        <span class="article-date article-meta-item">
+            <i class="fa-regular fa-wrench"></i>&nbsp;
+            <span class="desktop">2025-06-29 21:05:24</span>
+            <span class="mobile">2025-06-29 21:05:24</span>
+            <span class="hover-info">更新</span>
+        </span>
+    
+
+    
+        <span class="article-categories article-meta-item">
+            <i class="fa-regular fa-folders"></i>&nbsp;
+            <ul>
+                
+                
+                    
+                        
+                        <li>
+                            <a href="/categories/%E6%8A%80%E6%9C%AF%E5%B0%9D%E8%AF%95/">技术尝试</a>&nbsp;
+                        </li>
+                    
+                    
+                
+            </ul>
+        </span>
+    
+    
+        <span class="article-tags article-meta-item">
+            <i class="fa-regular fa-tags"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/tags/Qemu/">Qemu</a>&nbsp;
+                    </li>
+                
+                    <li>
+                        | <a href="/tags/ARM/">ARM</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
+    
+
+    
+    
+        <span class="article-wordcount article-meta-item">
+            <i class="fa-regular fa-typewriter"></i>&nbsp;<span>8.7k 字</span>
+        </span>
+    
+    
+        <span class="article-min2read article-meta-item">
+            <i class="fa-regular fa-clock"></i>&nbsp;<span>46 分钟</span>
+        </span>
+    
+    
+        <span class="article-pv article-meta-item">
+            <i class="fa-regular fa-eye"></i>&nbsp;<span id="busuanzi_value_page_pv"></span>
+        </span>
+    
+</div>
+
+				</div>
+			</div>
+		</div>
+		
+
+		
+
+
+		<div class="article-content markdown-body px-2 sm:px-6 md:px-8 pb-8">
+			<p>&#x20;Qemu是一款开源免费的<a class="link"   target="_blank" rel="noopener" href="https://so.csdn.net/so/search?q=%E4%BB%BF%E7%9C%9F%E8%BD%AF%E4%BB%B6&spm=1001.2101.3001.7020" >仿真软件<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a>，跟VMware station类似，可以仿真一台虚拟的电脑，然后在这个电脑上安装各种操作系统、运行各种应用程序。Qemu和VMware station不同的是，除了可以仿真一台电脑外，它还支持仿真一系列嵌入式开发板（支持ARM、MIPS、RISC-V等各种架构），模拟的开发板支持各种外设：串口、LCD、网卡、USB、SD卡等，可以在这个开发板上运行U-boot+Linux+Rootfs。对于缺少开发板学习嵌入式、研究U-boot、Linux内核的朋友，可以考虑使用<a class="link"   target="_blank" rel="noopener" href="https://www.zhaixue.cc/qemu/qemu-intro.html" >qemu<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a>来搭建一块虚拟的开发板，方便快捷、经济实惠</p>
+<h1 id="环境搭建"><a href="#环境搭建" class="headerlink" title="环境搭建"></a>环境搭建</h1><h2 id="开发环境介绍"><a href="#开发环境介绍" class="headerlink" title="开发环境介绍"></a>开发环境介绍</h2><table>
+<thead>
+<tr>
+<th>名称</th>
+<th>版本</th>
+<th>工具包</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>操作系统</td>
+<td>Ubuntu2204</td>
+<td></td>
+</tr>
+<tr>
+<td>Qemu</td>
+<td>6.2.0</td>
+<td></td>
+</tr>
+<tr>
+<td>交叉编译工具链</td>
+<td>11.4.0</td>
+<td></td>
+</tr>
+<tr>
+<td>Linux内核</td>
+<td>5.10.186</td>
+<td></td>
+</tr>
+<tr>
+<td>U-boot</td>
+<td>2022.07-rc3</td>
+<td></td>
+</tr>
+<tr>
+<td>busybox</td>
+<td>1.36.1</td>
+<td></td>
+</tr>
+</tbody></table>
+<h2 id="Ubuntu22-0切换软件源"><a href="#Ubuntu22-0切换软件源" class="headerlink" title="Ubuntu22.0切换软件源"></a>Ubuntu22.0切换软件源</h2><div class="code-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> <span class="built_in">cp</span> /etc/apt/sources.list /etc/apt/sources.list.bak</span><br><span class="line"><span class="built_in">sudo</span> vi /etc/apt/sources.list</span><br><span class="line"> </span><br><span class="line"><span class="comment"># 将sources.list替换为以下内容</span></span><br><span class="line">deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ jammy main restricted universe multiverse</span><br><span class="line">deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ jammy-updates main restricted universe multiverse</span><br><span class="line">deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ jammy-backports main restricted universe multiverse</span><br><span class="line">deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ jammy-security main restricted universe multiverse</span><br><span class="line"> </span><br><span class="line"><span class="comment"># 更新软件源列表并升级已安装的软件包</span></span><br><span class="line"><span class="built_in">sudo</span> apt update</span><br></pre></td></tr></table></figure></div>
+
+<h2 id="配置安装交叉编译环境"><a href="#配置安装交叉编译环境" class="headerlink" title="配置安装交叉编译环境"></a>配置安装交叉编译环境</h2><div class="code-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> apt install -y gcc-arm-linux-gnueabi</span><br><span class="line"><span class="built_in">sudo</span> apt install -y g++-arm-linux-gnueabi</span><br><span class="line"><span class="built_in">sudo</span> apt install -y build-essential openssh-server vim net-tools flex bison libncurses-dev libssl-dev u-boot-tools</span><br></pre></td></tr></table></figure></div>
+
+<h2 id="搭建qemu运行环境"><a href="#搭建qemu运行环境" class="headerlink" title="搭建qemu运行环境"></a>搭建qemu运行环境</h2><div class="code-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># qemu依赖包</span></span><br><span class="line"><span class="built_in">sudo</span> apt-get -y install zlib1g-dev </span><br><span class="line"><span class="built_in">sudo</span> apt-get -y install libglib2.0-0</span><br><span class="line"><span class="built_in">sudo</span> apt-get -y install libglib2.0-dev</span><br><span class="line"><span class="built_in">sudo</span> apt-get -y install libtool</span><br><span class="line"><span class="built_in">sudo</span> apt-get -y install libsdl1.2-dev</span><br><span class="line"><span class="built_in">sudo</span> apt-get -y install libpixman-1-0</span><br><span class="line"><span class="built_in">sudo</span> apt-get -y install libpixman-1-dev</span><br><span class="line"><span class="built_in">sudo</span> apt-get -y install autoconf</span><br><span class="line"> </span><br><span class="line"><span class="comment"># 安装qemu</span></span><br><span class="line"><span class="built_in">sudo</span> apt install -y qemu-system</span><br></pre></td></tr></table></figure></div>
+
+<h2 id="检查环境搭建是否成功"><a href="#检查环境搭建是否成功" class="headerlink" title="检查环境搭建是否成功"></a>检查环境搭建是否成功</h2><h3 id="交叉编译工具链"><a href="#交叉编译工具链" class="headerlink" title="交叉编译工具链"></a>交叉编译工具链</h3><div class="code-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">sun@ldspdvs:~$ arm-linux-gnueabi-gcc -v</span><br><span class="line">Using built-in specs.</span><br><span class="line">COLLECT_GCC=arm-linux-gnueabi-gcc</span><br><span class="line">COLLECT_LTO_WRAPPER=/usr/lib/gcc-cross/arm-linux-gnueabi/11/lto-wrapper</span><br><span class="line">Target: arm-linux-gnueabi</span><br><span class="line">Configured with: ../src/configure -v --with-pkgversion=<span class="string">&#x27;Ubuntu 11.4.0-1ubuntu1~22.04&#x27;</span> --with-bugurl=file:///usr/share/doc/gcc-11/README.Bugs --enable-languages=c,ada,c++,go,d,fortran,objc,obj-c++,m2 --prefix=/usr --with-gcc-major-version-only --program-suffix=-11 --enable-shared --enable-linker-build-id --libexecdir=/usr/lib --without-included-gettext --enable-threads=posix --libdir=/usr/lib --enable-nls --with-sysroot=/ --enable-clocale=gnu --enable-libstdcxx-debug --enable-libstdcxx-time=<span class="built_in">yes</span> --with-default-libstdcxx-abi=new --enable-gnu-unique-object --disable-libitm --disable-libquadmath --disable-libquadmath-support --enable-plugin --with-system-zlib --enable-libphobos-checking=release --without-target-system-zlib --enable-multiarch --disable-sjlj-exceptions --with-specs=<span class="string">&#x27;%&#123;mfloat-abi=hard:-march=armv7-a -mcpu=generic-armv7-a -mfloat-abi=hard&#125;&#x27;</span> --with-arch=armv5t --with-float=soft --disable-werror --enable-checking=release --build=x86_64-linux-gnu --host=x86_64-linux-gnu --target=arm-linux-gnueabi --program-prefix=arm-linux-gnueabi- --includedir=/usr/arm-linux-gnueabi/include --with-build-config=bootstrap-lto-lean --enable-link-serialization=2</span><br><span class="line">Thread model: posix</span><br><span class="line">Supported LTO compression algorithms: zlib zstd</span><br><span class="line">gcc version 11.4.0 (Ubuntu 11.4.0-1ubuntu1~22.04) </span><br><span class="line">sun@ldspdvs:~$ </span><br></pre></td></tr></table></figure></div>
+
+<h3 id="虚拟开发板QEMU"><a href="#虚拟开发板QEMU" class="headerlink" title="虚拟开发板QEMU"></a>虚拟开发板QEMU</h3><div class="code-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">sun@ldspdvs:~$ qemu-system-arm --version</span><br><span class="line">QEMU emulator version 6.2.0 (Debian 1:6.2+dfsg-2ubuntu6.16)</span><br><span class="line">Copyright (c) 2003-2021 Fabrice Bellard and the QEMU Project developers</span><br><span class="line">sun@ldspdvs:~$ </span><br></pre></td></tr></table></figure></div>
+
+<h1 id="编译Linux内核"><a href="#编译Linux内核" class="headerlink" title="编译Linux内核"></a>编译Linux内核</h1><h2 id="建立workspace工作空间"><a href="#建立workspace工作空间" class="headerlink" title="建立workspace工作空间"></a>建立workspace工作空间</h2><div class="code-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> <span class="built_in">mkdir</span> -p /home/workspace/objects</span><br></pre></td></tr></table></figure></div>
+
+<h2 id="获取Linux内核源码"><a href="#获取Linux内核源码" class="headerlink" title="获取Linux内核源码"></a>获取Linux内核源码</h2><div class="code-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> /home/workspace</span><br><span class="line"><span class="built_in">sudo</span> wget https://cdn.kernel.org/pub/linux/kernel/v5.x/linux-5.10.186.tar.xz</span><br></pre></td></tr></table></figure></div>
+
+<h2 id="解压Linux内核源码"><a href="#解压Linux内核源码" class="headerlink" title="解压Linux内核源码"></a>解压Linux内核源码</h2><div class="code-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> tar -xvf linux-5.10.186.tar.xz</span><br></pre></td></tr></table></figure></div>
+
+<h2 id="编译Linux内核源码"><a href="#编译Linux内核源码" class="headerlink" title="编译Linux内核源码"></a>编译Linux内核源码</h2><p>进入源码根目录</p>
+<div class="code-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> linux-5.10.191</span><br></pre></td></tr></table></figure></div>
+
+<p>创建automake_arm32.sh（笔者的电脑是12核CPU所以采用-j12进行编译，读者编译过程中可根据实际情况进行调整）</p>
+<div class="code-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">sun@ldspdvs:/home/workspace/linux-5.10.186$ <span class="built_in">sudo</span> <span class="built_in">touch</span> automake_arm32.sh</span><br><span class="line">sun@ldspdvs:/home/workspace/linux-5.10.186$ <span class="built_in">sudo</span> <span class="built_in">chmod</span> 777 automake_arm32.sh </span><br><span class="line">sun@ldspdvs:/home/workspace/linux-5.10.186$ vim automake_arm32.sh </span><br><span class="line"></span><br><span class="line"><span class="comment"># 在automake_arm32.sh中填入以下内容</span></span><br><span class="line">make ARCH=arm CROSS_COMPILE=arm-linux-gnueabi- vexpress_defconfig O=../objects/vexpress-v2p-ca9</span><br><span class="line">make ARCH=arm CROSS_COMPILE=arm-linux-gnueabi- menuconfig O=../objects/vexpress-v2p-ca9</span><br><span class="line">make ARCH=arm CROSS_COMPILE=arm-linux-gnueabi- -j12 O=../objects/vexpress-v2p-ca9</span><br><span class="line">make ARCH=arm CROSS_COMPILE=arm-linux-gnueabi- LOADADDR=0x60003000 uImage -j12 O=../objects/vexpress-v2p-ca9</span><br></pre></td></tr></table></figure></div>
+
+<p>运行automake_arm32.sh编译</p>
+<div class="code-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./automake_arm32.sh</span><br></pre></td></tr></table></figure></div>
+
+<p>编译过程可能出现以下界面，即menuconfig，目前阶段不关注，按两下Esc退出这个界面继续编译即可</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/images/image.png"
+                     
+                ><a target="_blank" rel="noopener" href="https://postimg.cc/62y7kjL1"><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://i.postimg.cc/LXVzZGqR/image.png"
+                      alt="image.png"
+                ></a></p>
+<h2 id="在Qemu试运行Linux内核源码"><a href="#在Qemu试运行Linux内核源码" class="headerlink" title="在Qemu试运行Linux内核源码"></a>在Qemu试运行Linux内核源码</h2><p>进入objects目录</p>
+<div class="code-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> /home/workspace/objects</span><br></pre></td></tr></table></figure></div>
+
+<p>创建qemu-start-vexpress-a9.sh</p>
+<div class="code-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">sun@ldspdvs:/home/workspace/objects$ <span class="built_in">sudo</span> <span class="built_in">touch</span> qemu-start-vexpress-a9.sh</span><br><span class="line">sun@ldspdvs:/home/workspace/objects$ <span class="built_in">sudo</span> <span class="built_in">chmod</span> 777 qemu-start-vexpress-a9.sh </span><br><span class="line">sun@ldspdvs:/home/workspace/objects$ vim qemu-start-vexpress-a9.sh </span><br><span class="line"> </span><br><span class="line"><span class="comment">#! /bin/sh</span></span><br><span class="line">qemu-system-arm -M vexpress-a9 \</span><br><span class="line">        -m 512M \</span><br><span class="line">        -kernel vexpress-v2p-ca9/arch/arm/boot/zImage \</span><br><span class="line">        -dtb vexpress-v2p-ca9/arch/arm/boot/dts/vexpress-v2p-ca9.dtb \</span><br><span class="line">        -nographic</span><br></pre></td></tr></table></figure></div>
+
+<p>Linux内核启动过程会打印大量信息，最后因为没挂载根文件系统导致</p>
+<div class="code-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">Kernel panic - not syncing: VFS: Unable to mount root fs on unknown-block(0,0)</span><br><span class="line">CPU: 0 PID: 1 Comm: swapper/0 Not tainted 5.10.186 <span class="comment">#7</span></span><br><span class="line">Hardware name: ARM-Versatile Express</span><br><span class="line">[&lt;8010f264&gt;] (unwind_backtrace) from [&lt;8010afb4&gt;] (show_stack+0x10/0x14)</span><br><span class="line">[&lt;8010afb4&gt;] (show_stack) from [&lt;80881254&gt;] (dump_stack+0x94/0xa8)</span><br><span class="line">[&lt;80881254&gt;] (dump_stack) from [&lt;8087d0b4&gt;] (panic+0x124/0x32c)</span><br><span class="line">[&lt;8087d0b4&gt;] (panic) from [&lt;80b017a8&gt;] (mount_block_root+0x1e8/0x26c)</span><br><span class="line">[&lt;80b017a8&gt;] (mount_block_root) from [&lt;80b01aec&gt;] (prepare_namespace+0x150/0x18c)</span><br><span class="line">[&lt;80b01aec&gt;] (prepare_namespace) from [&lt;80885f8c&gt;] (kernel_init+0x8/0x118)</span><br><span class="line">[&lt;80885f8c&gt;] (kernel_init) from [&lt;80100148&gt;] (ret_from_fork+0x14/0x2c)</span><br><span class="line">Exception stack(0x810b9fb0 to 0x810b9ff8)</span><br><span class="line">9fa0:                                     00000000 00000000 00000000 00000000</span><br><span class="line">9fc0: 00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000</span><br><span class="line">9fe0: 00000000 00000000 00000000 00000000 00000013 00000000</span><br><span class="line">---[ end Kernel panic - not syncing: VFS: Unable to mount root fs on unknown-block(0,0) ]---</span><br></pre></td></tr></table></figure></div>
+
+<h1 id="挂载根文件系统"><a href="#挂载根文件系统" class="headerlink" title="挂载根文件系统"></a>挂载根文件系统</h1><p>根<a class="link"   target="_blank" rel="noopener" href="https://so.csdn.net/so/search?q=%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F&spm=1001.2101.3001.7020" >文件系统<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a>首先是内核启动时所mount的第一个文件系统，内核代码映像文件保存在根文件系统中，而系统引导启动程序会在根文件系统挂载之后从中把一些基本的初始化脚本和服务等加载到内存中去运行。本节将介绍如何编译和制作Linux最小系统的根文件系统，并通过sd卡或者nfs挂载根文件系统。</p>
+<h2 id="编译、安装根文件系统"><a href="#编译、安装根文件系统" class="headerlink" title="编译、安装根文件系统"></a>编译、安装根文件系统</h2><p>下载并解压busybox源码</p>
+<div class="code-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> /home/workspace</span><br><span class="line"><span class="built_in">sudo</span> wget https://busybox.net/downloads/busybox-1.36.1.tar.bz2</span><br><span class="line"><span class="built_in">sudo</span> tar -xvf busybox-1.36.1.tar.bz2</span><br></pre></td></tr></table></figure></div>
+
+<h2 id="自动编译脚本"><a href="#自动编译脚本" class="headerlink" title="自动编译脚本"></a>自动编译脚本</h2><p>制作automake_arm32.sh自动编译脚本</p>
+<div class="code-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> busybox-1.36.1</span><br><span class="line">sun@ldspdvs:/home/workspace/busybox-1.36.1$ <span class="built_in">sudo</span> <span class="built_in">touch</span> automake_arm32.sh</span><br><span class="line">sun@ldspdvs:/home/workspace/busybox-1.36.1$ <span class="built_in">sudo</span> <span class="built_in">chmod</span> 777 automake_arm32.sh</span><br><span class="line">sun@ldspdvs:/home/workspace/busybox-1.36.1$ vim automake_arm32.sh </span><br><span class="line"></span><br><span class="line"> </span><br><span class="line"><span class="comment"># 在automake_arm32.sh中添加下列代码</span></span><br><span class="line">make ARCH=arm CROSS_COMPILE=arm-linux-gnueabi- clean</span><br><span class="line">make ARCH=arm CROSS_COMPILE=arm-linux-gnueabi- menuconfig</span><br><span class="line">make ARCH=arm CROSS_COMPILE=arm-linux-gnueabi- -j12</span><br><span class="line">make ARCH=arm CROSS_COMPILE=arm-linux-gnueabi- CONFIG_PREFIX=../objects/rootfs-arm32 install</span><br><span class="line"></span><br></pre></td></tr></table></figure></div>
+
+<p>编译过程中会出现menuconfig界面，需要将“Settings-&gt;Build Options-&gt;Build static binary”选上</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/images/image-1.png"
+                     
+                ><a target="_blank" rel="noopener" href="https://postimg.cc/bdSDL5vZ"><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://i.postimg.cc/y6vm644y/image-1.png"
+                      alt="image-1.png"
+                ></a></p>
+<h2 id="补充根文件夹系统"><a href="#补充根文件夹系统" class="headerlink" title="补充根文件夹系统"></a>补充根文件夹系统</h2><p>busybox编译完成后，只是初步具有了维持linux操作系统基本运行所需的可执行文件，还有设备节点、动态链接库、引导启动相关代码、用户相关信息等，需要根据开发板自身的特性做定制和适配，接下来将适配vexpress-a9开发板补充根文件系统相关内容</p>
+<h3 id="进入根文件系统目录"><a href="#进入根文件系统目录" class="headerlink" title="进入根文件系统目录"></a>进入根文件系统目录</h3><div class="code-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> /home/workspace/objects/rootfs-arm32</span><br></pre></td></tr></table></figure></div>
+
+<h3 id="创建设备节点"><a href="#创建设备节点" class="headerlink" title="创建设备节点"></a>创建设备节点</h3><div class="code-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">sun@ldspdvs:/home/workspace/objects/rootfs-arm32$ <span class="built_in">sudo</span> <span class="built_in">mkdir</span> dev</span><br><span class="line">sun@ldspdvs:/home/workspace/objects/rootfs-arm32$ <span class="built_in">sudo</span> <span class="built_in">mknod</span> -m 666 dev/tty1 c 4 1</span><br><span class="line"><span class="built_in">sudo</span> <span class="built_in">mknod</span> -m 666 dev/tty2 c 4 2</span><br><span class="line"><span class="built_in">sudo</span> <span class="built_in">mknod</span> -m 666 dev/tty3 c 4 3</span><br><span class="line"><span class="built_in">sudo</span> <span class="built_in">mknod</span> -m 666 dev/tty4 c 4 4</span><br><span class="line"><span class="built_in">sudo</span> <span class="built_in">mknod</span> -m 666 dev/console c 5 1</span><br><span class="line"><span class="built_in">sudo</span> <span class="built_in">mknod</span> -m 666 dev/null c 1 3</span><br><span class="line">sun@ldspdvs:/home/workspace/objects/rootfs-arm32$ ll dev</span><br><span class="line">总计 8</span><br><span class="line">drwxr-xr-x 2 root root 4096  1月 21 23:12 ./</span><br><span class="line">drwxr-xr-x 6 root root 4096  1月 21 23:12 ../</span><br><span class="line">crw-rw-rw- 1 root root 5, 1  1月 21 23:12 console</span><br><span class="line">crw-rw-rw- 1 root root 1, 3  1月 21 23:12 null</span><br><span class="line">crw-rw-rw- 1 root root 4, 1  1月 21 23:12 tty1</span><br><span class="line">crw-rw-rw- 1 root root 4, 2  1月 21 23:12 tty2</span><br><span class="line">crw-rw-rw- 1 root root 4, 3  1月 21 23:12 tty3</span><br><span class="line">crw-rw-rw- 1 root root 4, 4  1月 21 23:12 tty4</span><br><span class="line">sun@ldspdvs:/home/workspace/objects/rootfs-arm32$</span><br></pre></td></tr></table></figure></div>
+
+<h3 id="安装动态链接库"><a href="#安装动态链接库" class="headerlink" title="安装动态链接库"></a>安装动态链接库</h3><div class="code-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sun@ldspdvs:/home/workspace/objects/rootfs-arm32$ <span class="built_in">sudo</span> <span class="built_in">mkdir</span> lib</span><br><span class="line">sun@ldspdvs:/home/workspace/objects/rootfs-arm32$ <span class="built_in">sudo</span> <span class="built_in">cp</span> -d /usr/arm-linux-gnueabi/lib/*.so* ./lib</span><br></pre></td></tr></table></figure></div>
+
+<h3 id="配置初始化进程rcS"><a href="#配置初始化进程rcS" class="headerlink" title="配置初始化进程rcS"></a>配置初始化进程rcS</h3><div class="code-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> <span class="built_in">mkdir</span> -p etc/init.d</span><br><span class="line"><span class="built_in">sudo</span> <span class="built_in">touch</span> etc/init.d/rcS</span><br><span class="line"><span class="built_in">sudo</span> <span class="built_in">chmod</span> 777 etc/init.d/rcS</span><br><span class="line">vim etc/init.d/rcS</span><br><span class="line"> </span><br><span class="line"><span class="comment"># 在rcS中填入以下内容</span></span><br><span class="line"><span class="comment">#!/bin/sh</span></span><br><span class="line">PATH=/bin:/sbin:/usr/bin:/usr/sbin</span><br><span class="line"><span class="built_in">export</span> LD_LIBRARY_PATH=/lib:/usr/lib</span><br><span class="line">/bin/mount -n -t ramfs ramfs /var</span><br><span class="line">/bin/mount -n -t ramfs ramfs /tmp</span><br><span class="line">/bin/mount -n -t sysfs none /sys</span><br><span class="line">/bin/mount -n -t ramfs none /dev</span><br><span class="line">/bin/mkdir /var/tmp</span><br><span class="line">/bin/mkdir /var/modules</span><br><span class="line">/bin/mkdir /var/run</span><br><span class="line">/bin/mkdir /var/log</span><br><span class="line">/bin/mkdir -p /dev/pts</span><br><span class="line">/bin/mkdir -p /dev/shm</span><br><span class="line">/sbin/mdev -s</span><br><span class="line">/bin/mount -a</span><br><span class="line"><span class="built_in">echo</span> <span class="string">&quot;-----------------------------------&quot;</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">&quot;*****welcome to vexpress board*****&quot;</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">&quot;-----------------------------------&quot;</span></span><br></pre></td></tr></table></figure></div>
+
+<h3 id="配置文件系统fstab"><a href="#配置文件系统fstab" class="headerlink" title="配置文件系统fstab"></a>配置文件系统fstab</h3><div class="code-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> <span class="built_in">touch</span> etc/fstab</span><br><span class="line"><span class="built_in">sudo</span> <span class="built_in">chmod</span> 777 etc/fstab</span><br><span class="line">vim etc/fstab</span><br><span class="line"> </span><br><span class="line"><span class="comment"># 在fstab中填入以下内容</span></span><br><span class="line">proc    /proc           proc    defaults        0       0</span><br><span class="line">none    /dev/pts        devpts  mode=0622       0       0</span><br><span class="line">mdev    /dev            ramfs   defaults        0       0</span><br><span class="line">sysfs   /sys            sysfs   defaults        0       0</span><br><span class="line">tmpfs   /dev/shm        tmpfs   defaults        0       0</span><br><span class="line">tmpfs   /dev            tmpfs   defaults        0       0</span><br><span class="line">tmpfs   /mnt            tmpfs   defaults        0       0</span><br><span class="line">var     /dev            tmpfs   defaults        0       0</span><br><span class="line">ramfs   /dev            ramfs   defaults        0       0</span><br></pre></td></tr></table></figure></div>
+
+<h3 id="配置初始化脚本"><a href="#配置初始化脚本" class="headerlink" title="配置初始化脚本"></a>配置初始化脚本</h3><div class="code-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> <span class="built_in">touch</span> etc/inittab</span><br><span class="line"><span class="built_in">sudo</span> <span class="built_in">chmod</span> 777 etc/inittab </span><br><span class="line">vim etc/inittab</span><br><span class="line"> </span><br><span class="line"><span class="comment"># 在inittab中输入以下内容</span></span><br><span class="line">::sysinit:/etc/init.d/rcS </span><br><span class="line">::askfirst:-/bin/sh</span><br><span class="line">::restart:/sbin/init </span><br><span class="line">::ctrlaltdel:/sbin/reboot</span><br><span class="line">::shutdown:/bin/umount -a -r</span><br></pre></td></tr></table></figure></div>
+
+<h3 id="配置环境变量"><a href="#配置环境变量" class="headerlink" title="配置环境变量"></a>配置环境变量</h3><div class="code-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> <span class="built_in">touch</span> etc/profile</span><br><span class="line"><span class="built_in">sudo</span> <span class="built_in">chmod</span> 777 etc/profile</span><br><span class="line">vim etc/profile</span><br><span class="line"> </span><br><span class="line"><span class="comment"># 在profile中添加以下内容</span></span><br><span class="line"><span class="comment">#!/bin/sh </span></span><br><span class="line">USER=<span class="string">&quot;root&quot;</span></span><br><span class="line">LOGNAME=<span class="variable">$USER</span></span><br><span class="line"><span class="comment"># export HOSTNAME=vexpress-a9</span></span><br><span class="line"><span class="built_in">export</span> HOSTNAME=`<span class="built_in">cat</span> /etc/sysconfig/HOSTNAME`</span><br><span class="line"><span class="built_in">export</span> USER=root</span><br><span class="line"><span class="built_in">export</span> HOME=root</span><br><span class="line"><span class="built_in">export</span> PS1=<span class="string">&quot;[<span class="variable">$USER</span>@<span class="variable">$HOSTNAME</span>:\w]\#&quot;</span></span><br><span class="line">PATH=/bin:/sbin:/usr/bin:/usr/sbin </span><br><span class="line">LD_LIBRARY_PATH=/lib:/usr/lib:<span class="variable">$LD_LIBRARY_PATH</span></span><br><span class="line"><span class="built_in">export</span> PATH LD_LIBRARY_PATH</span><br></pre></td></tr></table></figure></div>
+
+<h3 id="增加主机名"><a href="#增加主机名" class="headerlink" title="增加主机名"></a>增加主机名</h3><div class="code-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> <span class="built_in">mkdir</span> etc/sysconfig</span><br><span class="line"><span class="built_in">sudo</span> <span class="built_in">chmod</span> 777 etc/sysconfig</span><br><span class="line">vim etc/sysconfig/HOSTNAME</span><br><span class="line"> </span><br><span class="line"><span class="comment"># 在HOSTNAME中添加以下内容</span></span><br><span class="line">vexpress-a9</span><br></pre></td></tr></table></figure></div>
+
+<h3 id="创建其他文件夹"><a href="#创建其他文件夹" class="headerlink" title="创建其他文件夹"></a>创建其他文件夹</h3><div class="code-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> <span class="built_in">mkdir</span> mnt proc root sys tmp var</span><br></pre></td></tr></table></figure></div>
+
+<h3 id="查看创建的文件"><a href="#查看创建的文件" class="headerlink" title="查看创建的文件"></a>查看创建的文件</h3><div class="code-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">sun@ldspdvs:/home/workspace/objects/rootfs-arm32$ ll</span><br><span class="line">总计 56</span><br><span class="line">drwxr-xr-x 14 root root 4096  1月 21 23:24 ./</span><br><span class="line">drwxr-xr-x  4 root root 4096  1月 21 23:09 ../</span><br><span class="line">drwxr-xr-x  2 root root 4096  1月 21 23:09 bin/</span><br><span class="line">drwxr-xr-x  2 root root 4096  1月 21 23:12 dev/</span><br><span class="line">drwxr-xr-x  4 root root 4096  1月 21 23:23 etc/</span><br><span class="line">drwxr-xr-x  2 root root 4096  1月 21 23:14 lib/</span><br><span class="line">lrwxrwxrwx  1 root root   11  1月 21 23:09 linuxrc -&gt; bin/busybox*</span><br><span class="line">drwxr-xr-x  2 root root 4096  1月 21 23:24 mnt/</span><br><span class="line">drwxr-xr-x  2 root root 4096  1月 21 23:24 proc/</span><br><span class="line">drwxr-xr-x  2 root root 4096  1月 21 23:24 root/</span><br><span class="line">drwxr-xr-x  2 root root 4096  1月 21 23:09 sbin/</span><br><span class="line">drwxr-xr-x  2 root root 4096  1月 21 23:24 sys/</span><br><span class="line">drwxr-xr-x  2 root root 4096  1月 21 23:24 tmp/</span><br><span class="line">drwxr-xr-x  4 root root 4096  1月 21 23:09 usr/</span><br><span class="line">drwxr-xr-x  2 root root 4096  1月 21 23:24 var/</span><br><span class="line">sun@ldspdvs:/home/workspace/objects/rootfs-arm32$ </span><br></pre></td></tr></table></figure></div>
+
+<h2 id="通过SD卡挂载根文件系统"><a href="#通过SD卡挂载根文件系统" class="headerlink" title="通过SD卡挂载根文件系统"></a>通过SD卡挂载根文件系统</h2><h3 id="自动打包脚本"><a href="#自动打包脚本" class="headerlink" title="自动打包脚本"></a>自动打包脚本</h3><p>编译安装完成后，进入object目录，并制作自动打包脚本makefs-arm32.sh</p>
+<div class="code-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> /home/workspace/objects</span><br><span class="line"><span class="built_in">sudo</span> <span class="built_in">mkdir</span> /mnt/rootfs</span><br><span class="line"><span class="built_in">sudo</span> <span class="built_in">chmod</span> 777 /mnt/rootfs</span><br><span class="line"></span><br><span class="line"><span class="built_in">sudo</span> <span class="built_in">touch</span> makefs-arm32.sh</span><br><span class="line"><span class="built_in">sudo</span> <span class="built_in">chmod</span> 777 makefs-arm32.sh</span><br><span class="line">vim makefs-arm32.sh</span><br><span class="line"> </span><br><span class="line"><span class="comment"># 在makefs-arm32.sh中添加下列代码</span></span><br><span class="line"><span class="built_in">dd</span> <span class="keyword">if</span>=/dev/zero of=rootfs-arm32.ext3 bs=1M count=64</span><br><span class="line">mkfs.ext3 rootfs-arm32.ext3</span><br><span class="line"><span class="built_in">sudo</span> mount -t ext3 rootfs-arm32.ext3 /mnt/rootfs -o loop</span><br><span class="line"><span class="built_in">sudo</span> <span class="built_in">cp</span> -rf rootfs-arm32/* /mnt/rootfs/</span><br><span class="line"><span class="built_in">sudo</span> umount /mnt/rootfs/</span><br></pre></td></tr></table></figure></div>
+
+<p>运行自动打包脚本makefs-arm32.sh，运行完成后将在objects目录下生成一个rootfs-arm32.ext3文件，将作为外设sd卡加入到开发板上</p>
+<div class="code-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">sun@ldspdvs:/home/workspace/objects$ ll</span><br><span class="line">总计 20</span><br><span class="line">drwxr-xr-x  4 root root 4096  1月 21 23:31 ./</span><br><span class="line">drwxr-xr-x  5 root root 4096  1月 21 23:04 ../</span><br><span class="line">-rwxrwxrwx  1 root root  202  1月 21 23:32 makefs-arm32.sh*</span><br><span class="line">drwxr-xr-x 14 root root 4096  1月 21 23:24 rootfs-arm32/</span><br><span class="line">drwxr-xr-x 21 root root 4096  1月 21 22:57 vexpress-v2p-ca9/</span><br><span class="line">sun@ldspdvs:/home/workspace/objects$ <span class="built_in">sudo</span> ./makefs-arm32.sh </span><br><span class="line">记录了64+0 的读入</span><br><span class="line">记录了64+0 的写出</span><br><span class="line">67108864字节（67 MB，64 MiB）已复制，0.0487807 s，1.4 GB/s</span><br><span class="line">mke2fs 1.46.5 (30-Dec-2021)</span><br><span class="line">丢弃设备块： 完成                        </span><br><span class="line">创建含有 16384 个块（每块 4k）和 16384 个 inode 的文件系统</span><br><span class="line"></span><br><span class="line">正在分配组表： 完成                        </span><br><span class="line">正在写入 inode表： 完成                        </span><br><span class="line">创建日志（1024 个块）： 完成</span><br><span class="line">写入超级块和文件系统账户统计信息： 已完成</span><br><span class="line"></span><br><span class="line">sun@ldspdvs:/home/workspace/objects$ <span class="built_in">sudo</span> <span class="built_in">chmod</span> 777 rootfs-arm32.ext3 </span><br><span class="line">sun@ldspdvs:/home/workspace/objects$ ll</span><br><span class="line">总计 21108</span><br><span class="line">drwxr-xr-x  4 root root     4096  1月 21 23:34 ./</span><br><span class="line">drwxr-xr-x  5 root root     4096  1月 21 23:04 ../</span><br><span class="line">-rwxrwxrwx  1 root root      202  1月 21 23:32 makefs-arm32.sh*</span><br><span class="line">drwxr-xr-x 14 root root     4096  1月 21 23:24 rootfs-arm32/</span><br><span class="line">-rwxrwxrwx  1 root root 67108864  1月 21 23:34 rootfs-arm32.ext3*</span><br><span class="line">drwxr-xr-x 21 root root     4096  1月 21 22:57 vexpress-v2p-ca9/</span><br><span class="line">sun@ldspdvs:/home/workspace/objects$</span><br></pre></td></tr></table></figure></div>
+
+<h3 id="挂载根文件系统-1"><a href="#挂载根文件系统-1" class="headerlink" title="挂载根文件系统"></a>挂载根文件系统</h3><p>修改qemu-start-vexpress-a9.sh</p>
+<div class="code-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">sun@ldspdvs:/home/workspace/objects$ vim qemu-start-vexpress-a9.sh </span><br><span class="line"> </span><br><span class="line"><span class="comment"># 将qemu-start-vexpress-a9.sh修改为以下内容</span></span><br><span class="line"><span class="comment">#! /bin/sh</span></span><br><span class="line">qemu-system-arm -M vexpress-a9 \</span><br><span class="line">        -m 512M \</span><br><span class="line">        -kernel vexpress-v2p-ca9/arch/arm/boot/zImage \</span><br><span class="line">        -dtb vexpress-v2p-ca9/arch/arm/boot/dts/vexpress-v2p-ca9.dtb \</span><br><span class="line">        -nographic \</span><br><span class="line">        -append <span class="string">&quot;root=/dev/mmcblk0 rw console=ttyAMA0&quot;</span> \</span><br><span class="line">            -sd rootfs-arm32.ext3</span><br></pre></td></tr></table></figure></div>
+
+<p>出现下述内容代表启动成功</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/images/image-3.png"
+                     
+                ><a target="_blank" rel="noopener" href="https://postimg.cc/ZvNWRWQ8"><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://i.postimg.cc/sx67TS9N/image-3.png"
+                      alt="image-3.png"
+                ></a></p>
+<h2 id="通过NFS挂载根文件系统"><a href="#通过NFS挂载根文件系统" class="headerlink" title="通过NFS挂载根文件系统"></a>通过NFS挂载根文件系统</h2><p>在进行软件调试的过程中，我们经常需与开发板交换文件，或者直接修改板子上的配置文件，如果使用SD卡挂载根文件系统，则每次进行文件交换都需要重启操作系统。为了提高开发效率，我们可以通过NFS共享主机上的根文件系统给开发板，实现在主机上修改完善代码并编译后，直接在开发板上运行，无缝对接。</p>
+<h3 id="安装NFS服务器"><a href="#安装NFS服务器" class="headerlink" title="安装NFS服务器"></a>安装NFS服务器</h3><p>安装</p>
+<div class="code-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> apt install -y nfs-kernel-server</span><br></pre></td></tr></table></figure></div>
+
+<p>配置</p>
+<div class="code-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> <span class="built_in">mkdir</span> -p /sync/rootfs</span><br><span class="line"><span class="built_in">sudo</span> <span class="built_in">chmod</span> 777 /etc/exports</span><br><span class="line"><span class="built_in">sudo</span> vim /etc/exports</span><br><span class="line"> </span><br><span class="line"><span class="comment"># 在/etc/exports文件中添加以下内容</span></span><br><span class="line">/sync/rootfs *(rw,<span class="built_in">sync</span>,no_root_squash,no_subtree_check)</span><br><span class="line"> </span><br><span class="line"><span class="comment"># ！！！注意上述内容应严格按照格式输入，不能随意增减空格！！！</span></span><br></pre></td></tr></table></figure></div>
+
+<p>重启NFS服务器</p>
+<div class="code-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> /etc/init.d/rpcbind restart</span><br><span class="line"><span class="built_in">sudo</span> /etc/init.d/nfs-kernel-server restart</span><br></pre></td></tr></table></figure></div>
+
+<p>将安装好的根文件系统拷贝到&#x2F;sync&#x2F;rootfs内</p>
+<div class="code-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> /home/workspace/objects/rootfs-arm32</span><br><span class="line"><span class="built_in">sudo</span> <span class="built_in">cp</span> -rf * /sync/rootfs/</span><br><span class="line"><span class="built_in">sudo</span> <span class="built_in">chmod</span> 777 -R /sync/rootfs</span><br></pre></td></tr></table></figure></div>
+
+<h3 id="内核NFS兼容问题"><a href="#内核NFS兼容问题" class="headerlink" title="内核NFS兼容问题"></a>内核NFS兼容问题</h3><p>为解决Linux内核与NFS服务器的兼容问题，目前有两种方案供读者参考，实在不行可以把两种都用上</p>
+<h4 id="重新编译内核，并在menuconfig下开启NFS4支持"><a href="#重新编译内核，并在menuconfig下开启NFS4支持" class="headerlink" title="重新编译内核，并在menuconfig下开启NFS4支持"></a>重新编译内核，并在menuconfig下开启NFS4支持</h4><p><strong>位置：File System -&gt; Network File Systems-&gt;NFS client support for NFS version 4</strong></p>
+<h4 id="设置Ubuntu2204，使之兼容NFS-V2和NFS-V3并增加调试功能"><a href="#设置Ubuntu2204，使之兼容NFS-V2和NFS-V3并增加调试功能" class="headerlink" title="设置Ubuntu2204，使之兼容NFS-V2和NFS-V3并增加调试功能"></a>设置Ubuntu2204，使之兼容NFS-V2和NFS-V3并增加调试功能</h4><div class="code-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> vim /etc/default/nfs-kernel-server</span><br><span class="line"> </span><br><span class="line"><span class="comment"># 将nfs-kernel-server文件内的RPCSVCGSSDOPTS属性修改如下：</span></span><br><span class="line">RPCSVCGSSDOPTS=<span class="string">&quot;--nfs-version 2,3,4 --debug --syslog&quot;</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 修改后重启NFS服务器</span></span><br><span class="line"><span class="built_in">sudo</span> /etc/init.d/rpcbind restart</span><br><span class="line"><span class="built_in">sudo</span> /etc/init.d/nfs-kernel-server restart</span><br></pre></td></tr></table></figure></div>
+
+<h3 id="测试NFS挂载根文件系统"><a href="#测试NFS挂载根文件系统" class="headerlink" title="测试NFS挂载根文件系统"></a>测试NFS挂载根文件系统</h3><p>配置主机网桥（其中<strong>eth0是Ubuntu系统的网卡</strong>，根据实际调整）</p>
+<div class="code-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> apt install -y uml-utilities bridge-utils</span><br><span class="line"></span><br><span class="line"><span class="built_in">sudo</span> vim /etc/network/interfaces</span><br><span class="line"> </span><br><span class="line"><span class="comment"># 修改interfaces文件如下</span></span><br><span class="line">auto lo</span><br><span class="line">iface lo inet loopback</span><br><span class="line"> </span><br><span class="line">auto eth0</span><br><span class="line"> </span><br><span class="line">auto br0</span><br><span class="line">iface br0 inet dhcp</span><br><span class="line">bridge_ports eth0</span><br><span class="line">====================================================================================</span><br><span class="line">sun@ldspdvs:/home/workspace/objects/rootfs-arm32$ ifconfig</span><br><span class="line">ens33: flags=4163&lt;UP,BROADCAST,RUNNING,MULTICAST&gt;  mtu 1500</span><br><span class="line">        inet 192.168.58.146  netmask 255.255.255.0  broadcast 192.168.58.255</span><br><span class="line">        inet6 fe80::d763:3d05:1073:739c  prefixlen 64  scopeid 0x20&lt;<span class="built_in">link</span>&gt;</span><br><span class="line">        ether 00:0c:29:f3:7c:aa  txqueuelen 1000  (以太网)</span><br><span class="line">        RX packets 272895  bytes 394360550 (394.3 MB)</span><br><span class="line">        RX errors 0  dropped 0  overruns 0  frame 0</span><br><span class="line">        TX packets 14324  bytes 1257519 (1.2 MB)</span><br><span class="line">        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0</span><br><span class="line"></span><br><span class="line">lo: flags=73&lt;UP,LOOPBACK,RUNNING&gt;  mtu 65536</span><br><span class="line">        inet 127.0.0.1  netmask 255.0.0.0</span><br><span class="line">        inet6 ::1  prefixlen 128  scopeid 0x10&lt;host&gt;</span><br><span class="line">        loop  txqueuelen 1000  (本地环回)</span><br><span class="line">        RX packets 464  bytes 44975 (44.9 KB)</span><br><span class="line">        RX errors 0  dropped 0  overruns 0  frame 0</span><br><span class="line">        TX packets 464  bytes 44975 (44.9 KB)</span><br><span class="line">        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0</span><br><span class="line"></span><br><span class="line">sun@ldspdvs:/home/workspace/objects/rootfs-arm32$ <span class="built_in">sudo</span> vim /etc/network/interfaces</span><br><span class="line">sun@ldspdvs:/home/workspace/objects/rootfs-arm32$ <span class="built_in">cat</span> /etc/network/interfaces </span><br><span class="line">auto lo</span><br><span class="line">iface lo inet loopback</span><br><span class="line"> </span><br><span class="line">auto ens33</span><br><span class="line"> </span><br><span class="line">auto br0</span><br><span class="line">iface br0 inet dhcp</span><br><span class="line">bridge_ports ens33</span><br><span class="line">sun@ldspdvs:/home/workspace/objects/rootfs-arm32$</span><br></pre></td></tr></table></figure></div>
+
+<p>创建tap0网卡，用于连接qemu虚拟开发板</p>
+<div class="code-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> tunctl -u root -t tap0</span><br><span class="line"><span class="built_in">sudo</span> ifconfig tap0 172.16.16.10 promisc up</span><br></pre></td></tr></table></figure></div>
+
+<p>创建qemu-start-vexpress-a9-nfs.sh</p>
+<div class="code-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> /home/workspace/objects</span><br><span class="line"><span class="built_in">sudo</span> <span class="built_in">touch</span> qemu-start-vexpress-a9-nfs.sh</span><br><span class="line"><span class="built_in">sudo</span> <span class="built_in">chmod</span> 777 qemu-start-vexpress-a9-nfs.sh</span><br><span class="line">vim qemu-start-vexpress-a9-nfs.sh</span><br><span class="line"> </span><br><span class="line"><span class="comment"># 在qemu-start-vexpress-a9-nfs.sh内添加以下内容</span></span><br><span class="line"><span class="built_in">sudo</span> qemu-system-arm \</span><br><span class="line">        -M vexpress-a9 \</span><br><span class="line">        -m 512M \</span><br><span class="line">        -kernel vexpress-v2p-ca9/arch/arm/boot/zImage \</span><br><span class="line">        -dtb vexpress-v2p-ca9/arch/arm/boot/dts/vexpress-v2p-ca9.dtb \</span><br><span class="line">        -net tap,ifname=tap0,script=no,downscript=no \</span><br><span class="line">        -net nic,macaddr=00:16:3e:00:00:01 \</span><br><span class="line">        -nographic \</span><br><span class="line">        -append <span class="string">&quot;root=/dev/nfs rw nfsroot=172.16.16.10:/sync/rootfs,proto=tcp,nfsvers=3,nolock init=/linuxrc console=ttyAMA0 ip=172.16.16.20&quot;</span> \</span><br><span class="line">    </span><br><span class="line"></span><br><span class="line">sun@ldspdvs:/home/workspace/objects$ <span class="built_in">sudo</span> ./qemu-start-vexpress-a9-nfs.sh </span><br></pre></td></tr></table></figure></div>
+
+<p>启动成功后如下所示</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/images/image-2.png"
+                     
+                ><a target="_blank" rel="noopener" href="https://postimg.cc/gXQwmVgc"><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://i.postimg.cc/PJr1bKZD/image-2.png"
+                      alt="image-2.png"
+                ></a></p>
+<h1 id="通过U-boot引导加载内核"><a href="#通过U-boot引导加载内核" class="headerlink" title="通过U-boot引导加载内核"></a>通过U-boot引导加载内核</h1><h2 id="编译安装U-boot"><a href="#编译安装U-boot" class="headerlink" title="编译安装U-boot"></a>编译安装U-boot</h2><h3 id="下载解压U-boot源码"><a href="#下载解压U-boot源码" class="headerlink" title="下载解压U-boot源码"></a>下载解压U-boot源码</h3><div class="code-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> /home/workspace</span><br><span class="line">wget https://ftp.denx.de/pub/u-boot/u-boot-2022.07-rc3.tar.bz2</span><br><span class="line">tar -xvf u-boot-2022.07-rc3.tar.bz2</span><br></pre></td></tr></table></figure></div>
+
+<h2 id="制作automake-arm32-sh"><a href="#制作automake-arm32-sh" class="headerlink" title="制作automake_arm32.sh"></a>制作automake_arm32.sh</h2><div class="code-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> u-boot-2022.07-rc3</span><br><span class="line">vim automake_arm32.sh</span><br><span class="line"> </span><br><span class="line"><span class="comment"># 在automake_arm32.sh中添加下列代码</span></span><br><span class="line"><span class="comment"># !/bin/bash</span></span><br><span class="line"><span class="comment"># make ARCH=arm CROSS_COMPILE=arm-linux-gnueabi- clean</span></span><br><span class="line"><span class="comment"># make ARCH=arm CROSS_COMPILE=arm-linux-gnueabi- mrproper</span></span><br><span class="line">make ARCH=arm CROSS_COMPILE=arm-linux-gnueabi- vexpress_ca9x4_defconfig O=../objects/u-boot-arm</span><br><span class="line">make ARCH=arm CROSS_COMPILE=arm-linux-gnueabi- menuconfig O=../objects/u-boot-arm</span><br><span class="line">make ARCH=arm CROSS_COMPILE=arm-linux-gnueabi- -j12 O=../objects/u-boot-arm</span><br></pre></td></tr></table></figure></div>
+
+<h3 id="运行automake-arm32-sh编译安装U-Boot"><a href="#运行automake-arm32-sh编译安装U-Boot" class="headerlink" title="运行automake_arm32.sh编译安装U-Boot"></a>运行automake_arm32.sh编译安装U-Boot</h3><div class="code-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./automake_arm32.sh</span><br></pre></td></tr></table></figure></div>
+
+<h3 id="出现下述内容证明U-Boot编译完毕"><a href="#出现下述内容证明U-Boot编译完毕" class="headerlink" title="出现下述内容证明U-Boot编译完毕"></a>出现下述内容证明U-Boot编译完毕</h3><p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/images/%E5%9B%BE%E7%89%87-7.png"
+                     
+                ><a target="_blank" rel="noopener" href="https://postimg.cc/ftGb6wbJ"><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://i.postimg.cc/hvj7QvWb/7.png"
+                      alt="7.png"
+                ></a></p>
+<h2 id="配置主机tftp服务器"><a href="#配置主机tftp服务器" class="headerlink" title="配置主机tftp服务器"></a>配置主机tftp服务器</h2><h3 id="安装tftp服务器"><a href="#安装tftp服务器" class="headerlink" title="安装tftp服务器"></a>安装tftp服务器</h3><div class="code-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> apt-get install tftp-hpa tftpd-hpa xinetd</span><br></pre></td></tr></table></figure></div>
+
+<h3 id="配置tftp路径文件"><a href="#配置tftp路径文件" class="headerlink" title="配置tftp路径文件"></a>配置tftp路径文件</h3><div class="code-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> <span class="built_in">mkdir</span> -p /sync/tftp</span><br><span class="line"><span class="built_in">sudo</span> <span class="built_in">chmod</span> 777 /sync/tftp</span><br><span class="line"><span class="built_in">sudo</span> <span class="built_in">touch</span> /etc/default/tftpd-hpa</span><br><span class="line"><span class="built_in">sudo</span> vim /etc/default/tftpd-hpa</span><br><span class="line"> </span><br><span class="line"><span class="comment"># 在tftpd-hpa文件下添加以下内容</span></span><br><span class="line">TFTP_USERNAME=<span class="string">&quot;tftp&quot;</span></span><br><span class="line">TFTP_DIRECTORY=<span class="string">&quot;/sync/tftp&quot;</span> <span class="comment">#该路径即为tftp可以访问到的路径</span></span><br><span class="line">TFTP_ADDRESS=<span class="string">&quot;0.0.0.0:69&quot;</span></span><br><span class="line">TFTP_OPTIONS=<span class="string">&quot;-l -c -s&quot;</span></span><br></pre></td></tr></table></figure></div>
+
+<h3 id="重启tftp服务器"><a href="#重启tftp服务器" class="headerlink" title="重启tftp服务器"></a>重启tftp服务器</h3><div class="code-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> /etc/init.d/tftpd-hpa restart</span><br></pre></td></tr></table></figure></div>
+
+<h3 id="系统开机自动tftp服务"><a href="#系统开机自动tftp服务" class="headerlink" title="系统开机自动tftp服务"></a>系统开机自动tftp服务</h3><div class="code-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">systemctl <span class="built_in">enable</span> tftpd-hpa.service</span><br><span class="line">tftpd-hpa.service is not a native service, redirecting to systemd-sysv-install.</span><br><span class="line">Executing: /lib/systemd/systemd-sysv-install <span class="built_in">enable</span> tftpd-hpa</span><br><span class="line">jcrj@SQA-JCRJ-01:~/qemu_arm_a9/workspace/u-boot-2022.07-rc3$ </span><br></pre></td></tr></table></figure></div>
+
+<h3 id="将设备树和Linux内核文件拷贝到tftp目录下"><a href="#将设备树和Linux内核文件拷贝到tftp目录下" class="headerlink" title="将设备树和Linux内核文件拷贝到tftp目录下"></a>将设备树和Linux内核文件拷贝到tftp目录下</h3><div class="code-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> /home/workspace/objects</span><br><span class="line"><span class="built_in">sudo</span> <span class="built_in">cp</span> vexpress-v2p-ca9/arch/arm/boot/dts/vexpress-v2p-ca9.dtb /sync/tftp/</span><br><span class="line"><span class="built_in">sudo</span> <span class="built_in">cp</span> vexpress-v2p-ca9/arch/arm/boot/uImage /sync/tftp/</span><br></pre></td></tr></table></figure></div>
+
+<h3 id="虚拟主机网络配置，创建tap0网卡，用于连接qemu虚拟开发板"><a href="#虚拟主机网络配置，创建tap0网卡，用于连接qemu虚拟开发板" class="headerlink" title="虚拟主机网络配置，创建tap0网卡，用于连接qemu虚拟开发板"></a>虚拟主机网络配置，创建tap0网卡，用于连接qemu虚拟开发板</h3><p>此处已在测试NFS挂载根文件系统中设置过</p>
+<div class="code-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> tunctl -u root -t tap0</span><br><span class="line"><span class="built_in">sudo</span> ifconfig tap0 172.16.16.10 promisc up</span><br></pre></td></tr></table></figure></div>
+
+<h2 id="试运行U-boot"><a href="#试运行U-boot" class="headerlink" title="试运行U-boot"></a>试运行U-boot</h2><p>创建<strong>qemu-start-uboot-arm32-uboot-manual.sh</strong>脚本</p>
+<div class="code-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> /home/workspace/objects</span><br><span class="line"><span class="built_in">sudo</span> <span class="built_in">touch</span> qemu-start-uboot-arm32-uboot-manual.sh</span><br><span class="line"><span class="built_in">sudo</span> <span class="built_in">chmod</span> 777 qemu-start-uboot-arm32-uboot-manual.sh</span><br><span class="line">vim qemu-start-uboot-arm32-uboot-manual.sh</span><br><span class="line"> </span><br><span class="line"><span class="comment"># 在qemu-start-uboot-arm32.sh内添加以下代码</span></span><br><span class="line"><span class="built_in">sudo</span> qemu-system-arm \</span><br><span class="line">        -M vexpress-a9 \</span><br><span class="line">        -m 512M \</span><br><span class="line">        -kernel u-boot-arm/u-boot \</span><br><span class="line">        -net tap,ifname=tap0,script=no,downscript=no \</span><br><span class="line">        -net nic,macaddr=00:16:3e:00:00:01 \</span><br><span class="line">        -nographic \</span><br></pre></td></tr></table></figure></div>
+
+<h3 id="运行脚本"><a href="#运行脚本" class="headerlink" title="运行脚本"></a>运行脚本</h3><div class="code-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./qemu-start-uboot-arm32.sh</span><br></pre></td></tr></table></figure></div>
+
+<p>出现以下界面，说明运行成功（注意在Hit any key to stop autoboot出现时按任意键进入命令行）</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/images/%E5%9B%BE%E7%89%87-8.png"
+                     
+                ><a target="_blank" rel="noopener" href="https://postimg.cc/G8827BdW"><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://i.postimg.cc/V64CNMTk/8.png"
+                      alt="8.png"
+                ></a></p>
+<h3 id="在U-Boot命令行下输入以下代码，尝试引导内核"><a href="#在U-Boot命令行下输入以下代码，尝试引导内核" class="headerlink" title="在U-Boot命令行下输入以下代码，尝试引导内核"></a>在U-Boot命令行下输入以下代码，尝试引导内核</h3><div class="code-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">setenv bootargs <span class="string">&#x27;root=/dev/nfs rw nfsroot=172.16.16.10:/sync/rootfs,proto=tcp,nfsvers=3,nolock init=/linuxrc console=ttyAMA0 ip=172.16.16.20&#x27;</span></span><br><span class="line">setenv ipaddr 172.16.16.20</span><br><span class="line">setenv serverip 172.16.16.10</span><br><span class="line">setenv netmask 255.255.0.0</span><br><span class="line">saveenv</span><br><span class="line"> </span><br><span class="line">tftp 60003000 uImage</span><br><span class="line">tftp 60500000 vexpress-v2p-ca9.dtb</span><br><span class="line">bootm 60003000 - 60500000</span><br></pre></td></tr></table></figure></div>
+
+<p>实际</p>
+<div class="code-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br></pre></td><td class="code"><pre><span class="line">jcrj@SQA-JCRJ-01:~/qemu_arm_a9/workspace/objects$ <span class="built_in">sudo</span> ./qemu-start-uboot-arm32-uboot-manual.sh </span><br><span class="line"></span><br><span class="line"></span><br><span class="line">U-Boot 2022.07-rc3 (Jan 22 2024 - 13:51:57 +0800)</span><br><span class="line"></span><br><span class="line">DRAM:  512 MiB</span><br><span class="line">WARNING: Caches not enabled</span><br><span class="line">Core:  19 devices, 10 uclasses, devicetree: embed</span><br><span class="line">Flash: 64 MiB</span><br><span class="line">MMC:   mmci@5000: 0</span><br><span class="line">Loading Environment from Flash... *** Warning - bad CRC, using default environment</span><br><span class="line"></span><br><span class="line">In:    serial</span><br><span class="line">Out:   serial</span><br><span class="line">Err:   serial</span><br><span class="line">Net:   eth0: ethernet@3,02000000</span><br><span class="line">Hit any key to stop autoboot:  0 </span><br><span class="line">=&gt; setenv bootargs <span class="string">&#x27;root=/dev/nfs rw nfsroot=172.16.16.10:/sync/rootfs,proto=tcp,nfsvers=3,nolock init=/linuxrc console=ttyAMA0 ip=172.16.16.20&#x27;</span></span><br><span class="line">=&gt; setenv ipaddr 172.16.16.20</span><br><span class="line">=&gt; setenv serverip 172.16.16.10</span><br><span class="line">=&gt; setenv netmask 255.255.0.0</span><br><span class="line">=&gt; saveenv</span><br><span class="line">Saving Environment to Flash... Error: start and/or end address not on sector boundary</span><br><span class="line">Error: start and/or end address not on sector boundary</span><br><span class="line">Failed (1)</span><br><span class="line">=&gt; </span><br><span class="line">=&gt; </span><br><span class="line">=&gt; tftp 60003000 uImage</span><br><span class="line">smc911x: detected LAN9118 controller</span><br><span class="line">smc911x: phy initialized</span><br><span class="line">smc911x: MAC 00:16:3e:00:00:01</span><br><span class="line">Using ethernet@3,02000000 device</span><br><span class="line">TFTP from server 172.16.16.10; our IP address is 172.16.16.20</span><br><span class="line">Filename <span class="string">&#x27;uImage&#x27;</span>.</span><br><span class="line">Load address: 0x60003000</span><br><span class="line">Loading: <span class="comment">#################################################################</span></span><br><span class="line">         <span class="comment">#################################################################</span></span><br><span class="line">         <span class="comment">#################################################################</span></span><br><span class="line">         <span class="comment">#################################################################</span></span><br><span class="line">         <span class="comment">#################################################################</span></span><br><span class="line">         <span class="comment">########</span></span><br><span class="line">         27.6 MiB/s</span><br><span class="line"><span class="keyword">done</span></span><br><span class="line">Bytes transferred = 4886088 (4a8e48 hex)</span><br><span class="line">smc911x: MAC 00:16:3e:00:00:01</span><br><span class="line">=&gt; tftp 60500000 vexpress-v2p-ca9.dtb</span><br><span class="line">smc911x: detected LAN9118 controller</span><br><span class="line">smc911x: phy initialized</span><br><span class="line">smc911x: MAC 00:16:3e:00:00:01</span><br><span class="line">Using ethernet@3,02000000 device</span><br><span class="line">TFTP from server 172.16.16.10; our IP address is 172.16.16.20</span><br><span class="line">Filename <span class="string">&#x27;vexpress-v2p-ca9.dtb&#x27;</span>.</span><br><span class="line">Load address: 0x60500000</span><br><span class="line">Loading: <span class="comment">#</span></span><br><span class="line">         6.8 MiB/s</span><br><span class="line"><span class="keyword">done</span></span><br><span class="line">Bytes transferred = 14171 (375b hex)</span><br><span class="line">smc911x: MAC 00:16:3e:00:00:01</span><br><span class="line">=&gt; bootm 60003000 - 60500000</span><br><span class="line"><span class="comment">## Booting kernel from Legacy Image at 60003000 ...</span></span><br><span class="line">   Image Name:   Linux-5.10.186</span><br><span class="line">   Image Type:   ARM Linux Kernel Image (uncompressed)</span><br><span class="line">   Data Size:    4886024 Bytes = 4.7 MiB</span><br><span class="line">   Load Address: 60003000</span><br><span class="line">   Entry Point:  60003000</span><br><span class="line">   Verifying Checksum ... OK</span><br><span class="line"><span class="comment">## Flattened Device Tree blob at 60500000</span></span><br><span class="line">   Booting using the fdt blob at 0x60500000</span><br><span class="line">   Loading Kernel Image</span><br><span class="line">   Loading Device Tree to 7fb1d000, end 7fb2375a ... OK</span><br><span class="line"></span><br><span class="line">Starting kernel ...</span><br><span class="line"></span><br><span class="line">Booting Linux on physical CPU 0x0</span><br><span class="line">Linux version 5.10.186 (jcrj@SQA-JCRJ-01) (arm-linux-gnueabi-gcc (Ubuntu 11.4.0-1ubuntu1~22.04) 11.4.0, GNU ld (GNU Binutils <span class="keyword">for</span> Ubuntu) 2.38) <span class="comment">#3 SMP Mon Jan 22 13:46:34 CST 2024</span></span><br><span class="line">CPU: ARMv7 Processor [410fc090] revision 0 (ARMv7), cr=10c5387d</span><br><span class="line">CPU: PIPT / VIPT nonaliasing data cache, VIPT nonaliasing instruction cache</span><br><span class="line">OF: fdt: Machine model: V2P-CA9</span><br><span class="line">OF: fdt: Ignoring memory block 0x80000000 - 0x80000004</span><br><span class="line">........</span><br><span class="line">........</span><br><span class="line">Freeing unused kernel memory: 1024K</span><br><span class="line">Run /linuxrc as init process</span><br><span class="line">-----------------------------------</span><br><span class="line">*****welcome to vexpress board*****</span><br><span class="line">-----------------------------------</span><br><span class="line">device eth0 entered promiscuous mode</span><br><span class="line"></span><br><span class="line">Please press Enter to activate this console. </span><br><span class="line">[root@vexpress-a9:/]#</span><br></pre></td></tr></table></figure></div>
+
+<h3 id="出现下面界面证明引导成功"><a href="#出现下面界面证明引导成功" class="headerlink" title="出现下面界面证明引导成功"></a>出现下面界面证明引导成功</h3><p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/images/%E5%9B%BE%E7%89%87-6.png"
+                     
+                ><a target="_blank" rel="noopener" href="https://postimg.cc/0K7NvL6Z"><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://i.postimg.cc/Hnh8wmTG/6.png"
+                      alt="6.png"
+                ></a></p>
+<h2 id="固化U-boot环境变量"><a href="#固化U-boot环境变量" class="headerlink" title="固化U-boot环境变量"></a>固化U-boot环境变量</h2><p>在试运行过程中，需要输入代码修改U-boot的环境变量，如果每次启动都需要如此，则太过麻烦。真实开发板由于内置了NAND&#x2F;MMC Flash，修改后的环境变量可以使用saveenv保存下来，但是我们这部分还没有把NAND&#x2F;MMC相关支持完全做好。因此需要在U-boot源码上做一些修改，将环境变量固化下来。</p>
+<h3 id="修改配置文件"><a href="#修改配置文件" class="headerlink" title="修改配置文件"></a>修改配置文件</h3><div class="code-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> /home/workspace/u-boot-2022.07-rc3</span><br><span class="line">vim configs/vexpress_ca9x4_defconfig</span><br><span class="line"> </span><br><span class="line"><span class="comment"># 将CONFIG_BOOTCOMMAND的值修改为：</span></span><br><span class="line">CONFIG_BOOTCOMMAND=<span class="string">&quot;tftp 0x60003000 uImage;tftp 0x60500000 vexpress-v2p-ca9.dtb;setenv bootargs &#x27;root=/dev/nfs rw nfsroot=172.16.16.10:/sync/rootfs,proto=tcp,nfsvers=3,nolock init=/linuxrc ip=172.16.16.20 console=ttyAMA0&#x27;;bootm 0x60003000 - 0x60500000;&quot;</span></span><br></pre></td></tr></table></figure></div>
+
+<p>修改后如下所示</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/images/%E5%9B%BE%E7%89%87-9.png"
+                     
+                ><a target="_blank" rel="noopener" href="https://postimg.cc/Z0Nn6yf3"><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://i.postimg.cc/sf6WdY7n/9.png"
+                      alt="9.png"
+                ></a></p>
+<h3 id="修改头文件"><a href="#修改头文件" class="headerlink" title="修改头文件"></a>修改头文件</h3><p>&#x2F;&#x2F; 在vexpress_common.h文件末尾#endif之前添加以下代码：</p>
+<div class="code-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">vim include/configs/vexpress_common.h</span><br><span class="line"> </span><br><span class="line">// 在vexpress_common.h文件末尾#endif之前添加以下代码：</span><br><span class="line"><span class="comment">#define CONFIG_IPADDR   172.16.16.20</span></span><br><span class="line"><span class="comment">#define CONFIG_NETMASK  255.255.0.0</span></span><br><span class="line"><span class="comment">#define CONFIG_SERVERIP 172.16.16.10</span></span><br></pre></td></tr></table></figure></div>
+
+<div class="code-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">jcrj@SQA-JCRJ-01:~/qemu_arm_a9/workspace/u-boot-2022.07-rc3$ <span class="built_in">pwd</span></span><br><span class="line">/home/jcrj/qemu_arm_a9/workspace/u-boot-2022.07-rc3</span><br><span class="line">jcrj@SQA-JCRJ-01:~/qemu_arm_a9/workspace/u-boot-2022.07-rc3$ vim include/configs/vexpress_common.h </span><br><span class="line">jcrj@SQA-JCRJ-01:~/qemu_arm_a9/workspace/u-boot-2022.07-rc3$ </span><br><span class="line">jcrj@SQA-JCRJ-01:~/qemu_arm_a9/workspace/u-boot-2022.07-rc3$ <span class="built_in">tail</span> -6 include/configs/vexpress_common.h </span><br><span class="line">/* Net Settings */</span><br><span class="line"><span class="comment">#define CONFIG_IPADDR   172.16.16.20</span></span><br><span class="line"><span class="comment">#define CONFIG_NETMASK  255.255.0.0</span></span><br><span class="line"><span class="comment">#define CONFIG_SERVERIP 172.16.16.10</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#endif /* VEXPRESS_COMMON_H */</span></span><br><span class="line">jcrj@SQA-JCRJ-01:~/qemu_arm_a9/workspace/u-boot-2022.07-rc3$</span><br></pre></td></tr></table></figure></div>
+
+<h3 id="重新编译U-Boot"><a href="#重新编译U-Boot" class="headerlink" title="重新编译U-Boot"></a>重新编译U-Boot</h3><div class="code-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> /home/workspace/u-boot-2022.07-rc3</span><br><span class="line">./automake_arm32.sh</span><br></pre></td></tr></table></figure></div>
+
+<h3 id="编译完成后，进入Objects目录运行U-boot"><a href="#编译完成后，进入Objects目录运行U-boot" class="headerlink" title="编译完成后，进入Objects目录运行U-boot"></a>编译完成后，进入Objects目录运行U-boot</h3><div class="code-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> /home/workspace/objects</span><br><span class="line">./qemu-start-uboot-arm32.sh</span><br></pre></td></tr></table></figure></div>
+
+<p>运行结果应该与手动引导一致</p>
+<h1 id="其他辅助优化功能"><a href="#其他辅助优化功能" class="headerlink" title="其他辅助优化功能"></a>其他辅助优化功能</h1><h2 id="虚拟开发板连接互联网"><a href="#虚拟开发板连接互联网" class="headerlink" title="虚拟开发板连接互联网"></a>虚拟开发板连接互联网</h2><h3 id="修改rootfs根文件系统"><a href="#修改rootfs根文件系统" class="headerlink" title="修改rootfs根文件系统"></a>修改rootfs根文件系统</h3><p>进入根文件系统目录</p>
+<div class="code-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> /home/workspace/objects/rootfs-arm32</span><br></pre></td></tr></table></figure></div>
+
+<p>开发板指定DNS服务器</p>
+<div class="code-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">touch</span> etc/resolv.conf</span><br><span class="line"><span class="built_in">chmod</span> 777 etc/resolv.conf</span><br><span class="line">vim etc/resolv.conf</span><br><span class="line"> </span><br><span class="line"><span class="comment"># 在resolv.conf文件内添加以下内容</span></span><br><span class="line">nameserver 114.114.114.114</span><br></pre></td></tr></table></figure></div>
+
+<p>开发板初始化规则配置</p>
+<div class="code-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">vim etc/init.d/rcS</span><br><span class="line"> </span><br><span class="line"><span class="comment"># 在rcS文件末尾添加以下内容</span></span><br><span class="line">ifconfig eth0 172.16.16.20 promisc up</span><br><span class="line">route add default gw 172.16.16.10 dev eth0</span><br></pre></td></tr></table></figure></div>
+
+<p>将修改后的根文件系统拷贝到 &#x2F;sync&#x2F;rootfs内</p>
+<div class="code-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> /home/workspace/objects/rootfs-arm32</span><br><span class="line"><span class="built_in">sudo</span> <span class="built_in">cp</span> -rf * /sync/rootfs/</span><br><span class="line"><span class="built_in">sudo</span> <span class="built_in">chmod</span> 777 -R /sync/rootfs</span><br></pre></td></tr></table></figure></div>
+
+<h3 id="修改主机配置"><a href="#修改主机配置" class="headerlink" title="修改主机配置"></a>修改主机配置</h3><p>虚拟开发板访问互联网，不仅需要修改开发板相关配置文件，同时也需要对主机进行进一步操作，包括开启IP转发、配置静态路由、配置iptable规则等。</p>
+<p>主机开启IP转发</p>
+<p>主机配置tap虚拟网卡</p>
+<p>运行脚本</p>
+<h1 id="U-boot-emmc启动"><a href="#U-boot-emmc启动" class="headerlink" title="U-boot+emmc启动"></a>U-boot+emmc启动</h1><p>在第四部分《通过U-boot引导加载内核》中，我们发现U-boot的环境变量修改后无法保存，需要修改源代码来固化环境变量，对启动参数的修改造成了不便。因此本节将继续深入探讨如何将U-boot的环境变量存储在emmc内，同时使用emmc存储Linux内核、设备树以及根文件系统，并在此基础上尝试引导启动最小Linux操作系统。</p>
+<h2 id="制作emmc镜像文件"><a href="#制作emmc镜像文件" class="headerlink" title="制作emmc镜像文件"></a>制作emmc镜像文件</h2><p>本节制作的emmc镜像文件共256MB，分为两个部分，第一部分存放uImage和dtb，大小为32MB，第二部分存放根文件系统，大小为224MB。</p>
+<h3 id="创建挂载路径"><a href="#创建挂载路径" class="headerlink" title="创建挂载路径"></a>创建挂载路径</h3><div class="code-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> <span class="built_in">mkdir</span> /mnt/rootfs</span><br><span class="line"><span class="built_in">sudo</span> <span class="built_in">mkdir</span> /mnt/uboot</span><br></pre></td></tr></table></figure></div>
+
+<h3 id="创建自动打包脚本"><a href="#创建自动打包脚本" class="headerlink" title="创建自动打包脚本"></a>创建自动打包脚本</h3><p>将&#x2F;home&#x2F;workspace&#x2F;objects下makefs-arm32.sh的内容替换为以下内容</p>
+<div class="code-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> /home/workspace/objects</span><br><span class="line">vim makefs-arm32.sh</span><br><span class="line"> </span><br><span class="line"><span class="comment"># 将makefs-arm32.sh的内容替换为以下内容</span></span><br><span class="line"><span class="built_in">dd</span> <span class="keyword">if</span>=/dev/zero of=rootfs-arm.ext3 bs=1M count=256</span><br><span class="line"> </span><br><span class="line"><span class="built_in">echo</span> <span class="string">&quot;hard disk partition!&quot;</span></span><br><span class="line">sgdisk -n 0:0:+32M -c 0:uboot rootfs-arm.ext3</span><br><span class="line">sgdisk -n 0:0:0 -c 0:rootfs rootfs-arm.ext3</span><br><span class="line">sgdisk -p rootfs-arm.ext3</span><br><span class="line"> </span><br><span class="line"><span class="built_in">echo</span> <span class="string">&quot;mount loop device!&quot;</span></span><br><span class="line">LOOPDEV=`losetup -f`</span><br><span class="line"><span class="built_in">echo</span> <span class="variable">$LOOPDEV</span></span><br><span class="line"><span class="built_in">sudo</span> losetup <span class="variable">$LOOPDEV</span>  rootfs-arm.ext3</span><br><span class="line"><span class="built_in">sudo</span> partprobe <span class="variable">$LOOPDEV</span></span><br><span class="line"><span class="built_in">sudo</span> losetup -l</span><br><span class="line"><span class="built_in">ls</span> -l /dev/loop*</span><br><span class="line"> </span><br><span class="line"><span class="built_in">echo</span> <span class="string">&quot;format disk to ext3&quot;</span></span><br><span class="line"><span class="built_in">echo</span> <span class="variable">$&#123;LOOPDEV&#125;</span>p1</span><br><span class="line"><span class="built_in">echo</span> <span class="variable">$&#123;LOOPDEV&#125;</span>p2</span><br><span class="line"><span class="built_in">sudo</span> mkfs.ext3 <span class="variable">$&#123;LOOPDEV&#125;</span>p1</span><br><span class="line"><span class="built_in">sudo</span> mkfs.ext3 <span class="variable">$&#123;LOOPDEV&#125;</span>p2</span><br><span class="line"><span class="built_in">sudo</span> mount -t ext3 <span class="variable">$&#123;LOOPDEV&#125;</span>p1 /mnt/uboot -o loop</span><br><span class="line"><span class="built_in">sudo</span> mount -t ext3 <span class="variable">$&#123;LOOPDEV&#125;</span>p2 /mnt/rootfs -o loop</span><br><span class="line"><span class="built_in">sudo</span> <span class="built_in">cp</span> -rf rootfs-arm32/* /mnt/rootfs/</span><br><span class="line"><span class="built_in">sudo</span> <span class="built_in">cp</span> vexpress-v2p-ca9/arch/arm/boot/dts/vexpress-v2p-ca9.dtb /mnt/uboot/</span><br><span class="line"><span class="built_in">sudo</span> <span class="built_in">cp</span> vexpress-v2p-ca9/arch/arm/boot/uImage /mnt/uboot/</span><br><span class="line"><span class="built_in">sudo</span> umount /mnt/rootfs/</span><br><span class="line"><span class="built_in">sudo</span> umount /mnt/uboot/</span><br><span class="line"><span class="built_in">sudo</span> losetup -d <span class="variable">$LOOPDEV</span></span><br></pre></td></tr></table></figure></div>
+
+<h3 id="运行自动打包脚本"><a href="#运行自动打包脚本" class="headerlink" title="运行自动打包脚本"></a>运行自动打包脚本</h3><div class="code-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br></pre></td><td class="code"><pre><span class="line">jcrj@SQA-JCRJ-01:~/qemu_arm_a9/workspace/objects$ <span class="built_in">sudo</span> ./makefs-arm32.sh </span><br><span class="line">记录了256+0 的读入</span><br><span class="line">记录了256+0 的写出</span><br><span class="line">268435456字节（268 MB，256 MiB）已复制，0.18134 s，1.5 GB/s</span><br><span class="line">hard disk partition!</span><br><span class="line">Creating new GPT entries <span class="keyword">in</span> memory.</span><br><span class="line">Setting name!</span><br><span class="line">partNum is 0</span><br><span class="line">Warning: The kernel is still using the old partition table.</span><br><span class="line">The new table will be used at the next reboot or after you</span><br><span class="line">run partprobe(8) or kpartx(8)</span><br><span class="line">The operation has completed successfully.</span><br><span class="line">Setting name!</span><br><span class="line">partNum is 1</span><br><span class="line">Warning: The kernel is still using the old partition table.</span><br><span class="line">The new table will be used at the next reboot or after you</span><br><span class="line">run partprobe(8) or kpartx(8)</span><br><span class="line">The operation has completed successfully.</span><br><span class="line">Disk rootfs-arm.ext3: 524288 sectors, 256.0 MiB</span><br><span class="line">Sector size (logical): 512 bytes</span><br><span class="line">Disk identifier (GUID): 3C81BB8A-E76E-49AF-B920-1DC5B7EF6B72</span><br><span class="line">Partition table holds up to 128 entries</span><br><span class="line">Main partition table begins at sector 2 and ends at sector 33</span><br><span class="line">First usable sector is 34, last usable sector is 524254</span><br><span class="line">Partitions will be aligned on 2048-sector boundaries</span><br><span class="line">Total free space is 2014 sectors (1007.0 KiB)</span><br><span class="line"></span><br><span class="line">Number  Start (sector)    End (sector)  Size       Code  Name</span><br><span class="line">   1            2048           67583   32.0 MiB    8300  uboot</span><br><span class="line">   2           67584          524254   223.0 MiB   8300  rootfs</span><br><span class="line">mount loop device!</span><br><span class="line">/dev/loop15</span><br><span class="line">NAME        SIZELIMIT OFFSET AUTOCLEAR RO BACK-FILE                                                DIO LOG-SEC</span><br><span class="line">/dev/loop1          0      0         1  1 /var/lib/snapd/snaps/bare_5.snap                           0     512</span><br><span class="line">/dev/loop8          0      0         1  1 /var/lib/snapd/snaps/gnome-42-2204_141.snap                0     512</span><br><span class="line">/dev/loop15         0      0         0  0 /home/jcrj/qemu_arm_a9/workspace/objects/rootfs-arm.ext3   0     512</span><br><span class="line">/dev/loop6          0      0         1  1 /var/lib/snapd/snaps/gnome-3-38-2004_143.snap              0     512</span><br><span class="line">/dev/loop13         0      0         1  1 /var/lib/snapd/snaps/snapd-desktop-integration_83.snap     0     512</span><br><span class="line">/dev/loop4          0      0         1  1 /var/lib/snapd/snaps/core22_858.snap                       0     512</span><br><span class="line">/dev/loop11         0      0         1  1 /var/lib/snapd/snaps/snapd_19457.snap                      0     512</span><br><span class="line">/dev/loop2          0      0         1  1 /var/lib/snapd/snaps/core20_2105.snap                      0     512</span><br><span class="line">/dev/loop0          0      0         1  1 /var/lib/snapd/snaps/core20_1974.snap                      0     512</span><br><span class="line">/dev/loop9          0      0         1  1 /var/lib/snapd/snaps/gtk-common-themes_1535.snap           0     512</span><br><span class="line">/dev/loop7          0      0         1  1 /var/lib/snapd/snaps/gnome-42-2204_120.snap                0     512</span><br><span class="line">/dev/loop14         0      0         1  1 /var/lib/snapd/snaps/code_149.snap                         0     512</span><br><span class="line">/dev/loop5          0      0         1  1 /var/lib/snapd/snaps/firefox_2987.snap                     0     512</span><br><span class="line">/dev/loop12         0      0         1  1 /var/lib/snapd/snaps/snapd_20671.snap                      0     512</span><br><span class="line">/dev/loop3          0      0         1  1 /var/lib/snapd/snaps/core22_1033.snap                      0     512</span><br><span class="line">/dev/loop10         0      0         1  1 /var/lib/snapd/snaps/snap-store_959.snap                   0     512</span><br><span class="line">brw-rw---- 1 root disk   7,   0  1月 22 08:56 /dev/loop0</span><br><span class="line">brw-rw---- 1 root disk   7,   1  1月 22 08:56 /dev/loop1</span><br><span class="line">brw-rw---- 1 root disk   7,  10  1月 22 08:56 /dev/loop10</span><br><span class="line">brw-rw---- 1 root disk   7,  11  1月 22 08:56 /dev/loop11</span><br><span class="line">brw-rw---- 1 root disk   7,  12  1月 22 08:56 /dev/loop12</span><br><span class="line">brw-rw---- 1 root disk   7,  13  1月 22 08:56 /dev/loop13</span><br><span class="line">brw-rw---- 1 root disk   7,  14  1月 22 08:56 /dev/loop14</span><br><span class="line">brw-rw---- 1 root disk   7,  15  1月 22 14:57 /dev/loop15</span><br><span class="line">brw-rw---- 1 root disk 259,   3  1月 22 14:57 /dev/loop15p1</span><br><span class="line">brw-rw---- 1 root disk 259,   4  1月 22 14:57 /dev/loop15p2</span><br><span class="line">brw-rw---- 1 root disk   7,  16  1月 22 14:56 /dev/loop16</span><br><span class="line">brw-rw---- 1 root disk   7,   2  1月 22 08:56 /dev/loop2</span><br><span class="line">brw-rw---- 1 root disk   7,   3  1月 22 08:56 /dev/loop3</span><br><span class="line">brw-rw---- 1 root disk   7,   4  1月 22 08:56 /dev/loop4</span><br><span class="line">brw-rw---- 1 root disk   7,   5  1月 22 08:56 /dev/loop5</span><br><span class="line">brw-rw---- 1 root disk   7,   6  1月 22 08:56 /dev/loop6</span><br><span class="line">brw-rw---- 1 root disk   7,   7  1月 22 08:56 /dev/loop7</span><br><span class="line">brw-rw---- 1 root disk   7,   8  1月 22 08:56 /dev/loop8</span><br><span class="line">brw-rw---- 1 root disk   7,   9  1月 22 08:56 /dev/loop9</span><br><span class="line">crw-rw---- 1 root disk  10, 237  1月 22 08:56 /dev/loop-control</span><br><span class="line">format disk to ext3</span><br><span class="line">/dev/loop15p1</span><br><span class="line">/dev/loop15p2</span><br><span class="line">mke2fs 1.46.5 (30-Dec-2021)</span><br><span class="line">丢弃设备块： 完成                        </span><br><span class="line">创建含有 8192 个块（每块 4k）和 8192 个 inode 的文件系统</span><br><span class="line"></span><br><span class="line">正在分配组表： 完成                        </span><br><span class="line">正在写入 inode表： 完成                        </span><br><span class="line">创建日志（1024 个块）： 完成</span><br><span class="line">写入超级块和文件系统账户统计信息： 已完成</span><br><span class="line"></span><br><span class="line">mke2fs 1.46.5 (30-Dec-2021)</span><br><span class="line">丢弃设备块： 完成                        </span><br><span class="line">创建含有 57083 个块（每块 4k）和 57088 个 inode 的文件系统</span><br><span class="line">文件系统 UUID：3e290f2c-d621-4fd0-bb3a-f25fd0dbcd64</span><br><span class="line">超级块的备份存储于下列块： </span><br><span class="line">        32768</span><br><span class="line"></span><br><span class="line">正在分配组表： 完成                        </span><br><span class="line">正在写入 inode表： 完成                        </span><br><span class="line">创建日志（4096 个块）： 完成</span><br><span class="line">写入超级块和文件系统账户统计信息： 已完成</span><br><span class="line"></span><br><span class="line">jcrj@SQA-JCRJ-01:~/qemu_arm_a9/workspace/objects$ </span><br><span class="line"></span><br></pre></td></tr></table></figure></div>
+
+<p>将生成一个256MB大小的镜像文件rootfs-arm.ext3</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/images/%E5%9B%BE%E7%89%87-5.png"
+                     
+                ><a target="_blank" rel="noopener" href="https://postimg.cc/4K3ncLMN"><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://i.postimg.cc/9fd9vsYT/5.png"
+                      alt="5.png"
+                ></a></p>
+<h3 id="修改U-boot环境变量的保存位置"><a href="#修改U-boot环境变量的保存位置" class="headerlink" title="修改U-boot环境变量的保存位置"></a>修改U-boot环境变量的保存位置</h3><p>上一小节生成的emmc镜像分为两部分，我们把环境变量存储在第一部分最后256KB的位置，以保证它不会与Linux内核和设备树互相干扰。</p>
+<h3 id="重新编译U-boot"><a href="#重新编译U-boot" class="headerlink" title="重新编译U-boot"></a>重新编译U-boot</h3><div class="code-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> /home/workspace/u-boot-2022.07-rc3</span><br><span class="line">./automake_arm32.sh</span><br></pre></td></tr></table></figure></div>
+
+<p>在menuconfig界面设置环境变量存储设备，以及环境变量在设备中的具体位置和大小。由于需要将环境变量存储在emmc镜像的第一个分区的最后256KB位置，所以环境变量的设备号为emmc0，分区号为0，偏移量为0x02000000-0x00040000&#x3D;0x01FC0000，大小为0x00040000。</p>
+<p><strong>menuconfig设置路径为：Environment-&gt;Environment in an MMC device</strong></p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/images/%E5%9B%BE%E7%89%87.png"
+                     
+                ><a target="_blank" rel="noopener" href="https://postimg.cc/4YPmmkWS"><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://i.postimg.cc/s2dSH37s/image.png"
+                      alt="image.png"
+                ></a></p>
+<p>修改后，按两下Esc，保存配置，退出menuconfig，等待U-boot编译完成</p>
+<h3 id="加载U-boot修改环境变量"><a href="#加载U-boot修改环境变量" class="headerlink" title="加载U-boot修改环境变量"></a>加载U-boot修改环境变量</h3><p>创建自动运行脚本</p>
+<div class="code-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> /home/workspace/objects</span><br><span class="line"><span class="built_in">sudo</span> <span class="built_in">touch</span> qemu-start-uboot-arm32-emmc.sh</span><br><span class="line"><span class="built_in">sudo</span> <span class="built_in">chmod</span> 777 qemu-start-uboot-arm32-emmc.sh</span><br><span class="line">vim qemu-start-uboot-arm32-emmc.sh</span><br><span class="line"> </span><br><span class="line"><span class="comment"># 在qemu-start-uboot-arm32-emmc.sh文件内添加以下内容</span></span><br><span class="line"><span class="comment">#!/bin/bash</span></span><br><span class="line"><span class="built_in">sudo</span> tunctl -u root -t tap0</span><br><span class="line"><span class="built_in">sudo</span> ifconfig tap0 172.16.16.10 promisc up</span><br><span class="line"><span class="built_in">sudo</span> route add -net 172.16.0.0 netmask 255.255.0.0 dev tap0</span><br><span class="line"><span class="built_in">sudo</span> iptables -t nat -A POSTROUTING -s 172.16.0.0/16 -o eth0 -j MASQUERADE</span><br><span class="line"><span class="built_in">sudo</span> netfilter-persistent save</span><br><span class="line"><span class="built_in">sudo</span> qemu-system-arm \</span><br><span class="line">        -M vexpress-a9 \</span><br><span class="line">        -m 512M \</span><br><span class="line">        -kernel u-boot-arm/u-boot \</span><br><span class="line">        -net tap,ifname=tap0,script=no,downscript=no \</span><br><span class="line">        -net nic,macaddr=00:16:3e:00:00:01 \</span><br><span class="line">        -nographic \</span><br><span class="line">        -sd rootfs-arm.ext3</span><br></pre></td></tr></table></figure></div>
+
+<p>运行脚本，在自动挂载倒计时结束前按任意键进入命令行模式</p>
+<p>可以看到此时emmc镜像仍未存储环境变量，加载的是默认变量</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/images/%E5%9B%BE%E7%89%87-1.png"
+                     
+                ><a target="_blank" rel="noopener" href="https://postimg.cc/HrdrYs9M"><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://i.postimg.cc/Hk7XtrJ6/1.png"
+                      alt="1.png"
+                ></a></p>
+<h3 id="在U-boot命令行中输入以下命令设置环境变量"><a href="#在U-boot命令行中输入以下命令设置环境变量" class="headerlink" title="在U-boot命令行中输入以下命令设置环境变量"></a>在U-boot命令行中输入以下命令设置环境变量</h3><div class="code-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">setenv bootargs <span class="string">&#x27;root=/dev/mmcblk0p2 rw console=ttyAMA0,38400n8&#x27;</span></span><br><span class="line">setenv bootcmd <span class="string">&quot;load mmc 0:1 0x60003000 uImage;load mmc 0:1 0x60500000 vexpress-v2p-ca9.dtb;bootm 0x60003000 - 0x60500000;&quot;</span></span><br><span class="line">saveenv</span><br></pre></td></tr></table></figure></div>
+
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/images/%E5%9B%BE%E7%89%87-2.png"
+                     
+                ><a target="_blank" rel="noopener" href="https://postimg.cc/jLVW1hWZ"><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://i.postimg.cc/wTMh7f98/2.png"
+                      alt="2.png"
+                ></a></p>
+<p>保存成功后，重新启动U-boot</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/images/%E5%9B%BE%E7%89%87-3.png"
+                     
+                ><a target="_blank" rel="noopener" href="https://postimg.cc/4mzKRhVZ"><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://i.postimg.cc/4N0pt63K/3.png"
+                      alt="3.png"
+                ></a></p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/images/%E5%9B%BE%E7%89%87-4.png"
+                     
+                ><a target="_blank" rel="noopener" href="https://postimg.cc/f3gyf7n7"><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://i.postimg.cc/B6JFsNmz/4.png"
+                      alt="4.png"
+                ></a></p>
+<h1 id="问题及解决方案"><a href="#问题及解决方案" class="headerlink" title="问题及解决方案"></a>问题及解决方案</h1><h2 id="Ubuntu2204网卡丢失"><a href="#Ubuntu2204网卡丢失" class="headerlink" title="Ubuntu2204网卡丢失"></a>Ubuntu2204网卡丢失</h2><h3 id="查看本地IP"><a href="#查看本地IP" class="headerlink" title="查看本地IP"></a>查看本地IP</h3><div class="code-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br></pre></td><td class="code"><pre><span class="line">jcrj@SQA-JCRJ-01:~$ ifconfig</span><br><span class="line">br-593cc1b66d28: flags=4099&lt;UP,BROADCAST,MULTICAST&gt;  mtu 1500</span><br><span class="line">        inet 172.18.0.1  netmask 255.255.0.0  broadcast 172.18.255.255</span><br><span class="line">        ether 02:42:e2:a9:db:58  txqueuelen 0  (以太网)</span><br><span class="line">        RX packets 0  bytes 0 (0.0 B)</span><br><span class="line">        RX errors 0  dropped 0  overruns 0  frame 0</span><br><span class="line">        TX packets 0  bytes 0 (0.0 B)</span><br><span class="line">        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0</span><br><span class="line"></span><br><span class="line">docker0: flags=4163&lt;UP,BROADCAST,RUNNING,MULTICAST&gt;  mtu 1500</span><br><span class="line">        inet 172.17.0.1  netmask 255.255.0.0  broadcast 172.17.255.255</span><br><span class="line">        inet6 fe80::42:43ff:fef5:b4a2  prefixlen 64  scopeid 0x20&lt;<span class="built_in">link</span>&gt;</span><br><span class="line">        ether 02:42:43:f5:b4:a2  txqueuelen 0  (以太网)</span><br><span class="line">        RX packets 369  bytes 25324 (25.3 KB)</span><br><span class="line">        RX errors 0  dropped 0  overruns 0  frame 0</span><br><span class="line">        TX packets 250  bytes 26842 (26.8 KB)</span><br><span class="line">        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0</span><br><span class="line"></span><br><span class="line">lo: flags=73&lt;UP,LOOPBACK,RUNNING&gt;  mtu 65536</span><br><span class="line">        inet 127.0.0.1  netmask 255.0.0.0</span><br><span class="line">        inet6 ::1  prefixlen 128  scopeid 0x10&lt;host&gt;</span><br><span class="line">        loop  txqueuelen 1000  (本地环回)</span><br><span class="line">        RX packets 1798  bytes 133078 (133.0 KB)</span><br><span class="line">        RX errors 0  dropped 0  overruns 0  frame 0</span><br><span class="line">        TX packets 1798  bytes 133078 (133.0 KB)</span><br><span class="line">        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0</span><br><span class="line"></span><br><span class="line">veth948b02a: flags=4163&lt;UP,BROADCAST,RUNNING,MULTICAST&gt;  mtu 1500</span><br><span class="line">        inet6 fe80::44a5:58ff:fe17:3f7c  prefixlen 64  scopeid 0x20&lt;<span class="built_in">link</span>&gt;</span><br><span class="line">        ether 46:a5:58:17:3f:7c  txqueuelen 0  (以太网)</span><br><span class="line">        RX packets 0  bytes 0 (0.0 B)</span><br><span class="line">        RX errors 0  dropped 0  overruns 0  frame 0</span><br><span class="line">        TX packets 83  bytes 9130 (9.1 KB)</span><br><span class="line">        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0</span><br><span class="line"></span><br><span class="line">vethde0c1ce: flags=4163&lt;UP,BROADCAST,RUNNING,MULTICAST&gt;  mtu 1500</span><br><span class="line">        inet6 fe80::3415:67ff:feac:e7a6  prefixlen 64  scopeid 0x20&lt;<span class="built_in">link</span>&gt;</span><br><span class="line">        ether 36:15:67:ac:e7:a6  txqueuelen 0  (以太网)</span><br><span class="line">        RX packets 27  bytes 1774 (1.7 KB)</span><br><span class="line">        RX errors 0  dropped 0  overruns 0  frame 0</span><br><span class="line">        TX packets 84  bytes 7704 (7.7 KB)</span><br><span class="line">        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0</span><br><span class="line"></span><br><span class="line">vethf73e2dc: flags=4163&lt;UP,BROADCAST,RUNNING,MULTICAST&gt;  mtu 1500</span><br><span class="line">        inet6 fe80::243b:61ff:fea8:8b5b  prefixlen 64  scopeid 0x20&lt;<span class="built_in">link</span>&gt;</span><br><span class="line">        ether 26:3b:61:a8:8b:5b  txqueuelen 0  (以太网)</span><br><span class="line">        RX packets 13  bytes 1098 (1.0 KB)</span><br><span class="line">        RX errors 0  dropped 0  overruns 0  frame 0</span><br><span class="line">        TX packets 27  bytes 3260 (3.2 KB)</span><br><span class="line">        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0</span><br><span class="line"></span><br><span class="line">vethfdaf20c: flags=4163&lt;UP,BROADCAST,RUNNING,MULTICAST&gt;  mtu 1500</span><br><span class="line">        inet6 fe80::acb4:8fff:fe32:f35a  prefixlen 64  scopeid 0x20&lt;<span class="built_in">link</span>&gt;</span><br><span class="line">        ether ae:b4:8f:32:f3:5a  txqueuelen 0  (以太网)</span><br><span class="line">        RX packets 13  bytes 1098 (1.0 KB)</span><br><span class="line">        RX errors 0  dropped 0  overruns 0  frame 0</span><br><span class="line">        TX packets 27  bytes 3260 (3.2 KB)</span><br><span class="line">        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0</span><br><span class="line"></span><br><span class="line">virbr0: flags=4099&lt;UP,BROADCAST,MULTICAST&gt;  mtu 1500</span><br><span class="line">        inet 192.168.122.1  netmask 255.255.255.0  broadcast 192.168.122.255</span><br><span class="line">        ether 52:54:00:90:4b:76  txqueuelen 1000  (以太网)</span><br><span class="line">        RX packets 0  bytes 0 (0.0 B)</span><br><span class="line">        RX errors 0  dropped 0  overruns 0  frame 0</span><br><span class="line">        TX packets 0  bytes 0 (0.0 B)</span><br><span class="line">        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">jcrj@SQA-JCRJ-01:~$ </span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure></div>
+
+<h3 id="查看本地网卡设备名"><a href="#查看本地网卡设备名" class="headerlink" title="查看本地网卡设备名"></a>查看本地网卡设备名</h3><p>可以看到本地网卡设备信息为<strong>logical name: eno1</strong></p>
+<div class="code-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">jcrj@SQA-JCRJ-01:~$ <span class="built_in">sudo</span> lshw -c network</span><br><span class="line">[<span class="built_in">sudo</span>] jcrj 的密码： </span><br><span class="line">  *-network DISABLED    </span><br><span class="line">       description: Ethernet interface</span><br><span class="line">       product: Ethernet Connection (17) I219-V</span><br><span class="line">       vendor: Intel Corporation</span><br><span class="line">       physical <span class="built_in">id</span>: 1f.6</span><br><span class="line">       bus info: pci@0000:00:1f.6</span><br><span class="line">       logical name: eno1</span><br><span class="line">       version: 11</span><br><span class="line">       serial: ec:d6:8a:be:bd:27</span><br><span class="line">       capacity: 1Gbit/s</span><br><span class="line">       width: 32 bits</span><br><span class="line">       clock: 33MHz</span><br><span class="line">       capabilities: pm msi bus_master cap_list ethernet physical tp 10bt 10bt-fd 100bt 100bt-fd 1000bt-fd autonegotiation</span><br><span class="line">       configuration: autonegotiation=on broadcast=<span class="built_in">yes</span> driver=e1000e driverversion=6.5.0-14-generic firmware=2.3-4 latency=0 <span class="built_in">link</span>=no multicast=<span class="built_in">yes</span> port=twisted pair</span><br><span class="line">       resources: irq:125 memory:80a00000-80a1ffff</span><br><span class="line">jcrj@SQA-JCRJ-01:~$ </span><br></pre></td></tr></table></figure></div>
+
+<h3 id="重启网络服务"><a href="#重启网络服务" class="headerlink" title="重启网络服务"></a>重启网络服务</h3><div class="code-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 停止服务</span></span><br><span class="line">jcrj@SQA-JCRJ-01:~$ <span class="built_in">sudo</span> service NetworkManager stop</span><br><span class="line"><span class="comment"># 删除文件</span></span><br><span class="line">jcrj@SQA-JCRJ-01:~$ <span class="built_in">sudo</span> <span class="built_in">rm</span> /etc/NetworkManager/NetworkManager.state</span><br><span class="line"><span class="built_in">rm</span>: 无法删除 <span class="string">&#x27;/etc/NetworkManager/NetworkManager.state&#x27;</span>: 没有那个文件或目录</span><br><span class="line"><span class="comment"># 修改配置文件</span></span><br><span class="line"><span class="comment"># 将NetworkManager.conf 中的managed=false改为managed=true保存</span></span><br><span class="line">jcrj@SQA-JCRJ-01:~$ <span class="built_in">sudo</span> vim /etc/NetworkManager/NetworkManager.conf </span><br><span class="line">jcrj@SQA-JCRJ-01:~$ </span><br><span class="line">jcrj@SQA-JCRJ-01:~$ <span class="built_in">cat</span> /etc/NetworkManager/NetworkManager.conf </span><br><span class="line">[main]</span><br><span class="line">plugins=ifupdown,keyfile</span><br><span class="line"></span><br><span class="line">[ifupdown]</span><br><span class="line">managed=<span class="literal">true</span></span><br><span class="line"></span><br><span class="line">[device]</span><br><span class="line">wifi.scan-rand-mac-address=no</span><br><span class="line">jcrj@SQA-JCRJ-01:~$ </span><br><span class="line">jcrj@SQA-JCRJ-01:~$ <span class="built_in">sudo</span> service NetworkManager start</span><br><span class="line">jcrj@SQA-JCRJ-01:~$ </span><br></pre></td></tr></table></figure></div>
+
+<h2 id="Tftp使用"><a href="#Tftp使用" class="headerlink" title="Tftp使用"></a>Tftp使用</h2><h3 id="基本信息"><a href="#基本信息" class="headerlink" title="基本信息"></a>基本信息</h3><table>
+<thead>
+<tr>
+<th>设备名称</th>
+<th>IP</th>
+<th>属性</th>
+<th>备注</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>SQA-JCRJ-01</td>
+<td>172.16.16.10</td>
+<td>server</td>
+<td>tap0: flags&#x3D;4419&lt;UP,BROADCAST,RUNNING,PROMISC,MULTICAST&gt;  mtu 1500        inet 172.16.16.10  netmask 255.255.0.0  broadcast 172.16.255.255        inet6 fe80::ec13:32ff:fe7e:70ba  prefixlen 64  scopeid 0x20&lt;link&gt;        ether ee:13:32:7e:70:ba  txqueuelen 1000  (以太网)        RX packets 51  bytes 3314 (3.3 KB)        RX errors 0  dropped 0  overruns 0  frame 0        TX packets 110  bytes 9805 (9.8 KB)        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0</td>
+</tr>
+<tr>
+<td>vexpress-a9</td>
+<td>172.16.16.20</td>
+<td>client</td>
+<td>eth0      Link encap:Ethernet  HWaddr 00:16:3E:00:00:01          inet addr:172.16.16.20  Bcast:172.16.255.255  Mask:255.255.0.0          UP BROADCAST RUNNING PROMISC MULTICAST  MTU:1500  Metric:1          RX packets:76 errors:0 dropped:17 overruns:0 frame:0          TX packets:51 errors:0 dropped:0 overruns:0 carrier:0          collisions:0 txqueuelen:1000          RX bytes:5668 (5.5 KiB)  TX bytes:3314 (3.2 KiB)          Interrupt:26</td>
+</tr>
+</tbody></table>
+<h3 id="Server-Client"><a href="#Server-Client" class="headerlink" title="Server -&gt; Client"></a>Server -&gt; Client</h3><h4 id="Server"><a href="#Server" class="headerlink" title="Server"></a>Server</h4><div class="code-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">jcrj@SQA-JCRJ-01:/sync/tftp$ <span class="built_in">cat</span> server-client.txt </span><br><span class="line">server to client</span><br><span class="line">tftp&gt; ?</span><br><span class="line">tftp-hpa 5.2</span><br><span class="line">Commands may be abbreviated.  Commands are:</span><br><span class="line"></span><br><span class="line">connect         connect to remote tftp</span><br><span class="line">mode            <span class="built_in">set</span> file transfer mode</span><br><span class="line">put             send file</span><br><span class="line">get             receive file</span><br><span class="line">quit            <span class="built_in">exit</span> tftp</span><br><span class="line">verbose         toggle verbose mode</span><br><span class="line">trace           toggle packet tracing</span><br><span class="line">literal         toggle literal mode, ignore <span class="string">&#x27;:&#x27;</span> <span class="keyword">in</span> file name</span><br><span class="line">status          show current status</span><br><span class="line">binary          <span class="built_in">set</span> mode to octet</span><br><span class="line">ascii           <span class="built_in">set</span> mode to netascii</span><br><span class="line">rexmt           <span class="built_in">set</span> per-packet transmission <span class="built_in">timeout</span></span><br><span class="line"><span class="built_in">timeout</span>         <span class="built_in">set</span> total retransmission <span class="built_in">timeout</span></span><br><span class="line">?               <span class="built_in">print</span> <span class="built_in">help</span> information</span><br><span class="line"><span class="built_in">help</span>            <span class="built_in">print</span> <span class="built_in">help</span> information</span><br><span class="line">tftp&gt; q</span><br></pre></td></tr></table></figure></div>
+
+<h4 id="Client"><a href="#Client" class="headerlink" title="Client"></a>Client</h4><p><strong>tftp -g -r 远程目标文件 远程地址</strong></p>
+<div class="code-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">[root@vexpress-a9:/tmp]#tftp</span><br><span class="line">BusyBox v1.36.1 (2024-01-19 17:01:13 CST) multi-call binary.</span><br><span class="line"></span><br><span class="line">Usage: tftp [OPTIONS] HOST [PORT]</span><br><span class="line"></span><br><span class="line">Transfer a file from/to tftp server</span><br><span class="line"></span><br><span class="line">        -l FILE        Local FILE</span><br><span class="line">        -r FILE        Remote FILE</span><br><span class="line">        -g        Get file</span><br><span class="line">        -p        Put file</span><br><span class="line">        -b SIZE        Transfer blocks <span class="keyword">in</span> bytes</span><br><span class="line">[root@vexpress-a9:/tmp]#</span><br><span class="line">[root@vexpress-a9:/tmp]#<span class="built_in">ls</span></span><br><span class="line">a.txt  v.txt</span><br><span class="line">[root@vexpress-a9:/tmp]#tftp -g -r server-client.txt 172.16.16.10</span><br><span class="line">server-client.txt    100% |********************************|    17  0:00:00 ETA</span><br><span class="line">[root@vexpress-a9:/tmp]#<span class="built_in">ls</span></span><br><span class="line">a.txt              server-client.txt  v.txt</span><br><span class="line">[root@vexpress-a9:/tmp]#<span class="built_in">cat</span> server-client.txt </span><br><span class="line">server to client</span><br><span class="line">[root@vexpress-a9:/tmp]#</span><br></pre></td></tr></table></figure></div>
+
+<h3 id="Client-Server"><a href="#Client-Server" class="headerlink" title="Client -&gt; Server"></a>Client -&gt; Server</h3><h4 id="Client-1"><a href="#Client-1" class="headerlink" title="Client"></a>Client</h4><div class="code-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">[root@vexpress-a9:/tmp]#vim clent-server.txt</span><br><span class="line">[root@vexpress-a9:/tmp]#<span class="built_in">ls</span></span><br><span class="line">a.txt              clent-server.txt   server-client.txt  v.txt</span><br><span class="line">[root@vexpress-a9:/tmp]#<span class="built_in">cat</span> clent-server.txt </span><br><span class="line">client server</span><br><span class="line">[root@vexpress-a9:/tmp]#tftp -p -r client_server.txt -l client-server.txt 172.16</span><br><span class="line">.16.10</span><br><span class="line">client_server.txt    100% |********************************|    14  0:00:00 ETA</span><br><span class="line">[root@vexpress-a9:/tmp]#</span><br><span class="line"></span><br></pre></td></tr></table></figure></div>
+
+<h4 id="Server-1"><a href="#Server-1" class="headerlink" title="Server"></a>Server</h4><div class="code-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">jcrj@SQA-JCRJ-01:/sync/tftp$ <span class="built_in">ls</span></span><br><span class="line">a.txt  client_server.txt  server-client.txt  uImage  vexpress-v2p-ca9.dtb  v.txt</span><br><span class="line">jcrj@SQA-JCRJ-01:/sync/tftp$ <span class="built_in">cat</span> client_server.txt </span><br><span class="line">client server</span><br><span class="line">jcrj@SQA-JCRJ-01:/sync/tftp$ </span><br></pre></td></tr></table></figure></div>
+
+<h2 id="离线安装软件包"><a href="#离线安装软件包" class="headerlink" title="离线安装软件包"></a>离线安装软件包</h2><h3 id="官方网址"><a href="#官方网址" class="headerlink" title="官方网址"></a>官方网址</h3><p><a class="link"   target="_blank" rel="noopener" href="https://ubuntu.pkgs.org/" >https://ubuntu.pkgs.org/<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a></p>
+<h3 id="GCC"><a href="#GCC" class="headerlink" title="GCC"></a>GCC</h3><p>MAKE</p>
+<p>SSH</p>
+
+		</div>
+
+		
+		<div class="post-copyright-info w-full my-8 px-2 sm:px-6 md:px-8">
+			<div class="article-copyright-info-container">
+    <ul>
+        <li><strong>标题:</strong> Qemu模拟ARM</li>
+        <li><strong>作者:</strong> Sunmy</li>
+        <li><strong>创建于
+                :</strong> 2024-01-22 21:25:23</li>
+        
+            <li>
+                <strong>更新于
+                    :</strong> 2025-06-29 21:05:24
+            </li>
+        
+        <li>
+            <strong>链接:</strong> https://ldspdvsun.github.io/cmchvj9ik0006kagb4v3yaupj/
+        </li>
+        <li>
+            <strong>
+                版权声明:
+            </strong>
+            
+
+            
+                版权所有 &#169 Sunmy，禁止转载。
+            
+        </li>
+    </ul>
+</div>
+
+		</div>
+		
+
+		
+		<ul class="post-tags-box text-lg mt-1.5 flex-wrap justify-center flex md:hidden">
+			
+			<li class="tag-item mx-0.5">
+				<a href="/tags/Qemu/">#Qemu</a>&nbsp;
+			</li>
+			
+			<li class="tag-item mx-0.5">
+				<a href="/tags/ARM/">#ARM</a>&nbsp;
+			</li>
+			
+		</ul>
+		
+
+		
+  <div class="recommended-article px-2 sm:px-6 md:px-8">
+   <div class="recommended-desktop">
+    <div class="recommended-article-header text-xl md:text-3xl font-bold mt-10">
+     <i aria-hidden="true"></i><span>推荐阅读</span>
+    </div>
+    <div class="recommended-article-group"><a class="recommended-article-item" href="/cmchvj9jh005jkagbgmtdhdl2/" title="自动化测试平台搭建" rel="bookmark">
+  <img src="https://i.postimg.cc/52qB9kNm/10.png" alt="自动化测试平台搭建" class="!max-w-none">
+  <span class="title">自动化测试平台搭建</span>
+</a><a class="recommended-article-item" href="/cmchvj9in000fkagb0cbz8chg/" title="Docker学习笔记" rel="bookmark">
+  <img src="https://i.postimg.cc/52qB9kNm/10.png" alt="Docker学习笔记" class="!max-w-none">
+  <span class="title">Docker学习笔记</span>
+</a><a class="recommended-article-item" href="/cmchvj9is0018kagb7dk2e6w5/" title="Linux学习笔记" rel="bookmark">
+  <img src="https://i.postimg.cc/52qB9kNm/10.png" alt="Linux学习笔记" class="!max-w-none">
+  <span class="title">Linux学习笔记</span>
+</a></div>
+   </div>
+   <div class="recommended-mobile">
+   <div class="recommended-article-header text-xl md:text-3xl font-bold mt-10">
+     <i aria-hidden="true"></i><span>推荐阅读</span>
+   </div>
+   <div class="recommended-article-group"><a class="recommended-article-item" href="/cmchvj9jh005jkagbgmtdhdl2/" title="自动化测试平台搭建" rel="bookmark">
+  <img src="https://i.postimg.cc/52qB9kNm/10.png" alt="自动化测试平台搭建" class="!max-w-none">
+  <span class="title">自动化测试平台搭建</span>
+</a><a class="recommended-article-item" href="/cmchvj9in000fkagb0cbz8chg/" title="Docker学习笔记" rel="bookmark">
+  <img src="https://i.postimg.cc/52qB9kNm/10.png" alt="Docker学习笔记" class="!max-w-none">
+  <span class="title">Docker学习笔记</span>
+</a></div>
+   </div>
+  </div>
+
+		
+		<div class="article-nav my-8 flex justify-between items-center px-2 sm:px-6 md:px-8">
+			
+			<div class="article-prev border-border-color shadow-redefine-flat shadow-shadow-color-2 rounded-medium px-4 py-2 hover:shadow-redefine-flat-hover hover:shadow-shadow-color-2">
+				<a class="prev" rel="prev" href="/cmchvj9il0009kagbewkw7ft7/">
+					<span class="left arrow-icon flex justify-center items-center">
+						<i class="fa-solid fa-chevron-left"></i>
+					</span>
+					<span class="title flex justify-center items-center">
+						<span class="post-nav-title-item">OpenEulerMugen</span>
+						<span class="post-nav-item">上一篇</span>
+					</span>
+				</a>
+			</div>
+			
+			
+			<div class="article-next border-border-color shadow-redefine-flat shadow-shadow-color-2 rounded-medium px-4 py-2 hover:shadow-redefine-flat-hover hover:shadow-shadow-color-2">
+				<a class="next" rel="next" href="/cmchvj9j0002qkagb74vqbz3s/">
+					<span class="title flex justify-center items-center">
+						<span class="post-nav-title-item">PyTestAllure</span>
+						<span class="post-nav-item">下一篇</span>
+					</span>
+					<span class="right arrow-icon flex justify-center items-center">
+						<i class="fa-solid fa-chevron-right"></i>
+					</span>
+				</a>
+			</div>
+			
+		</div>
+		
+
+
+		
+		<div class="comment-container px-2 sm:px-6 md:px-8 pb-8">
+			<div class="comments-container mt-10 w-full ">
+    <div id="comment-anchor" class="w-full h-2.5"></div>
+    <div class="comment-area-title w-full my-1.5 md:my-2.5 text-xl md:text-3xl font-bold">
+        评论
+    </div>
+    
+
+        
+            
+    <div class="twikoo-container">
+        <script data-swup-reload-script
+                src='https://cdnjs.cloudflare.com/ajax/libs/twikoo/1.6.36/twikoo.all.min.js'
+        ></script>
+        <div id="twikoo-comment"></div>
+        <script data-swup-reload-script>
+            function loadTwikoo() {
+                twikoo.init({
+                    el: '#twikoo-comment',
+                    envId: 'https://twikoo-henna-six.vercel.app/',
+                });
+            }
+
+            if ('true') {
+                const loadTwikooTimeout = setTimeout(() => {
+                    loadTwikoo();
+                    clearTimeout(loadTwikooTimeout);
+                }, 1000);
+            } else {
+                window.addEventListener('DOMContentLoaded', loadTwikoo);
+            }
+        </script>
+    </div>
+
+
+        
+        
+    
+</div>
+
+		</div>
+		
+	</div>
+
+	
+	<div class="toc-content-container">
+		<div class="post-toc-wrap">
+	<div class="post-toc">
+		<div class="toc-title">目录</div>
+		<div class="page-title">Qemu模拟ARM</div>
+		<ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA"><span class="nav-text">环境搭建</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E4%BB%8B%E7%BB%8D"><span class="nav-text">开发环境介绍</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Ubuntu22-0%E5%88%87%E6%8D%A2%E8%BD%AF%E4%BB%B6%E6%BA%90"><span class="nav-text">Ubuntu22.0切换软件源</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%85%8D%E7%BD%AE%E5%AE%89%E8%A3%85%E4%BA%A4%E5%8F%89%E7%BC%96%E8%AF%91%E7%8E%AF%E5%A2%83"><span class="nav-text">配置安装交叉编译环境</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%90%AD%E5%BB%BAqemu%E8%BF%90%E8%A1%8C%E7%8E%AF%E5%A2%83"><span class="nav-text">搭建qemu运行环境</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%A3%80%E6%9F%A5%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA%E6%98%AF%E5%90%A6%E6%88%90%E5%8A%9F"><span class="nav-text">检查环境搭建是否成功</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BA%A4%E5%8F%89%E7%BC%96%E8%AF%91%E5%B7%A5%E5%85%B7%E9%93%BE"><span class="nav-text">交叉编译工具链</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%99%9A%E6%8B%9F%E5%BC%80%E5%8F%91%E6%9D%BFQEMU"><span class="nav-text">虚拟开发板QEMU</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%BC%96%E8%AF%91Linux%E5%86%85%E6%A0%B8"><span class="nav-text">编译Linux内核</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BB%BA%E7%AB%8Bworkspace%E5%B7%A5%E4%BD%9C%E7%A9%BA%E9%97%B4"><span class="nav-text">建立workspace工作空间</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%8E%B7%E5%8F%96Linux%E5%86%85%E6%A0%B8%E6%BA%90%E7%A0%81"><span class="nav-text">获取Linux内核源码</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A7%A3%E5%8E%8BLinux%E5%86%85%E6%A0%B8%E6%BA%90%E7%A0%81"><span class="nav-text">解压Linux内核源码</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BC%96%E8%AF%91Linux%E5%86%85%E6%A0%B8%E6%BA%90%E7%A0%81"><span class="nav-text">编译Linux内核源码</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9C%A8Qemu%E8%AF%95%E8%BF%90%E8%A1%8CLinux%E5%86%85%E6%A0%B8%E6%BA%90%E7%A0%81"><span class="nav-text">在Qemu试运行Linux内核源码</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%8C%82%E8%BD%BD%E6%A0%B9%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F"><span class="nav-text">挂载根文件系统</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BC%96%E8%AF%91%E3%80%81%E5%AE%89%E8%A3%85%E6%A0%B9%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F"><span class="nav-text">编译、安装根文件系统</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%87%AA%E5%8A%A8%E7%BC%96%E8%AF%91%E8%84%9A%E6%9C%AC"><span class="nav-text">自动编译脚本</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A1%A5%E5%85%85%E6%A0%B9%E6%96%87%E4%BB%B6%E5%A4%B9%E7%B3%BB%E7%BB%9F"><span class="nav-text">补充根文件夹系统</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BF%9B%E5%85%A5%E6%A0%B9%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F%E7%9B%AE%E5%BD%95"><span class="nav-text">进入根文件系统目录</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%9B%E5%BB%BA%E8%AE%BE%E5%A4%87%E8%8A%82%E7%82%B9"><span class="nav-text">创建设备节点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%89%E8%A3%85%E5%8A%A8%E6%80%81%E9%93%BE%E6%8E%A5%E5%BA%93"><span class="nav-text">安装动态链接库</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%85%8D%E7%BD%AE%E5%88%9D%E5%A7%8B%E5%8C%96%E8%BF%9B%E7%A8%8BrcS"><span class="nav-text">配置初始化进程rcS</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9Ffstab"><span class="nav-text">配置文件系统fstab</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%85%8D%E7%BD%AE%E5%88%9D%E5%A7%8B%E5%8C%96%E8%84%9A%E6%9C%AC"><span class="nav-text">配置初始化脚本</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%85%8D%E7%BD%AE%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F"><span class="nav-text">配置环境变量</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%A2%9E%E5%8A%A0%E4%B8%BB%E6%9C%BA%E5%90%8D"><span class="nav-text">增加主机名</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%9B%E5%BB%BA%E5%85%B6%E4%BB%96%E6%96%87%E4%BB%B6%E5%A4%B9"><span class="nav-text">创建其他文件夹</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9F%A5%E7%9C%8B%E5%88%9B%E5%BB%BA%E7%9A%84%E6%96%87%E4%BB%B6"><span class="nav-text">查看创建的文件</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%80%9A%E8%BF%87SD%E5%8D%A1%E6%8C%82%E8%BD%BD%E6%A0%B9%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F"><span class="nav-text">通过SD卡挂载根文件系统</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%87%AA%E5%8A%A8%E6%89%93%E5%8C%85%E8%84%9A%E6%9C%AC"><span class="nav-text">自动打包脚本</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%8C%82%E8%BD%BD%E6%A0%B9%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F-1"><span class="nav-text">挂载根文件系统</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%80%9A%E8%BF%87NFS%E6%8C%82%E8%BD%BD%E6%A0%B9%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F"><span class="nav-text">通过NFS挂载根文件系统</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%89%E8%A3%85NFS%E6%9C%8D%E5%8A%A1%E5%99%A8"><span class="nav-text">安装NFS服务器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%86%85%E6%A0%B8NFS%E5%85%BC%E5%AE%B9%E9%97%AE%E9%A2%98"><span class="nav-text">内核NFS兼容问题</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%87%8D%E6%96%B0%E7%BC%96%E8%AF%91%E5%86%85%E6%A0%B8%EF%BC%8C%E5%B9%B6%E5%9C%A8menuconfig%E4%B8%8B%E5%BC%80%E5%90%AFNFS4%E6%94%AF%E6%8C%81"><span class="nav-text">重新编译内核，并在menuconfig下开启NFS4支持</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%AE%BE%E7%BD%AEUbuntu2204%EF%BC%8C%E4%BD%BF%E4%B9%8B%E5%85%BC%E5%AE%B9NFS-V2%E5%92%8CNFS-V3%E5%B9%B6%E5%A2%9E%E5%8A%A0%E8%B0%83%E8%AF%95%E5%8A%9F%E8%83%BD"><span class="nav-text">设置Ubuntu2204，使之兼容NFS-V2和NFS-V3并增加调试功能</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%B5%8B%E8%AF%95NFS%E6%8C%82%E8%BD%BD%E6%A0%B9%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F"><span class="nav-text">测试NFS挂载根文件系统</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E9%80%9A%E8%BF%87U-boot%E5%BC%95%E5%AF%BC%E5%8A%A0%E8%BD%BD%E5%86%85%E6%A0%B8"><span class="nav-text">通过U-boot引导加载内核</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BC%96%E8%AF%91%E5%AE%89%E8%A3%85U-boot"><span class="nav-text">编译安装U-boot</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%8B%E8%BD%BD%E8%A7%A3%E5%8E%8BU-boot%E6%BA%90%E7%A0%81"><span class="nav-text">下载解压U-boot源码</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%88%B6%E4%BD%9Cautomake-arm32-sh"><span class="nav-text">制作automake_arm32.sh</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BF%90%E8%A1%8Cautomake-arm32-sh%E7%BC%96%E8%AF%91%E5%AE%89%E8%A3%85U-Boot"><span class="nav-text">运行automake_arm32.sh编译安装U-Boot</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%87%BA%E7%8E%B0%E4%B8%8B%E8%BF%B0%E5%86%85%E5%AE%B9%E8%AF%81%E6%98%8EU-Boot%E7%BC%96%E8%AF%91%E5%AE%8C%E6%AF%95"><span class="nav-text">出现下述内容证明U-Boot编译完毕</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%85%8D%E7%BD%AE%E4%B8%BB%E6%9C%BAtftp%E6%9C%8D%E5%8A%A1%E5%99%A8"><span class="nav-text">配置主机tftp服务器</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%89%E8%A3%85tftp%E6%9C%8D%E5%8A%A1%E5%99%A8"><span class="nav-text">安装tftp服务器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%85%8D%E7%BD%AEtftp%E8%B7%AF%E5%BE%84%E6%96%87%E4%BB%B6"><span class="nav-text">配置tftp路径文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%87%8D%E5%90%AFtftp%E6%9C%8D%E5%8A%A1%E5%99%A8"><span class="nav-text">重启tftp服务器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%B3%BB%E7%BB%9F%E5%BC%80%E6%9C%BA%E8%87%AA%E5%8A%A8tftp%E6%9C%8D%E5%8A%A1"><span class="nav-text">系统开机自动tftp服务</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B0%86%E8%AE%BE%E5%A4%87%E6%A0%91%E5%92%8CLinux%E5%86%85%E6%A0%B8%E6%96%87%E4%BB%B6%E6%8B%B7%E8%B4%9D%E5%88%B0tftp%E7%9B%AE%E5%BD%95%E4%B8%8B"><span class="nav-text">将设备树和Linux内核文件拷贝到tftp目录下</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%99%9A%E6%8B%9F%E4%B8%BB%E6%9C%BA%E7%BD%91%E7%BB%9C%E9%85%8D%E7%BD%AE%EF%BC%8C%E5%88%9B%E5%BB%BAtap0%E7%BD%91%E5%8D%A1%EF%BC%8C%E7%94%A8%E4%BA%8E%E8%BF%9E%E6%8E%A5qemu%E8%99%9A%E6%8B%9F%E5%BC%80%E5%8F%91%E6%9D%BF"><span class="nav-text">虚拟主机网络配置，创建tap0网卡，用于连接qemu虚拟开发板</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%AF%95%E8%BF%90%E8%A1%8CU-boot"><span class="nav-text">试运行U-boot</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BF%90%E8%A1%8C%E8%84%9A%E6%9C%AC"><span class="nav-text">运行脚本</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9C%A8U-Boot%E5%91%BD%E4%BB%A4%E8%A1%8C%E4%B8%8B%E8%BE%93%E5%85%A5%E4%BB%A5%E4%B8%8B%E4%BB%A3%E7%A0%81%EF%BC%8C%E5%B0%9D%E8%AF%95%E5%BC%95%E5%AF%BC%E5%86%85%E6%A0%B8"><span class="nav-text">在U-Boot命令行下输入以下代码，尝试引导内核</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%87%BA%E7%8E%B0%E4%B8%8B%E9%9D%A2%E7%95%8C%E9%9D%A2%E8%AF%81%E6%98%8E%E5%BC%95%E5%AF%BC%E6%88%90%E5%8A%9F"><span class="nav-text">出现下面界面证明引导成功</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9B%BA%E5%8C%96U-boot%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F"><span class="nav-text">固化U-boot环境变量</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BF%AE%E6%94%B9%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6"><span class="nav-text">修改配置文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BF%AE%E6%94%B9%E5%A4%B4%E6%96%87%E4%BB%B6"><span class="nav-text">修改头文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%87%8D%E6%96%B0%E7%BC%96%E8%AF%91U-Boot"><span class="nav-text">重新编译U-Boot</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%BC%96%E8%AF%91%E5%AE%8C%E6%88%90%E5%90%8E%EF%BC%8C%E8%BF%9B%E5%85%A5Objects%E7%9B%AE%E5%BD%95%E8%BF%90%E8%A1%8CU-boot"><span class="nav-text">编译完成后，进入Objects目录运行U-boot</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%85%B6%E4%BB%96%E8%BE%85%E5%8A%A9%E4%BC%98%E5%8C%96%E5%8A%9F%E8%83%BD"><span class="nav-text">其他辅助优化功能</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%99%9A%E6%8B%9F%E5%BC%80%E5%8F%91%E6%9D%BF%E8%BF%9E%E6%8E%A5%E4%BA%92%E8%81%94%E7%BD%91"><span class="nav-text">虚拟开发板连接互联网</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BF%AE%E6%94%B9rootfs%E6%A0%B9%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F"><span class="nav-text">修改rootfs根文件系统</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BF%AE%E6%94%B9%E4%B8%BB%E6%9C%BA%E9%85%8D%E7%BD%AE"><span class="nav-text">修改主机配置</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#U-boot-emmc%E5%90%AF%E5%8A%A8"><span class="nav-text">U-boot+emmc启动</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%88%B6%E4%BD%9Cemmc%E9%95%9C%E5%83%8F%E6%96%87%E4%BB%B6"><span class="nav-text">制作emmc镜像文件</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%9B%E5%BB%BA%E6%8C%82%E8%BD%BD%E8%B7%AF%E5%BE%84"><span class="nav-text">创建挂载路径</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%9B%E5%BB%BA%E8%87%AA%E5%8A%A8%E6%89%93%E5%8C%85%E8%84%9A%E6%9C%AC"><span class="nav-text">创建自动打包脚本</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BF%90%E8%A1%8C%E8%87%AA%E5%8A%A8%E6%89%93%E5%8C%85%E8%84%9A%E6%9C%AC"><span class="nav-text">运行自动打包脚本</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BF%AE%E6%94%B9U-boot%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F%E7%9A%84%E4%BF%9D%E5%AD%98%E4%BD%8D%E7%BD%AE"><span class="nav-text">修改U-boot环境变量的保存位置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%87%8D%E6%96%B0%E7%BC%96%E8%AF%91U-boot"><span class="nav-text">重新编译U-boot</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8A%A0%E8%BD%BDU-boot%E4%BF%AE%E6%94%B9%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F"><span class="nav-text">加载U-boot修改环境变量</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9C%A8U-boot%E5%91%BD%E4%BB%A4%E8%A1%8C%E4%B8%AD%E8%BE%93%E5%85%A5%E4%BB%A5%E4%B8%8B%E5%91%BD%E4%BB%A4%E8%AE%BE%E7%BD%AE%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F"><span class="nav-text">在U-boot命令行中输入以下命令设置环境变量</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E9%97%AE%E9%A2%98%E5%8F%8A%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="nav-text">问题及解决方案</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Ubuntu2204%E7%BD%91%E5%8D%A1%E4%B8%A2%E5%A4%B1"><span class="nav-text">Ubuntu2204网卡丢失</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9F%A5%E7%9C%8B%E6%9C%AC%E5%9C%B0IP"><span class="nav-text">查看本地IP</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9F%A5%E7%9C%8B%E6%9C%AC%E5%9C%B0%E7%BD%91%E5%8D%A1%E8%AE%BE%E5%A4%87%E5%90%8D"><span class="nav-text">查看本地网卡设备名</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%87%8D%E5%90%AF%E7%BD%91%E7%BB%9C%E6%9C%8D%E5%8A%A1"><span class="nav-text">重启网络服务</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Tftp%E4%BD%BF%E7%94%A8"><span class="nav-text">Tftp使用</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9F%BA%E6%9C%AC%E4%BF%A1%E6%81%AF"><span class="nav-text">基本信息</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Server-Client"><span class="nav-text">Server -&gt; Client</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Server"><span class="nav-text">Server</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Client"><span class="nav-text">Client</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Client-Server"><span class="nav-text">Client -&gt; Server</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Client-1"><span class="nav-text">Client</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Server-1"><span class="nav-text">Server</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%A6%BB%E7%BA%BF%E5%AE%89%E8%A3%85%E8%BD%AF%E4%BB%B6%E5%8C%85"><span class="nav-text">离线安装软件包</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%98%E6%96%B9%E7%BD%91%E5%9D%80"><span class="nav-text">官方网址</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#GCC"><span class="nav-text">GCC</span></a></li></ol></li></ol></li></ol>
+
+	</div>
+</div>
+	</div>
+	
+</div>
+			</div>
+
+			
+		</div>
+
+		<div class="main-content-footer">
+			<footer class="footer mt-5 py-5 h-auto text-base text-third-text-color relative border-t-2 border-t-border-color">
+    <div class="info-container py-3 text-center">
+        
+        <div class="text-center">
+            &copy;
+            
+              <span>2023</span>
+              -
+            
+            2025&nbsp;&nbsp;<i class="fa-solid fa-heart fa-beat" style="--fa-animation-duration: 0.5s; color: #f54545"></i>&nbsp;&nbsp;<a href="/">Sunmy</a>
+            
+                
+                <p class="post-count space-x-0.5">
+                    <span>
+                        共撰写了 70 篇文章
+                    </span>
+                    
+                        <span>
+                            共 216.7k 字
+                        </span>
+                    
+                </p>
+            
+        </div>
+        
+            <script data-swup-reload-script src="https://cn.vercount.one/js"></script>
+            <div class="relative text-center lg:absolute lg:right-[20px] lg:top-1/2 lg:-translate-y-1/2 lg:text-right">
+                
+                    <span id="busuanzi_container_site_uv" class="lg:!block">
+                        <span class="text-sm">访问人数</span>
+                        <span id="busuanzi_value_site_uv"></span>
+                    </span>
+                
+                
+                    <span id="busuanzi_container_site_pv" class="lg:!block">
+                        <span class="text-sm">总访问量</span>
+                        <span id="busuanzi_value_site_pv"></span>
+                    </span>
+                
+            </div>
+        
+        <div class="relative text-center lg:absolute lg:left-[20px] lg:top-1/2 lg:-translate-y-1/2 lg:text-left">
+            <span class="lg:block text-sm">由 <?xml version="1.0" encoding="utf-8"?><!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd"><svg class="relative top-[2px] inline-block align-baseline" version="1.1" id="圖層_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="1rem" height="1rem" viewBox="0 0 512 512" enable-background="new 0 0 512 512" xml:space="preserve"><path fill="#0E83CD" d="M256.4,25.8l-200,115.5L56,371.5l199.6,114.7l200-115.5l0.4-230.2L256.4,25.8z M349,354.6l-18.4,10.7l-18.6-11V275H200v79.6l-18.4,10.7l-18.6-11v-197l18.5-10.6l18.5,10.8V237h112v-79.6l18.5-10.6l18.5,10.8V354.6z"/></svg><a target="_blank" class="text-base" href="https://hexo.io">Hexo</a> 驱动</span>
+            <span class="text-sm lg:block">主题&nbsp;<a class="text-base" target="_blank" href="https://github.com/EvanNotFound/hexo-theme-redefine">Redefine v2.8.2</a></span>
+        </div>
+        
+        
+            <div>
+                博客已运行 <span class="odometer" id="runtime_days" ></span> 天 <span class="odometer" id="runtime_hours"></span> 小时 <span class="odometer" id="runtime_minutes"></span> 分钟 <span class="odometer" id="runtime_seconds"></span> 秒
+            </div>
+        
+        
+            <script data-swup-reload-script>
+                try {
+                    function odometer_init() {
+                    const elements = document.querySelectorAll('.odometer');
+                    elements.forEach(el => {
+                        new Odometer({
+                            el,
+                            format: '( ddd).dd',
+                            duration: 200
+                        });
+                    });
+                    }
+                    odometer_init();
+                } catch (error) {}
+            </script>
+        
+        
+        
+    </div>  
+</footer>
+		</div>
+	</div>
+
+	
+	<div class="post-tools">
+		<div class="post-tools-container">
+	<ul class="article-tools-list">
+		<!-- TOC aside toggle -->
+		
+		<li class="right-bottom-tools page-aside-toggle">
+			<i class="fa-regular fa-outdent"></i>
+		</li>
+		
+
+		<!-- go comment -->
+		
+		<li class="go-comment">
+			<i class="fa-regular fa-comments"></i>
+		</li>
+		
+	</ul>
+</div>
+	</div>
+	
+
+	<div class="right-side-tools-container">
+		<div class="side-tools-container">
+	<ul class="hidden-tools-list">
+		<li class="right-bottom-tools tool-font-adjust-plus flex justify-center items-center">
+			<i class="fa-regular fa-magnifying-glass-plus"></i>
+		</li>
+
+		<li class="right-bottom-tools tool-font-adjust-minus flex justify-center items-center">
+			<i class="fa-regular fa-magnifying-glass-minus"></i>
+		</li>
+
+		<li class="right-bottom-tools tool-dark-light-toggle flex justify-center items-center">
+			<i class="fa-regular fa-moon"></i>
+		</li>
+
+		<!-- rss -->
+		
+
+		
+
+		<li class="right-bottom-tools tool-scroll-to-bottom flex justify-center items-center">
+			<i class="fa-regular fa-arrow-down"></i>
+		</li>
+	</ul>
+
+	<ul class="visible-tools-list">
+		<li class="right-bottom-tools toggle-tools-list flex justify-center items-center">
+			<i class="fa-regular fa-cog fa-spin"></i>
+		</li>
+		
+		<li class="right-bottom-tools tool-scroll-to-top flex justify-center items-center">
+			<i class="arrow-up fas fa-arrow-up"></i>
+			<span class="percent"></span>
+		</li>
+		
+		
+	</ul>
+</div>
+	</div>
+
+	<div class="image-viewer-container">
+	<img src="">
+</div>
+
+	
+	<div class="search-pop-overlay">
+	<div class="popup search-popup">
+		<div class="search-header">
+			<span class="search-input-field-pre">
+				<i class="fa-solid fa-keyboard"></i>
+			</span>
+			<div class="search-input-container">
+				<input autocomplete="off" autocorrect="off" autocapitalize="off" placeholder="站内搜索您需要的内容..." spellcheck="false" type="search" class="search-input">
+			</div>
+			<span class="popup-btn-close">
+				<i class="fa-solid fa-times"></i>
+			</span>
+		</div>
+		<div id="search-result">
+			<div id="no-result">
+				<i class="fa-solid fa-spinner fa-spin-pulse fa-5x fa-fw"></i>
+			</div>
+		</div>
+	</div>
+</div>
+	
+
+</main>
+
+
+
+<script src="/js/build/libs/Swup.min.js"></script>
+
+<script src="/js/build/libs/SwupSlideTheme.min.js"></script>
+
+<script src="/js/build/libs/SwupScriptsPlugin.min.js"></script>
+
+<script src="/js/build/libs/SwupProgressPlugin.min.js"></script>
+
+<script src="/js/build/libs/SwupScrollPlugin.min.js"></script>
+
+<script src="/js/build/libs/SwupPreloadPlugin.min.js"></script>
+
+<script>
+    const swup = new Swup({
+        plugins: [
+            new SwupScriptsPlugin({
+                optin: true,
+            }),
+            new SwupProgressPlugin(),
+            new SwupScrollPlugin({
+                offset: 80,
+            }),
+            new SwupSlideTheme({
+                mainElement: ".main-content-body",
+            }),
+            new SwupPreloadPlugin(),
+        ],
+        containers: ["#swup"],
+    });
+</script>
+
+
+
+
+	
+<script src="/js/build/tools/imageViewer.js" type="module"></script>
+
+<script src="/js/build/utils.js" type="module"></script>
+
+<script src="/js/build/main.js" type="module"></script>
+
+<script src="/js/build/layouts/navbarShrink.js" type="module"></script>
+
+<script src="/js/build/tools/scrollTopBottom.js" type="module"></script>
+
+<script src="/js/build/tools/lightDarkSwitch.js" type="module"></script>
+
+<script src="/js/build/layouts/categoryList.js" type="module"></script>
+
+
+
+    
+<script src="/js/build/tools/localSearch.js" type="module"></script>
+
+
+
+
+    
+<script src="/js/build/tools/codeBlock.js" type="module"></script>
+
+
+
+
+    
+<script src="/js/build/layouts/lazyload.js" type="module"></script>
+
+
+
+
+    
+<script src="/js/build/tools/runtime.js"></script>
+
+    
+<script src="/js/build/libs/odometer.min.js"></script>
+
+    
+<link rel="stylesheet" href="/assets/odometer-theme-minimal.css">
+
+
+
+
+  
+<script src="/js/build/libs/Typed.min.js"></script>
+
+  
+<script src="/js/build/plugins/typed.js" type="module"></script>
+
+
+
+
+
+
+
+
+
+
+
+    
+<script src="/js/build/tools/tocToggle.js" type="module" data-swup-reload-script=""></script>
+
+<script src="/js/build/layouts/toc.js" type="module" data-swup-reload-script=""></script>
+
+<script src="/js/build/plugins/tabs.js" type="module" data-swup-reload-script=""></script>
+
+
+
+
+<script src="/js/build/libs/moment-with-locales.min.js" data-swup-reload-script=""></script>
+
+
+<script src="/js/build/layouts/essays.js" type="module" data-swup-reload-script=""></script>
+
+
+
+
+
+	
+</body>
+
+</html>
