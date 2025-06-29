@@ -728,15 +728,21 @@
                 
                 <div class="flex flex-col gap-5 px-7 pb-7 pt-7">
                     <h3 class="home-article-title">
-                        <a href="/cmchvj9iw001zkagb17h957ve/">
-                            AFL
+                        <a href="/cmchvp8g00025h0gbdebc9tre/">
+                            Docker问题记录
                         </a>
                     </h3>
 
                     <div class="home-article-content markdown-body">
                         
                             
-                            上传并解压工具12345678910111213wget https://ghdl.feizhuqwq.cf/https://github.com/google/AFL/archive/refs/tags/v2.57b.tar.gz[root@k8smaster soft]# tar -zxvf AFL-2.57b.tar.gz [root@k8smaster soft]# lsAFL-2....
+                            docker 运行直接报错
+
+WARNING: IPv4 forwarding is disabled. Networking will not work.
+
+第一步：在宿主机上执行
+1[root@localhost /]# echo &quot;net.ipv4.ip_forward=1&quot; &gt;&gt;/usr/lib/sysctl.d/00-system.conf
+第二步：...
                         
                     </div>
 
@@ -758,7 +764,7 @@
                     
                         
                         <li>
-                            <a href="/categories/Linux%E5%BC%80%E6%BA%90%E5%B7%A5%E5%85%B7/">Linux开源工具</a>&nbsp;
+                            <a href="/categories/%E5%AE%B9%E5%99%A8%E5%8C%96%E6%8A%80%E6%9C%AF/">容器化技术</a>&nbsp;
                         </li>
                     
                     
@@ -773,7 +779,12 @@
                     
                         <li>
                             
-                            <a href="/tags/AFL/">AFL</a>&nbsp;
+                            <a href="/tags/Docker/">Docker</a>&nbsp;
+                        </li>
+                    
+                        <li>
+                            | 
+                            <a href="/tags/%E9%97%AE%E9%A2%98%E8%AE%B0%E5%BD%95/">问题记录</a>&nbsp;
                         </li>
                     
                 </ul>
@@ -781,7 +792,7 @@
         
     </div>
 
-    <a href="/cmchvj9iw001zkagb17h957ve/">阅读全文<span class="seo-reader-text">AFL</span>&nbsp;<i class="fa-solid fa-angle-right"></i></a>
+    <a href="/cmchvp8g00025h0gbdebc9tre/">阅读全文<span class="seo-reader-text">Docker问题记录</span>&nbsp;<i class="fa-solid fa-angle-right"></i></a>
 </div>
 
                 </div>
@@ -796,15 +807,23 @@
                 
                 <div class="flex flex-col gap-5 px-7 pb-7 pt-7">
                     <h3 class="home-article-title">
-                        <a href="/cmchvj9ix0022kagbbqyr11dr/">
-                            ApacheBench
+                        <a href="/cmchvp8g00028h0gb27px8yf8/">
+                            Docker学习笔记
                         </a>
                     </h3>
 
                     <div class="home-article-content markdown-body">
                         
                             
-                            12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455565758596061626364656667686970717273747576777879808182838485[admin@Centos8 lx]$ pwd/opt/lx# 输入下面...
+                            Docker安装
+环境准备
+1、linux基础
+2、Cetnos7
+3、MobaXterm连接
+安装Docker
+环境查看
+12345# 系统内核[name@cetnos7 ~]$ uname -r3.10.0-1160.31.1.el7.x86_64[name@cetnos7 ~]$ uname -r3.10.0-1160.31.1.el7.x86_64
+12345678910111213...
                         
                     </div>
 
@@ -826,7 +845,7 @@
                     
                         
                         <li>
-                            <a href="/categories/Linux%E5%BC%80%E6%BA%90%E5%B7%A5%E5%85%B7/">Linux开源工具</a>&nbsp;
+                            <a href="/categories/%E5%AE%B9%E5%99%A8%E5%8C%96%E6%8A%80%E6%9C%AF/">容器化技术</a>&nbsp;
                         </li>
                     
                     
@@ -841,7 +860,7 @@
                     
                         <li>
                             
-                            <a href="/tags/ApacheBench/">ApacheBench</a>&nbsp;
+                            <a href="/tags/Docker/">Docker</a>&nbsp;
                         </li>
                     
                 </ul>
@@ -849,7 +868,7 @@
         
     </div>
 
-    <a href="/cmchvj9ix0022kagbbqyr11dr/">阅读全文<span class="seo-reader-text">ApacheBench</span>&nbsp;<i class="fa-solid fa-angle-right"></i></a>
+    <a href="/cmchvp8g00028h0gb27px8yf8/">阅读全文<span class="seo-reader-text">Docker学习笔记</span>&nbsp;<i class="fa-solid fa-angle-right"></i></a>
 </div>
 
                 </div>
@@ -864,15 +883,18 @@
                 
                 <div class="flex flex-col gap-5 px-7 pb-7 pt-7">
                     <h3 class="home-article-title">
-                        <a href="/cmchvj9ix0024kagb4ovx8kbq/">
-                            CloudPerf
+                        <a href="/cmchvp8g1002bh0gbb276848i/">
+                            K3s学习笔记
                         </a>
                     </h3>
 
                     <div class="home-article-content markdown-body">
                         
                             
-                            安装12345678910111213[root@Centos8 lx]# pip3 install cloudperf[root@Centos8 lx]# cloudperf prices --filter region=us-west-2 | head -10     instanceType    region    spot-az  vcpu    memory     price ...
+                            K3s
+安装
+Server节点安装
+123456789# 方法1curl -sfL https://get.k3s.io | sh -# 方法2root@google:/home/ldspdvs# curl -sfL https://get.k3s.io | K3S_KUBECONFIG_MODE=&quot;744&quot; sh -s - server --flannel-backen...
                         
                     </div>
 
@@ -894,7 +916,7 @@
                     
                         
                         <li>
-                            <a href="/categories/Linux%E5%BC%80%E6%BA%90%E5%B7%A5%E5%85%B7/">Linux开源工具</a>&nbsp;
+                            <a href="/categories/%E5%AE%B9%E5%99%A8%E5%8C%96%E6%8A%80%E6%9C%AF/">容器化技术</a>&nbsp;
                         </li>
                     
                     
@@ -909,7 +931,7 @@
                     
                         <li>
                             
-                            <a href="/tags/CloudPerf/">CloudPerf</a>&nbsp;
+                            <a href="/tags/K3s/">K3s</a>&nbsp;
                         </li>
                     
                 </ul>
@@ -917,7 +939,7 @@
         
     </div>
 
-    <a href="/cmchvj9ix0024kagb4ovx8kbq/">阅读全文<span class="seo-reader-text">CloudPerf</span>&nbsp;<i class="fa-solid fa-angle-right"></i></a>
+    <a href="/cmchvp8g1002bh0gbb276848i/">阅读全文<span class="seo-reader-text">K3s学习笔记</span>&nbsp;<i class="fa-solid fa-angle-right"></i></a>
 </div>
 
                 </div>
@@ -932,15 +954,30 @@
                 
                 <div class="flex flex-col gap-5 px-7 pb-7 pt-7">
                     <h3 class="home-article-title">
-                        <a href="/cmchvj9iy0028kagb1w8c4t9e/">
-                            Fio
+                        <a href="/cmchvp8g1002eh0gb0bak5iox/">
+                            Kubernetes学习笔记
                         </a>
                     </h3>
 
                     <div class="home-article-content markdown-body">
                         
                             
-                            下载安装12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455565758596061626364656667686970717273747576777879808182838485868788899091[root@Centos8 lx]# p...
+                            kubernetes简介
+
+
+基本介绍
+
+kubernetes简称k8s，开源，目标是让部署容器化的应用简单高效
+k8s是Google开源的容器编排引擎，支持自动化部署，大规模可伸缩，应用容器化管理
+可创建多个容器，每个容器里运行一个应用实例，通过内置的负载均衡策略，实现对这一组应用实例的管理、发现、访问
+
+
+
+功能和架构
+
+
+概述
+Kubernetes 是一个轻便的和可扩展的开源平台，用于...
                         
                     </div>
 
@@ -962,7 +999,7 @@
                     
                         
                         <li>
-                            <a href="/categories/Linux%E5%BC%80%E6%BA%90%E5%B7%A5%E5%85%B7/">Linux开源工具</a>&nbsp;
+                            <a href="/categories/%E5%AE%B9%E5%99%A8%E5%8C%96%E6%8A%80%E6%9C%AF/">容器化技术</a>&nbsp;
                         </li>
                     
                     
@@ -977,7 +1014,7 @@
                     
                         <li>
                             
-                            <a href="/tags/Fio/">Fio</a>&nbsp;
+                            <a href="/tags/Kubernetes/">Kubernetes</a>&nbsp;
                         </li>
                     
                 </ul>
@@ -985,7 +1022,7 @@
         
     </div>
 
-    <a href="/cmchvj9iy0028kagb1w8c4t9e/">阅读全文<span class="seo-reader-text">Fio</span>&nbsp;<i class="fa-solid fa-angle-right"></i></a>
+    <a href="/cmchvp8g1002eh0gb0bak5iox/">阅读全文<span class="seo-reader-text">Kubernetes学习笔记</span>&nbsp;<i class="fa-solid fa-angle-right"></i></a>
 </div>
 
                 </div>
@@ -1000,15 +1037,20 @@
                 
                 <div class="flex flex-col gap-5 px-7 pb-7 pt-7">
                     <h3 class="home-article-title">
-                        <a href="/cmchvj9iy002akagb5os49x1r/">
-                            Linux-bench
+                        <a href="/cmchvp8g1002gh0gb0gy1aija/">
+                            NodeJs学习笔记
                         </a>
                     </h3>
 
                     <div class="home-article-content markdown-body">
                         
                             
-                            下载安装12345678910111213141516[root@Centos8 lx]# git clone https://github.com/aquasecurity/linux-bench.git &#x27;linux-bench&#x27;...remote: Enumerating objects: 547, done.remote: Counting objects:   ...
+                            fnm
+installs fnm (Fast Node Manager)
+curl -fsSL https://fnm.vercel.app/install | bash
+download and install Node.js
+fnm use --install-if-missing 20
+verifies the right Node.js version is in the envir...
                         
                     </div>
 
@@ -1030,7 +1072,7 @@
                     
                         
                         <li>
-                            <a href="/categories/Linux%E5%BC%80%E6%BA%90%E5%B7%A5%E5%85%B7/">Linux开源工具</a>&nbsp;
+                            <a href="/categories/%E5%BC%80%E5%8F%91%E8%BE%85%E5%8A%A9/">开发辅助</a>&nbsp;
                         </li>
                     
                     
@@ -1045,7 +1087,7 @@
                     
                         <li>
                             
-                            <a href="/tags/Linux-bench/">Linux-bench</a>&nbsp;
+                            <a href="/tags/Node-js/">Node.js</a>&nbsp;
                         </li>
                     
                 </ul>
@@ -1053,7 +1095,7 @@
         
     </div>
 
-    <a href="/cmchvj9iy002akagb5os49x1r/">阅读全文<span class="seo-reader-text">Linux-bench</span>&nbsp;<i class="fa-solid fa-angle-right"></i></a>
+    <a href="/cmchvp8g1002gh0gb0gy1aija/">阅读全文<span class="seo-reader-text">NodeJs学习笔记</span>&nbsp;<i class="fa-solid fa-angle-right"></i></a>
 </div>
 
                 </div>
@@ -1068,17 +1110,48 @@
                 
                 <div class="flex flex-col gap-5 px-7 pb-7 pt-7">
                     <h3 class="home-article-title">
-                        <a href="/cmchvj9iy002dkagb2eljcf3k/">
-                            Locust
+                        <a href="/cmchvp8g2002jh0gb7b0c76ia/">
+                            Nginx
                         </a>
                     </h3>
 
                     <div class="home-article-content markdown-body">
                         
                             
-                            Centos8安装确定python环境是否符合123[root@Centos8 locust]# python3 -VPython 3.10.6[root@Centos8 locust]# 
+                            需求分析
 
-安装locust1234[root@Centos8 lx]# cd locust[root@Centos8 locust]# pwd/opt/lx/locust[root@Centos8 locust...
+
+
+序号
+需求简述
+完成情况
+备注
+
+
+
+
+1
+Ubuntu系统安装docker
+完成
+
+
+
+2
+docker部署容器（ahmadnassri/vscode-server:latest）
+完成
+
+
+
+3
+为公网IP申请ssl证书
+完成
+目前支持公网IP的ssl证书只找到zerossl
+
+
+4
+部署nginx配置ssl
+完成
+zerossl申请时，需要先通过访问公网IP验证是否加载...
                         
                     </div>
 
@@ -1100,7 +1173,7 @@
                     
                         
                         <li>
-                            <a href="/categories/Linux%E5%BC%80%E6%BA%90%E5%B7%A5%E5%85%B7/">Linux开源工具</a>&nbsp;
+                            <a href="/categories/%E5%BC%80%E5%8F%91%E8%BE%85%E5%8A%A9/">开发辅助</a>&nbsp;
                         </li>
                     
                     
@@ -1115,7 +1188,7 @@
                     
                         <li>
                             
-                            <a href="/tags/Locust/">Locust</a>&nbsp;
+                            <a href="/tags/Nginx/">Nginx</a>&nbsp;
                         </li>
                     
                 </ul>
@@ -1123,7 +1196,7 @@
         
     </div>
 
-    <a href="/cmchvj9iy002dkagb2eljcf3k/">阅读全文<span class="seo-reader-text">Locust</span>&nbsp;<i class="fa-solid fa-angle-right"></i></a>
+    <a href="/cmchvp8g2002jh0gb7b0c76ia/">阅读全文<span class="seo-reader-text">Nginx</span>&nbsp;<i class="fa-solid fa-angle-right"></i></a>
 </div>
 
                 </div>
@@ -1138,17 +1211,18 @@
                 
                 <div class="flex flex-col gap-5 px-7 pb-7 pt-7">
                     <h3 class="home-article-title">
-                        <a href="/cmchvj9j30030kagb1oov82p0/">
-                            Java
+                        <a href="/cmchvp8g2002lh0gb7tsi96x5/">
+                            Gitlab
                         </a>
                     </h3>
 
                     <div class="home-article-content markdown-body">
                         
                             
-                            创建文件夹，存放解压后的jdk文件123456[root@Centos8 local]# pwd/usr/local[root@Centos8 local]# mkdir java[root@Centos8 local]# cd java[root@Centos8 java]# pwd/usr/local/java
-
-上传从JDK官网下载号的压缩包文件12[root@Centos8 java...
+                            Gitlab
+Docker 部署
+部署
+12345678910docker run -itd \-p 19980:80 \-p 19922:22 \-u root \-v /data/docker/gitlab/data/log:/var/log/gitlab \-v /data/docker/gitlab/data/opt:/var/opt/gitlab \-v /data/docker/...
                         
                     </div>
 
@@ -1170,7 +1244,7 @@
                     
                         
                         <li>
-                            <a href="/categories/Java%E7%94%9F%E6%80%81/">Java生态</a>&nbsp;
+                            <a href="/categories/%E5%BC%80%E5%8F%91%E8%BE%85%E5%8A%A9/">开发辅助</a>&nbsp;
                         </li>
                     
                     
@@ -1185,7 +1259,7 @@
                     
                         <li>
                             
-                            <a href="/tags/Java/">Java</a>&nbsp;
+                            <a href="/tags/Gitlab/">Gitlab</a>&nbsp;
                         </li>
                     
                 </ul>
@@ -1193,7 +1267,7 @@
         
     </div>
 
-    <a href="/cmchvj9j30030kagb1oov82p0/">阅读全文<span class="seo-reader-text">Java</span>&nbsp;<i class="fa-solid fa-angle-right"></i></a>
+    <a href="/cmchvp8g2002lh0gb7tsi96x5/">阅读全文<span class="seo-reader-text">Gitlab</span>&nbsp;<i class="fa-solid fa-angle-right"></i></a>
 </div>
 
                 </div>
@@ -1208,17 +1282,24 @@
                 
                 <div class="flex flex-col gap-5 px-7 pb-7 pt-7">
                     <h3 class="home-article-title">
-                        <a href="/cmchvj9j30033kagb95u711sq/">
-                            Maven
+                        <a href="/cmchvp8g3002oh0gb7uvag5nx/">
+                            Anaconda学习笔记
                         </a>
                     </h3>
 
                     <div class="home-article-content markdown-body">
                         
                             
-                            创建文件夹，存放下载的maven压缩包1234567[root@Centos8 ~]# cd /usr/local/[root@Centos8 local]# mkdir maven[root@Centos8 local]# cd maven/[root@Centos8 maven]# ll总用量 0[root@Centos8 maven]# pwd/usr/local/maven
+                            
+title: Anaconda
+date: 2023-06-30 16:56:57
+tags: Anaconda
+categories: Tools
+安装
 
-从官网...
+下载安装文件
+
+1234# anacondawget https://mirrors.tuna.tsinghua.edu.cn/anaconda/archive/Anaconda3-2022.05-Linux-x86_64.sh# m...
                         
                     </div>
 
@@ -1240,7 +1321,7 @@
                     
                         
                         <li>
-                            <a href="/categories/Java%E7%94%9F%E6%80%81/">Java生态</a>&nbsp;
+                            <a href="/categories/%E5%BC%80%E5%8F%91%E8%BE%85%E5%8A%A9/">开发辅助</a>&nbsp;
                         </li>
                     
                     
@@ -1255,7 +1336,7 @@
                     
                         <li>
                             
-                            <a href="/tags/Maven/">Maven</a>&nbsp;
+                            <a href="/tags/Anaconda/">Anaconda</a>&nbsp;
                         </li>
                     
                 </ul>
@@ -1263,7 +1344,7 @@
         
     </div>
 
-    <a href="/cmchvj9j30033kagb95u711sq/">阅读全文<span class="seo-reader-text">Maven</span>&nbsp;<i class="fa-solid fa-angle-right"></i></a>
+    <a href="/cmchvp8g3002oh0gb7uvag5nx/">阅读全文<span class="seo-reader-text">Anaconda学习笔记</span>&nbsp;<i class="fa-solid fa-angle-right"></i></a>
 </div>
 
                 </div>
@@ -1278,15 +1359,22 @@
                 
                 <div class="flex flex-col gap-5 px-7 pb-7 pt-7">
                     <h3 class="home-article-title">
-                        <a href="/cmchvj9j40036kagbc3nl51wh/">
-                            Go
+                        <a href="/cmchvp8g3002rh0gb4d2y69n8/">
+                            Make_CMake学习笔记
                         </a>
                     </h3>
 
                     <div class="home-article-content markdown-body">
                         
                             
-                            下载Go压缩包123456789101112131415161718192021[root@Centos8 lx]# pwd/opt/lx[root@Centos8 lx]# wget https://golang.google.cn/dl/go1.19.1.linux-amd64.tar.gz--2022-09-20 16:44:52--  https://golang.google.cn...
+                            Makefile简介
+
+GNU Make 官方网站：https://www.gnu.org/software/make/
+GNU Make 官方文档下载地址：https://www.gnu.org/software/make/manual/
+Makefile Tutorial：https://makefiletutorial.com/
+
+基本格式
+12targets:prerequistie...
                         
                     </div>
 
@@ -1308,7 +1396,7 @@
                     
                         
                         <li>
-                            <a href="/categories/%E5%85%B6%E4%BB%96%E8%AF%AD%E8%A8%80/">其他语言</a>&nbsp;
+                            <a href="/categories/%E5%BC%80%E5%8F%91%E8%BE%85%E5%8A%A9/">开发辅助</a>&nbsp;
                         </li>
                     
                     
@@ -1323,7 +1411,12 @@
                     
                         <li>
                             
-                            <a href="/tags/Go/">Go</a>&nbsp;
+                            <a href="/tags/Make/">Make</a>&nbsp;
+                        </li>
+                    
+                        <li>
+                            | 
+                            <a href="/tags/CMake/">CMake</a>&nbsp;
                         </li>
                     
                 </ul>
@@ -1331,7 +1424,7 @@
         
     </div>
 
-    <a href="/cmchvj9j40036kagbc3nl51wh/">阅读全文<span class="seo-reader-text">Go</span>&nbsp;<i class="fa-solid fa-angle-right"></i></a>
+    <a href="/cmchvp8g3002rh0gb4d2y69n8/">阅读全文<span class="seo-reader-text">Make_CMake学习笔记</span>&nbsp;<i class="fa-solid fa-angle-right"></i></a>
 </div>
 
                 </div>
@@ -1346,18 +1439,16 @@
                 
                 <div class="flex flex-col gap-5 px-7 pb-7 pt-7">
                     <h3 class="home-article-title">
-                        <a href="/cmchvj9j40039kagbf03pc55p/">
-                            Helm
+                        <a href="/cmchvp8g4002yh0gba3kk40ty/">
+                            CodeServer
                         </a>
                     </h3>
 
                     <div class="home-article-content markdown-body">
                         
                             
-                            安装helm
-https://helm.sh/zh/
-
-脚本安装12345$ curl -fsSL -o get_helm.sh https://raw.githubusercontent.com/helm/helm/main/scripts/get-helm-3$ chmod 700 get_helm.sh$ ./get_helm.sh如果想直接执行安装，运行curl https://ra...
+                            官方code-server
+123456789docker run -d \ --restart=always \ --name codercom-code-server \ -p 18870:8080 \ -e PASSWORD=code-server \ -e SUDO_PASSWORD=root \ --restart=always \ -v /data/docker/codercom...
                         
                     </div>
 
@@ -1379,7 +1470,7 @@ https://helm.sh/zh/
                     
                         
                         <li>
-                            <a href="/categories/%E5%85%B6%E4%BB%96%E8%AF%AD%E8%A8%80/">其他语言</a>&nbsp;
+                            <a href="/categories/%E4%BA%91%E7%AB%AFIDE/">云端IDE</a>&nbsp;
                         </li>
                     
                     
@@ -1394,7 +1485,7 @@ https://helm.sh/zh/
                     
                         <li>
                             
-                            <a href="/tags/Helm/">Helm</a>&nbsp;
+                            <a href="/tags/CodeServer/">CodeServer</a>&nbsp;
                         </li>
                     
                 </ul>
@@ -1402,7 +1493,7 @@ https://helm.sh/zh/
         
     </div>
 
-    <a href="/cmchvj9j40039kagbf03pc55p/">阅读全文<span class="seo-reader-text">Helm</span>&nbsp;<i class="fa-solid fa-angle-right"></i></a>
+    <a href="/cmchvp8g4002yh0gba3kk40ty/">阅读全文<span class="seo-reader-text">CodeServer</span>&nbsp;<i class="fa-solid fa-angle-right"></i></a>
 </div>
 
                 </div>
@@ -1442,7 +1533,7 @@ https://helm.sh/zh/
                     </span>
                     
                         <span>
-                            共 216.7k 字
+                            共 216.3k 字
                         </span>
                     
                 </p>
