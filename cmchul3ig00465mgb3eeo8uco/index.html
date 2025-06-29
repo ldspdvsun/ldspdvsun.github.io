@@ -1,0 +1,1610 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="keywords" content="Hexo Theme Redefine">
+    
+    <meta name="author" content="Sunmy">
+    <!-- preconnect -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    
+    <!--- Seo Part-->
+    
+    <link rel="canonical" href="https://ldspdvsun.github.io/cmchul3ig00465mgb3eeo8uco/"/>
+    <meta name="robots" content="index,follow">
+    <meta name="googlebot" content="index,follow">
+    <meta name="revisit-after" content="1 days">
+    
+    
+    
+        
+        <meta name="description" content="Sunmy&#96;s Blogs">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Kubernetes学习笔记">
+<meta property="og:url" content="https://ldspdvsun.github.io/cmchul3ig00465mgb3eeo8uco/index.html">
+<meta property="og:site_name" content="Sunmy&#96;s Blogs">
+<meta property="og:description" content="Sunmy&#96;s Blogs">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://i.postimg.cc/MZ0wLRpF/wallhaven-exl88k.png">
+<meta property="article:published_time" content="2023-06-30T08:56:57.000Z">
+<meta property="article:modified_time" content="2025-06-29T13:05:24.277Z">
+<meta property="article:author" content="Sunmy">
+<meta property="article:tag" content="Kubernetes">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://i.postimg.cc/MZ0wLRpF/wallhaven-exl88k.png">
+    
+    
+    <!--- Icon Part-->
+    <link rel="icon" type="image/png" href="https://avatars.githubusercontent.com/u/86214331?s=96&amp;v=4" sizes="192x192">
+    <link rel="apple-touch-icon" sizes="180x180" href="https://avatars.githubusercontent.com/u/86214331?s=96&amp;v=4">
+    <meta name="theme-color" content="#A31F34">
+    <link rel="shortcut icon" href="https://avatars.githubusercontent.com/u/86214331?s=96&v=4">
+    <!--- Page Info-->
+    
+    <title>
+        
+            Kubernetes学习笔记 | Sunmy`s Blogs
+        
+    </title>
+
+    
+<link rel="stylesheet" href="/fonts/Chillax/chillax.css">
+
+
+    <!--- Inject Part-->
+    
+
+    
+<link rel="stylesheet" href="/css/style.css">
+
+
+    
+        
+<link rel="stylesheet" href="/css/build/tailwind.css">
+
+    
+
+    
+<link rel="stylesheet" href="/fonts/GeistMono/geist-mono.css">
+
+    
+<link rel="stylesheet" href="/fonts/Geist/geist.css">
+
+    <!--- Font Part-->
+    
+    
+    
+    
+    
+    
+        
+<script src="/js/build/libs/anime.min.js"></script>
+
+    
+
+    <script id="hexo-configurations">
+    window.config = {"hostname":"ldspdvsun.github.io","root":"/","language":"zh-CN","path":"search.json"};
+    window.theme = {"articles":{"style":{"font_size":"16px","line_height":1.5,"image_border_radius":"14px","image_alignment":"center","image_caption":false,"link_icon":true,"delete_mask":false,"title_alignment":"left","headings_top_spacing":{"h1":"5rem","h2":"4rem","h3":"2.8rem","h4":"2.5rem","h5":"2.2rem","h6":"2rem"}},"word_count":{"enable":true,"count":true,"min2read":true},"author_label":{"enable":true,"auto":false,"list":[]},"code_block":{"copy":true,"style":"mac","highlight_theme":{"light":"github","dark":"vs2015"},"font":{"enable":false,"family":null,"url":null}},"toc":{"enable":true,"max_depth":5,"number":false,"expand":true,"init_open":true},"copyright":{"enable":true,"default":"all_rights_reserved"},"lazyload":true,"pangu_js":false,"recommendation":{"enable":true,"title":"推荐阅读","limit":3,"mobile_limit":2,"placeholder":"https://i.postimg.cc/52qB9kNm/10.png","skip_dirs":[]}},"colors":{"primary":"#A31F34","secondary":null,"default_mode":"light"},"global":{"fonts":{"chinese":{"enable":false,"family":null,"url":null},"english":{"enable":false,"family":null,"url":null},"title":{"enable":false,"family":null,"url":null}},"content_max_width":"1000px","sidebar_width":"210px","hover":{"shadow":true,"scale":false},"scroll_progress":{"bar":false,"percentage":true},"website_counter":{"url":"https://cn.vercount.one/js","enable":true,"site_pv":true,"site_uv":true,"post_pv":true},"single_page":true,"preloader":{"enable":true,"custom_message":null},"open_graph":{"enable":true,"image":"https://i.postimg.cc/MZ0wLRpF/wallhaven-exl88k.png","description":"Sunmy`s Blogs"},"google_analytics":{"enable":false,"id":null}},"home_banner":{"enable":true,"style":"fixed","image":{"light":"https://i.postimg.cc/bJMg5v9g/0-8.png","dark":"https://i.postimg.cc/MZ0wLRpF/wallhaven-exl88k.png"},"title":"Sunmy`s Blogs","subtitle":{"text":["随心所欲地享受每一天\\(￣︶￣*\\))","随时随地，浏览记录O(∩_∩)O","如果喜欢，建议给个支持( •̀ ω •́ )✧","喜欢的话，留个言好嘛(oﾟvﾟ)ノ","欢迎来到我的博客(｡･∀･)ﾉﾞ","正在努力更新博客(ง •_•)ง","正在不断努力改善博客中ε=( o｀ω′)ノ","文字正在不断轮换(*￣3￣)╭","你有建议？反馈作者(●^◡^●)"],"hitokoto":{"enable":false,"show_author":false,"api":"https://v1.hitokoto.cn"},"typing_speed":100,"backing_speed":30,"starting_delay":500,"backing_delay":1500,"loop":true,"smart_backspace":true},"text_color":{"light":"#9f5221","dark":"#d1d1b6"},"text_style":{"title_size":"2.8rem","subtitle_size":"1.5rem","line_height":1.2},"custom_font":{"enable":false,"family":null,"url":null},"social_links":{"enable":true,"style":"default","links":{"github":"https://github.com/ldspdvsun","instagram":null,"zhihu":null,"twitter":null,"email":"skywalker0@qq.com"},"qrs":{"weixin":null}}},"plugins":{"feed":{"enable":false},"aplayer":{"enable":false,"type":"fixed","audios":[{"name":null,"artist":null,"url":null,"cover":null,"lrc":null}]},"mermaid":{"enable":false,"version":"11.4.1"}},"version":"2.8.2","navbar":{"auto_hide":false,"color":{"left":"#f78736","right":"#367df7","transparency":35},"width":{"home":"1600px","pages":"1000px"},"links":{"Home":{"path":"/","icon":"fa-regular fa-house"},"Archives":{"path":"/archives","icon":"fa-regular fa-archive"},"Tags":{"path":"/tags","icon":"fa-regular fa-tags"},"Categories":{"path":"/categories","icon":"fa-regular fa-list"},"ShuoShuo":{"icon":"fa-solid fa-comment-dots","path":"/shuoshuo"},"Links":{"icon":"fa-regular fa-link","submenus":{"Github":"https://github.com/ldspdvsun","Zhihu":"https://www.zhihu.com/people/ldspdvs"}}},"search":{"enable":true,"preload":true}},"page_templates":{"friends_column":2,"tags_style":"blur"},"home":{"sidebar":{"enable":true,"position":"left","first_item":"menu","announcement":"Be all you can be!","show_on_mobile":true,"links":{"Archives":{"path":"/archives","icon":"fa-regular fa-archive"},"Tags":{"path":"/tags","icon":"fa-regular fa-tags"},"Categories":{"path":"/categories","icon":"fa-regular fa-folder"}}},"article_date_format":"auto","excerpt_length":200,"categories":{"enable":true,"limit":3},"tags":{"enable":true,"limit":3}},"footerStart":"2023/6/1 00:00:00"};
+    window.lang_ago = {"second":"%s 秒前","minute":"%s 分钟前","hour":"%s 小时前","day":"%s 天前","week":"%s 周前","month":"%s 个月前","year":"%s 年前"};
+    window.data = {"masonry":false};
+  </script>
+    
+    <!--- Fontawesome Part-->
+    
+<link rel="stylesheet" href="/fontawesome/fontawesome.min.css">
+
+    
+<link rel="stylesheet" href="/fontawesome/brands.min.css">
+
+    
+<link rel="stylesheet" href="/fontawesome/solid.min.css">
+
+    
+<link rel="stylesheet" href="/fontawesome/regular.min.css">
+
+    
+    
+    
+    
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+
+
+<body>
+	<div class="progress-bar-container">
+	
+
+	
+	<span class="pjax-progress-bar"></span>
+	<!--        <span class="swup-progress-icon">-->
+	<!--            <i class="fa-solid fa-circle-notch fa-spin"></i>-->
+	<!--        </span>-->
+	
+</div>
+
+<style>
+    :root {
+        --preloader-background-color: #fff;
+        --preloader-text-color: #000;
+    }
+
+    @media (prefers-color-scheme: dark) {
+        :root {
+            --preloader-background-color: #202124;
+            --preloader-text-color: #fff;
+        }
+    }
+
+    @media (prefers-color-scheme: light) {
+        :root {
+            --preloader-background-color: #fff;
+            --preloader-text-color: #000;
+        }
+    }
+
+    @media (max-width: 600px) {
+        .ml13 {
+            font-size: 2.6rem !important; /* Adjust this value as needed */
+        }
+    }
+
+    .preloader {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem; /* Tailwind 'gap-4' is 1rem */
+        align-items: center;
+        justify-content: center;
+        position: fixed;
+        padding: 12px;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh; /* 'h-screen' is 100% of the viewport height */
+        background-color: var(--preloader-background-color);
+        z-index: 1100; /* 'z-[1100]' sets the z-index */
+        transition: opacity 0.2s ease-in-out;
+    }
+
+    .ml13 {
+        font-size: 3.2rem;
+        /* text-transform: uppercase; */
+        color: var(--preloader-text-color);
+        letter-spacing: -1px;
+        font-weight: 500;
+        font-family: 'Chillax-Variable', sans-serif;
+        text-align: center;
+    }
+
+    .ml13 .word {
+        display: inline-flex;
+        flex-wrap: wrap;
+        white-space: nowrap;
+    }
+
+    .ml13 .letter {
+        display: inline-block;
+        line-height: 1em;
+    }
+</style>
+
+<div class="preloader">
+    <h2 class="ml13">
+        Sunmy`s Blogs
+    </h2>
+    <script>
+        var textWrapper = document.querySelector('.ml13');
+        // Split text into words
+        var words = textWrapper.textContent.trim().split(' ');
+
+        // Clear the existing content
+        textWrapper.innerHTML = '';
+
+        // Wrap each word and its letters in spans
+        words.forEach(function(word) {
+            var wordSpan = document.createElement('span');
+            wordSpan.classList.add('word');
+            wordSpan.innerHTML = word.replace(/\S/g, "<span class='letter'>$&</span>");
+            textWrapper.appendChild(wordSpan);
+            textWrapper.appendChild(document.createTextNode(' ')); // Add space between words
+        });
+
+        var animation = anime.timeline({ loop: true })
+            .add({
+                targets: '.ml13 .letter',
+                translateY: [20, 0],
+                translateZ: 0,
+                opacity: [0, 1],
+                filter: ['blur(5px)', 'blur(0px)'],
+                easing: "easeOutExpo",
+                duration: 1200,
+                delay: (el, i) => 300 + 20 * i,
+            })
+            .add({
+                targets: '.ml13 .letter',
+                translateY: [0, -20],
+                opacity: [1, 0],
+                filter: ['blur(0px)', 'blur(5px)'],
+                easing: "easeInExpo",
+                duration: 1000,
+                delay: (el, i) => 15 * i,
+                complete: function() {
+                    hidePreloader();
+                }
+            }, '-=700');
+
+
+        let themeStatus = JSON.parse(localStorage.getItem('REDEFINE-THEME-STATUS'))?.isDark;
+
+        // If the theme status is not found in local storage, check the preferred color scheme
+        if (themeStatus === undefined || themeStatus === null) {
+            if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+                themeStatus = 'dark';
+            } else {
+                themeStatus = 'light';
+            }
+        }
+
+        // Now you can use the themeStatus variable in your code
+        if (themeStatus) {
+            document.documentElement.style.setProperty('--preloader-background-color', '#202124');
+            document.documentElement.style.setProperty('--preloader-text-color', '#fff');
+        } else {
+            document.documentElement.style.setProperty('--preloader-background-color', '#fff');
+            document.documentElement.style.setProperty('--preloader-text-color', '#000');
+        }
+
+        window.addEventListener('load', function () {
+            setTimeout(hidePreloader, 5000); // Call hidePreloader after 5000 milliseconds if not already called by animation
+        });
+
+        function hidePreloader() {
+            var preloader = document.querySelector('.preloader');
+            preloader.style.opacity = '0';
+            setTimeout(function () {
+                preloader.style.display = 'none';
+            }, 200);
+        }
+    </script>
+</div>
+
+<main class="page-container" id="swup">
+
+	
+
+	<div class="main-content-container flex flex-col justify-between min-h-dvh">
+		<div class="main-content-header">
+			<header class="navbar-container px-6 md:px-12">
+    <div class="navbar-content transition-navbar ">
+        <div class="left">
+            
+            <a class="logo-title" href="/">
+                
+                Sunmy`s Blogs
+                
+            </a>
+        </div>
+
+        <div class="right">
+            <!-- PC -->
+            <div class="desktop">
+                <ul class="navbar-list">
+                    
+                        
+                            
+
+                            <li class="navbar-item">
+                                <!-- Menu -->
+                                <a class=""
+                                   href="/"
+                                        >
+                                    <i class="fa-regular fa-house fa-fw"></i>
+                                    首页
+                                    
+                                </a>
+
+                                <!-- Submenu -->
+                                
+                            </li>
+                    
+                        
+                            
+
+                            <li class="navbar-item">
+                                <!-- Menu -->
+                                <a class=""
+                                   href="/archives"
+                                        >
+                                    <i class="fa-regular fa-archive fa-fw"></i>
+                                    归档
+                                    
+                                </a>
+
+                                <!-- Submenu -->
+                                
+                            </li>
+                    
+                        
+                            
+
+                            <li class="navbar-item">
+                                <!-- Menu -->
+                                <a class=""
+                                   href="/tags"
+                                        >
+                                    <i class="fa-regular fa-tags fa-fw"></i>
+                                    标签
+                                    
+                                </a>
+
+                                <!-- Submenu -->
+                                
+                            </li>
+                    
+                        
+                            
+
+                            <li class="navbar-item">
+                                <!-- Menu -->
+                                <a class=""
+                                   href="/categories"
+                                        >
+                                    <i class="fa-regular fa-list fa-fw"></i>
+                                    分类
+                                    
+                                </a>
+
+                                <!-- Submenu -->
+                                
+                            </li>
+                    
+                        
+                            
+
+                            <li class="navbar-item">
+                                <!-- Menu -->
+                                <a class=""
+                                   href="/shuoshuo"
+                                        >
+                                    <i class="fa-solid fa-comment-dots fa-fw"></i>
+                                    说说
+                                    
+                                </a>
+
+                                <!-- Submenu -->
+                                
+                            </li>
+                    
+                        
+                            
+
+                            <li class="navbar-item">
+                                <!-- Menu -->
+                                <a class="has-dropdown"
+                                   href="#"
+                                        onClick=&#34;return false;&#34;>
+                                    <i class="fa-regular fa-link fa-fw"></i>
+                                    链接
+                                    <i class="fa-solid fa-chevron-down fa-fw"></i>
+                                </a>
+
+                                <!-- Submenu -->
+                                
+                                    <ul class="sub-menu">
+                                        
+                                            <li>
+                                                <a target="_blank" rel="noopener" href="https://github.com/ldspdvsun">
+                                                    GITHUB
+                                                </a>
+                                            </li>
+                                        
+                                            <li>
+                                                <a target="_blank" rel="noopener" href="https://www.zhihu.com/people/ldspdvs">
+                                                    ZHIHU
+                                                </a>
+                                            </li>
+                                        
+                                    </ul>
+                                
+                            </li>
+                    
+                    
+                        <li class="navbar-item search search-popup-trigger">
+                            <i class="fa-solid fa-magnifying-glass"></i>
+                        </li>
+                    
+                </ul>
+            </div>
+            <!-- Mobile -->
+            <div class="mobile">
+                
+                    <div class="icon-item search search-popup-trigger"><i class="fa-solid fa-magnifying-glass"></i>
+                    </div>
+                
+                <div class="icon-item navbar-bar">
+                    <div class="navbar-bar-middle"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Mobile sheet -->
+    <div class="navbar-drawer h-dvh w-full absolute top-0 left-0 bg-background-color flex flex-col justify-between">
+        <ul class="drawer-navbar-list flex flex-col px-4 justify-center items-start">
+            
+                
+                    
+
+                    <li class="drawer-navbar-item text-base my-1.5 flex flex-col w-full">
+                        
+                        <a class="py-1.5 px-2 flex flex-row items-center justify-between gap-1 hover:!text-primary active:!text-primary text-2xl font-semibold group border-b border-border-color hover:border-primary w-full "
+                           href="/"
+                        >
+                            <span>
+                                首页
+                            </span>
+                            
+                                <i class="fa-regular fa-house fa-sm fa-fw"></i>
+                            
+                        </a>
+                        
+
+                        
+                    </li>
+            
+                
+                    
+
+                    <li class="drawer-navbar-item text-base my-1.5 flex flex-col w-full">
+                        
+                        <a class="py-1.5 px-2 flex flex-row items-center justify-between gap-1 hover:!text-primary active:!text-primary text-2xl font-semibold group border-b border-border-color hover:border-primary w-full "
+                           href="/archives"
+                        >
+                            <span>
+                                归档
+                            </span>
+                            
+                                <i class="fa-regular fa-archive fa-sm fa-fw"></i>
+                            
+                        </a>
+                        
+
+                        
+                    </li>
+            
+                
+                    
+
+                    <li class="drawer-navbar-item text-base my-1.5 flex flex-col w-full">
+                        
+                        <a class="py-1.5 px-2 flex flex-row items-center justify-between gap-1 hover:!text-primary active:!text-primary text-2xl font-semibold group border-b border-border-color hover:border-primary w-full "
+                           href="/tags"
+                        >
+                            <span>
+                                标签
+                            </span>
+                            
+                                <i class="fa-regular fa-tags fa-sm fa-fw"></i>
+                            
+                        </a>
+                        
+
+                        
+                    </li>
+            
+                
+                    
+
+                    <li class="drawer-navbar-item text-base my-1.5 flex flex-col w-full">
+                        
+                        <a class="py-1.5 px-2 flex flex-row items-center justify-between gap-1 hover:!text-primary active:!text-primary text-2xl font-semibold group border-b border-border-color hover:border-primary w-full "
+                           href="/categories"
+                        >
+                            <span>
+                                分类
+                            </span>
+                            
+                                <i class="fa-regular fa-list fa-sm fa-fw"></i>
+                            
+                        </a>
+                        
+
+                        
+                    </li>
+            
+                
+                    
+
+                    <li class="drawer-navbar-item text-base my-1.5 flex flex-col w-full">
+                        
+                        <a class="py-1.5 px-2 flex flex-row items-center justify-between gap-1 hover:!text-primary active:!text-primary text-2xl font-semibold group border-b border-border-color hover:border-primary w-full "
+                           href="/shuoshuo"
+                        >
+                            <span>
+                                说说
+                            </span>
+                            
+                                <i class="fa-solid fa-comment-dots fa-sm fa-fw"></i>
+                            
+                        </a>
+                        
+
+                        
+                    </li>
+            
+                
+                    
+
+                    <li class="drawer-navbar-item-sub text-base my-1.5 flex flex-col w-full">
+                        
+                        <div class="py-1.5 px-2 flex flex-row items-center justify-between gap-1 hover:!text-primary active:!text-primary cursor-pointer text-2xl font-semibold group border-b border-border-color hover:border-primary w-full "
+                             navbar-data-toggle="submenu-Links"
+                        >
+                            <span>
+                                链接
+                            </span>
+                            
+                                <i class="fa-solid fa-chevron-right fa-sm fa-fw transition-all"></i>
+                            
+                        </div>
+                        
+
+                        
+                            <div class="flex-col items-start px-2 py-2 hidden" data-target="submenu-Links">
+                                
+                                    <div class="drawer-navbar-item text-base flex flex-col justify-center items-start hover:underline active:underline hover:underline-offset-1 rounded-3xl">
+                                        <a class=" text-third-text-color text-xl"
+                                           target="_blank" rel="noopener" href="https://github.com/ldspdvsun">GITHUB</a>
+                                    </div>
+                                
+                                    <div class="drawer-navbar-item text-base flex flex-col justify-center items-start hover:underline active:underline hover:underline-offset-1 rounded-3xl">
+                                        <a class=" text-third-text-color text-xl"
+                                           target="_blank" rel="noopener" href="https://www.zhihu.com/people/ldspdvs">ZHIHU</a>
+                                    </div>
+                                
+                            </div>
+                        
+                    </li>
+            
+
+            
+            
+                
+                    
+                    
+                    
+            
+        </ul>
+
+        <div class="statistics flex justify-around my-2.5">
+    <a class="item tag-count-item flex flex-col justify-center items-center w-20" href="/tags">
+        <div class="number text-2xl sm:text-xl text-second-text-color font-semibold">65</div>
+        <div class="label text-third-text-color text-sm">标签</div>
+    </a>
+    <a class="item tag-count-item flex flex-col justify-center items-center w-20" href="/categories">
+        <div class="number text-2xl sm:text-xl text-second-text-color font-semibold">20</div>
+        <div class="label text-third-text-color text-sm">分类</div>
+    </a>
+    <a class="item tag-count-item flex flex-col justify-center items-center w-20" href="/archives">
+        <div class="number text-2xl sm:text-xl text-second-text-color font-semibold">70</div>
+        <div class="label text-third-text-color text-sm">文章</div>
+    </a>
+</div>
+    </div>
+
+    <div class="window-mask"></div>
+
+</header>
+
+
+		</div>
+
+		<div class="main-content-body transition-fade-up">
+			
+
+			<div class="main-content">
+				<div class="post-page-container flex relative justify-between box-border w-full h-full">
+	<div class="article-content-container">
+
+		<div class="article-title relative w-full">
+			
+			<div class="w-full flex items-center pt-6 justify-start">
+				<h1 class="article-title-regular text-second-text-color tracking-tight text-4xl md:text-6xl font-semibold px-2 sm:px-6 md:px-8 py-3">Kubernetes学习笔记</h1>
+			</div>
+			
+		</div>
+
+		
+		<div class="article-header flex flex-row gap-2 items-center px-2 sm:px-6 md:px-8">
+			<div class="avatar w-[46px] h-[46px] flex-shrink-0 rounded-medium border border-border-color p-[1px]">
+				<img src="https://avatars.githubusercontent.com/u/86214331?s=96&v=4">
+			</div>
+			<div class="info flex flex-col justify-between">
+				<div class="author flex items-center">
+					<span class="name text-default-text-color text-lg font-semibold">Sunmy</span>
+					
+					<span class="author-label ml-1.5 text-xs px-2 py-0.5 rounded-small text-third-text-color border border-shadow-color-1">Lv5</span>
+					
+				</div>
+				<div class="meta-info">
+					<div class="article-meta-info">
+    <span class="article-date article-meta-item">
+        <i class="fa-regular fa-pen-fancy"></i>&nbsp;
+        <span class="desktop">2023-06-30 16:56:57</span>
+        <span class="mobile">2023-06-30 16:56:57</span>
+        <span class="hover-info">创建</span>
+    </span>
+    
+        <span class="article-date article-meta-item">
+            <i class="fa-regular fa-wrench"></i>&nbsp;
+            <span class="desktop">2025-06-29 21:05:24</span>
+            <span class="mobile">2025-06-29 21:05:24</span>
+            <span class="hover-info">更新</span>
+        </span>
+    
+
+    
+        <span class="article-categories article-meta-item">
+            <i class="fa-regular fa-folders"></i>&nbsp;
+            <ul>
+                
+                
+                    
+                        
+                        <li>
+                            <a href="/categories/%E5%AE%B9%E5%99%A8%E5%8C%96%E6%8A%80%E6%9C%AF/">容器化技术</a>&nbsp;
+                        </li>
+                    
+                    
+                
+            </ul>
+        </span>
+    
+    
+        <span class="article-tags article-meta-item">
+            <i class="fa-regular fa-tags"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/tags/Kubernetes/">Kubernetes</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
+    
+
+    
+    
+        <span class="article-wordcount article-meta-item">
+            <i class="fa-regular fa-typewriter"></i>&nbsp;<span>5.3k 字</span>
+        </span>
+    
+    
+        <span class="article-min2read article-meta-item">
+            <i class="fa-regular fa-clock"></i>&nbsp;<span>26 分钟</span>
+        </span>
+    
+    
+        <span class="article-pv article-meta-item">
+            <i class="fa-regular fa-eye"></i>&nbsp;<span id="busuanzi_value_page_pv"></span>
+        </span>
+    
+</div>
+
+				</div>
+			</div>
+		</div>
+		
+
+		
+
+
+		<div class="article-content markdown-body px-2 sm:px-6 md:px-8 pb-8">
+			<h1 id="kubernetes简介"><a href="#kubernetes简介" class="headerlink" title="kubernetes简介"></a>kubernetes简介</h1><ol>
+<li><p>基本介绍</p>
+<ul>
+<li>kubernetes简称k8s，开源，目标是让部署容器化的应用简单高效</li>
+<li>k8s是Google开源的容器编排引擎，支持自动化部署，大规模可伸缩，应用容器化管理</li>
+<li>可创建多个容器，每个容器里运行一个应用实例，通过内置的负载均衡策略，实现对这一组应用实例的管理、发现、访问</li>
+</ul>
+</li>
+<li><p>功能和架构</p>
+<ol>
+<li><p>概述<br>Kubernetes 是一个轻便的和可扩展的开源平台，用于管理容器化应用和服务。通过Kubernetes 能够进行应用的自动化部署和扩缩容。在 Kubernetes 中，会将组成应用的容器组合成一个逻辑单元以更易管理和发现。Kubernetes 积累了作为 Google 生产环境运行工作负载 15 年的经验，并吸收了来自于社区的最佳想法和实践。</p>
+</li>
+<li><p>K8s功能</p>
+<ol>
+<li>自动装箱</li>
+<li>自我修复</li>
+<li>水平扩展</li>
+<li>服务发现</li>
+<li>滚动更新</li>
+<li>版本回退</li>
+<li>密钥和配置管理</li>
+<li>存储编排</li>
+<li>批处理</li>
+</ol>
+</li>
+<li><p>应用部署结构分类</p>
+<ol>
+<li>无中心节点架构<br>GluterFS</li>
+<li>有中心节点架构<br>HDFS<br>K8S</li>
+</ol>
+</li>
+<li><p>K8S集群架构<br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="attachment:image.png"
+                      alt="image.png"
+                ></p>
+</li>
+<li><p>K8S集群架构节点角色功能</p>
+<ol>
+<li><p>Master Node<br>K8s集群控制节点，对集群进行调度管理，接受集群外用户集群操作请求：Master Node由API Server、Scheduler、ClusterState Store(ETCD数据库)和Controller-ManagerServer组成</p>
+<ul>
+<li>apiserver 集群统一入口，以restful方式，交给etcd存储</li>
+<li>scheduler 节点调度，选择节点应用部署</li>
+<li>controller-manager 处理集群中常规后台任务，一个资源对应一个控制器</li>
+<li>etcd 存储系统，永不保存集群相关的数据</li>
+</ul>
+</li>
+<li><p>Worker Node<br>集群工作节点，运行用户业务应用容器；<br>Worker Node包含kubelet、kube proxy和ContainerRuntime</p>
+<ul>
+<li>kubelet master派到节点的代表，管理本地容器</li>
+<li>kube-proxy 提供网络代理，负载均衡操作</li>
+</ul>
+</li>
+</ol>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="attachment:image-2.png"
+                      alt="image-2.png"
+                ></p>
+</li>
+<li><p>K8S特性</p>
+<ol>
+<li><p>pod</p>
+<ul>
+<li>最小部署单元</li>
+<li>一组容器的集合</li>
+<li>共享网络</li>
+<li>生命周期是短暂的</li>
+</ul>
+</li>
+<li><p>controller</p>
+<ul>
+<li>确保预期的pod副本数量</li>
+<li>无状态应用部署</li>
+<li>有状态应用部署</li>
+<li>确保所有的node运行同一个pod</li>
+<li>一次性任务和定时任务</li>
+</ul>
+</li>
+<li><p>Service</p>
+<ul>
+<li>定义一组pod的访问规则</li>
+</ul>
+</li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+<h1 id="kubernetes集群搭建"><a href="#kubernetes集群搭建" class="headerlink" title="kubernetes集群搭建"></a>kubernetes集群搭建</h1><h2 id="kubeadm搭建"><a href="#kubeadm搭建" class="headerlink" title="kubeadm搭建"></a>kubeadm搭建</h2><h3 id="单master集群"><a href="#单master集群" class="headerlink" title="单master集群"></a>单master集群</h3><p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="attachment:image-3.png"
+                      alt="image-3.png"
+                ></p>
+<h4 id="安装要求"><a href="#安装要求" class="headerlink" title="安装要求"></a>安装要求</h4><ol>
+<li>| 服务器硬件配置要求 |     |     |<table>
+<thead>
+<tr>
+<th></th>
+<th>master</th>
+<th>node</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>CPU</td>
+<td>2核</td>
+<td>4核</td>
+</tr>
+<tr>
+<td>内存</td>
+<td>4G</td>
+<td>8G</td>
+</tr>
+<tr>
+<td>硬盘</td>
+<td>20G</td>
+<td>40G</td>
+</tr>
+</tbody></table>
+</li>
+<li>vmware虚拟出3台centos7配置如下<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+<th>ip</th>
+<th>默认路由</th>
+<th>用户名</th>
+<th>密码</th>
+<th>用户名</th>
+<th>密码</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>master</td>
+<td></td>
+<td>192.168.58.135</td>
+<td>192.168.58.2</td>
+<td>root</td>
+<td>root</td>
+<td>admin</td>
+<td>admin</td>
+</tr>
+<tr>
+<td>node1</td>
+<td></td>
+<td>192.168.58.136</td>
+<td>192.168.58.2</td>
+<td>root</td>
+<td>root</td>
+<td>admin</td>
+<td>admin</td>
+</tr>
+<tr>
+<td>node2</td>
+<td></td>
+<td>192.168.58.137</td>
+<td>192.168.58.2</td>
+<td>root</td>
+<td>root</td>
+<td>admin</td>
+<td>admin</td>
+</tr>
+</tbody></table>
+</li>
+<li>更改ip配置</li>
+</ol>
+<div class="code-container" data-rel="Sh"><figure class="iseeu highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 打开配置文件</span></span><br><span class="line">vi /etc/sysconfig/network-scripts/ifcfg-ens33</span><br><span class="line"><span class="comment"># 修改配置</span></span><br><span class="line">BOOTPROTO=<span class="string">&quot;static&quot;</span></span><br><span class="line">ONBOOT=<span class="string">&quot;yes&quot;</span></span><br><span class="line">IPADDR=192.168.58.135</span><br><span class="line">NETMASK=255.255.255.0</span><br><span class="line">GATEWAY=192.168.58.2</span><br><span class="line">DNS1=192.168.58.2</span><br><span class="line"><span class="comment"># 重启服务</span></span><br><span class="line">systemctl restart network</span><br></pre></td></tr></table></figure></div>
+
+<h4 id="配置环境"><a href="#配置环境" class="headerlink" title="配置环境"></a>配置环境</h4><blockquote>
+<p>新增</p>
+</blockquote>
+<div class="code-container" data-rel="Sh"><figure class="iseeu highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bash &lt;(curl -sSL https://gitee.com/SuperManito/LinuxMirrors/raw/main/ChangeMirrors.sh)</span><br></pre></td></tr></table></figure></div>
+
+<blockquote>
+<p>新增</p>
+</blockquote>
+<ol>
+<li>安装虚拟机，上述已安装，开始之前，添加如下依赖</li>
+</ol>
+<div class="code-container" data-rel="Shell"><figure class="iseeu highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">以上centos7选择最小安装，安装完之后，下载依赖</span></span><br><span class="line">yum install -y wget net-tools vim lsof</span><br></pre></td></tr></table></figure></div>
+
+<ol start="2">
+<li>在master,node1,node2中关闭防火墙</li>
+</ol>
+<div class="code-container" data-rel="Shell"><figure class="iseeu highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">systemctl stop firewalld</span><br><span class="line">systemctl disable firewalld</span><br></pre></td></tr></table></figure></div>
+
+<ol start="3">
+<li>在master,node1,node2中关闭selinux</li>
+</ol>
+<div class="code-container" data-rel="Shell"><figure class="iseeu highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">永久</span></span><br><span class="line">sed -i &#x27;s/enforcing/disabled/&#x27; /etc/selinux/config</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">临时</span></span><br><span class="line">setenforce 0</span><br></pre></td></tr></table></figure></div>
+
+<ol start="4">
+<li>在master,node1,node2中关闭swap</li>
+</ol>
+<div class="code-container" data-rel="Shell"><figure class="iseeu highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">临时</span></span><br><span class="line">swapoff -a</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">永久</span></span><br><span class="line">sed -ri &#x27;s/.*swap.*/#&amp;/&#x27; /etc/fstab</span><br></pre></td></tr></table></figure></div>
+
+<ol start="5">
+<li>根据规划设置master,node1,node2主机名</li>
+</ol>
+<div class="code-container" data-rel="Shell"><figure class="iseeu highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">hostnamectl set-hostname 主机名</span><br><span class="line">hostname</span><br></pre></td></tr></table></figure></div>
+
+<ol start="6">
+<li>在所有节点中添加host</li>
+</ol>
+<div class="code-container" data-rel="Shell"><figure class="iseeu highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">cat &gt;&gt; /etc/hosts &lt;&lt; EOF</span><br><span class="line">192.168.10.104 server</span><br><span class="line">192.168.10.101 master</span><br><span class="line">192.168.10.105 node1</span><br><span class="line">192.168.10.103 node2</span><br><span class="line">185.199.108.133 raw.githubusercontent.com</span><br><span class="line">185.199.109.133 raw.githubusercontent.com</span><br><span class="line">185.199.110.133 raw.githubusercontent.com</span><br><span class="line">185.199.111.133 raw.githubusercontent.com</span><br><span class="line">EOF</span><br></pre></td></tr></table></figure></div>
+
+<ol start="7">
+<li>在master,node1,node2中设置将桥接的IPV4流量传递到iptables的链：</li>
+</ol>
+<div class="code-container" data-rel="Shell"><figure class="iseeu highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">cat &gt; /etc/sysctl.d/k8s.conf &lt;&lt; EOF</span><br><span class="line">net.bridge.bridge-nf-call-ip6tables = 1</span><br><span class="line">net.bridge.bridge-nf-call-iptables = 1</span><br><span class="line">EOF</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">生效</span></span><br><span class="line">sysctl --system</span><br></pre></td></tr></table></figure></div>
+
+<ol start="8">
+<li>在master,node1,node2中设置时间同步</li>
+</ol>
+<div class="code-container" data-rel="Shell"><figure class="iseeu highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">yum install ntpdate -y</span><br><span class="line">ntpdate time.windows.com</span><br></pre></td></tr></table></figure></div>
+
+<blockquote>
+<p>Centos8新增替换上述内容</p>
+</blockquote>
+<div class="code-container" data-rel="Sh"><figure class="iseeu highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> dnf install chrony</span><br><span class="line"><span class="built_in">sudo</span> systemctl start chronyd</span><br><span class="line"><span class="built_in">sudo</span> systemctl <span class="built_in">enable</span> chronyd</span><br><span class="line"><span class="built_in">sudo</span> timedatectl set-timezone Asia/Shanghai</span><br><span class="line"><span class="built_in">sudo</span> chronyc -a makestep</span><br><span class="line"><span class="built_in">sudo</span> systemctl status chronyd</span><br><span class="line">timedatectl</span><br></pre></td></tr></table></figure></div>
+
+<div class="code-container" data-rel="Sh"><figure class="iseeu highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">如果在CentOS 8上执行<span class="built_in">sudo</span> dnf install ntp命令时出现“未找到匹配的参数: ntp”错误，则可能是因为ntp包已被移除或替换为chrony服务。可以使用以下命令来安装并启用chrony服务：</span><br><span class="line"></span><br><span class="line">安装chrony服务</span><br><span class="line"><span class="built_in">sudo</span> dnf install chrony</span><br><span class="line">启动chrony服务</span><br><span class="line"><span class="built_in">sudo</span> systemctl start chronyd</span><br><span class="line">设置chrony服务开机自启</span><br><span class="line"><span class="built_in">sudo</span> systemctl <span class="built_in">enable</span> chronyd</span><br><span class="line">将时区设置为上海</span><br><span class="line">使用以下命令将时区设置为上海（Asia/Shanghai）：</span><br><span class="line"></span><br><span class="line"><span class="built_in">sudo</span> timedatectl set-timezone Asia/Shanghai</span><br><span class="line">手动同步时间</span><br><span class="line">使用以下命令手动同步时间：</span><br><span class="line"></span><br><span class="line"><span class="built_in">sudo</span> chronyc -a makestep</span><br><span class="line">这会从指定的NTP服务器获取当前的时间并将其应用于系统时钟。</span><br><span class="line"></span><br><span class="line">验证chrony服务是否正常运行</span><br><span class="line">使用以下命令检查chrony服务是否已经开始运行：</span><br><span class="line"></span><br><span class="line"><span class="built_in">sudo</span> systemctl status chronyd</span><br><span class="line">如果提示“Active: active (running)”则表示chrony服务已经在后台正常运行。</span><br><span class="line"></span><br><span class="line">验证时区设置是否正确</span><br><span class="line">使用以下命令验证时区设置是否正确：</span><br><span class="line"></span><br><span class="line">timedatectl</span><br><span class="line">输出结果应该包含类似于“Time zone: Asia/Shanghai”这样的行，表示时区已经成功设置为上海。</span><br></pre></td></tr></table></figure></div>
+
+<h4 id="所有节点安装Docker-kubeadm-kubelet"><a href="#所有节点安装Docker-kubeadm-kubelet" class="headerlink" title="所有节点安装Docker&#x2F;kubeadm&#x2F;kubelet"></a>所有节点安装Docker&#x2F;kubeadm&#x2F;kubelet</h4><blockquote>
+<p>新增</p>
+</blockquote>
+<div class="code-container" data-rel="Sh"><figure class="iseeu highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bash &lt;(curl -sSL https://gitee.com/SuperManito/LinuxMirrors/raw/main/DockerInstallation.sh)</span><br></pre></td></tr></table></figure></div>
+
+<blockquote>
+<p>新增</p>
+</blockquote>
+<p>Kubernetes默认CRI(容器运行时为docker),因此先安装docker</p>
+<blockquote>
+<p><a class="link"   target="_blank" rel="noopener" href="https://developer.aliyun.com/mirror/docker-ce?spm=a2c6h.13651102.0.0.57e31b112D5RuA" >https://developer.aliyun.com/mirror/docker-ce?spm=a2c6h.13651102.0.0.57e31b112D5RuA<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a></p>
+</blockquote>
+<ol>
+<li>安装Docker</li>
+</ol>
+<div class="code-container" data-rel="Sh"><figure class="iseeu highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># step 1: 安装必要的一些系统工具</span></span><br><span class="line"><span class="built_in">sudo</span> yum install -y yum-utils device-mapper-persistent-data lvm2</span><br><span class="line"><span class="comment"># Step 2: 添加软件源信息</span></span><br><span class="line"><span class="built_in">sudo</span> yum-config-manager --add-repo https://mirrors.aliyun.com/docker-ce/linux/centos/docker-ce.repo</span><br><span class="line"><span class="comment"># Step 3</span></span><br><span class="line"><span class="built_in">sudo</span> sed -i <span class="string">&#x27;s+download.docker.com+mirrors.aliyun.com/docker-ce+&#x27;</span> /etc/yum.repos.d/docker-ce.repo</span><br><span class="line"><span class="comment"># Step 4: 更新并安装Docker-CE,注意安装版本，指定版本看下列</span></span><br><span class="line"><span class="built_in">sudo</span> yum makecache</span><br><span class="line"><span class="built_in">sudo</span> yum -y install docker-ce</span><br><span class="line"><span class="comment"># Step 5: 开启Docker服务</span></span><br><span class="line">systemctl <span class="built_in">enable</span> docker &amp;&amp; systemctl start docker</span><br><span class="line">docker --version</span><br><span class="line"><span class="comment"># 注意以下可选不需要一定执行：</span></span><br><span class="line"><span class="comment"># 官方软件源默认启用了最新的软件，您可以通过编辑软件源的方式获取各个版本的软件包。例如官方并没有将测试版本的软件源置为可用，您可以通过以下方式开启。同理可以开启各种测试版本等。</span></span><br><span class="line"><span class="comment"># vim /etc/yum.repos.d/docker-ce.repo</span></span><br><span class="line"><span class="comment">#   将[docker-ce-test]下方的enabled=0修改为enabled=1</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment"># 安装指定版本的Docker-CE:</span></span><br><span class="line"><span class="comment"># Step 1: 查找Docker-CE的版本:</span></span><br><span class="line"><span class="comment"># yum list docker-ce.x86_64 --showduplicates | sort -r</span></span><br><span class="line"><span class="comment">#   Loading mirror speeds from cached hostfile</span></span><br><span class="line"><span class="comment">#   Loaded plugins: branch, fastestmirror, langpacks</span></span><br><span class="line"><span class="comment">#   docker-ce.x86_64            17.03.1.ce-1.el7.centos            docker-ce-stable</span></span><br><span class="line"><span class="comment">#   docker-ce.x86_64            17.03.1.ce-1.el7.centos            @docker-ce-stable</span></span><br><span class="line"><span class="comment">#   docker-ce.x86_64            17.03.0.ce-1.el7.centos            docker-ce-stable</span></span><br><span class="line"><span class="comment">#   Available Packages</span></span><br><span class="line"><span class="comment"># Step2: 安装指定版本的Docker-CE: (VERSION例如上面的17.03.0.ce.1-1.el7.centos)</span></span><br><span class="line"><span class="comment"># sudo yum -y install docker-ce-20.10.21-3.el7</span></span><br><span class="line"></span><br><span class="line">或</span><br><span class="line"></span><br><span class="line">[root@a ~]# <span class="built_in">sudo</span> dnf install -y docker-ce-20.10.9 docker-ce-cli-20.10.9 containerd.io --allowerasing</span><br><span class="line"></span><br></pre></td></tr></table></figure></div>
+
+<ol start="2">
+<li>添加阿里云YUM软件源</li>
+</ol>
+<p>设置仓库地址</p>
+<div class="code-container" data-rel="Shell"><figure class="iseeu highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">cat &gt; /etc/docker/daemon.json &lt;&lt; EOF</span><br><span class="line">&#123;</span><br><span class="line">&quot;exec-opts&quot;: [</span><br><span class="line">   &quot;native.cgroupdriver=systemd&quot;</span><br><span class="line">],</span><br><span class="line">&quot;registry-mirrors&quot;: [&quot;https://b9pmyelo.mirror.aliyuncs.com&quot;]</span><br><span class="line">&#125;</span><br><span class="line">EOF</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">重启docker</span></span><br><span class="line">systemctl restart docker</span><br></pre></td></tr></table></figure></div>
+
+<ol start="3">
+<li>设置 kubernetes yum 源</li>
+</ol>
+<div class="code-container" data-rel="Shell"><figure class="iseeu highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">cat &gt; /etc/yum.repos.d/kubernetes.repo &lt;&lt; EOF</span><br><span class="line">[kubernetes]</span><br><span class="line">name=Kubernetes</span><br><span class="line">baseurl=https://mirrors.aliyun.com/kubernetes/yum/repos/kubernetes-el7-x86_64</span><br><span class="line">enabled=1</span><br><span class="line">gpgcheck=0</span><br><span class="line">repo_gpgcheck=0</span><br><span class="line">gpgkey=https://mirrors.aliyun.com/kubernetes/yum/doc/yum-key.gpg</span><br><span class="line">        https://mirrors.aliyun.com/kubernetes/yum/doc/rpm-package-key.gpg</span><br><span class="line">EOF</span><br></pre></td></tr></table></figure></div>
+
+<p>centos8更新</p>
+<blockquote>
+<p><a class="link"   target="_blank" rel="noopener" href="https://developer.aliyun.com/mirror/kubernetes" >https://developer.aliyun.com/mirror/kubernetes<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a></p>
+</blockquote>
+<div class="code-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">sudo bash -c &#x27;cat &lt;&lt;EOF &gt; /etc/yum.repos.d/kubernetes.repo</span><br><span class="line">[kubernetes]</span><br><span class="line">name=Kubernetes</span><br><span class="line">baseurl=https://mirrors.aliyun.com/kubernetes/yum/repos/kubernetes-el7-x86_64/</span><br><span class="line">enabled=1</span><br><span class="line">gpgcheck=1</span><br><span class="line">repo_gpgcheck=1</span><br><span class="line">gpgkey=https://mirrors.aliyun.com/kubernetes/yum/doc/yum-key.gpg https://mirrors.aliyun.com/kubernetes/yum/doc/rpm-package-key.gpg</span><br><span class="line">EOF&#x27;</span><br></pre></td></tr></table></figure></div>
+
+<ol start="4">
+<li>所有节点安装kubeadm,kubelet和kubectl</li>
+</ol>
+<div class="code-container" data-rel="Shell"><figure class="iseeu highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">yum install -y kubelet-1.23.6 kubeadm-1.23.6 kubectl-1.23.6</span><br><span class="line">systemctl enable kubelet</span><br></pre></td></tr></table></figure></div>
+
+<div class="code-container" data-rel="Shell"><figure class="iseeu highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">yum install -y kubelet-1.23.17 kubeadm-1.23.17 kubectl-1.23.17</span><br><span class="line">systemctl enable kubelet</span><br></pre></td></tr></table></figure></div>
+
+<h5 id="安装错误之后如何卸载"><a href="#安装错误之后如何卸载" class="headerlink" title="安装错误之后如何卸载"></a>安装错误之后如何卸载</h5><div class="code-container" data-rel="Sh"><figure class="iseeu highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> dnf remove -y kubelet kubeadm kubectl</span><br><span class="line"></span><br><span class="line"><span class="built_in">sudo</span> systemctl stop kubelet</span><br><span class="line"><span class="built_in">sudo</span> <span class="built_in">rm</span> -rf /etc/kubernetes</span><br><span class="line"><span class="built_in">sudo</span> <span class="built_in">rm</span> -rf /var/lib/kubelet</span><br></pre></td></tr></table></figure></div>
+
+<h4 id="在master上部署Kubernetes（初始化之后操作根据返回结果自行调整）"><a href="#在master上部署Kubernetes（初始化之后操作根据返回结果自行调整）" class="headerlink" title="在master上部署Kubernetes（初始化之后操作根据返回结果自行调整）"></a>在master上部署Kubernetes（初始化之后操作根据返回结果自行调整）</h4><ul>
+<li>在master(192.168.58.135)上执行，注意–kubernetes-version v1.23.6的版本要与kubeadm,kubelet和kubectl的版本对应</li>
+</ul>
+<blockquote>
+<p>centos8</p>
+</blockquote>
+<div class="code-container" data-rel="Sh"><figure class="iseeu highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">kubeadm init --apiserver-advertise-address=192.168.58.149 --image-repository registry.aliyuncs.com/google_containers --kubernetes-version v1.23.17 --service-cidr=10.96.0.0/12 --pod-network-cidr=10.244.0.0/16</span><br></pre></td></tr></table></figure></div>
+
+<div class="code-container" data-rel="Sh"><figure class="iseeu highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line">kubeadm init --apiserver-advertise-address=192.168.58.138 --image-repository registry.aliyuncs.com/google_containers --kubernetes-version v1.23.6 --service-cidr=10.96.0.0/12 --pod-network-cidr=10.244.0.0/16</span><br><span class="line"></span><br><span class="line"><span class="comment"># --kubernetes-version v1.23.6的版本如果与kubeadm,kubelet和kubectl的版本不一致会导致初始化失败，解决方案如下</span></span><br><span class="line"><span class="built_in">rm</span> -rf /etc/kubernetes/manifests/kube-apiserver.yaml</span><br><span class="line"><span class="built_in">rm</span> -rf /etc/kubernetes/manifests/kube-controller-manager.yaml</span><br><span class="line"><span class="built_in">rm</span> -rf /etc/kubernetes/manifests/kube-scheduler.yaml</span><br><span class="line"><span class="built_in">rm</span> -rf /etc/kubernetes/manifests/etcd.yaml</span><br><span class="line">kubeadm reset</span><br><span class="line"></span><br><span class="line"><span class="comment"># 初始化成功后将会看到如下信息</span></span><br><span class="line">[addons] Applied essential addon: kube-proxy</span><br><span class="line"></span><br><span class="line">Your Kubernetes control-plane has initialized successfully!</span><br><span class="line"></span><br><span class="line">To start using your cluster, you need to run the following as a regular user:</span><br><span class="line"><span class="comment"># 初始化成功后操作1</span></span><br><span class="line">  <span class="built_in">mkdir</span> -p <span class="variable">$HOME</span>/.kube</span><br><span class="line">  <span class="built_in">sudo</span> <span class="built_in">cp</span> -i /etc/kubernetes/admin.conf <span class="variable">$HOME</span>/.kube/config</span><br><span class="line">  <span class="built_in">sudo</span> <span class="built_in">chown</span> $(<span class="built_in">id</span> -u):$(<span class="built_in">id</span> -g) <span class="variable">$HOME</span>/.kube/config</span><br><span class="line">Alternatively, <span class="keyword">if</span> you are the root user, you can run:</span><br><span class="line">  <span class="built_in">export</span> KUBECONFIG=/etc/kubernetes/admin.conf</span><br><span class="line">You should now deploy a pod network to the cluster.</span><br><span class="line"><span class="comment"># 初始化成功后操作2</span></span><br><span class="line">Run <span class="string">&quot;kubectl apply -f [podnetwork].yaml&quot;</span> with one of the options listed at:</span><br><span class="line">  https://kubernetes.io/docs/concepts/cluster-administration/addons/</span><br><span class="line"></span><br><span class="line">Then you can <span class="built_in">join</span> any number of worker nodes by running the following on each as root:</span><br><span class="line"><span class="comment"># 初始化成功后操作3</span></span><br><span class="line">kubeadm <span class="built_in">join</span> 192.168.58.135:6443 --token lqsu8e.slm32auk92zge8uv \</span><br><span class="line">	--discovery-token-ca-cert-hash sha256:fd9eb078dbe1e64d83463c78879496e993eb1c7b4b586ee17ec9e130bd158e01 </span><br><span class="line">[root@k8smaster ~]#</span><br><span class="line"></span><br><span class="line">kubeadm <span class="built_in">join</span> 192.168.58.138:6443 --token xerq7h.qy6q9l0qqup2vxpf --discovery-token-ca-cert-hash sha256:cad363c2d71e7320d1b58dce408f08cba3bec41106296fb2a87c92c22a206c14</span><br><span class="line"></span><br></pre></td></tr></table></figure></div>
+
+<ul>
+<li>master初始化成功后操作1</li>
+</ul>
+<p>开始使用集群时，需要作为常规用户运行以下命令，(由上述kubeadm init成功后的结果作为输入)</p>
+<div class="code-container" data-rel="Shell"><figure class="iseeu highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">mkdir -p $HOME/.kube</span><br><span class="line">sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config</span><br><span class="line">sudo chown $(id -u):$(id -g) $HOME/.kube/config</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">查看是否执行成功</span></span><br><span class="line">[root@k8smaster ~]# kubectl get nodes</span><br><span class="line">NAME        STATUS   ROLES                  AGE   VERSION</span><br><span class="line">k8smaster   Ready    control-plane,master   42m   v1.23.6</span><br><span class="line">k8snode1    Ready    &lt;none&gt;                 24m   v1.23.6</span><br><span class="line">k8snode2    Ready    &lt;none&gt;                 24m   v1.23.6</span><br><span class="line">[root@k8smaster ~]#</span><br></pre></td></tr></table></figure></div>
+
+<ul>
+<li>master初始化成功后操作2</li>
+</ul>
+<p>部署CNI网络(由上述kubeadm init成功后的结果作为输入)</p>
+<div class="code-container" data-rel="Shell"><figure class="iseeu highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">kubectl apply -f https://raw.githubusercontent.com/coreos/flannel/master/Documentation/kube-flannel.yml</span><br></pre></td></tr></table></figure></div>
+
+<p>上述kubectl apply -f 命令执行时，有时会遇到如下错误</p>
+<div class="code-container" data-rel="Shell"><figure class="iseeu highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[root@k8smaster ~]# kubectl apply -f https://raw.githubusercontent.com/coreos/flannel/master/Documentation/kube-flannel.yml</span><br><span class="line">The connection to the server raw.githubusercontent.com was refused - did you specify the right host or port?</span><br></pre></td></tr></table></figure></div>
+
+<p>解决方法为更改&#x2F;etc&#x2F;hosts，增加主机映射</p>
+<p>去下面的网址，输入上述命令中的下载网址raw.githubusercontent.com，将查到的IP地址添加到&#x2F;etc&#x2F;hosts</p>
+<blockquote>
+<p><a class="link"   target="_blank" rel="noopener" href="https://ip.tool.chinaz.com/" >https://ip.tool.chinaz.com<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a></p>
+</blockquote>
+<div class="code-container" data-rel="Shell"><figure class="iseeu highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">[root@k8smaster ~]# cat /etc/hosts</span><br><span class="line">127.0.0.1   localhost localhost.localdomain localhost4 localhost4.localdomain4</span><br><span class="line">::1         localhost localhost.localdomain localhost6 localhost6.localdomain6</span><br><span class="line">192.168.58.135 k8smaster</span><br><span class="line">192.168.58.136 k8snode1</span><br><span class="line">192.168.58.137 k8snode2</span><br><span class="line"></span><br><span class="line">185.199.108.133 raw.githubusercontent.com</span><br><span class="line">185.199.109.133 raw.githubusercontent.com</span><br><span class="line">185.199.110.133 raw.githubusercontent.com</span><br><span class="line">185.199.111.133 raw.githubusercontent.com</span><br><span class="line">[root@k8smaster ~]# </span><br></pre></td></tr></table></figure></div>
+
+<ul>
+<li>master初始化成功后操作3</li>
+</ul>
+<p>加入Kubernetes Node(由上述kubeadm init成功后的结果作为输入)</p>
+<div class="code-container" data-rel="Shell"><figure class="iseeu highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">kubeadm join 192.168.58.135:6443 --token lqsu8e.slm32auk92zge8uv --discovery-token-ca-cert-hash sha256:fd9eb078dbe1e64d83463c78879496e993eb1c7b4b586ee17ec9e130bd158e01</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">（备注） node部署完节点之后，去master再次查看节点</span></span><br><span class="line">[root@k8smaster ~]# kubectl get nodes</span><br><span class="line">NAME        STATUS     ROLES                  AGE   VERSION</span><br><span class="line">k8smaster   NotReady   control-plane,master   18m   v1.23.6</span><br><span class="line">k8snode1    NotReady   &lt;none&gt;                 18s   v1.23.6</span><br><span class="line">k8snode2    NotReady   &lt;none&gt;                 6s    v1.23.6</span><br></pre></td></tr></table></figure></div>
+
+<h5 id="测试是否执行成功"><a href="#测试是否执行成功" class="headerlink" title="测试是否执行成功"></a>测试是否执行成功</h5><div class="code-container" data-rel="Shell"><figure class="iseeu highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">[root@k8smaster ~]# kubectl get pods -n kube-system</span><br><span class="line">NAME                                READY   STATUS    RESTARTS   AGE</span><br><span class="line">coredns-6d8c4cb4d-2vdnc             1/1     Running   0          37m</span><br><span class="line">coredns-6d8c4cb4d-s2hhx             1/1     Running   0          37m</span><br><span class="line">etcd-k8smaster                      1/1     Running   0          37m</span><br><span class="line">kube-apiserver-k8smaster            1/1     Running   0          37m</span><br><span class="line">kube-controller-manager-k8smaster   1/1     Running   0          37m</span><br><span class="line">kube-proxy-4wsv9                    1/1     Running   0          37m</span><br><span class="line">kube-proxy-56zvx                    1/1     Running   0          19m</span><br><span class="line">kube-proxy-89fcx                    1/1     Running   0          19m</span><br><span class="line">kube-scheduler-k8smaster            1/1     Running   0          37m</span><br><span class="line">[root@k8smaster ~]# </span><br></pre></td></tr></table></figure></div>
+
+<p>网络部署好之后，可通过如下命令查看各个node状态，STATUS都为Ready证明已准备好</p>
+<div class="code-container" data-rel="Shell"><figure class="iseeu highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">[root@k8smaster ~]# kubectl get nodes</span><br><span class="line">NAME        STATUS   ROLES                  AGE   VERSION</span><br><span class="line">k8smaster   Ready    control-plane,master   42m   v1.23.6</span><br><span class="line">k8snode1    Ready    &lt;none&gt;                 24m   v1.23.6</span><br><span class="line">k8snode2    Ready    &lt;none&gt;                 24m   v1.23.6</span><br><span class="line">[root@k8smaster ~]#</span><br></pre></td></tr></table></figure></div>
+
+<h5 id="测试Kubernetes集群"><a href="#测试Kubernetes集群" class="headerlink" title="测试Kubernetes集群"></a>测试Kubernetes集群</h5><div class="code-container" data-rel="Shell"><figure class="iseeu highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">kubectl create deployment nginx --image=nginx</span><br><span class="line">kubectl expose deployment nginx --port=80 --type=NodePort</span><br><span class="line">kubectl get pod,svc</span><br><span class="line">访问地址：http://NodeIP:Port</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">创建一个pod</span></span><br><span class="line">[root@k8smaster ~]# kubectl create deployment nginx --image=nginx</span><br><span class="line">deployment.apps/nginx created</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">查看创建的pod，STATUS是否为Running</span></span><br><span class="line">[root@k8smaster ~]# kubectl get pod</span><br><span class="line">NAME                     READY   STATUS    RESTARTS   AGE</span><br><span class="line">nginx-85b98978db-4b2xz   1/1     Running   0          45s</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">暴露端口</span></span><br><span class="line">[root@k8smaster ~]# kubectl expose deployment nginx --port=80 --type=NodePort</span><br><span class="line">service/nginx exposed</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">查看当前的pod状态还有对外暴露的端口是多少</span></span><br><span class="line">[root@k8smaster ~]# kubectl get pod,svc</span><br><span class="line">NAME                         READY   STATUS    RESTARTS   AGE</span><br><span class="line">pod/nginx-85b98978db-4b2xz   1/1     Running   0          119s</span><br><span class="line"></span><br><span class="line">NAME                 TYPE        CLUSTER-IP      EXTERNAL-IP   PORT(S)        AGE</span><br><span class="line">service/kubernetes   ClusterIP   10.96.0.1       &lt;none&gt;        443/TCP        48m</span><br><span class="line">service/nginx        NodePort    10.99.127.192   &lt;none&gt;        80:32502/TCP   16s</span><br></pre></td></tr></table></figure></div>
+
+<p>访问地址：<a href="http://NodeIP:Port">http://NodeIP:Port</a></p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="attachment:image-4.png"
+                      alt="image-4.png"
+                ></p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="attachment:image-5.png"
+                      alt="image-5.png"
+                ></p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="attachment:image-6.png"
+                      alt="image-6.png"
+                ></p>
+<h4 id="运行后一段时间的k8s如何再重新加入节点"><a href="#运行后一段时间的k8s如何再重新加入节点" class="headerlink" title="运行后一段时间的k8s如何再重新加入节点"></a>运行后一段时间的k8s如何再重新加入节点</h4><p><strong>注意：新加入的节点必须完成上述2.1.1.2中的所有配置要求，保证和其他节点默认配置一致</strong></p>
+<ol>
+<li>查看当前节点</li>
+</ol>
+<div class="code-container" data-rel="Sh"><figure class="iseeu highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">[root@SqaMaster1 kubernetes]# kubectl get node</span><br><span class="line">NAME         STATUS     ROLES                  AGE     VERSION</span><br><span class="line">sqamaster1   Ready      control-plane,master   2d20h   v1.23.6</span><br><span class="line">sqanode1     Ready      &lt;none&gt;                 2d20h   v1.23.6</span><br><span class="line">sqanode2     Ready      &lt;none&gt;                 2d20h   v1.23.6</span><br><span class="line">[root@SqaMaster1 kubernetes]# </span><br></pre></td></tr></table></figure></div>
+
+<ol start="2">
+<li>查看token，一般有效期24小时，超过之后没有</li>
+</ol>
+<div class="code-container" data-rel="Sh"><figure class="iseeu highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[root@SqaMaster1 kubernetes]# kubeadm token list</span><br></pre></td></tr></table></figure></div>
+
+<ol start="3">
+<li>在k8s-master上使用以下命令重新生成令牌</li>
+</ol>
+<div class="code-container" data-rel="Sh"><figure class="iseeu highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[root@SqaMaster1 kubernetes]# kubeadm token create --print-join-command</span><br><span class="line">kubeadm <span class="built_in">join</span> 192.168.171.128:6443 --token x9bmkk.ktxnyt9flaws4970 --discovery-token-ca-cert-hash sha256:8f48b86ee5669521b2648931fd70f25484f04210afd378e3d5b15e8b3c1c878b</span><br></pre></td></tr></table></figure></div>
+
+<ol start="4">
+<li>新节点加入集群</li>
+</ol>
+<p>将第三步生成的结果在要加入的节点中输入</p>
+<div class="code-container" data-rel="Sh"><figure class="iseeu highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[root@SqaNode3 ~]# kubeadm <span class="built_in">join</span> 192.168.171.128:6443 --token x9bmkk.ktxnyt9flaws4970 --discovery-token-ca-cert-hash sha256:8f48b86ee5669521b2648931fd70f25484f04210afd378e3d5b15e8b3c1c878b</span><br></pre></td></tr></table></figure></div>
+
+<ol start="5">
+<li>查看当前节点</li>
+</ol>
+<div class="code-container" data-rel="Sh"><figure class="iseeu highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">[root@SqaMaster1 kubernetes]# kubectl get node</span><br><span class="line">NAME         STATUS     ROLES                  AGE     VERSION</span><br><span class="line">sqamaster1   Ready      control-plane,master   2d20h   v1.23.6</span><br><span class="line">sqanode1     Ready      &lt;none&gt;                 2d20h   v1.23.6</span><br><span class="line">sqanode2     Ready      &lt;none&gt;                 2d20h   v1.23.6</span><br><span class="line">sqanode3     NotReady   &lt;none&gt;                 26s     v1.23.6</span><br><span class="line">[root@SqaMaster1 kubernetes]# </span><br></pre></td></tr></table></figure></div>
+
+<ol start="6">
+<li>新节点加入集群时可能出现错误，可使用以下命令尝试之后再次加入</li>
+</ol>
+<div class="code-container" data-rel="Sh"><figure class="iseeu highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[root@SqaMaster1 kubernetes]# kubeadm reset</span><br></pre></td></tr></table></figure></div>
+
+<h1 id="Kubernetes-DashBoard"><a href="#Kubernetes-DashBoard" class="headerlink" title="Kubernetes DashBoard"></a>Kubernetes DashBoard</h1><div class="code-container" data-rel="Sh"><figure class="iseeu highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">kind: Service</span><br><span class="line">apiVersion: v1</span><br><span class="line">metadata:</span><br><span class="line">  labels:</span><br><span class="line">    k8s-app: kubernetes-dashboard</span><br><span class="line">  name: kubernetes-dashboard</span><br><span class="line">  namespace: kubernetes-dashboard</span><br><span class="line">spec:</span><br><span class="line">  <span class="built_in">type</span>: NodePort <span class="comment"># new</span></span><br><span class="line">  ports:</span><br><span class="line">    - port: 443</span><br><span class="line">      targetPort: 8443</span><br><span class="line">      nodePort: 30009 <span class="comment"># new</span></span><br><span class="line">  selector:</span><br><span class="line">    k8s-app: kubernetes-dashboard</span><br><span class="line"></span><br><span class="line">---</span><br></pre></td></tr></table></figure></div>
+
+<h2 id="下载yaml文件并运行-以上为具体修改内容，完整文件在下方"><a href="#下载yaml文件并运行-以上为具体修改内容，完整文件在下方" class="headerlink" title="下载yaml文件并运行,以上为具体修改内容，完整文件在下方"></a>下载yaml文件并运行,以上为具体修改内容，完整文件在下方</h2><div class="code-container" data-rel="Sh"><figure class="iseeu highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">[root@k8smaster dashboard]# kubectl create -f dashboard-recommended.yaml </span><br><span class="line">namespace/kubernetes-dashboard created</span><br><span class="line">serviceaccount/kubernetes-dashboard created</span><br><span class="line">service/kubernetes-dashboard created</span><br><span class="line">secret/kubernetes-dashboard-certs created</span><br><span class="line">secret/kubernetes-dashboard-csrf created</span><br><span class="line">secret/kubernetes-dashboard-key-holder created</span><br><span class="line">configmap/kubernetes-dashboard-settings created</span><br><span class="line">role.rbac.authorization.k8s.io/kubernetes-dashboard created</span><br><span class="line">clusterrole.rbac.authorization.k8s.io/kubernetes-dashboard created</span><br><span class="line">rolebinding.rbac.authorization.k8s.io/kubernetes-dashboard created</span><br><span class="line">clusterrolebinding.rbac.authorization.k8s.io/kubernetes-dashboard created</span><br><span class="line">deployment.apps/kubernetes-dashboard created</span><br><span class="line">service/dashboard-metrics-scraper created</span><br><span class="line">deployment.apps/dashboard-metrics-scraper created</span><br><span class="line">[root@k8smaster dashboard]# </span><br></pre></td></tr></table></figure></div>
+
+<h2 id="查看namespace为kubernetes-dashboard下的资源"><a href="#查看namespace为kubernetes-dashboard下的资源" class="headerlink" title="查看namespace为kubernetes-dashboard下的资源"></a>查看namespace为kubernetes-dashboard下的资源</h2><div class="code-container" data-rel="Sh"><figure class="iseeu highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">[root@k8smaster dashboard]# kubectl get pod,svc -n kubernetes-dashboard -o wide</span><br><span class="line">NAME                                             READY   STATUS              RESTARTS   AGE   IP       NODE       NOMINATED NODE   READINESS GATES</span><br><span class="line">pod/dashboard-metrics-scraper-6f669b9c9b-l8tkp   0/1     ContainerCreating   0          20s   &lt;none&gt;   k8snode1   &lt;none&gt;           &lt;none&gt;</span><br><span class="line">pod/kubernetes-dashboard-758765f476-94cz2        0/1     ContainerCreating   0          21s   &lt;none&gt;   k8snode1   &lt;none&gt;           &lt;none&gt;</span><br><span class="line"></span><br><span class="line">NAME                                TYPE        CLUSTER-IP      EXTERNAL-IP   PORT(S)         AGE   SELECTOR</span><br><span class="line">service/dashboard-metrics-scraper   ClusterIP   10.110.173.13   &lt;none&gt;        8000/TCP        21s   k8s-app=dashboard-metrics-scraper</span><br><span class="line">service/kubernetes-dashboard        NodePort    10.104.63.91    &lt;none&gt;        443:30009/TCP   21s   k8s-app=kubernetes-dashboard</span><br><span class="line">[root@k8smaster dashboard]# </span><br><span class="line">[root@k8smaster dashboard]# kubectl get pod,svc -n kubernetes-dashboard -o wide</span><br><span class="line">NAME                                             READY   STATUS    RESTARTS   AGE    IP            NODE       NOMINATED NODE   READINESS GATES</span><br><span class="line">pod/dashboard-metrics-scraper-6f669b9c9b-l8tkp   1/1     Running   0          99s    10.244.1.12   k8snode1   &lt;none&gt;           &lt;none&gt;</span><br><span class="line">pod/kubernetes-dashboard-758765f476-94cz2        1/1     Running   0          100s   10.244.1.11   k8snode1   &lt;none&gt;           &lt;none&gt;</span><br><span class="line"></span><br><span class="line">NAME                                TYPE        CLUSTER-IP      EXTERNAL-IP   PORT(S)         AGE    SELECTOR</span><br><span class="line">service/dashboard-metrics-scraper   ClusterIP   10.110.173.13   &lt;none&gt;        8000/TCP        100s   k8s-app=dashboard-metrics-scraper</span><br><span class="line">service/kubernetes-dashboard        NodePort    10.104.63.91    &lt;none&gt;        443:30009/TCP   100s   k8s-app=kubernetes-dashboard</span><br></pre></td></tr></table></figure></div>
+
+<h2 id="创建账户"><a href="#创建账户" class="headerlink" title="创建账户"></a>创建账户</h2><div class="code-container" data-rel="Sh"><figure class="iseeu highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[root@k8smaster dashboard]# kubectl create serviceaccount dashboard-admin -n kubernetes-dashboard</span><br><span class="line">serviceaccount/dashboard-admin created</span><br><span class="line">[root@k8smaster dashboard]# </span><br></pre></td></tr></table></figure></div>
+
+<h2 id="授权"><a href="#授权" class="headerlink" title="授权"></a>授权</h2><div class="code-container" data-rel="Sh"><figure class="iseeu highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[root@k8smaster dashboard]# kubectl create clusterrolebinding dashboard-admin-rb --clusterrole=cluster-admin --serviceaccount=kubernetes-dashboard:dashboard-admin</span><br><span class="line">clusterrolebinding.rbac.authorization.k8s.io/dashboard-admin-rb created</span><br><span class="line">[root@k8smaster dashboard]# </span><br></pre></td></tr></table></figure></div>
+
+<h2 id="获取账号token"><a href="#获取账号token" class="headerlink" title="获取账号token"></a>获取账号token</h2><div class="code-container" data-rel="Sh"><figure class="iseeu highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">[root@k8smaster dashboard]# kubectl get secrets -n kubernetes-dashboard | grep dashboard-admin</span><br><span class="line">dashboard-admin-token-6gxrq        kubernetes.io/service-account-token   3      30s</span><br><span class="line"><span class="comment"># dashboard-admin-token-6gxrq 为下方命令中用到的token</span></span><br><span class="line">[root@k8smaster dashboard]# </span><br><span class="line">[root@k8smaster dashboard]# kubectl describe secrets dashboard-admin-token-6gxrq  -n kubernetes-dashboard</span><br><span class="line">Name:         dashboard-admin-token-6gxrq</span><br><span class="line">Namespace:    kubernetes-dashboard</span><br><span class="line">Labels:       &lt;none&gt;</span><br><span class="line">Annotations:  kubernetes.io/service-account.name: dashboard-admin</span><br><span class="line">              kubernetes.io/service-account.uid: 9f1f6487-20c0-4dc5-94b5-5bf688095f79</span><br><span class="line"></span><br><span class="line">Type:  kubernetes.io/service-account-token</span><br><span class="line"></span><br><span class="line">Data</span><br><span class="line">====</span><br><span class="line">namespace:  20 bytes</span><br><span class="line">token:      eyJhbGciOiJSUzI1NiIsImtpZCI6Il91blJ1cUpPcm03N2UtZFBETjdlMFktWXdienBSQ0VHX0dwemlXYzdtVU0ifQ.eyJpc3MiOiJrdWJlcm5ldGVzL3NlcnZpY2VhY2NvdW50Iiwia3ViZXJuZXRlcy5pby9zZXJ2aWNlYWNjb3VudC9uYW1lc3BhY2UiOiJrdWJlcm5ldGVzLWRhc2hib2FyZCIsImt1YmVybmV0ZXMuaW8vc2VydmljZWFjY291bnQvc2VjcmV0Lm5hbWUiOiJkYXNoYm9hcmQtYWRtaW4tdG9rZW4tNmd4cnEiLCJrdWJlcm5ldGVzLmlvL3NlcnZpY2VhY2NvdW50L3NlcnZpY2UtYWNjb3VudC5uYW1lIjoiZGFzaGJvYXJkLWFkbWluIiwia3ViZXJuZXRlcy5pby9zZXJ2aWNlYWNjb3VudC9zZXJ2aWNlLWFjY291bnQudWlkIjoiOWYxZjY0ODctMjBjMC00ZGM1LTk0YjUtNWJmNjg4MDk1Zjc5Iiwic3ViIjoic3lzdGVtOnNlcnZpY2VhY2NvdW50Omt1YmVybmV0ZXMtZGFzaGJvYXJkOmRhc2hib2FyZC1hZG1pbiJ9.EbNnsYdao-qYPxnuNJ4aqBwVHSN1-pUgV-0N2C5_Qz6YuCufA_21MzJPJBlcXwMiZuTb4x7nI_IOtFRiXUHYDlEWgVCrjjuEfIZM6yEMQzz0tKmS7wqpX_NDkIRhZ7WtTWb3cxu_6sje5GOc6ZxwuONPSqwbndMEzMVXhUyoXRHIgeESYWcaz-o4EuS6vUAYSvqHpcYZsG1f-qqdxl7xzkjO-JbTeQVOQ4cmqEZri3QuRkzZr4illTjSw0c0T33WxyVDLOOGpsd_o4Tb5REaXM1nvintKoiX3WleSjKzje-toLVEOeRxvN9m04xetKJPn8xAM3pZFk5NHGUHBXM5cA</span><br><span class="line">ca.crt:     1099 bytes</span><br><span class="line">[root@k8smaster dashboard]# </span><br><span class="line">[root@k8smaster dashboard]# </span><br><span class="line"></span><br></pre></td></tr></table></figure></div>
+
+<p>访问地址：<a class="link"   target="_blank" rel="noopener" href="https://192.168.171.128:30999/#/login" >https://192.168.171.128:30999/#/login<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a></p>
+<ul>
+<li>打开浏览器会提示是否选择token验证登录，将上方的token输入即可</li>
+</ul>
+<h1 id="命令行工具-kubectl"><a href="#命令行工具-kubectl" class="headerlink" title="命令行工具 kubectl"></a>命令行工具 kubectl</h1><div class="code-container" data-rel="Sh"><figure class="iseeu highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">kubectl --<span class="built_in">help</span></span><br><span class="line"></span><br><span class="line">kubectl get node</span><br></pre></td></tr></table></figure></div>
+
+<h1 id="NFS搭建"><a href="#NFS搭建" class="headerlink" title="NFS搭建"></a>NFS搭建</h1><blockquote>
+<p><a class="link"   target="_blank" rel="noopener" href="https://kuboard.cn/learning/k8s-intermediate/persistent/nfs.html#%E9%85%8D%E7%BD%AEnfs%E6%9C%8D%E5%8A%A1%E5%99%A8" >https://kuboard.cn/learning/k8s-intermediate/persistent/nfs.html#%E9%85%8D%E7%BD%AEnfs%E6%9C%8D%E5%8A%A1%E5%99%A8<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a></p>
+</blockquote>
+<h2 id="配置NFS服务器"><a href="#配置NFS服务器" class="headerlink" title="配置NFS服务器"></a>配置NFS服务器</h2><ul>
+<li>本章节中所有命令都以 root 身份执行</li>
+</ul>
+<ol>
+<li>执行以下命令安装 nfs 服务器所需的软件包</li>
+</ol>
+<div class="code-container" data-rel="Sh"><figure class="iseeu highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install -y rpcbind nfs-utils</span><br></pre></td></tr></table></figure></div>
+
+<ol start="2">
+<li>执行命令 vim &#x2F;etc&#x2F;exports，创建 exports 文件，文件内容如下：</li>
+</ol>
+<div class="code-container" data-rel="Sh"><figure class="iseeu highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/root/nfs_root/ *(insecure,rw,<span class="built_in">sync</span>,no_root_squash)</span><br></pre></td></tr></table></figure></div>
+
+<ol start="3">
+<li>执行以下命令，启动 nfs 服务</li>
+</ol>
+<div class="code-container" data-rel="Sh"><figure class="iseeu highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 创建共享目录，如果要使用自己的目录，请替换本文档中所有的 /root/nfs_root/</span></span><br><span class="line"><span class="built_in">mkdir</span> /root/nfs_root</span><br><span class="line"></span><br><span class="line">systemctl <span class="built_in">enable</span> rpcbind</span><br><span class="line">systemctl <span class="built_in">enable</span> nfs-server</span><br><span class="line"></span><br><span class="line">systemctl start rpcbind</span><br><span class="line">systemctl start nfs-server</span><br><span class="line">exportfs -r</span><br></pre></td></tr></table></figure></div>
+
+<ol start="4">
+<li>检查配置是否生效</li>
+</ol>
+<div class="code-container" data-rel="Sh"><figure class="iseeu highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">exportfs</span><br><span class="line"><span class="comment"># 输出结果如下所示</span></span><br><span class="line">/root/nfs_root /root/nfs_root</span><br></pre></td></tr></table></figure></div>
+
+<pre><code>已复制到剪贴板！
+</code></pre>
+<h2 id="在客户端测试nfs"><a href="#在客户端测试nfs" class="headerlink" title="在客户端测试nfs"></a>在客户端测试nfs</h2><ul>
+<li>本章节中所有命令都以 root 身份执行</li>
+<li>服务器端防火墙开放111、662、875、892、2049的 tcp &#x2F; udp 允许，否则远端客户无法连接。</li>
+</ul>
+<ol>
+<li>执行以下命令安装 nfs 客户端所需的软件包</li>
+</ol>
+<div class="code-container" data-rel="Sh"><figure class="iseeu highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install -y nfs-utils</span><br></pre></td></tr></table></figure></div>
+
+<ol start="2">
+<li>执行以下命令检查 nfs 服务器端是否有设置共享目录</li>
+</ol>
+<div class="code-container" data-rel="Sh"><figure class="iseeu highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># showmount -e $(nfs服务器的IP)</span></span><br><span class="line">showmount -e 172.17.216.82</span><br><span class="line"><span class="comment"># 输出结果如下所示</span></span><br><span class="line">Export list <span class="keyword">for</span> 172.17.216.82:</span><br><span class="line">/root/nfs_root *</span><br></pre></td></tr></table></figure></div>
+
+<ol start="3">
+<li>执行以下命令挂载 nfs 服务器上的共享目录到本机路径 &#x2F;root&#x2F;nfsmount</li>
+</ol>
+<div class="code-container" data-rel="Sh"><figure class="iseeu highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">mkdir</span> /root/nfsmount</span><br><span class="line"><span class="comment"># mount -t nfs $(nfs服务器的IP):/root/nfs_root /root/nfsmount</span></span><br><span class="line">mount -t nfs 172.17.216.82:/root/nfs_root /root/nfsmount</span><br><span class="line"><span class="comment"># 写入一个测试文件</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">&quot;hello nfs server&quot;</span> &gt; /root/nfsmount/test.txt</span><br></pre></td></tr></table></figure></div>
+
+<ol start="4">
+<li>在 nfs 服务器上执行以下命令，验证文件写入成功</li>
+</ol>
+<div class="code-container" data-rel="Sh"><figure class="iseeu highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cat</span> /root/nfs_root/test.txt</span><br></pre></td></tr></table></figure></div>
+
+<h1 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h1><blockquote>
+<p><a class="link"   target="_blank" rel="noopener" href="https://blog.csdn.net/u010349629/article/details/123796789?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522168243184516782427417377%2522%252C%2522scm%2522%253A%252220140713.130102334..%2522%257D&request_id=168243184516782427417377&biz_id=0&utm_medium=distribute.pc_search_result.none-task-blog-2~all~baidu_landing_v2~default-1-123796789-null-null.142%5Ev86%5Einsert_down28v1,239%5Ev2%5Einsert_chatgpt&utm_term=centos8%E4%B8%8B%E6%90%AD%E5%BB%BAk8s&spm=1018.2226.3001.4187" >https://blog.csdn.net/u010349629/article/details/123796789?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522168243184516782427417377%2522%252C%2522scm%2522%253A%252220140713.130102334..%2522%257D&amp;request_id=168243184516782427417377&amp;biz_id=0&amp;utm_medium=distribute.pc_search_result.none-task-blog-2~all~baidu_landing_v2~default-1-123796789-null-null.142^v86^insert_down28v1,239^v2^insert_chatgpt&amp;utm_term=centos8%E4%B8%8B%E6%90%AD%E5%BB%BAk8s&amp;spm=1018.2226.3001.4187<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a></p>
+</blockquote>
+<blockquote>
+<p><a class="link"   target="_blank" rel="noopener" href="https://blog.csdn.net/realize_dream/article/details/127284864" >https://blog.csdn.net/realize_dream/article/details/127284864<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a></p>
+</blockquote>
+<h1 id="dashboard-recommended-yaml"><a href="#dashboard-recommended-yaml" class="headerlink" title="dashboard-recommended.yaml"></a>dashboard-recommended.yaml</h1><div class="code-container" data-rel="Yaml"><figure class="iseeu highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br><span class="line">190</span><br><span class="line">191</span><br><span class="line">192</span><br><span class="line">193</span><br><span class="line">194</span><br><span class="line">195</span><br><span class="line">196</span><br><span class="line">197</span><br><span class="line">198</span><br><span class="line">199</span><br><span class="line">200</span><br><span class="line">201</span><br><span class="line">202</span><br><span class="line">203</span><br><span class="line">204</span><br><span class="line">205</span><br><span class="line">206</span><br><span class="line">207</span><br><span class="line">208</span><br><span class="line">209</span><br><span class="line">210</span><br><span class="line">211</span><br><span class="line">212</span><br><span class="line">213</span><br><span class="line">214</span><br><span class="line">215</span><br><span class="line">216</span><br><span class="line">217</span><br><span class="line">218</span><br><span class="line">219</span><br><span class="line">220</span><br><span class="line">221</span><br><span class="line">222</span><br><span class="line">223</span><br><span class="line">224</span><br><span class="line">225</span><br><span class="line">226</span><br><span class="line">227</span><br><span class="line">228</span><br><span class="line">229</span><br><span class="line">230</span><br><span class="line">231</span><br><span class="line">232</span><br><span class="line">233</span><br><span class="line">234</span><br><span class="line">235</span><br><span class="line">236</span><br><span class="line">237</span><br><span class="line">238</span><br><span class="line">239</span><br><span class="line">240</span><br><span class="line">241</span><br><span class="line">242</span><br><span class="line">243</span><br><span class="line">244</span><br><span class="line">245</span><br><span class="line">246</span><br><span class="line">247</span><br><span class="line">248</span><br><span class="line">249</span><br><span class="line">250</span><br><span class="line">251</span><br><span class="line">252</span><br><span class="line">253</span><br><span class="line">254</span><br><span class="line">255</span><br><span class="line">256</span><br><span class="line">257</span><br><span class="line">258</span><br><span class="line">259</span><br><span class="line">260</span><br><span class="line">261</span><br><span class="line">262</span><br><span class="line">263</span><br><span class="line">264</span><br><span class="line">265</span><br><span class="line">266</span><br><span class="line">267</span><br><span class="line">268</span><br><span class="line">269</span><br><span class="line">270</span><br><span class="line">271</span><br><span class="line">272</span><br><span class="line">273</span><br><span class="line">274</span><br><span class="line">275</span><br><span class="line">276</span><br><span class="line">277</span><br><span class="line">278</span><br><span class="line">279</span><br><span class="line">280</span><br><span class="line">281</span><br><span class="line">282</span><br><span class="line">283</span><br><span class="line">284</span><br><span class="line">285</span><br><span class="line">286</span><br><span class="line">287</span><br><span class="line">288</span><br><span class="line">289</span><br><span class="line">290</span><br><span class="line">291</span><br><span class="line">292</span><br><span class="line">293</span><br><span class="line">294</span><br><span class="line">295</span><br><span class="line">296</span><br><span class="line">297</span><br><span class="line">298</span><br><span class="line">299</span><br><span class="line">300</span><br><span class="line">301</span><br><span class="line">302</span><br><span class="line">303</span><br><span class="line">304</span><br><span class="line">305</span><br><span class="line">306</span><br><span class="line">307</span><br><span class="line">308</span><br><span class="line">309</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Copyright 2017 The Kubernetes Authors.</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment"># Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);</span></span><br><span class="line"><span class="comment"># you may not use this file except in compliance with the License.</span></span><br><span class="line"><span class="comment"># You may obtain a copy of the License at</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment">#     http://www.apache.org/licenses/LICENSE-2.0</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment"># Unless required by applicable law or agreed to in writing, software</span></span><br><span class="line"><span class="comment"># distributed under the License is distributed on an &quot;AS IS&quot; BASIS,</span></span><br><span class="line"><span class="comment"># WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.</span></span><br><span class="line"><span class="comment"># See the License for the specific language governing permissions and</span></span><br><span class="line"><span class="comment"># limitations under the License.</span></span><br><span class="line"></span><br><span class="line"><span class="attr">apiVersion:</span> <span class="string">v1</span></span><br><span class="line"><span class="attr">kind:</span> <span class="string">Namespace</span></span><br><span class="line"><span class="attr">metadata:</span></span><br><span class="line">  <span class="attr">name:</span> <span class="string">kubernetes-dashboard</span></span><br><span class="line"></span><br><span class="line"><span class="meta">---</span></span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="attr">apiVersion:</span> <span class="string">v1</span></span><br><span class="line"><span class="attr">kind:</span> <span class="string">ServiceAccount</span></span><br><span class="line"><span class="attr">metadata:</span></span><br><span class="line">  <span class="attr">labels:</span></span><br><span class="line">    <span class="attr">k8s-app:</span> <span class="string">kubernetes-dashboard</span></span><br><span class="line">  <span class="attr">name:</span> <span class="string">kubernetes-dashboard</span></span><br><span class="line">  <span class="attr">namespace:</span> <span class="string">kubernetes-dashboard</span></span><br><span class="line"></span><br><span class="line"><span class="meta">---</span></span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="attr">kind:</span> <span class="string">Service</span></span><br><span class="line"><span class="attr">apiVersion:</span> <span class="string">v1</span></span><br><span class="line"><span class="attr">metadata:</span></span><br><span class="line">  <span class="attr">labels:</span></span><br><span class="line">    <span class="attr">k8s-app:</span> <span class="string">kubernetes-dashboard</span></span><br><span class="line">  <span class="attr">name:</span> <span class="string">kubernetes-dashboard</span></span><br><span class="line">  <span class="attr">namespace:</span> <span class="string">kubernetes-dashboard</span></span><br><span class="line"><span class="attr">spec:</span></span><br><span class="line">  <span class="attr">type:</span> <span class="string">NodePort</span> <span class="comment"># new</span></span><br><span class="line">  <span class="attr">ports:</span></span><br><span class="line">    <span class="bullet">-</span> <span class="attr">port:</span> <span class="number">443</span></span><br><span class="line">      <span class="attr">targetPort:</span> <span class="number">8443</span></span><br><span class="line">      <span class="attr">nodePort:</span> <span class="number">30009</span> <span class="comment"># new</span></span><br><span class="line">  <span class="attr">selector:</span></span><br><span class="line">    <span class="attr">k8s-app:</span> <span class="string">kubernetes-dashboard</span></span><br><span class="line"></span><br><span class="line"><span class="meta">---</span></span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="attr">apiVersion:</span> <span class="string">v1</span></span><br><span class="line"><span class="attr">kind:</span> <span class="string">Secret</span></span><br><span class="line"><span class="attr">metadata:</span></span><br><span class="line">  <span class="attr">labels:</span></span><br><span class="line">    <span class="attr">k8s-app:</span> <span class="string">kubernetes-dashboard</span></span><br><span class="line">  <span class="attr">name:</span> <span class="string">kubernetes-dashboard-certs</span></span><br><span class="line">  <span class="attr">namespace:</span> <span class="string">kubernetes-dashboard</span></span><br><span class="line"><span class="attr">type:</span> <span class="string">Opaque</span></span><br><span class="line"></span><br><span class="line"><span class="meta">---</span></span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="attr">apiVersion:</span> <span class="string">v1</span></span><br><span class="line"><span class="attr">kind:</span> <span class="string">Secret</span></span><br><span class="line"><span class="attr">metadata:</span></span><br><span class="line">  <span class="attr">labels:</span></span><br><span class="line">    <span class="attr">k8s-app:</span> <span class="string">kubernetes-dashboard</span></span><br><span class="line">  <span class="attr">name:</span> <span class="string">kubernetes-dashboard-csrf</span></span><br><span class="line">  <span class="attr">namespace:</span> <span class="string">kubernetes-dashboard</span></span><br><span class="line"><span class="attr">type:</span> <span class="string">Opaque</span></span><br><span class="line"><span class="attr">data:</span></span><br><span class="line">  <span class="attr">csrf:</span> <span class="string">&quot;&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="meta">---</span></span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="attr">apiVersion:</span> <span class="string">v1</span></span><br><span class="line"><span class="attr">kind:</span> <span class="string">Secret</span></span><br><span class="line"><span class="attr">metadata:</span></span><br><span class="line">  <span class="attr">labels:</span></span><br><span class="line">    <span class="attr">k8s-app:</span> <span class="string">kubernetes-dashboard</span></span><br><span class="line">  <span class="attr">name:</span> <span class="string">kubernetes-dashboard-key-holder</span></span><br><span class="line">  <span class="attr">namespace:</span> <span class="string">kubernetes-dashboard</span></span><br><span class="line"><span class="attr">type:</span> <span class="string">Opaque</span></span><br><span class="line"></span><br><span class="line"><span class="meta">---</span></span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="attr">kind:</span> <span class="string">ConfigMap</span></span><br><span class="line"><span class="attr">apiVersion:</span> <span class="string">v1</span></span><br><span class="line"><span class="attr">metadata:</span></span><br><span class="line">  <span class="attr">labels:</span></span><br><span class="line">    <span class="attr">k8s-app:</span> <span class="string">kubernetes-dashboard</span></span><br><span class="line">  <span class="attr">name:</span> <span class="string">kubernetes-dashboard-settings</span></span><br><span class="line">  <span class="attr">namespace:</span> <span class="string">kubernetes-dashboard</span></span><br><span class="line"></span><br><span class="line"><span class="meta">---</span></span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="attr">kind:</span> <span class="string">Role</span></span><br><span class="line"><span class="attr">apiVersion:</span> <span class="string">rbac.authorization.k8s.io/v1</span></span><br><span class="line"><span class="attr">metadata:</span></span><br><span class="line">  <span class="attr">labels:</span></span><br><span class="line">    <span class="attr">k8s-app:</span> <span class="string">kubernetes-dashboard</span></span><br><span class="line">  <span class="attr">name:</span> <span class="string">kubernetes-dashboard</span></span><br><span class="line">  <span class="attr">namespace:</span> <span class="string">kubernetes-dashboard</span></span><br><span class="line"><span class="attr">rules:</span></span><br><span class="line">  <span class="comment"># Allow Dashboard to get, update and delete Dashboard exclusive secrets.</span></span><br><span class="line">  <span class="bullet">-</span> <span class="attr">apiGroups:</span> [<span class="string">&quot;&quot;</span>]</span><br><span class="line">    <span class="attr">resources:</span> [<span class="string">&quot;secrets&quot;</span>]</span><br><span class="line">    <span class="attr">resourceNames:</span> [<span class="string">&quot;kubernetes-dashboard-key-holder&quot;</span>, <span class="string">&quot;kubernetes-dashboard-certs&quot;</span>, <span class="string">&quot;kubernetes-dashboard-csrf&quot;</span>]</span><br><span class="line">    <span class="attr">verbs:</span> [<span class="string">&quot;get&quot;</span>, <span class="string">&quot;update&quot;</span>, <span class="string">&quot;delete&quot;</span>]</span><br><span class="line">    <span class="comment"># Allow Dashboard to get and update &#x27;kubernetes-dashboard-settings&#x27; config map.</span></span><br><span class="line">  <span class="bullet">-</span> <span class="attr">apiGroups:</span> [<span class="string">&quot;&quot;</span>]</span><br><span class="line">    <span class="attr">resources:</span> [<span class="string">&quot;configmaps&quot;</span>]</span><br><span class="line">    <span class="attr">resourceNames:</span> [<span class="string">&quot;kubernetes-dashboard-settings&quot;</span>]</span><br><span class="line">    <span class="attr">verbs:</span> [<span class="string">&quot;get&quot;</span>, <span class="string">&quot;update&quot;</span>]</span><br><span class="line">    <span class="comment"># Allow Dashboard to get metrics.</span></span><br><span class="line">  <span class="bullet">-</span> <span class="attr">apiGroups:</span> [<span class="string">&quot;&quot;</span>]</span><br><span class="line">    <span class="attr">resources:</span> [<span class="string">&quot;services&quot;</span>]</span><br><span class="line">    <span class="attr">resourceNames:</span> [<span class="string">&quot;heapster&quot;</span>, <span class="string">&quot;dashboard-metrics-scraper&quot;</span>]</span><br><span class="line">    <span class="attr">verbs:</span> [<span class="string">&quot;proxy&quot;</span>]</span><br><span class="line">  <span class="bullet">-</span> <span class="attr">apiGroups:</span> [<span class="string">&quot;&quot;</span>]</span><br><span class="line">    <span class="attr">resources:</span> [<span class="string">&quot;services/proxy&quot;</span>]</span><br><span class="line">    <span class="attr">resourceNames:</span> [<span class="string">&quot;heapster&quot;</span>, <span class="string">&quot;http:heapster:&quot;</span>, <span class="string">&quot;https:heapster:&quot;</span>, <span class="string">&quot;dashboard-metrics-scraper&quot;</span>, <span class="string">&quot;http:dashboard-metrics-scraper&quot;</span>]</span><br><span class="line">    <span class="attr">verbs:</span> [<span class="string">&quot;get&quot;</span>]</span><br><span class="line"></span><br><span class="line"><span class="meta">---</span></span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="attr">kind:</span> <span class="string">ClusterRole</span></span><br><span class="line"><span class="attr">apiVersion:</span> <span class="string">rbac.authorization.k8s.io/v1</span></span><br><span class="line"><span class="attr">metadata:</span></span><br><span class="line">  <span class="attr">labels:</span></span><br><span class="line">    <span class="attr">k8s-app:</span> <span class="string">kubernetes-dashboard</span></span><br><span class="line">  <span class="attr">name:</span> <span class="string">kubernetes-dashboard</span></span><br><span class="line"><span class="attr">rules:</span></span><br><span class="line">  <span class="comment"># Allow Metrics Scraper to get metrics from the Metrics server</span></span><br><span class="line">  <span class="bullet">-</span> <span class="attr">apiGroups:</span> [<span class="string">&quot;metrics.k8s.io&quot;</span>]</span><br><span class="line">    <span class="attr">resources:</span> [<span class="string">&quot;pods&quot;</span>, <span class="string">&quot;nodes&quot;</span>]</span><br><span class="line">    <span class="attr">verbs:</span> [<span class="string">&quot;get&quot;</span>, <span class="string">&quot;list&quot;</span>, <span class="string">&quot;watch&quot;</span>]</span><br><span class="line"></span><br><span class="line"><span class="meta">---</span></span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="attr">apiVersion:</span> <span class="string">rbac.authorization.k8s.io/v1</span></span><br><span class="line"><span class="attr">kind:</span> <span class="string">RoleBinding</span></span><br><span class="line"><span class="attr">metadata:</span></span><br><span class="line">  <span class="attr">labels:</span></span><br><span class="line">    <span class="attr">k8s-app:</span> <span class="string">kubernetes-dashboard</span></span><br><span class="line">  <span class="attr">name:</span> <span class="string">kubernetes-dashboard</span></span><br><span class="line">  <span class="attr">namespace:</span> <span class="string">kubernetes-dashboard</span></span><br><span class="line"><span class="attr">roleRef:</span></span><br><span class="line">  <span class="attr">apiGroup:</span> <span class="string">rbac.authorization.k8s.io</span></span><br><span class="line">  <span class="attr">kind:</span> <span class="string">Role</span></span><br><span class="line">  <span class="attr">name:</span> <span class="string">kubernetes-dashboard</span></span><br><span class="line"><span class="attr">subjects:</span></span><br><span class="line">  <span class="bullet">-</span> <span class="attr">kind:</span> <span class="string">ServiceAccount</span></span><br><span class="line">    <span class="attr">name:</span> <span class="string">kubernetes-dashboard</span></span><br><span class="line">    <span class="attr">namespace:</span> <span class="string">kubernetes-dashboard</span></span><br><span class="line"></span><br><span class="line"><span class="meta">---</span></span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="attr">apiVersion:</span> <span class="string">rbac.authorization.k8s.io/v1</span></span><br><span class="line"><span class="attr">kind:</span> <span class="string">ClusterRoleBinding</span></span><br><span class="line"><span class="attr">metadata:</span></span><br><span class="line">  <span class="attr">name:</span> <span class="string">kubernetes-dashboard</span></span><br><span class="line"><span class="attr">roleRef:</span></span><br><span class="line">  <span class="attr">apiGroup:</span> <span class="string">rbac.authorization.k8s.io</span></span><br><span class="line">  <span class="attr">kind:</span> <span class="string">ClusterRole</span></span><br><span class="line">  <span class="attr">name:</span> <span class="string">kubernetes-dashboard</span></span><br><span class="line"><span class="attr">subjects:</span></span><br><span class="line">  <span class="bullet">-</span> <span class="attr">kind:</span> <span class="string">ServiceAccount</span></span><br><span class="line">    <span class="attr">name:</span> <span class="string">kubernetes-dashboard</span></span><br><span class="line">    <span class="attr">namespace:</span> <span class="string">kubernetes-dashboard</span></span><br><span class="line"></span><br><span class="line"><span class="meta">---</span></span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="attr">kind:</span> <span class="string">Deployment</span></span><br><span class="line"><span class="attr">apiVersion:</span> <span class="string">apps/v1</span></span><br><span class="line"><span class="attr">metadata:</span></span><br><span class="line">  <span class="attr">labels:</span></span><br><span class="line">    <span class="attr">k8s-app:</span> <span class="string">kubernetes-dashboard</span></span><br><span class="line">  <span class="attr">name:</span> <span class="string">kubernetes-dashboard</span></span><br><span class="line">  <span class="attr">namespace:</span> <span class="string">kubernetes-dashboard</span></span><br><span class="line"><span class="attr">spec:</span></span><br><span class="line">  <span class="attr">replicas:</span> <span class="number">1</span></span><br><span class="line">  <span class="attr">revisionHistoryLimit:</span> <span class="number">10</span></span><br><span class="line">  <span class="attr">selector:</span></span><br><span class="line">    <span class="attr">matchLabels:</span></span><br><span class="line">      <span class="attr">k8s-app:</span> <span class="string">kubernetes-dashboard</span></span><br><span class="line">  <span class="attr">template:</span></span><br><span class="line">    <span class="attr">metadata:</span></span><br><span class="line">      <span class="attr">labels:</span></span><br><span class="line">        <span class="attr">k8s-app:</span> <span class="string">kubernetes-dashboard</span></span><br><span class="line">    <span class="attr">spec:</span></span><br><span class="line">      <span class="attr">securityContext:</span></span><br><span class="line">        <span class="attr">seccompProfile:</span></span><br><span class="line">          <span class="attr">type:</span> <span class="string">RuntimeDefault</span></span><br><span class="line">      <span class="attr">containers:</span></span><br><span class="line">        <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">kubernetes-dashboard</span></span><br><span class="line">          <span class="attr">image:</span> <span class="string">kubernetesui/dashboard:v2.7.0</span></span><br><span class="line">          <span class="attr">imagePullPolicy:</span> <span class="string">Always</span></span><br><span class="line">          <span class="attr">ports:</span></span><br><span class="line">            <span class="bullet">-</span> <span class="attr">containerPort:</span> <span class="number">8443</span></span><br><span class="line">              <span class="attr">protocol:</span> <span class="string">TCP</span></span><br><span class="line">          <span class="attr">args:</span></span><br><span class="line">            <span class="bullet">-</span> <span class="string">--auto-generate-certificates</span></span><br><span class="line">            <span class="bullet">-</span> <span class="string">--namespace=kubernetes-dashboard</span></span><br><span class="line">            <span class="comment"># Uncomment the following line to manually specify Kubernetes API server Host</span></span><br><span class="line">            <span class="comment"># If not specified, Dashboard will attempt to auto discover the API server and connect</span></span><br><span class="line">            <span class="comment"># to it. Uncomment only if the default does not work.</span></span><br><span class="line">            <span class="comment"># - --apiserver-host=http://my-address:port</span></span><br><span class="line">          <span class="attr">volumeMounts:</span></span><br><span class="line">            <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">kubernetes-dashboard-certs</span></span><br><span class="line">              <span class="attr">mountPath:</span> <span class="string">/certs</span></span><br><span class="line">              <span class="comment"># Create on-disk volume to store exec logs</span></span><br><span class="line">            <span class="bullet">-</span> <span class="attr">mountPath:</span> <span class="string">/tmp</span></span><br><span class="line">              <span class="attr">name:</span> <span class="string">tmp-volume</span></span><br><span class="line">          <span class="attr">livenessProbe:</span></span><br><span class="line">            <span class="attr">httpGet:</span></span><br><span class="line">              <span class="attr">scheme:</span> <span class="string">HTTPS</span></span><br><span class="line">              <span class="attr">path:</span> <span class="string">/</span></span><br><span class="line">              <span class="attr">port:</span> <span class="number">8443</span></span><br><span class="line">            <span class="attr">initialDelaySeconds:</span> <span class="number">30</span></span><br><span class="line">            <span class="attr">timeoutSeconds:</span> <span class="number">30</span></span><br><span class="line">          <span class="attr">securityContext:</span></span><br><span class="line">            <span class="attr">allowPrivilegeEscalation:</span> <span class="literal">false</span></span><br><span class="line">            <span class="attr">readOnlyRootFilesystem:</span> <span class="literal">true</span></span><br><span class="line">            <span class="attr">runAsUser:</span> <span class="number">1001</span></span><br><span class="line">            <span class="attr">runAsGroup:</span> <span class="number">2001</span></span><br><span class="line">      <span class="attr">volumes:</span></span><br><span class="line">        <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">kubernetes-dashboard-certs</span></span><br><span class="line">          <span class="attr">secret:</span></span><br><span class="line">            <span class="attr">secretName:</span> <span class="string">kubernetes-dashboard-certs</span></span><br><span class="line">        <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">tmp-volume</span></span><br><span class="line">          <span class="attr">emptyDir:</span> &#123;&#125;</span><br><span class="line">      <span class="attr">serviceAccountName:</span> <span class="string">kubernetes-dashboard</span></span><br><span class="line">      <span class="attr">nodeSelector:</span></span><br><span class="line">        <span class="attr">&quot;kubernetes.io/os&quot;:</span> <span class="string">linux</span></span><br><span class="line">      <span class="comment"># Comment the following tolerations if Dashboard must not be deployed on master</span></span><br><span class="line">      <span class="attr">tolerations:</span></span><br><span class="line">        <span class="bullet">-</span> <span class="attr">key:</span> <span class="string">node-role.kubernetes.io/master</span></span><br><span class="line">          <span class="attr">effect:</span> <span class="string">NoSchedule</span></span><br><span class="line"></span><br><span class="line"><span class="meta">---</span></span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="attr">kind:</span> <span class="string">Service</span></span><br><span class="line"><span class="attr">apiVersion:</span> <span class="string">v1</span></span><br><span class="line"><span class="attr">metadata:</span></span><br><span class="line">  <span class="attr">labels:</span></span><br><span class="line">    <span class="attr">k8s-app:</span> <span class="string">dashboard-metrics-scraper</span></span><br><span class="line">  <span class="attr">name:</span> <span class="string">dashboard-metrics-scraper</span></span><br><span class="line">  <span class="attr">namespace:</span> <span class="string">kubernetes-dashboard</span></span><br><span class="line"><span class="attr">spec:</span></span><br><span class="line">  <span class="attr">ports:</span></span><br><span class="line">    <span class="bullet">-</span> <span class="attr">port:</span> <span class="number">8000</span></span><br><span class="line">      <span class="attr">targetPort:</span> <span class="number">8000</span></span><br><span class="line">  <span class="attr">selector:</span></span><br><span class="line">    <span class="attr">k8s-app:</span> <span class="string">dashboard-metrics-scraper</span></span><br><span class="line"></span><br><span class="line"><span class="meta">---</span></span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="attr">kind:</span> <span class="string">Deployment</span></span><br><span class="line"><span class="attr">apiVersion:</span> <span class="string">apps/v1</span></span><br><span class="line"><span class="attr">metadata:</span></span><br><span class="line">  <span class="attr">labels:</span></span><br><span class="line">    <span class="attr">k8s-app:</span> <span class="string">dashboard-metrics-scraper</span></span><br><span class="line">  <span class="attr">name:</span> <span class="string">dashboard-metrics-scraper</span></span><br><span class="line">  <span class="attr">namespace:</span> <span class="string">kubernetes-dashboard</span></span><br><span class="line"><span class="attr">spec:</span></span><br><span class="line">  <span class="attr">replicas:</span> <span class="number">1</span></span><br><span class="line">  <span class="attr">revisionHistoryLimit:</span> <span class="number">10</span></span><br><span class="line">  <span class="attr">selector:</span></span><br><span class="line">    <span class="attr">matchLabels:</span></span><br><span class="line">      <span class="attr">k8s-app:</span> <span class="string">dashboard-metrics-scraper</span></span><br><span class="line">  <span class="attr">template:</span></span><br><span class="line">    <span class="attr">metadata:</span></span><br><span class="line">      <span class="attr">labels:</span></span><br><span class="line">        <span class="attr">k8s-app:</span> <span class="string">dashboard-metrics-scraper</span></span><br><span class="line">    <span class="attr">spec:</span></span><br><span class="line">      <span class="attr">securityContext:</span></span><br><span class="line">        <span class="attr">seccompProfile:</span></span><br><span class="line">          <span class="attr">type:</span> <span class="string">RuntimeDefault</span></span><br><span class="line">      <span class="attr">containers:</span></span><br><span class="line">        <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">dashboard-metrics-scraper</span></span><br><span class="line">          <span class="attr">image:</span> <span class="string">kubernetesui/metrics-scraper:v1.0.8</span></span><br><span class="line">          <span class="attr">ports:</span></span><br><span class="line">            <span class="bullet">-</span> <span class="attr">containerPort:</span> <span class="number">8000</span></span><br><span class="line">              <span class="attr">protocol:</span> <span class="string">TCP</span></span><br><span class="line">          <span class="attr">livenessProbe:</span></span><br><span class="line">            <span class="attr">httpGet:</span></span><br><span class="line">              <span class="attr">scheme:</span> <span class="string">HTTP</span></span><br><span class="line">              <span class="attr">path:</span> <span class="string">/</span></span><br><span class="line">              <span class="attr">port:</span> <span class="number">8000</span></span><br><span class="line">            <span class="attr">initialDelaySeconds:</span> <span class="number">30</span></span><br><span class="line">            <span class="attr">timeoutSeconds:</span> <span class="number">30</span></span><br><span class="line">          <span class="attr">volumeMounts:</span></span><br><span class="line">          <span class="bullet">-</span> <span class="attr">mountPath:</span> <span class="string">/tmp</span></span><br><span class="line">            <span class="attr">name:</span> <span class="string">tmp-volume</span></span><br><span class="line">          <span class="attr">securityContext:</span></span><br><span class="line">            <span class="attr">allowPrivilegeEscalation:</span> <span class="literal">false</span></span><br><span class="line">            <span class="attr">readOnlyRootFilesystem:</span> <span class="literal">true</span></span><br><span class="line">            <span class="attr">runAsUser:</span> <span class="number">1001</span></span><br><span class="line">            <span class="attr">runAsGroup:</span> <span class="number">2001</span></span><br><span class="line">      <span class="attr">serviceAccountName:</span> <span class="string">kubernetes-dashboard</span></span><br><span class="line">      <span class="attr">nodeSelector:</span></span><br><span class="line">        <span class="attr">&quot;kubernetes.io/os&quot;:</span> <span class="string">linux</span></span><br><span class="line">      <span class="comment"># Comment the following tolerations if Dashboard must not be deployed on master</span></span><br><span class="line">      <span class="attr">tolerations:</span></span><br><span class="line">        <span class="bullet">-</span> <span class="attr">key:</span> <span class="string">node-role.kubernetes.io/master</span></span><br><span class="line">          <span class="attr">effect:</span> <span class="string">NoSchedule</span></span><br><span class="line">      <span class="attr">volumes:</span></span><br><span class="line">        <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">tmp-volume</span></span><br><span class="line">          <span class="attr">emptyDir:</span> &#123;&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure></div>
+
+		</div>
+
+		
+		<div class="post-copyright-info w-full my-8 px-2 sm:px-6 md:px-8">
+			<div class="article-copyright-info-container">
+    <ul>
+        <li><strong>标题:</strong> Kubernetes学习笔记</li>
+        <li><strong>作者:</strong> Sunmy</li>
+        <li><strong>创建于
+                :</strong> 2023-06-30 16:56:57</li>
+        
+            <li>
+                <strong>更新于
+                    :</strong> 2025-06-29 21:05:24
+            </li>
+        
+        <li>
+            <strong>链接:</strong> https://ldspdvsun.github.io/cmchul3ig00465mgb3eeo8uco/
+        </li>
+        <li>
+            <strong>
+                版权声明:
+            </strong>
+            
+
+            
+                版权所有 &#169 Sunmy，禁止转载。
+            
+        </li>
+    </ul>
+</div>
+
+		</div>
+		
+
+		
+		<ul class="post-tags-box text-lg mt-1.5 flex-wrap justify-center flex md:hidden">
+			
+			<li class="tag-item mx-0.5">
+				<a href="/tags/Kubernetes/">#Kubernetes</a>&nbsp;
+			</li>
+			
+		</ul>
+		
+
+		
+  <div class="recommended-article px-2 sm:px-6 md:px-8">
+   <div class="recommended-desktop">
+    <div class="recommended-article-header text-xl md:text-3xl font-bold mt-10">
+     <i aria-hidden="true"></i><span>推荐阅读</span>
+    </div>
+    <div class="recommended-article-group"><a class="recommended-article-item" href="/cmchul3ih00495mgbci2c92g8/" title="Docker学习笔记" rel="bookmark">
+  <img src="https://i.postimg.cc/52qB9kNm/10.png" alt="Docker学习笔记" class="!max-w-none">
+  <span class="title">Docker学习笔记</span>
+</a><a class="recommended-article-item" href="/cmchul3ig00445mgb875efpm1/" title="Docker问题记录" rel="bookmark">
+  <img src="https://i.postimg.cc/52qB9kNm/10.png" alt="Docker问题记录" class="!max-w-none">
+  <span class="title">Docker问题记录</span>
+</a><a class="recommended-article-item" href="/cmchul3i3001t5mgb08do7znm/" title="AFL" rel="bookmark">
+  <img src="https://i.postimg.cc/52qB9kNm/10.png" alt="AFL" class="!max-w-none">
+  <span class="title">AFL</span>
+</a></div>
+   </div>
+   <div class="recommended-mobile">
+   <div class="recommended-article-header text-xl md:text-3xl font-bold mt-10">
+     <i aria-hidden="true"></i><span>推荐阅读</span>
+   </div>
+   <div class="recommended-article-group"><a class="recommended-article-item" href="/cmchul3ih00495mgbci2c92g8/" title="Docker学习笔记" rel="bookmark">
+  <img src="https://i.postimg.cc/52qB9kNm/10.png" alt="Docker学习笔记" class="!max-w-none">
+  <span class="title">Docker学习笔记</span>
+</a><a class="recommended-article-item" href="/cmchul3ig00445mgb875efpm1/" title="Docker问题记录" rel="bookmark">
+  <img src="https://i.postimg.cc/52qB9kNm/10.png" alt="Docker问题记录" class="!max-w-none">
+  <span class="title">Docker问题记录</span>
+</a></div>
+   </div>
+  </div>
+
+		
+		<div class="article-nav my-8 flex justify-between items-center px-2 sm:px-6 md:px-8">
+			
+			<div class="article-prev border-border-color shadow-redefine-flat shadow-shadow-color-2 rounded-medium px-4 py-2 hover:shadow-redefine-flat-hover hover:shadow-shadow-color-2">
+				<a class="prev" rel="prev" href="/cmchul3ig00445mgb875efpm1/">
+					<span class="left arrow-icon flex justify-center items-center">
+						<i class="fa-solid fa-chevron-left"></i>
+					</span>
+					<span class="title flex justify-center items-center">
+						<span class="post-nav-title-item">Docker问题记录</span>
+						<span class="post-nav-item">上一篇</span>
+					</span>
+				</a>
+			</div>
+			
+			
+			<div class="article-next border-border-color shadow-redefine-flat shadow-shadow-color-2 rounded-medium px-4 py-2 hover:shadow-redefine-flat-hover hover:shadow-shadow-color-2">
+				<a class="next" rel="next" href="/cmchul3ih00495mgbci2c92g8/">
+					<span class="title flex justify-center items-center">
+						<span class="post-nav-title-item">Docker学习笔记</span>
+						<span class="post-nav-item">下一篇</span>
+					</span>
+					<span class="right arrow-icon flex justify-center items-center">
+						<i class="fa-solid fa-chevron-right"></i>
+					</span>
+				</a>
+			</div>
+			
+		</div>
+		
+
+
+		
+		<div class="comment-container px-2 sm:px-6 md:px-8 pb-8">
+			<div class="comments-container mt-10 w-full ">
+    <div id="comment-anchor" class="w-full h-2.5"></div>
+    <div class="comment-area-title w-full my-1.5 md:my-2.5 text-xl md:text-3xl font-bold">
+        评论
+    </div>
+    
+
+        
+            
+    <div class="twikoo-container">
+        <script data-swup-reload-script
+                src='https://cdnjs.cloudflare.com/ajax/libs/twikoo/1.6.36/twikoo.all.min.js'
+        ></script>
+        <div id="twikoo-comment"></div>
+        <script data-swup-reload-script>
+            function loadTwikoo() {
+                twikoo.init({
+                    el: '#twikoo-comment',
+                    envId: 'https://twikoo-henna-six.vercel.app/',
+                });
+            }
+
+            if ('true') {
+                const loadTwikooTimeout = setTimeout(() => {
+                    loadTwikoo();
+                    clearTimeout(loadTwikooTimeout);
+                }, 1000);
+            } else {
+                window.addEventListener('DOMContentLoaded', loadTwikoo);
+            }
+        </script>
+    </div>
+
+
+        
+        
+    
+</div>
+
+		</div>
+		
+	</div>
+
+	
+	<div class="toc-content-container">
+		<div class="post-toc-wrap">
+	<div class="post-toc">
+		<div class="toc-title">目录</div>
+		<div class="page-title">Kubernetes学习笔记</div>
+		<ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#kubernetes%E7%AE%80%E4%BB%8B"><span class="nav-text">kubernetes简介</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#kubernetes%E9%9B%86%E7%BE%A4%E6%90%AD%E5%BB%BA"><span class="nav-text">kubernetes集群搭建</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#kubeadm%E6%90%AD%E5%BB%BA"><span class="nav-text">kubeadm搭建</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8D%95master%E9%9B%86%E7%BE%A4"><span class="nav-text">单master集群</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AE%89%E8%A3%85%E8%A6%81%E6%B1%82"><span class="nav-text">安装要求</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%85%8D%E7%BD%AE%E7%8E%AF%E5%A2%83"><span class="nav-text">配置环境</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%89%80%E6%9C%89%E8%8A%82%E7%82%B9%E5%AE%89%E8%A3%85Docker-kubeadm-kubelet"><span class="nav-text">所有节点安装Docker&#x2F;kubeadm&#x2F;kubelet</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%AE%89%E8%A3%85%E9%94%99%E8%AF%AF%E4%B9%8B%E5%90%8E%E5%A6%82%E4%BD%95%E5%8D%B8%E8%BD%BD"><span class="nav-text">安装错误之后如何卸载</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%9C%A8master%E4%B8%8A%E9%83%A8%E7%BD%B2Kubernetes%EF%BC%88%E5%88%9D%E5%A7%8B%E5%8C%96%E4%B9%8B%E5%90%8E%E6%93%8D%E4%BD%9C%E6%A0%B9%E6%8D%AE%E8%BF%94%E5%9B%9E%E7%BB%93%E6%9E%9C%E8%87%AA%E8%A1%8C%E8%B0%83%E6%95%B4%EF%BC%89"><span class="nav-text">在master上部署Kubernetes（初始化之后操作根据返回结果自行调整）</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%B5%8B%E8%AF%95%E6%98%AF%E5%90%A6%E6%89%A7%E8%A1%8C%E6%88%90%E5%8A%9F"><span class="nav-text">测试是否执行成功</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%B5%8B%E8%AF%95Kubernetes%E9%9B%86%E7%BE%A4"><span class="nav-text">测试Kubernetes集群</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%BF%90%E8%A1%8C%E5%90%8E%E4%B8%80%E6%AE%B5%E6%97%B6%E9%97%B4%E7%9A%84k8s%E5%A6%82%E4%BD%95%E5%86%8D%E9%87%8D%E6%96%B0%E5%8A%A0%E5%85%A5%E8%8A%82%E7%82%B9"><span class="nav-text">运行后一段时间的k8s如何再重新加入节点</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Kubernetes-DashBoard"><span class="nav-text">Kubernetes DashBoard</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%8B%E8%BD%BDyaml%E6%96%87%E4%BB%B6%E5%B9%B6%E8%BF%90%E8%A1%8C-%E4%BB%A5%E4%B8%8A%E4%B8%BA%E5%85%B7%E4%BD%93%E4%BF%AE%E6%94%B9%E5%86%85%E5%AE%B9%EF%BC%8C%E5%AE%8C%E6%95%B4%E6%96%87%E4%BB%B6%E5%9C%A8%E4%B8%8B%E6%96%B9"><span class="nav-text">下载yaml文件并运行,以上为具体修改内容，完整文件在下方</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9F%A5%E7%9C%8Bnamespace%E4%B8%BAkubernetes-dashboard%E4%B8%8B%E7%9A%84%E8%B5%84%E6%BA%90"><span class="nav-text">查看namespace为kubernetes-dashboard下的资源</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%88%9B%E5%BB%BA%E8%B4%A6%E6%88%B7"><span class="nav-text">创建账户</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%8E%88%E6%9D%83"><span class="nav-text">授权</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%8E%B7%E5%8F%96%E8%B4%A6%E5%8F%B7token"><span class="nav-text">获取账号token</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%91%BD%E4%BB%A4%E8%A1%8C%E5%B7%A5%E5%85%B7-kubectl"><span class="nav-text">命令行工具 kubectl</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#NFS%E6%90%AD%E5%BB%BA"><span class="nav-text">NFS搭建</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%85%8D%E7%BD%AENFS%E6%9C%8D%E5%8A%A1%E5%99%A8"><span class="nav-text">配置NFS服务器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9C%A8%E5%AE%A2%E6%88%B7%E7%AB%AF%E6%B5%8B%E8%AF%95nfs"><span class="nav-text">在客户端测试nfs</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%8F%82%E8%80%83%E9%93%BE%E6%8E%A5"><span class="nav-text">参考链接</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#dashboard-recommended-yaml"><span class="nav-text">dashboard-recommended.yaml</span></a></li></ol>
+
+	</div>
+</div>
+	</div>
+	
+</div>
+			</div>
+
+			
+		</div>
+
+		<div class="main-content-footer">
+			<footer class="footer mt-5 py-5 h-auto text-base text-third-text-color relative border-t-2 border-t-border-color">
+    <div class="info-container py-3 text-center">
+        
+        <div class="text-center">
+            &copy;
+            
+              <span>2023</span>
+              -
+            
+            2025&nbsp;&nbsp;<i class="fa-solid fa-heart fa-beat" style="--fa-animation-duration: 0.5s; color: #f54545"></i>&nbsp;&nbsp;<a href="/">Sunmy</a>
+            
+                
+                <p class="post-count space-x-0.5">
+                    <span>
+                        共撰写了 70 篇文章
+                    </span>
+                    
+                        <span>
+                            共 216.7k 字
+                        </span>
+                    
+                </p>
+            
+        </div>
+        
+            <script data-swup-reload-script src="https://cn.vercount.one/js"></script>
+            <div class="relative text-center lg:absolute lg:right-[20px] lg:top-1/2 lg:-translate-y-1/2 lg:text-right">
+                
+                    <span id="busuanzi_container_site_uv" class="lg:!block">
+                        <span class="text-sm">访问人数</span>
+                        <span id="busuanzi_value_site_uv"></span>
+                    </span>
+                
+                
+                    <span id="busuanzi_container_site_pv" class="lg:!block">
+                        <span class="text-sm">总访问量</span>
+                        <span id="busuanzi_value_site_pv"></span>
+                    </span>
+                
+            </div>
+        
+        <div class="relative text-center lg:absolute lg:left-[20px] lg:top-1/2 lg:-translate-y-1/2 lg:text-left">
+            <span class="lg:block text-sm">由 <?xml version="1.0" encoding="utf-8"?><!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd"><svg class="relative top-[2px] inline-block align-baseline" version="1.1" id="圖層_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="1rem" height="1rem" viewBox="0 0 512 512" enable-background="new 0 0 512 512" xml:space="preserve"><path fill="#0E83CD" d="M256.4,25.8l-200,115.5L56,371.5l199.6,114.7l200-115.5l0.4-230.2L256.4,25.8z M349,354.6l-18.4,10.7l-18.6-11V275H200v79.6l-18.4,10.7l-18.6-11v-197l18.5-10.6l18.5,10.8V237h112v-79.6l18.5-10.6l18.5,10.8V354.6z"/></svg><a target="_blank" class="text-base" href="https://hexo.io">Hexo</a> 驱动</span>
+            <span class="text-sm lg:block">主题&nbsp;<a class="text-base" target="_blank" href="https://github.com/EvanNotFound/hexo-theme-redefine">Redefine v2.8.2</a></span>
+        </div>
+        
+        
+            <div>
+                博客已运行 <span class="odometer" id="runtime_days" ></span> 天 <span class="odometer" id="runtime_hours"></span> 小时 <span class="odometer" id="runtime_minutes"></span> 分钟 <span class="odometer" id="runtime_seconds"></span> 秒
+            </div>
+        
+        
+            <script data-swup-reload-script>
+                try {
+                    function odometer_init() {
+                    const elements = document.querySelectorAll('.odometer');
+                    elements.forEach(el => {
+                        new Odometer({
+                            el,
+                            format: '( ddd).dd',
+                            duration: 200
+                        });
+                    });
+                    }
+                    odometer_init();
+                } catch (error) {}
+            </script>
+        
+        
+        
+    </div>  
+</footer>
+		</div>
+	</div>
+
+	
+	<div class="post-tools">
+		<div class="post-tools-container">
+	<ul class="article-tools-list">
+		<!-- TOC aside toggle -->
+		
+		<li class="right-bottom-tools page-aside-toggle">
+			<i class="fa-regular fa-outdent"></i>
+		</li>
+		
+
+		<!-- go comment -->
+		
+		<li class="go-comment">
+			<i class="fa-regular fa-comments"></i>
+		</li>
+		
+	</ul>
+</div>
+	</div>
+	
+
+	<div class="right-side-tools-container">
+		<div class="side-tools-container">
+	<ul class="hidden-tools-list">
+		<li class="right-bottom-tools tool-font-adjust-plus flex justify-center items-center">
+			<i class="fa-regular fa-magnifying-glass-plus"></i>
+		</li>
+
+		<li class="right-bottom-tools tool-font-adjust-minus flex justify-center items-center">
+			<i class="fa-regular fa-magnifying-glass-minus"></i>
+		</li>
+
+		<li class="right-bottom-tools tool-dark-light-toggle flex justify-center items-center">
+			<i class="fa-regular fa-moon"></i>
+		</li>
+
+		<!-- rss -->
+		
+
+		
+
+		<li class="right-bottom-tools tool-scroll-to-bottom flex justify-center items-center">
+			<i class="fa-regular fa-arrow-down"></i>
+		</li>
+	</ul>
+
+	<ul class="visible-tools-list">
+		<li class="right-bottom-tools toggle-tools-list flex justify-center items-center">
+			<i class="fa-regular fa-cog fa-spin"></i>
+		</li>
+		
+		<li class="right-bottom-tools tool-scroll-to-top flex justify-center items-center">
+			<i class="arrow-up fas fa-arrow-up"></i>
+			<span class="percent"></span>
+		</li>
+		
+		
+	</ul>
+</div>
+	</div>
+
+	<div class="image-viewer-container">
+	<img src="">
+</div>
+
+	
+	<div class="search-pop-overlay">
+	<div class="popup search-popup">
+		<div class="search-header">
+			<span class="search-input-field-pre">
+				<i class="fa-solid fa-keyboard"></i>
+			</span>
+			<div class="search-input-container">
+				<input autocomplete="off" autocorrect="off" autocapitalize="off" placeholder="站内搜索您需要的内容..." spellcheck="false" type="search" class="search-input">
+			</div>
+			<span class="popup-btn-close">
+				<i class="fa-solid fa-times"></i>
+			</span>
+		</div>
+		<div id="search-result">
+			<div id="no-result">
+				<i class="fa-solid fa-spinner fa-spin-pulse fa-5x fa-fw"></i>
+			</div>
+		</div>
+	</div>
+</div>
+	
+
+</main>
+
+
+
+<script src="/js/build/libs/Swup.min.js"></script>
+
+<script src="/js/build/libs/SwupSlideTheme.min.js"></script>
+
+<script src="/js/build/libs/SwupScriptsPlugin.min.js"></script>
+
+<script src="/js/build/libs/SwupProgressPlugin.min.js"></script>
+
+<script src="/js/build/libs/SwupScrollPlugin.min.js"></script>
+
+<script src="/js/build/libs/SwupPreloadPlugin.min.js"></script>
+
+<script>
+    const swup = new Swup({
+        plugins: [
+            new SwupScriptsPlugin({
+                optin: true,
+            }),
+            new SwupProgressPlugin(),
+            new SwupScrollPlugin({
+                offset: 80,
+            }),
+            new SwupSlideTheme({
+                mainElement: ".main-content-body",
+            }),
+            new SwupPreloadPlugin(),
+        ],
+        containers: ["#swup"],
+    });
+</script>
+
+
+
+
+	
+<script src="/js/build/tools/imageViewer.js" type="module"></script>
+
+<script src="/js/build/utils.js" type="module"></script>
+
+<script src="/js/build/main.js" type="module"></script>
+
+<script src="/js/build/layouts/navbarShrink.js" type="module"></script>
+
+<script src="/js/build/tools/scrollTopBottom.js" type="module"></script>
+
+<script src="/js/build/tools/lightDarkSwitch.js" type="module"></script>
+
+<script src="/js/build/layouts/categoryList.js" type="module"></script>
+
+
+
+    
+<script src="/js/build/tools/localSearch.js" type="module"></script>
+
+
+
+
+    
+<script src="/js/build/tools/codeBlock.js" type="module"></script>
+
+
+
+
+    
+<script src="/js/build/layouts/lazyload.js" type="module"></script>
+
+
+
+
+    
+<script src="/js/build/tools/runtime.js"></script>
+
+    
+<script src="/js/build/libs/odometer.min.js"></script>
+
+    
+<link rel="stylesheet" href="/assets/odometer-theme-minimal.css">
+
+
+
+
+  
+<script src="/js/build/libs/Typed.min.js"></script>
+
+  
+<script src="/js/build/plugins/typed.js" type="module"></script>
+
+
+
+
+
+
+
+
+
+
+
+    
+<script src="/js/build/tools/tocToggle.js" type="module" data-swup-reload-script=""></script>
+
+<script src="/js/build/layouts/toc.js" type="module" data-swup-reload-script=""></script>
+
+<script src="/js/build/plugins/tabs.js" type="module" data-swup-reload-script=""></script>
+
+
+
+
+<script src="/js/build/libs/moment-with-locales.min.js" data-swup-reload-script=""></script>
+
+
+<script src="/js/build/layouts/essays.js" type="module" data-swup-reload-script=""></script>
+
+
+
+
+
+	
+</body>
+
+</html>

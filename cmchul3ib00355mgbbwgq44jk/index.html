@@ -1,0 +1,1212 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="keywords" content="Hexo Theme Redefine">
+    
+    <meta name="author" content="Sunmy">
+    <!-- preconnect -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    
+    <!--- Seo Part-->
+    
+    <link rel="canonical" href="https://ldspdvsun.github.io/cmchul3ib00355mgbbwgq44jk/"/>
+    <meta name="robots" content="index,follow">
+    <meta name="googlebot" content="index,follow">
+    <meta name="revisit-after" content="1 days">
+    
+    
+    
+        
+        <meta name="description" content="Sunmy&#96;s Blogs">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Gdb">
+<meta property="og:url" content="https://ldspdvsun.github.io/cmchul3ib00355mgbbwgq44jk/index.html">
+<meta property="og:site_name" content="Sunmy&#96;s Blogs">
+<meta property="og:description" content="Sunmy&#96;s Blogs">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://i.postimg.cc/MZ0wLRpF/wallhaven-exl88k.png">
+<meta property="article:published_time" content="2023-06-30T08:56:57.000Z">
+<meta property="article:modified_time" content="2025-06-29T13:05:24.281Z">
+<meta property="article:author" content="Sunmy">
+<meta property="article:tag" content="Gdb">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://i.postimg.cc/MZ0wLRpF/wallhaven-exl88k.png">
+    
+    
+    <!--- Icon Part-->
+    <link rel="icon" type="image/png" href="https://avatars.githubusercontent.com/u/86214331?s=96&amp;v=4" sizes="192x192">
+    <link rel="apple-touch-icon" sizes="180x180" href="https://avatars.githubusercontent.com/u/86214331?s=96&amp;v=4">
+    <meta name="theme-color" content="#A31F34">
+    <link rel="shortcut icon" href="https://avatars.githubusercontent.com/u/86214331?s=96&v=4">
+    <!--- Page Info-->
+    
+    <title>
+        
+            Gdb | Sunmy`s Blogs
+        
+    </title>
+
+    
+<link rel="stylesheet" href="/fonts/Chillax/chillax.css">
+
+
+    <!--- Inject Part-->
+    
+
+    
+<link rel="stylesheet" href="/css/style.css">
+
+
+    
+        
+<link rel="stylesheet" href="/css/build/tailwind.css">
+
+    
+
+    
+<link rel="stylesheet" href="/fonts/GeistMono/geist-mono.css">
+
+    
+<link rel="stylesheet" href="/fonts/Geist/geist.css">
+
+    <!--- Font Part-->
+    
+    
+    
+    
+    
+    
+        
+<script src="/js/build/libs/anime.min.js"></script>
+
+    
+
+    <script id="hexo-configurations">
+    window.config = {"hostname":"ldspdvsun.github.io","root":"/","language":"zh-CN","path":"search.json"};
+    window.theme = {"articles":{"style":{"font_size":"16px","line_height":1.5,"image_border_radius":"14px","image_alignment":"center","image_caption":false,"link_icon":true,"delete_mask":false,"title_alignment":"left","headings_top_spacing":{"h1":"5rem","h2":"4rem","h3":"2.8rem","h4":"2.5rem","h5":"2.2rem","h6":"2rem"}},"word_count":{"enable":true,"count":true,"min2read":true},"author_label":{"enable":true,"auto":false,"list":[]},"code_block":{"copy":true,"style":"mac","highlight_theme":{"light":"github","dark":"vs2015"},"font":{"enable":false,"family":null,"url":null}},"toc":{"enable":true,"max_depth":5,"number":false,"expand":true,"init_open":true},"copyright":{"enable":true,"default":"all_rights_reserved"},"lazyload":true,"pangu_js":false,"recommendation":{"enable":true,"title":"推荐阅读","limit":3,"mobile_limit":2,"placeholder":"https://i.postimg.cc/52qB9kNm/10.png","skip_dirs":[]}},"colors":{"primary":"#A31F34","secondary":null,"default_mode":"light"},"global":{"fonts":{"chinese":{"enable":false,"family":null,"url":null},"english":{"enable":false,"family":null,"url":null},"title":{"enable":false,"family":null,"url":null}},"content_max_width":"1000px","sidebar_width":"210px","hover":{"shadow":true,"scale":false},"scroll_progress":{"bar":false,"percentage":true},"website_counter":{"url":"https://cn.vercount.one/js","enable":true,"site_pv":true,"site_uv":true,"post_pv":true},"single_page":true,"preloader":{"enable":true,"custom_message":null},"open_graph":{"enable":true,"image":"https://i.postimg.cc/MZ0wLRpF/wallhaven-exl88k.png","description":"Sunmy`s Blogs"},"google_analytics":{"enable":false,"id":null}},"home_banner":{"enable":true,"style":"fixed","image":{"light":"https://i.postimg.cc/bJMg5v9g/0-8.png","dark":"https://i.postimg.cc/MZ0wLRpF/wallhaven-exl88k.png"},"title":"Sunmy`s Blogs","subtitle":{"text":["随心所欲地享受每一天\\(￣︶￣*\\))","随时随地，浏览记录O(∩_∩)O","如果喜欢，建议给个支持( •̀ ω •́ )✧","喜欢的话，留个言好嘛(oﾟvﾟ)ノ","欢迎来到我的博客(｡･∀･)ﾉﾞ","正在努力更新博客(ง •_•)ง","正在不断努力改善博客中ε=( o｀ω′)ノ","文字正在不断轮换(*￣3￣)╭","你有建议？反馈作者(●^◡^●)"],"hitokoto":{"enable":false,"show_author":false,"api":"https://v1.hitokoto.cn"},"typing_speed":100,"backing_speed":30,"starting_delay":500,"backing_delay":1500,"loop":true,"smart_backspace":true},"text_color":{"light":"#9f5221","dark":"#d1d1b6"},"text_style":{"title_size":"2.8rem","subtitle_size":"1.5rem","line_height":1.2},"custom_font":{"enable":false,"family":null,"url":null},"social_links":{"enable":true,"style":"default","links":{"github":"https://github.com/ldspdvsun","instagram":null,"zhihu":null,"twitter":null,"email":"skywalker0@qq.com"},"qrs":{"weixin":null}}},"plugins":{"feed":{"enable":false},"aplayer":{"enable":false,"type":"fixed","audios":[{"name":null,"artist":null,"url":null,"cover":null,"lrc":null}]},"mermaid":{"enable":false,"version":"11.4.1"}},"version":"2.8.2","navbar":{"auto_hide":false,"color":{"left":"#f78736","right":"#367df7","transparency":35},"width":{"home":"1600px","pages":"1000px"},"links":{"Home":{"path":"/","icon":"fa-regular fa-house"},"Archives":{"path":"/archives","icon":"fa-regular fa-archive"},"Tags":{"path":"/tags","icon":"fa-regular fa-tags"},"Categories":{"path":"/categories","icon":"fa-regular fa-list"},"ShuoShuo":{"icon":"fa-solid fa-comment-dots","path":"/shuoshuo"},"Links":{"icon":"fa-regular fa-link","submenus":{"Github":"https://github.com/ldspdvsun","Zhihu":"https://www.zhihu.com/people/ldspdvs"}}},"search":{"enable":true,"preload":true}},"page_templates":{"friends_column":2,"tags_style":"blur"},"home":{"sidebar":{"enable":true,"position":"left","first_item":"menu","announcement":"Be all you can be!","show_on_mobile":true,"links":{"Archives":{"path":"/archives","icon":"fa-regular fa-archive"},"Tags":{"path":"/tags","icon":"fa-regular fa-tags"},"Categories":{"path":"/categories","icon":"fa-regular fa-folder"}}},"article_date_format":"auto","excerpt_length":200,"categories":{"enable":true,"limit":3},"tags":{"enable":true,"limit":3}},"footerStart":"2023/6/1 00:00:00"};
+    window.lang_ago = {"second":"%s 秒前","minute":"%s 分钟前","hour":"%s 小时前","day":"%s 天前","week":"%s 周前","month":"%s 个月前","year":"%s 年前"};
+    window.data = {"masonry":false};
+  </script>
+    
+    <!--- Fontawesome Part-->
+    
+<link rel="stylesheet" href="/fontawesome/fontawesome.min.css">
+
+    
+<link rel="stylesheet" href="/fontawesome/brands.min.css">
+
+    
+<link rel="stylesheet" href="/fontawesome/solid.min.css">
+
+    
+<link rel="stylesheet" href="/fontawesome/regular.min.css">
+
+    
+    
+    
+    
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+
+
+<body>
+	<div class="progress-bar-container">
+	
+
+	
+	<span class="pjax-progress-bar"></span>
+	<!--        <span class="swup-progress-icon">-->
+	<!--            <i class="fa-solid fa-circle-notch fa-spin"></i>-->
+	<!--        </span>-->
+	
+</div>
+
+<style>
+    :root {
+        --preloader-background-color: #fff;
+        --preloader-text-color: #000;
+    }
+
+    @media (prefers-color-scheme: dark) {
+        :root {
+            --preloader-background-color: #202124;
+            --preloader-text-color: #fff;
+        }
+    }
+
+    @media (prefers-color-scheme: light) {
+        :root {
+            --preloader-background-color: #fff;
+            --preloader-text-color: #000;
+        }
+    }
+
+    @media (max-width: 600px) {
+        .ml13 {
+            font-size: 2.6rem !important; /* Adjust this value as needed */
+        }
+    }
+
+    .preloader {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem; /* Tailwind 'gap-4' is 1rem */
+        align-items: center;
+        justify-content: center;
+        position: fixed;
+        padding: 12px;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh; /* 'h-screen' is 100% of the viewport height */
+        background-color: var(--preloader-background-color);
+        z-index: 1100; /* 'z-[1100]' sets the z-index */
+        transition: opacity 0.2s ease-in-out;
+    }
+
+    .ml13 {
+        font-size: 3.2rem;
+        /* text-transform: uppercase; */
+        color: var(--preloader-text-color);
+        letter-spacing: -1px;
+        font-weight: 500;
+        font-family: 'Chillax-Variable', sans-serif;
+        text-align: center;
+    }
+
+    .ml13 .word {
+        display: inline-flex;
+        flex-wrap: wrap;
+        white-space: nowrap;
+    }
+
+    .ml13 .letter {
+        display: inline-block;
+        line-height: 1em;
+    }
+</style>
+
+<div class="preloader">
+    <h2 class="ml13">
+        Sunmy`s Blogs
+    </h2>
+    <script>
+        var textWrapper = document.querySelector('.ml13');
+        // Split text into words
+        var words = textWrapper.textContent.trim().split(' ');
+
+        // Clear the existing content
+        textWrapper.innerHTML = '';
+
+        // Wrap each word and its letters in spans
+        words.forEach(function(word) {
+            var wordSpan = document.createElement('span');
+            wordSpan.classList.add('word');
+            wordSpan.innerHTML = word.replace(/\S/g, "<span class='letter'>$&</span>");
+            textWrapper.appendChild(wordSpan);
+            textWrapper.appendChild(document.createTextNode(' ')); // Add space between words
+        });
+
+        var animation = anime.timeline({ loop: true })
+            .add({
+                targets: '.ml13 .letter',
+                translateY: [20, 0],
+                translateZ: 0,
+                opacity: [0, 1],
+                filter: ['blur(5px)', 'blur(0px)'],
+                easing: "easeOutExpo",
+                duration: 1200,
+                delay: (el, i) => 300 + 20 * i,
+            })
+            .add({
+                targets: '.ml13 .letter',
+                translateY: [0, -20],
+                opacity: [1, 0],
+                filter: ['blur(0px)', 'blur(5px)'],
+                easing: "easeInExpo",
+                duration: 1000,
+                delay: (el, i) => 15 * i,
+                complete: function() {
+                    hidePreloader();
+                }
+            }, '-=700');
+
+
+        let themeStatus = JSON.parse(localStorage.getItem('REDEFINE-THEME-STATUS'))?.isDark;
+
+        // If the theme status is not found in local storage, check the preferred color scheme
+        if (themeStatus === undefined || themeStatus === null) {
+            if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+                themeStatus = 'dark';
+            } else {
+                themeStatus = 'light';
+            }
+        }
+
+        // Now you can use the themeStatus variable in your code
+        if (themeStatus) {
+            document.documentElement.style.setProperty('--preloader-background-color', '#202124');
+            document.documentElement.style.setProperty('--preloader-text-color', '#fff');
+        } else {
+            document.documentElement.style.setProperty('--preloader-background-color', '#fff');
+            document.documentElement.style.setProperty('--preloader-text-color', '#000');
+        }
+
+        window.addEventListener('load', function () {
+            setTimeout(hidePreloader, 5000); // Call hidePreloader after 5000 milliseconds if not already called by animation
+        });
+
+        function hidePreloader() {
+            var preloader = document.querySelector('.preloader');
+            preloader.style.opacity = '0';
+            setTimeout(function () {
+                preloader.style.display = 'none';
+            }, 200);
+        }
+    </script>
+</div>
+
+<main class="page-container" id="swup">
+
+	
+
+	<div class="main-content-container flex flex-col justify-between min-h-dvh">
+		<div class="main-content-header">
+			<header class="navbar-container px-6 md:px-12">
+    <div class="navbar-content transition-navbar ">
+        <div class="left">
+            
+            <a class="logo-title" href="/">
+                
+                Sunmy`s Blogs
+                
+            </a>
+        </div>
+
+        <div class="right">
+            <!-- PC -->
+            <div class="desktop">
+                <ul class="navbar-list">
+                    
+                        
+                            
+
+                            <li class="navbar-item">
+                                <!-- Menu -->
+                                <a class=""
+                                   href="/"
+                                        >
+                                    <i class="fa-regular fa-house fa-fw"></i>
+                                    首页
+                                    
+                                </a>
+
+                                <!-- Submenu -->
+                                
+                            </li>
+                    
+                        
+                            
+
+                            <li class="navbar-item">
+                                <!-- Menu -->
+                                <a class=""
+                                   href="/archives"
+                                        >
+                                    <i class="fa-regular fa-archive fa-fw"></i>
+                                    归档
+                                    
+                                </a>
+
+                                <!-- Submenu -->
+                                
+                            </li>
+                    
+                        
+                            
+
+                            <li class="navbar-item">
+                                <!-- Menu -->
+                                <a class=""
+                                   href="/tags"
+                                        >
+                                    <i class="fa-regular fa-tags fa-fw"></i>
+                                    标签
+                                    
+                                </a>
+
+                                <!-- Submenu -->
+                                
+                            </li>
+                    
+                        
+                            
+
+                            <li class="navbar-item">
+                                <!-- Menu -->
+                                <a class=""
+                                   href="/categories"
+                                        >
+                                    <i class="fa-regular fa-list fa-fw"></i>
+                                    分类
+                                    
+                                </a>
+
+                                <!-- Submenu -->
+                                
+                            </li>
+                    
+                        
+                            
+
+                            <li class="navbar-item">
+                                <!-- Menu -->
+                                <a class=""
+                                   href="/shuoshuo"
+                                        >
+                                    <i class="fa-solid fa-comment-dots fa-fw"></i>
+                                    说说
+                                    
+                                </a>
+
+                                <!-- Submenu -->
+                                
+                            </li>
+                    
+                        
+                            
+
+                            <li class="navbar-item">
+                                <!-- Menu -->
+                                <a class="has-dropdown"
+                                   href="#"
+                                        onClick=&#34;return false;&#34;>
+                                    <i class="fa-regular fa-link fa-fw"></i>
+                                    链接
+                                    <i class="fa-solid fa-chevron-down fa-fw"></i>
+                                </a>
+
+                                <!-- Submenu -->
+                                
+                                    <ul class="sub-menu">
+                                        
+                                            <li>
+                                                <a target="_blank" rel="noopener" href="https://github.com/ldspdvsun">
+                                                    GITHUB
+                                                </a>
+                                            </li>
+                                        
+                                            <li>
+                                                <a target="_blank" rel="noopener" href="https://www.zhihu.com/people/ldspdvs">
+                                                    ZHIHU
+                                                </a>
+                                            </li>
+                                        
+                                    </ul>
+                                
+                            </li>
+                    
+                    
+                        <li class="navbar-item search search-popup-trigger">
+                            <i class="fa-solid fa-magnifying-glass"></i>
+                        </li>
+                    
+                </ul>
+            </div>
+            <!-- Mobile -->
+            <div class="mobile">
+                
+                    <div class="icon-item search search-popup-trigger"><i class="fa-solid fa-magnifying-glass"></i>
+                    </div>
+                
+                <div class="icon-item navbar-bar">
+                    <div class="navbar-bar-middle"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Mobile sheet -->
+    <div class="navbar-drawer h-dvh w-full absolute top-0 left-0 bg-background-color flex flex-col justify-between">
+        <ul class="drawer-navbar-list flex flex-col px-4 justify-center items-start">
+            
+                
+                    
+
+                    <li class="drawer-navbar-item text-base my-1.5 flex flex-col w-full">
+                        
+                        <a class="py-1.5 px-2 flex flex-row items-center justify-between gap-1 hover:!text-primary active:!text-primary text-2xl font-semibold group border-b border-border-color hover:border-primary w-full "
+                           href="/"
+                        >
+                            <span>
+                                首页
+                            </span>
+                            
+                                <i class="fa-regular fa-house fa-sm fa-fw"></i>
+                            
+                        </a>
+                        
+
+                        
+                    </li>
+            
+                
+                    
+
+                    <li class="drawer-navbar-item text-base my-1.5 flex flex-col w-full">
+                        
+                        <a class="py-1.5 px-2 flex flex-row items-center justify-between gap-1 hover:!text-primary active:!text-primary text-2xl font-semibold group border-b border-border-color hover:border-primary w-full "
+                           href="/archives"
+                        >
+                            <span>
+                                归档
+                            </span>
+                            
+                                <i class="fa-regular fa-archive fa-sm fa-fw"></i>
+                            
+                        </a>
+                        
+
+                        
+                    </li>
+            
+                
+                    
+
+                    <li class="drawer-navbar-item text-base my-1.5 flex flex-col w-full">
+                        
+                        <a class="py-1.5 px-2 flex flex-row items-center justify-between gap-1 hover:!text-primary active:!text-primary text-2xl font-semibold group border-b border-border-color hover:border-primary w-full "
+                           href="/tags"
+                        >
+                            <span>
+                                标签
+                            </span>
+                            
+                                <i class="fa-regular fa-tags fa-sm fa-fw"></i>
+                            
+                        </a>
+                        
+
+                        
+                    </li>
+            
+                
+                    
+
+                    <li class="drawer-navbar-item text-base my-1.5 flex flex-col w-full">
+                        
+                        <a class="py-1.5 px-2 flex flex-row items-center justify-between gap-1 hover:!text-primary active:!text-primary text-2xl font-semibold group border-b border-border-color hover:border-primary w-full "
+                           href="/categories"
+                        >
+                            <span>
+                                分类
+                            </span>
+                            
+                                <i class="fa-regular fa-list fa-sm fa-fw"></i>
+                            
+                        </a>
+                        
+
+                        
+                    </li>
+            
+                
+                    
+
+                    <li class="drawer-navbar-item text-base my-1.5 flex flex-col w-full">
+                        
+                        <a class="py-1.5 px-2 flex flex-row items-center justify-between gap-1 hover:!text-primary active:!text-primary text-2xl font-semibold group border-b border-border-color hover:border-primary w-full "
+                           href="/shuoshuo"
+                        >
+                            <span>
+                                说说
+                            </span>
+                            
+                                <i class="fa-solid fa-comment-dots fa-sm fa-fw"></i>
+                            
+                        </a>
+                        
+
+                        
+                    </li>
+            
+                
+                    
+
+                    <li class="drawer-navbar-item-sub text-base my-1.5 flex flex-col w-full">
+                        
+                        <div class="py-1.5 px-2 flex flex-row items-center justify-between gap-1 hover:!text-primary active:!text-primary cursor-pointer text-2xl font-semibold group border-b border-border-color hover:border-primary w-full "
+                             navbar-data-toggle="submenu-Links"
+                        >
+                            <span>
+                                链接
+                            </span>
+                            
+                                <i class="fa-solid fa-chevron-right fa-sm fa-fw transition-all"></i>
+                            
+                        </div>
+                        
+
+                        
+                            <div class="flex-col items-start px-2 py-2 hidden" data-target="submenu-Links">
+                                
+                                    <div class="drawer-navbar-item text-base flex flex-col justify-center items-start hover:underline active:underline hover:underline-offset-1 rounded-3xl">
+                                        <a class=" text-third-text-color text-xl"
+                                           target="_blank" rel="noopener" href="https://github.com/ldspdvsun">GITHUB</a>
+                                    </div>
+                                
+                                    <div class="drawer-navbar-item text-base flex flex-col justify-center items-start hover:underline active:underline hover:underline-offset-1 rounded-3xl">
+                                        <a class=" text-third-text-color text-xl"
+                                           target="_blank" rel="noopener" href="https://www.zhihu.com/people/ldspdvs">ZHIHU</a>
+                                    </div>
+                                
+                            </div>
+                        
+                    </li>
+            
+
+            
+            
+                
+                    
+                    
+                    
+            
+        </ul>
+
+        <div class="statistics flex justify-around my-2.5">
+    <a class="item tag-count-item flex flex-col justify-center items-center w-20" href="/tags">
+        <div class="number text-2xl sm:text-xl text-second-text-color font-semibold">65</div>
+        <div class="label text-third-text-color text-sm">标签</div>
+    </a>
+    <a class="item tag-count-item flex flex-col justify-center items-center w-20" href="/categories">
+        <div class="number text-2xl sm:text-xl text-second-text-color font-semibold">20</div>
+        <div class="label text-third-text-color text-sm">分类</div>
+    </a>
+    <a class="item tag-count-item flex flex-col justify-center items-center w-20" href="/archives">
+        <div class="number text-2xl sm:text-xl text-second-text-color font-semibold">70</div>
+        <div class="label text-third-text-color text-sm">文章</div>
+    </a>
+</div>
+    </div>
+
+    <div class="window-mask"></div>
+
+</header>
+
+
+		</div>
+
+		<div class="main-content-body transition-fade-up">
+			
+
+			<div class="main-content">
+				<div class="post-page-container flex relative justify-between box-border w-full h-full">
+	<div class="article-content-container">
+
+		<div class="article-title relative w-full">
+			
+			<div class="w-full flex items-center pt-6 justify-start">
+				<h1 class="article-title-regular text-second-text-color tracking-tight text-4xl md:text-6xl font-semibold px-2 sm:px-6 md:px-8 py-3">Gdb</h1>
+			</div>
+			
+		</div>
+
+		
+		<div class="article-header flex flex-row gap-2 items-center px-2 sm:px-6 md:px-8">
+			<div class="avatar w-[46px] h-[46px] flex-shrink-0 rounded-medium border border-border-color p-[1px]">
+				<img src="https://avatars.githubusercontent.com/u/86214331?s=96&v=4">
+			</div>
+			<div class="info flex flex-col justify-between">
+				<div class="author flex items-center">
+					<span class="name text-default-text-color text-lg font-semibold">Sunmy</span>
+					
+					<span class="author-label ml-1.5 text-xs px-2 py-0.5 rounded-small text-third-text-color border border-shadow-color-1">Lv5</span>
+					
+				</div>
+				<div class="meta-info">
+					<div class="article-meta-info">
+    <span class="article-date article-meta-item">
+        <i class="fa-regular fa-pen-fancy"></i>&nbsp;
+        <span class="desktop">2023-06-30 16:56:57</span>
+        <span class="mobile">2023-06-30 16:56:57</span>
+        <span class="hover-info">创建</span>
+    </span>
+    
+        <span class="article-date article-meta-item">
+            <i class="fa-regular fa-wrench"></i>&nbsp;
+            <span class="desktop">2025-06-29 21:05:24</span>
+            <span class="mobile">2025-06-29 21:05:24</span>
+            <span class="hover-info">更新</span>
+        </span>
+    
+
+    
+        <span class="article-categories article-meta-item">
+            <i class="fa-regular fa-folders"></i>&nbsp;
+            <ul>
+                
+                
+                    
+                        
+                        <li>
+                            <a href="/categories/C%E7%94%9F%E6%80%81/">C生态</a>&nbsp;
+                        </li>
+                    
+                    
+                
+            </ul>
+        </span>
+    
+    
+        <span class="article-tags article-meta-item">
+            <i class="fa-regular fa-tags"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/tags/Gdb/">Gdb</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
+    
+
+    
+    
+        <span class="article-wordcount article-meta-item">
+            <i class="fa-regular fa-typewriter"></i>&nbsp;<span>2.4k 字</span>
+        </span>
+    
+    
+        <span class="article-min2read article-meta-item">
+            <i class="fa-regular fa-clock"></i>&nbsp;<span>11 分钟</span>
+        </span>
+    
+    
+        <span class="article-pv article-meta-item">
+            <i class="fa-regular fa-eye"></i>&nbsp;<span id="busuanzi_value_page_pv"></span>
+        </span>
+    
+</div>
+
+				</div>
+			</div>
+		</div>
+		
+
+		
+
+
+		<div class="article-content markdown-body px-2 sm:px-6 md:px-8 pb-8">
+			<h2 id="GDB安装"><a href="#GDB安装" class="headerlink" title="GDB安装"></a>GDB安装</h2><p>本节下载的 GDB 源码包为 gdb-9.2-tar.gz，接下来以 CentOS 系统为例（也同样适用于其它 Linux 发行版），给大家演示整个安装过程：</p>
+<ol>
+<li>找到 gdb-9.2-tar.gz 文件，笔者将下载好的 gdb-9.2-tat.gz 放置在 &#x2F;usr&#x2F;local&#x2F;src 目录下：</li>
+</ol>
+<div class="code-container" data-rel="Sh"><figure class="iseeu highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[root@bogon ~]# <span class="built_in">cd</span> /usr/local/src</span><br><span class="line">[root@bogon src]# <span class="built_in">ls</span></span><br><span class="line">gdb-9.2.tar.gz</span><br></pre></td></tr></table></figure></div>
+
+<ol start="2">
+<li>使用 tar 命令解压该文件，执行命令如下：</li>
+</ol>
+<div class="code-container" data-rel="Sh"><figure class="iseeu highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">[root@bogon ~]# tar -zxvf gdb-9.2.tar.gz</span><br><span class="line">--省略解压过程的输出结果</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">[root@bogon src]# <span class="built_in">ls</span></span><br><span class="line">gdb-9.2  gdb-9.2.tar.gz</span><br></pre></td></tr></table></figure></div>
+
+<p>此步骤会得到 gdb-9.2.tar.gz 相应的解压文件 gdb-9.2 。</p>
+<ol start="3">
+<li>进入 gdb-9.2 目录文件，创建一个 gdb_build_9.2 目录并进入，为后续下载并放置安装 GDB 所需的依赖项做准备：</li>
+</ol>
+<div class="code-container" data-rel="Sh"><figure class="iseeu highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[root@bogon src]# <span class="built_in">cd</span> gdb-9.2</span><br><span class="line">[root@bogon gdb-9.2]# <span class="built_in">mkdir</span> gdb-build-9.2</span><br><span class="line">[root@bogon src]# <span class="built_in">cd</span> gdb-build-9.2</span><br></pre></td></tr></table></figure></div>
+
+<ol start="4">
+<li>在此基础上，继续执行如下指令：</li>
+</ol>
+<div class="code-container" data-rel="Sh"><figure class="iseeu highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">[root@bogon gdb-build-9.2]# ../configure</span><br><span class="line">......    &lt;--省略众多输出</span><br><span class="line">configure: creating ./config.status</span><br><span class="line">config.status: creating Makefile</span><br></pre></td></tr></table></figure></div>
+
+<ol start="5">
+<li>执行 make 指令编译整个 GDB 源码文件，此过程可能会花费很长时间，读者耐心等待即可：</li>
+</ol>
+<div class="code-container" data-rel="Sh"><figure class="iseeu highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">[root@bogon gdb-build-9.2]# make</span><br><span class="line">...... &lt;-- 省略编译过程产生的输出结果</span><br><span class="line"></span><br><span class="line"><span class="comment"># 注意，如果编译过程中出现错误，极有可能是所用的 GCC 编译器版本过低导致的，可尝试升级 GCC 版本后再重新执行 make 命令。</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 或者出现错误后</span></span><br><span class="line"></span><br><span class="line">WARNING: `makeinfo<span class="string">&#x27; is missing on your system.  You should only need it if</span></span><br><span class="line"><span class="string">         you modified a `.texi&#x27;</span> or `.texinfo<span class="string">&#x27; file, or any other file   </span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string"># 尝试以下命令</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">[root@bogon gdb-build-9.2]# yum install texinfo</span></span><br></pre></td></tr></table></figure></div>
+
+<ol start="6">
+<li>确定整个编译过程没有出错之后，执行sudo make install指令（其中使用 sudo 指令是为了避免操作权限不够而导致安装失败），正式开始安装 GDB 调试器：</li>
+</ol>
+<div class="code-container" data-rel="Sh"><figure class="iseeu highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">[root@bogon gdb-build-9.2]# <span class="built_in">sudo</span> make install</span><br><span class="line">...... &lt;-- 省略输出结果</span><br><span class="line"></span><br><span class="line">以上过程全部成功执行，则表示 GDB 安装成功。通过再次执行 gdb -v 指令，可验证其是否被成功安装。</span><br><span class="line">[root@bogon gdb-build-9.2]# gdb -v</span><br><span class="line">GNU gdb (GDB) 9.2</span><br><span class="line">Copyright (C) 2020 Free Software Foundation, Inc.</span><br><span class="line">......  &lt;-- 省略部分输出</span><br></pre></td></tr></table></figure></div>
+
+<h2 id="测试用例"><a href="#测试用例" class="headerlink" title="测试用例"></a>测试用例</h2><div class="code-container" data-rel="Sh"><figure class="iseeu highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">[root@SqaServer gdb]# <span class="built_in">cat</span> gdb-sample.c </span><br><span class="line"><span class="comment">#include &lt;stdio.h&gt;</span></span><br><span class="line">int nGlobalVar = 0;</span><br><span class="line"></span><br><span class="line">int tempFunction(int a, int b)</span><br><span class="line">&#123;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;tempFunction is called, a = %d, b = %d \n&quot;</span>, a, b);</span><br><span class="line">    <span class="built_in">return</span> (a + b);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">int <span class="function"><span class="title">main</span></span>()</span><br><span class="line">&#123;</span><br><span class="line">    int n;</span><br><span class="line">        n = 1;</span><br><span class="line">        n++;</span><br><span class="line">        n--;</span><br><span class="line"></span><br><span class="line">        nGlobalVar += 100;</span><br><span class="line">        nGlobalVar -= 12;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;n = %d, nGlobalVar = %d \n&quot;</span>, n, nGlobalVar);</span><br><span class="line"></span><br><span class="line">        n = tempFunction(1, 2);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;n = %d&quot;</span>, n);</span><br><span class="line"></span><br><span class="line">    <span class="built_in">return</span> 0;</span><br><span class="line">&#125;</span><br><span class="line">[root@SqaServer gdb]# </span><br></pre></td></tr></table></figure></div>
+
+<h2 id="gdb测试"><a href="#gdb测试" class="headerlink" title="gdb测试"></a>gdb测试</h2><div class="code-container" data-rel="Sh"><figure class="iseeu highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br><span class="line">190</span><br><span class="line">191</span><br><span class="line">192</span><br><span class="line">193</span><br><span class="line">194</span><br><span class="line">195</span><br><span class="line">196</span><br><span class="line">197</span><br><span class="line">198</span><br><span class="line">199</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#在下面的命令行中，使用 -o 参数指定了编译生成的可执行文件名为 gdb-sample，</span></span><br><span class="line"><span class="comment">#使用参数 -g 表示将源代码信息编译到可执行文件中。如果不使用参数 -g，会给后面的GDB调试造成不便</span></span><br><span class="line"><span class="comment">#当然，如果我们没有程序的源代码，自然也无从使用 -g 参数，调试/跟踪时也只能是汇编代码级别的调试/跟踪。</span></span><br><span class="line"></span><br><span class="line">[root@SqaServer gdb]# gcc gdb-sample.c -o gdb-sample -g</span><br><span class="line">[root@SqaServer gdb]# ll</span><br><span class="line">总用量 37716</span><br><span class="line">-rwxrwxrwx 1 root root 38604458 5月   2 2022 gdb-12.1.tar.gz</span><br><span class="line">-rwxr-xr-x 1 root root    11064 11月 17 10:42 gdb-sample</span><br><span class="line">-rwxrwxrwx 1 root root      435 11月 17 10:43 gdb-sample.c</span><br><span class="line"><span class="comment">#下面“gdb”命令启动GDB，将首先显示GDB说明，：</span></span><br><span class="line">[root@SqaServer gdb]# gdb</span><br><span class="line">GNU gdb (GDB) Red Hat Enterprise Linux 7.6.1-120.el7</span><br><span class="line">Copyright (C) 2013 Free Software Foundation, Inc.</span><br><span class="line">License GPLv3+: GNU GPL version 3 or later &lt;http://gnu.org/licenses/gpl.html&gt;</span><br><span class="line">This is free software: you are free to change and redistribute it.</span><br><span class="line">There is NO WARRANTY, to the extent permitted by law.  Type <span class="string">&quot;show copying&quot;</span></span><br><span class="line">and <span class="string">&quot;show warranty&quot;</span> <span class="keyword">for</span> details.</span><br><span class="line">This GDB was configured as <span class="string">&quot;x86_64-redhat-linux-gnu&quot;</span>.</span><br><span class="line">For bug reporting instructions, please see:</span><br><span class="line">&lt;http://www.gnu.org/software/gdb/bugs/&gt;.</span><br><span class="line"><span class="comment">#下面使用“file”命令载入被调试程序 gdb-sample（这里的 gdb-sample 即前面 GCC 编译输出的可执行文件）：</span></span><br><span class="line">(gdb) file gdb-sample</span><br><span class="line">Reading symbols from /tmp/soft/gdb/gdb-sample...done.</span><br><span class="line"><span class="comment">#上面最后一行提示已经加载成功。</span></span><br><span class="line"><span class="comment">#下面使用“r”命令执行（Run）被调试文件，因为尚未设置任何断点，将直接执行到程序结束：</span></span><br><span class="line">(gdb) r</span><br><span class="line">Starting program: /tmp/soft/gdb/gdb-sample </span><br><span class="line">n = 1, nGlobalVar = 88 </span><br><span class="line">tempFunction is called, a = 1, b = 2 </span><br><span class="line">n = 3[Inferior 1 (process 11509) exited normally]</span><br><span class="line">Missing separate debuginfos, use: debuginfo-install glibc-2.17-326.el7_9.x86_64</span><br><span class="line"><span class="comment">#下面使用“b”命令在 main 函数开头设置一个断点（Breakpoint）：</span></span><br><span class="line">(gdb) b main</span><br><span class="line">Breakpoint 1 at 0x400549: file gdb-sample.c, line 13.</span><br><span class="line"><span class="comment">#上面最后一行提示已经成功设置断点，并给出了该断点信息：在源文件 gdb-sample.c 第19行处设置断点</span></span><br><span class="line"><span class="comment">#这是本程序的第一个断点（序号为1）；断点处的代码地址为 0x804835c（此值可能仅在本次调试过程中有效）。</span></span><br><span class="line"><span class="comment">#回过头去看源代码，第13行中的代码为“n = 1”，恰好是 main 函数中的第一个可执行语句（前面的“int n;”为变量定义语句，并非可执行语句）。</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#再次使用“r”命令执行（Run）被调试程序：</span></span><br><span class="line">(gdb) r</span><br><span class="line">Starting program: /tmp/soft/gdb/gdb-sample </span><br><span class="line"></span><br><span class="line">Breakpoint 1, main () at gdb-sample.c:13</span><br><span class="line">13	        n = 1;</span><br><span class="line"></span><br><span class="line"><span class="comment">#程序中断在gdb-sample.c第13行处，即main函数是第一个可执行语句处。</span></span><br><span class="line"><span class="comment">#上面最后一行信息为：下一条将要执行的源代码为“n = 1;”，它是源代码文件gdb-sample.c中的第19行。</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#下面使用“s”命令（Step）执行下一行代码（即第13行“n = 1;”）：</span></span><br><span class="line">(gdb) s</span><br><span class="line">14	        n++;</span><br><span class="line"><span class="comment">#上面的信息表示已经执行完“n = 1;”，并显示下一条要执行的代码为第14行的“n++;”。</span></span><br><span class="line"><span class="comment">#既然已经执行了“n = 1;”，即给变量 n 赋值为 1，那我们用“p”命令（Print）看一下变量 n 的值是不是 1 ：</span></span><br><span class="line">(gdb) p n</span><br><span class="line"><span class="variable">$1</span> = 1</span><br><span class="line"><span class="comment">#果然是 1。（$1大致是表示这是第一次使用“p”命令——再次执行“p n”将显示“$2 = 1”——此信息应该没有什么用处。）</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#下面我们分别在第26行、tempFunction 函数开头各设置一个断点（分别使用命令“b 20”“b tempFunction”）：</span></span><br><span class="line"></span><br><span class="line">(gdb) b 20</span><br><span class="line">Breakpoint 2 at 0x400576: file gdb-sample.c, line 20.</span><br><span class="line">(gdb) b tempFunction</span><br><span class="line">Breakpoint 3 at 0x400520: file gdb-sample.c, line 6.</span><br><span class="line">(gdb) </span><br><span class="line">Note: breakpoint 3 also <span class="built_in">set</span> at pc 0x400520.</span><br><span class="line">Breakpoint 4 at 0x400520: file gdb-sample.c, line 6.</span><br><span class="line"><span class="comment">#使用“c”命令继续（Continue）执行被调试程序，程序将中断在第二 个断点（20行），此时全局变量 nGlobalVar 的值应该是 88；</span></span><br><span class="line"><span class="comment">#再一次执行“c”命令，程序将中断于第三个断点（6行，tempFunction 函数开头处），此时tempFunction 函数的两个参数 a、b 的值应分别是 1 和 2：</span></span><br><span class="line"></span><br><span class="line">(gdb) c</span><br><span class="line">Continuing.</span><br><span class="line"></span><br><span class="line">Breakpoint 2, main () at gdb-sample.c:20</span><br><span class="line">20	    <span class="built_in">printf</span>(<span class="string">&quot;n = %d, nGlobalVar = %d \n&quot;</span>, n, nGlobalVar);</span><br><span class="line">(gdb) c</span><br><span class="line">Continuing.</span><br><span class="line">n = 1, nGlobalVar = 88 </span><br><span class="line"></span><br><span class="line">Breakpoint 3, tempFunction (a=1, b=2) at gdb-sample.c:6</span><br><span class="line">6	    <span class="built_in">printf</span>(<span class="string">&quot;tempFunction is called, a = %d, b = %d \n&quot;</span>, a, b);</span><br><span class="line">(gdb) p a</span><br><span class="line"><span class="variable">$2</span> = 1</span><br><span class="line">(gdb) p b</span><br><span class="line"><span class="variable">$3</span> = 2</span><br><span class="line"><span class="comment">#上面反馈的信息一切都在我们预料之中~~</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#再一次执行“c”命令（Continue），因为后面再也没有其它断点，程序将一直执行到结束：</span></span><br><span class="line">(gdb) c</span><br><span class="line">Continuing.</span><br><span class="line">tempFunction is called, a = 1, b = 2 </span><br><span class="line">n = 3[Inferior 1 (process 12101) exited normally]</span><br><span class="line"></span><br><span class="line"><span class="comment">#有时候需要看到编译器生成的汇编代码，以进行汇编级的调试或跟踪，又该如何操作呢？</span></span><br><span class="line"><span class="comment">#这就要用到display命令“display /i $pc”了（此命令前面已有详细解释）：</span></span><br><span class="line">(gdb) display /i <span class="variable">$pc</span></span><br><span class="line"><span class="comment">#此后程序再中断时，就可以显示出汇编代码了：</span></span><br><span class="line">(gdb) r</span><br><span class="line">Starting program: /tmp/soft/gdb/gdb-sample </span><br><span class="line"></span><br><span class="line">Breakpoint 1, main () at gdb-sample.c:13</span><br><span class="line">13	        n = 1;</span><br><span class="line">1: x/i <span class="variable">$pc</span></span><br><span class="line">=&gt; 0x400549 &lt;main+8&gt;:	movl   <span class="variable">$0x1</span>,-0x4(%rbp)</span><br><span class="line"><span class="comment"># 看到了汇编代码，“n = 1;”对应的汇编代码是“movl   $0x1,-0x4(%rbp)”。</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 并且以后程序每次中断都将显示下一条汇编指定（“si”命令用于执行一条汇编代码——区别于“s”执行一行C代码）：</span></span><br><span class="line"></span><br><span class="line">(gdb) si</span><br><span class="line">14	        n++;</span><br><span class="line">1: x/i <span class="variable">$pc</span></span><br><span class="line">=&gt; 0x400550 &lt;main+15&gt;:	addl   <span class="variable">$0x1</span>,-0x4(%rbp)</span><br><span class="line">(gdb) si</span><br><span class="line">15	        n--;</span><br><span class="line">1: x/i <span class="variable">$pc</span></span><br><span class="line">=&gt; 0x400554 &lt;main+19&gt;:	subl   <span class="variable">$0x1</span>,-0x4(%rbp)</span><br><span class="line">(gdb) si</span><br><span class="line">17	        nGlobalVar += 100;</span><br><span class="line">1: x/i <span class="variable">$pc</span></span><br><span class="line">=&gt; 0x400558 &lt;main+23&gt;:	mov    0x200ada(%rip),%eax        <span class="comment"># 0x601038 &lt;nGlobalVar&gt;</span></span><br><span class="line"><span class="comment"># 接下来我们试一下命令“b *&lt;函数名称&gt;”。</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#为了更简明，有必要先删除目前所有断点（使用“d”命令——Delete breakpoint）：</span></span><br><span class="line">(gdb) d</span><br><span class="line">Delete all breakpoints? (y or n) y</span><br><span class="line"><span class="comment">#当被询问是否删除所有断点时，输入“y”并按回车键即可。</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#下面使用命令“b *main”在 main 函数的 prolog 代码处设置断点（prolog、epilog，分别表示编译器在每个函数的开头和结尾自行插入的代码）：</span></span><br><span class="line"></span><br><span class="line">(gdb) b *main</span><br><span class="line">Breakpoint 5 at 0x400541: file gdb-sample.c, line 11.</span><br><span class="line">(gdb) r</span><br><span class="line">The program being debugged has been started already.</span><br><span class="line">Start it from the beginning? (y or n) y</span><br><span class="line">Starting program: /tmp/soft/gdb/gdb-sample </span><br><span class="line"></span><br><span class="line">Breakpoint 5, main () at gdb-sample.c:11</span><br><span class="line">11	&#123;</span><br><span class="line">1: x/i <span class="variable">$pc</span></span><br><span class="line">=&gt; 0x400541 &lt;main&gt;:	push   %rbp</span><br><span class="line">(gdb) si</span><br><span class="line">0x0000000000400542	11	&#123;</span><br><span class="line">1: x/i <span class="variable">$pc</span></span><br><span class="line">=&gt; 0x400542 &lt;main+1&gt;:	mov    %rsp,%rbp</span><br><span class="line">(gdb) si</span><br><span class="line">0x0000000000400545	11	&#123;</span><br><span class="line">1: x/i <span class="variable">$pc</span></span><br><span class="line">=&gt; 0x400545 &lt;main+4&gt;:	sub    <span class="variable">$0x10</span>,%rsp</span><br><span class="line">(gdb) si</span><br><span class="line">13	        n = 1;</span><br><span class="line">1: x/i <span class="variable">$pc</span></span><br><span class="line">=&gt; 0x400549 &lt;main+8&gt;:	movl   <span class="variable">$0x1</span>,-0x4(%rbp)</span><br><span class="line">(gdb) si</span><br><span class="line">14	        n++;</span><br><span class="line">1: x/i <span class="variable">$pc</span></span><br><span class="line">=&gt; 0x400550 &lt;main+15&gt;:	addl   <span class="variable">$0x1</span>,-0x4(%rbp)</span><br><span class="line">(gdb) si</span><br><span class="line">15	        n--;</span><br><span class="line">1: x/i <span class="variable">$pc</span></span><br><span class="line">=&gt; 0x400554 &lt;main+19&gt;:	subl   <span class="variable">$0x1</span>,-0x4(%rbp)</span><br><span class="line">(gdb) si</span><br><span class="line">17	        nGlobalVar += 100;</span><br><span class="line">1: x/i <span class="variable">$pc</span></span><br><span class="line">=&gt; 0x400558 &lt;main+23&gt;:	mov    0x200ada(%rip),%eax        <span class="comment"># 0x601038 &lt;nGlobalVar&gt;</span></span><br><span class="line"><span class="comment">#此时可以使用“i r”命令显示寄存器中的当前值———“i r”即“Infomation Register”：</span></span><br><span class="line">(gdb) i r</span><br><span class="line">rax            0x400541	4195649</span><br><span class="line">rbx            0x0	0</span><br><span class="line">rcx            0x4005c0	4195776</span><br><span class="line">rdx            0x7fffffffe228	140737488347688</span><br><span class="line">rsi            0x7fffffffe218	140737488347672</span><br><span class="line">rdi            0x1	1</span><br><span class="line">rbp            0x7fffffffe130	0x7fffffffe130</span><br><span class="line">rsp            0x7fffffffe120	0x7fffffffe120</span><br><span class="line">r8             0x7ffff7dd5e80	140737351868032</span><br><span class="line">r9             0x0	0</span><br><span class="line">r10            0x7fffffffdc60	140737488346208</span><br><span class="line">r11            0x7ffff7a2f460	140737348039776</span><br><span class="line">r12            0x400440	4195392</span><br><span class="line">r13            0x7fffffffe210	140737488347664</span><br><span class="line">r14            0x0	0</span><br><span class="line">r15            0x0	0</span><br><span class="line">rip            0x400558	0x400558 &lt;main+23&gt;</span><br><span class="line">eflags         0x202	[ IF ]</span><br><span class="line">cs             0x33	51</span><br><span class="line">ss             0x2b	43</span><br><span class="line">ds             0x0	0</span><br><span class="line">es             0x0	0</span><br><span class="line">fs             0x0	0</span><br><span class="line">gs             0x0	0</span><br><span class="line">(gdb) i r eax</span><br><span class="line">eax            0x400541	4195649</span><br><span class="line">(gdb) q</span><br><span class="line">A debugging session is active.</span><br><span class="line"></span><br><span class="line">	Inferior 1 [process 12970] will be killed.</span><br><span class="line"></span><br><span class="line">Quit anyway? (y or n) y</span><br><span class="line">[root@SqaServer gdb]# </span><br></pre></td></tr></table></figure></div>
+
+<h2 id="使用手册"><a href="#使用手册" class="headerlink" title="使用手册"></a>使用手册</h2><blockquote>
+<p><a class="link"   target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/297925056" >https://zhuanlan.zhihu.com/p/297925056<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a><br><a class="link"   target="_blank" rel="noopener" href="http://c.biancheng.net/gdb/" >http://c.biancheng.net/gdb/<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a></p>
+</blockquote>
+<h2 id="实战技巧"><a href="#实战技巧" class="headerlink" title="实战技巧"></a>实战技巧</h2><blockquote>
+<p><a class="link"   target="_blank" rel="noopener" href="https://wizardforcel.gitbooks.io/100-gdb-tips/content/set-var.html" >https://wizardforcel.gitbooks.io/100-gdb-tips/content/set-var.html<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a></p>
+</blockquote>
+<h2 id="GDB调试代码"><a href="#GDB调试代码" class="headerlink" title="GDB调试代码"></a>GDB调试代码</h2><blockquote>
+<p><a class="link"   target="_blank" rel="noopener" href="https://www.jianshu.com/p/c9219fb0fd66" >https://www.jianshu.com/p/c9219fb0fd66<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a></p>
+</blockquote>
+
+		</div>
+
+		
+		<div class="post-copyright-info w-full my-8 px-2 sm:px-6 md:px-8">
+			<div class="article-copyright-info-container">
+    <ul>
+        <li><strong>标题:</strong> Gdb</li>
+        <li><strong>作者:</strong> Sunmy</li>
+        <li><strong>创建于
+                :</strong> 2023-06-30 16:56:57</li>
+        
+            <li>
+                <strong>更新于
+                    :</strong> 2025-06-29 21:05:24
+            </li>
+        
+        <li>
+            <strong>链接:</strong> https://ldspdvsun.github.io/cmchul3ib00355mgbbwgq44jk/
+        </li>
+        <li>
+            <strong>
+                版权声明:
+            </strong>
+            
+
+            
+                版权所有 &#169 Sunmy，禁止转载。
+            
+        </li>
+    </ul>
+</div>
+
+		</div>
+		
+
+		
+		<ul class="post-tags-box text-lg mt-1.5 flex-wrap justify-center flex md:hidden">
+			
+			<li class="tag-item mx-0.5">
+				<a href="/tags/Gdb/">#Gdb</a>&nbsp;
+			</li>
+			
+		</ul>
+		
+
+		
+  <div class="recommended-article px-2 sm:px-6 md:px-8">
+   <div class="recommended-desktop">
+    <div class="recommended-article-header text-xl md:text-3xl font-bold mt-10">
+     <i aria-hidden="true"></i><span>推荐阅读</span>
+    </div>
+    <div class="recommended-article-group"><a class="recommended-article-item" href="/cmchul3i0001b5mgb0z8p40rn/" title="Linux学习笔记" rel="bookmark">
+  <img src="https://i.postimg.cc/52qB9kNm/10.png" alt="Linux学习笔记" class="!max-w-none">
+  <span class="title">Linux学习笔记</span>
+</a><a class="recommended-article-item" href="/cmchul3hy00105mgb5w4p3scz/" title="CodeServer" rel="bookmark">
+  <img src="https://i.postimg.cc/52qB9kNm/10.png" alt="CodeServer" class="!max-w-none">
+  <span class="title">CodeServer</span>
+</a><a class="recommended-article-item" href="/cmchul3ip005d5mgb99urbysg/" title="操作系统学习笔记" rel="bookmark">
+  <img src="https://i.postimg.cc/52qB9kNm/10.png" alt="操作系统学习笔记" class="!max-w-none">
+  <span class="title">操作系统学习笔记</span>
+</a></div>
+   </div>
+   <div class="recommended-mobile">
+   <div class="recommended-article-header text-xl md:text-3xl font-bold mt-10">
+     <i aria-hidden="true"></i><span>推荐阅读</span>
+   </div>
+   <div class="recommended-article-group"><a class="recommended-article-item" href="/cmchul3i0001b5mgb0z8p40rn/" title="Linux学习笔记" rel="bookmark">
+  <img src="https://i.postimg.cc/52qB9kNm/10.png" alt="Linux学习笔记" class="!max-w-none">
+  <span class="title">Linux学习笔记</span>
+</a><a class="recommended-article-item" href="/cmchul3hy00105mgb5w4p3scz/" title="CodeServer" rel="bookmark">
+  <img src="https://i.postimg.cc/52qB9kNm/10.png" alt="CodeServer" class="!max-w-none">
+  <span class="title">CodeServer</span>
+</a></div>
+   </div>
+  </div>
+
+		
+		<div class="article-nav my-8 flex justify-between items-center px-2 sm:px-6 md:px-8">
+			
+			<div class="article-prev border-border-color shadow-redefine-flat shadow-shadow-color-2 rounded-medium px-4 py-2 hover:shadow-redefine-flat-hover hover:shadow-shadow-color-2">
+				<a class="prev" rel="prev" href="/cmchul3i9002x5mgb61x2e6ft/">
+					<span class="left arrow-icon flex justify-center items-center">
+						<i class="fa-solid fa-chevron-left"></i>
+					</span>
+					<span class="title flex justify-center items-center">
+						<span class="post-nav-title-item">Pumba</span>
+						<span class="post-nav-item">上一篇</span>
+					</span>
+				</a>
+			</div>
+			
+			
+			<div class="article-next border-border-color shadow-redefine-flat shadow-shadow-color-2 rounded-medium px-4 py-2 hover:shadow-redefine-flat-hover hover:shadow-shadow-color-2">
+				<a class="next" rel="next" href="/cmchul3ib00385mgb00bzc4fg/">
+					<span class="title flex justify-center items-center">
+						<span class="post-nav-title-item">Gcc</span>
+						<span class="post-nav-item">下一篇</span>
+					</span>
+					<span class="right arrow-icon flex justify-center items-center">
+						<i class="fa-solid fa-chevron-right"></i>
+					</span>
+				</a>
+			</div>
+			
+		</div>
+		
+
+
+		
+		<div class="comment-container px-2 sm:px-6 md:px-8 pb-8">
+			<div class="comments-container mt-10 w-full ">
+    <div id="comment-anchor" class="w-full h-2.5"></div>
+    <div class="comment-area-title w-full my-1.5 md:my-2.5 text-xl md:text-3xl font-bold">
+        评论
+    </div>
+    
+
+        
+            
+    <div class="twikoo-container">
+        <script data-swup-reload-script
+                src='https://cdnjs.cloudflare.com/ajax/libs/twikoo/1.6.36/twikoo.all.min.js'
+        ></script>
+        <div id="twikoo-comment"></div>
+        <script data-swup-reload-script>
+            function loadTwikoo() {
+                twikoo.init({
+                    el: '#twikoo-comment',
+                    envId: 'https://twikoo-henna-six.vercel.app/',
+                });
+            }
+
+            if ('true') {
+                const loadTwikooTimeout = setTimeout(() => {
+                    loadTwikoo();
+                    clearTimeout(loadTwikooTimeout);
+                }, 1000);
+            } else {
+                window.addEventListener('DOMContentLoaded', loadTwikoo);
+            }
+        </script>
+    </div>
+
+
+        
+        
+    
+</div>
+
+		</div>
+		
+	</div>
+
+	
+	<div class="toc-content-container">
+		<div class="post-toc-wrap">
+	<div class="post-toc">
+		<div class="toc-title">目录</div>
+		<div class="page-title">Gdb</div>
+		<ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#GDB%E5%AE%89%E8%A3%85"><span class="nav-text">GDB安装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%B5%8B%E8%AF%95%E7%94%A8%E4%BE%8B"><span class="nav-text">测试用例</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#gdb%E6%B5%8B%E8%AF%95"><span class="nav-text">gdb测试</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8%E6%89%8B%E5%86%8C"><span class="nav-text">使用手册</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9E%E6%88%98%E6%8A%80%E5%B7%A7"><span class="nav-text">实战技巧</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#GDB%E8%B0%83%E8%AF%95%E4%BB%A3%E7%A0%81"><span class="nav-text">GDB调试代码</span></a></li></ol>
+
+	</div>
+</div>
+	</div>
+	
+</div>
+			</div>
+
+			
+		</div>
+
+		<div class="main-content-footer">
+			<footer class="footer mt-5 py-5 h-auto text-base text-third-text-color relative border-t-2 border-t-border-color">
+    <div class="info-container py-3 text-center">
+        
+        <div class="text-center">
+            &copy;
+            
+              <span>2023</span>
+              -
+            
+            2025&nbsp;&nbsp;<i class="fa-solid fa-heart fa-beat" style="--fa-animation-duration: 0.5s; color: #f54545"></i>&nbsp;&nbsp;<a href="/">Sunmy</a>
+            
+                
+                <p class="post-count space-x-0.5">
+                    <span>
+                        共撰写了 70 篇文章
+                    </span>
+                    
+                        <span>
+                            共 216.7k 字
+                        </span>
+                    
+                </p>
+            
+        </div>
+        
+            <script data-swup-reload-script src="https://cn.vercount.one/js"></script>
+            <div class="relative text-center lg:absolute lg:right-[20px] lg:top-1/2 lg:-translate-y-1/2 lg:text-right">
+                
+                    <span id="busuanzi_container_site_uv" class="lg:!block">
+                        <span class="text-sm">访问人数</span>
+                        <span id="busuanzi_value_site_uv"></span>
+                    </span>
+                
+                
+                    <span id="busuanzi_container_site_pv" class="lg:!block">
+                        <span class="text-sm">总访问量</span>
+                        <span id="busuanzi_value_site_pv"></span>
+                    </span>
+                
+            </div>
+        
+        <div class="relative text-center lg:absolute lg:left-[20px] lg:top-1/2 lg:-translate-y-1/2 lg:text-left">
+            <span class="lg:block text-sm">由 <?xml version="1.0" encoding="utf-8"?><!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd"><svg class="relative top-[2px] inline-block align-baseline" version="1.1" id="圖層_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="1rem" height="1rem" viewBox="0 0 512 512" enable-background="new 0 0 512 512" xml:space="preserve"><path fill="#0E83CD" d="M256.4,25.8l-200,115.5L56,371.5l199.6,114.7l200-115.5l0.4-230.2L256.4,25.8z M349,354.6l-18.4,10.7l-18.6-11V275H200v79.6l-18.4,10.7l-18.6-11v-197l18.5-10.6l18.5,10.8V237h112v-79.6l18.5-10.6l18.5,10.8V354.6z"/></svg><a target="_blank" class="text-base" href="https://hexo.io">Hexo</a> 驱动</span>
+            <span class="text-sm lg:block">主题&nbsp;<a class="text-base" target="_blank" href="https://github.com/EvanNotFound/hexo-theme-redefine">Redefine v2.8.2</a></span>
+        </div>
+        
+        
+            <div>
+                博客已运行 <span class="odometer" id="runtime_days" ></span> 天 <span class="odometer" id="runtime_hours"></span> 小时 <span class="odometer" id="runtime_minutes"></span> 分钟 <span class="odometer" id="runtime_seconds"></span> 秒
+            </div>
+        
+        
+            <script data-swup-reload-script>
+                try {
+                    function odometer_init() {
+                    const elements = document.querySelectorAll('.odometer');
+                    elements.forEach(el => {
+                        new Odometer({
+                            el,
+                            format: '( ddd).dd',
+                            duration: 200
+                        });
+                    });
+                    }
+                    odometer_init();
+                } catch (error) {}
+            </script>
+        
+        
+        
+    </div>  
+</footer>
+		</div>
+	</div>
+
+	
+	<div class="post-tools">
+		<div class="post-tools-container">
+	<ul class="article-tools-list">
+		<!-- TOC aside toggle -->
+		
+		<li class="right-bottom-tools page-aside-toggle">
+			<i class="fa-regular fa-outdent"></i>
+		</li>
+		
+
+		<!-- go comment -->
+		
+		<li class="go-comment">
+			<i class="fa-regular fa-comments"></i>
+		</li>
+		
+	</ul>
+</div>
+	</div>
+	
+
+	<div class="right-side-tools-container">
+		<div class="side-tools-container">
+	<ul class="hidden-tools-list">
+		<li class="right-bottom-tools tool-font-adjust-plus flex justify-center items-center">
+			<i class="fa-regular fa-magnifying-glass-plus"></i>
+		</li>
+
+		<li class="right-bottom-tools tool-font-adjust-minus flex justify-center items-center">
+			<i class="fa-regular fa-magnifying-glass-minus"></i>
+		</li>
+
+		<li class="right-bottom-tools tool-dark-light-toggle flex justify-center items-center">
+			<i class="fa-regular fa-moon"></i>
+		</li>
+
+		<!-- rss -->
+		
+
+		
+
+		<li class="right-bottom-tools tool-scroll-to-bottom flex justify-center items-center">
+			<i class="fa-regular fa-arrow-down"></i>
+		</li>
+	</ul>
+
+	<ul class="visible-tools-list">
+		<li class="right-bottom-tools toggle-tools-list flex justify-center items-center">
+			<i class="fa-regular fa-cog fa-spin"></i>
+		</li>
+		
+		<li class="right-bottom-tools tool-scroll-to-top flex justify-center items-center">
+			<i class="arrow-up fas fa-arrow-up"></i>
+			<span class="percent"></span>
+		</li>
+		
+		
+	</ul>
+</div>
+	</div>
+
+	<div class="image-viewer-container">
+	<img src="">
+</div>
+
+	
+	<div class="search-pop-overlay">
+	<div class="popup search-popup">
+		<div class="search-header">
+			<span class="search-input-field-pre">
+				<i class="fa-solid fa-keyboard"></i>
+			</span>
+			<div class="search-input-container">
+				<input autocomplete="off" autocorrect="off" autocapitalize="off" placeholder="站内搜索您需要的内容..." spellcheck="false" type="search" class="search-input">
+			</div>
+			<span class="popup-btn-close">
+				<i class="fa-solid fa-times"></i>
+			</span>
+		</div>
+		<div id="search-result">
+			<div id="no-result">
+				<i class="fa-solid fa-spinner fa-spin-pulse fa-5x fa-fw"></i>
+			</div>
+		</div>
+	</div>
+</div>
+	
+
+</main>
+
+
+
+<script src="/js/build/libs/Swup.min.js"></script>
+
+<script src="/js/build/libs/SwupSlideTheme.min.js"></script>
+
+<script src="/js/build/libs/SwupScriptsPlugin.min.js"></script>
+
+<script src="/js/build/libs/SwupProgressPlugin.min.js"></script>
+
+<script src="/js/build/libs/SwupScrollPlugin.min.js"></script>
+
+<script src="/js/build/libs/SwupPreloadPlugin.min.js"></script>
+
+<script>
+    const swup = new Swup({
+        plugins: [
+            new SwupScriptsPlugin({
+                optin: true,
+            }),
+            new SwupProgressPlugin(),
+            new SwupScrollPlugin({
+                offset: 80,
+            }),
+            new SwupSlideTheme({
+                mainElement: ".main-content-body",
+            }),
+            new SwupPreloadPlugin(),
+        ],
+        containers: ["#swup"],
+    });
+</script>
+
+
+
+
+	
+<script src="/js/build/tools/imageViewer.js" type="module"></script>
+
+<script src="/js/build/utils.js" type="module"></script>
+
+<script src="/js/build/main.js" type="module"></script>
+
+<script src="/js/build/layouts/navbarShrink.js" type="module"></script>
+
+<script src="/js/build/tools/scrollTopBottom.js" type="module"></script>
+
+<script src="/js/build/tools/lightDarkSwitch.js" type="module"></script>
+
+<script src="/js/build/layouts/categoryList.js" type="module"></script>
+
+
+
+    
+<script src="/js/build/tools/localSearch.js" type="module"></script>
+
+
+
+
+    
+<script src="/js/build/tools/codeBlock.js" type="module"></script>
+
+
+
+
+    
+<script src="/js/build/layouts/lazyload.js" type="module"></script>
+
+
+
+
+    
+<script src="/js/build/tools/runtime.js"></script>
+
+    
+<script src="/js/build/libs/odometer.min.js"></script>
+
+    
+<link rel="stylesheet" href="/assets/odometer-theme-minimal.css">
+
+
+
+
+  
+<script src="/js/build/libs/Typed.min.js"></script>
+
+  
+<script src="/js/build/plugins/typed.js" type="module"></script>
+
+
+
+
+
+
+
+
+
+
+
+    
+<script src="/js/build/tools/tocToggle.js" type="module" data-swup-reload-script=""></script>
+
+<script src="/js/build/layouts/toc.js" type="module" data-swup-reload-script=""></script>
+
+<script src="/js/build/plugins/tabs.js" type="module" data-swup-reload-script=""></script>
+
+
+
+
+<script src="/js/build/libs/moment-with-locales.min.js" data-swup-reload-script=""></script>
+
+
+<script src="/js/build/layouts/essays.js" type="module" data-swup-reload-script=""></script>
+
+
+
+
+
+	
+</body>
+
+</html>
